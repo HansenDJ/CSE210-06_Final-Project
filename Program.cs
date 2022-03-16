@@ -6,6 +6,6 @@ internal class Program
     private static void Main(string[] args)
     {
         Director director = new Director();
-        director.startGame();
+        director.StartGame();
     }
 }

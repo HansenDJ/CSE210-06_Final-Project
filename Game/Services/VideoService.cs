@@ -8,24 +8,24 @@ public class VideoService
     int scrnWidth = 1000;
     int scrnHeight = 1000;
 
-    public static void draw()
+    public static void Draw()
     {
-        drawBackdrop();
-        drawEntities();
-        drawShip();
+        DrawBackdrop();
+        DrawEntities();
+        DrawShip();
     }
 
-    private static void drawBackdrop()
+    private static void DrawBackdrop()
     {
         Raylib.ClearBackground(Color.BLACK);
     }
 
-    private static void drawEntities()
+    private static void DrawEntities()
     {
         
     }
 
-    private static void drawShip()
+    private static void DrawShip()
     {
         
     }
