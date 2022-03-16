@@ -7,7 +7,7 @@ public class Director
 {
     public void StartGame()
     {
-        Raylib.InitWindow(1000, 1000, "FLUX");
+        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
         while (!Raylib.WindowShouldClose())
         {
             Raylib.BeginDrawing();
