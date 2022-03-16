@@ -2,7 +2,7 @@ using System;
 
 namespace generalNamespace;
 
-public class AudioService
+public class PhysicsService
 {
     
 }
