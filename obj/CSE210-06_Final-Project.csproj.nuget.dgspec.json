@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jefferyhatch/RiderProjects/CSE210-06_Final-Project/CSE210-06_Final-Project.csproj": {}
+    "D:\\Dylan (User)\\Documents\\School\\CSE210\\CSE210-Projects\\team\\CSE210-06_Final-Project\\CSE210-06_Final-Project.csproj": {}
   },
   "projects": {
-    "/Users/jefferyhatch/RiderProjects/CSE210-06_Final-Project/CSE210-06_Final-Project.csproj": {
+    "D:\\Dylan (User)\\Documents\\School\\CSE210\\CSE210-Projects\\team\\CSE210-06_Final-Project\\CSE210-06_Final-Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jefferyhatch/RiderProjects/CSE210-06_Final-Project/CSE210-06_Final-Project.csproj",
+        "projectUniqueName": "D:\\Dylan (User)\\Documents\\School\\CSE210\\CSE210-Projects\\team\\CSE210-06_Final-Project\\CSE210-06_Final-Project.csproj",
         "projectName": "CSE210-06_Final-Project",
-        "projectPath": "/Users/jefferyhatch/RiderProjects/CSE210-06_Final-Project/CSE210-06_Final-Project.csproj",
-        "packagesPath": "/Users/jefferyhatch/.nuget/packages/",
-        "outputPath": "/Users/jefferyhatch/RiderProjects/CSE210-06_Final-Project/obj/",
+        "projectPath": "D:\\Dylan (User)\\Documents\\School\\CSE210\\CSE210-Projects\\team\\CSE210-06_Final-Project\\CSE210-06_Final-Project.csproj",
+        "packagesPath": "C:\\Users\\Dylan (User)\\.nuget\\packages\\",
+        "outputPath": "D:\\Dylan (User)\\Documents\\School\\CSE210\\CSE210-Projects\\team\\CSE210-06_Final-Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jefferyhatch/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Dylan (User)\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
