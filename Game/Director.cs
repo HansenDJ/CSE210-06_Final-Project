@@ -9,18 +9,24 @@ public class Director
     static bool action = false;
     public void StartGame()
     {
+        SetTimer();
         VideoService vd= new();
         Player player = new();
-
+        
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
       
         while (!Raylib.WindowShouldClose())
         {
-            Raylib.BeginDrawing();
-            VideoService.Draw();
-            vd.DrawPlayer(player);
             
-            Raylib.EndDrawing();
+            if (action)
+            {
+                Raylib.BeginDrawing();
+                VideoService.Draw();
+                vd.DrawPlayer(player);
+                Raylib.EndDrawing();
+                action = false;
+            }
+            
         }
     }
     static void SetTimer() {
