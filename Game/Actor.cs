@@ -3,7 +3,7 @@ using Raylib_cs;
 
 namespace generalNamespace;
 
-public class Actor
+public class Character
 {
         
 }
