@@ -14,5 +14,10 @@ public class Character
     {
         y = Y;
     }
+
+    public void setR(int R)
+    {
+        radius = R;
+    }
     
 }
