@@ -33,7 +33,7 @@ public class VideoService
     public void DrawPlayer(Player player)
     {
    
-        Raylib.DrawCircle(player.playerX, player.playerY, player.playerRadius, Color.RED);
+       
     
     }
 

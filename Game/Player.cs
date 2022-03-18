@@ -1,11 +1,14 @@
 using System;
-using Raylib_cs;
+using CharacterNameSpace;
 
-namespace generalNamespace;
-
-public class Player
+public class Player : Character
 {
-    public int playerX = 50;
-    public int playerY = 500;
-    public int playerRadius = 10;
+    public Player(string path, int width, int height,
+        float x = 0, float y = 0,
+        float vx = 0, float vy = 0,
+        float rotation = 0, float rotationVel = 0) : 
+        base(path, width, height, x, y, vx, vy, rotation, rotationVel)
+    {
+
+    }
 }

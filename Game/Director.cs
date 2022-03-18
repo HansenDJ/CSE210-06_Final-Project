@@ -11,7 +11,7 @@ public class Director
     {
         SetTimer();
         VideoService vd= new();
-        Player player = new();
+        //Player player = new();
         
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
       
@@ -22,7 +22,7 @@ public class Director
             {
                 Raylib.BeginDrawing();
                 VideoService.Draw();
-                vd.DrawPlayer(player);
+             //   vd.DrawPlayer(player);
                 Raylib.EndDrawing();
                 action = false;
             }
