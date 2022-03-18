@@ -1,13 +1,13 @@
 namespace generalNamespace;
 
-public static class difficultyHandler
+public static class DifficultyHandler
 {
     public static float difficulty = 3F;
     public static int enemyCount = 3;
     
   
 
-   public static void increaseDifficulty()
+   public static void IncreaseDifficulty()
    {
        difficulty += 1;
        enemyCount += 1;
@@ -22,7 +22,7 @@ public static class difficultyHandler
        Boss
    }
 
-   public static int getEnemyCount()
+   public static int GetEnemyCount()
    {
        return enemyCount;
    }

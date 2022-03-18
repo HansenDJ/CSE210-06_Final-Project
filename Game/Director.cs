@@ -13,6 +13,8 @@ public class Director
         VideoService vd= new();
         Player player = new();
         
+        player.setRadius(10);
+
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
       
         while (!Raylib.WindowShouldClose())

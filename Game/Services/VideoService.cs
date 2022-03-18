@@ -34,6 +34,7 @@ public class VideoService
     {
         
         DrawCircle(player.x,player.y,player.radius,WHITE);
+        DrawTexture(ImageService.SetShipImage(), player.x, player.y, WHITE);
 
     }
 

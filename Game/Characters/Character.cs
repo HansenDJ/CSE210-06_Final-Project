@@ -15,9 +15,9 @@ public class Character
         y = Y;
     }
 
-    public void setR(int R)
+    public void setRadius(int Radius)
     {
-        radius = R;
+        radius = Radius;
     }
     
 }
