@@ -1,5 +1,5 @@
 using System;
-using raylib;
+using Raylib_cs;
 using static Raylib_cs.Raylib;
 
 namespace generalNamespace;
@@ -10,7 +10,7 @@ public class ImageService
     public static void setImage() {
         // Load ship image
         Image image = LoadImage("Game/Images/ship/ship.png");
-        shipTexture = LoadTextureFromImage(image);
+        Texture2D shipTexture = LoadTextureFromImage(image);
         UnloadImage(image);
 
 
