@@ -32,7 +32,8 @@ public class VideoService
 
     public void DrawPlayer(Player player)
     {
-
+        
+        DrawCircle(player.x,player.y,player.radius,WHITE);
 
     }
 
