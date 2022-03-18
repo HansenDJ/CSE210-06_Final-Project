@@ -5,8 +5,8 @@ using static Raylib_cs.Color;
 namespace generalNamespace;
 public class VideoService
 {
-    public static int scrnWidth = 1000;
-    public static int scrnHeight = 1000;
+    public static int scrnWidth = 1400;
+    public static int scrnHeight = 900;
 
     public static void Draw()
     {
@@ -32,9 +32,10 @@ public class VideoService
 
     public void DrawPlayer(Player player)
     {
-   
-        Raylib.DrawCircle(player.playerX, player.playerY, player.playerRadius, Color.RED);
-    
+        
+        DrawCircle(player.x,player.y,player.radius,WHITE);
+        DrawTexture(ImageService.SetShipImage(), player.x, player.y, WHITE);
+
     }
 
 
