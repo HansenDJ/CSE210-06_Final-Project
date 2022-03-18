@@ -5,8 +5,8 @@ using static Raylib_cs.Color;
 namespace generalNamespace;
 public class VideoService
 {
-    public static int scrnWidth = 1000;
-    public static int scrnHeight = 1000;
+    public static int scrnWidth = 1500;
+    public static int scrnHeight = 900;
 
     public static void Draw()
     {
