@@ -32,9 +32,8 @@ public class VideoService
 
     public void DrawPlayer(Player player)
     {
-   
-       
-    
+
+
     }
 
 
