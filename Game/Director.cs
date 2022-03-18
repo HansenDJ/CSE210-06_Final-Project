@@ -5,12 +5,14 @@ namespace generalNamespace;
 
 public class Director
 {
+    private int fps;
     public void StartGame()
     {
         RaylibVideoService raylibvs = new();
         Player player = new();
 
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
+        SetFPS();
         while (!Raylib.WindowShouldClose())
         {
             Raylib.BeginDrawing();
@@ -19,5 +21,9 @@ public class Director
             
             Raylib.EndDrawing();
         }
+    }
+    public void SetFPS(int fps = 60) {
+        this.fps = fps;
+        Raylib.SetTargetFPS(fps);
     }
 }
