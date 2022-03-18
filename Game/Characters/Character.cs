@@ -45,9 +45,9 @@ public class Character {
     // Constructor//
     public Character(string path, int width, int height,
             float x = 0, float y = 0,
-            float vx = 0, float vy = 0,
-            float rotation = 0, float rotationVel = 0,
-            bool flipped = false) {
+            float velocityX = 0, float velocityY = 0,
+            float rotation = 0,
+            float rotationVelocity = 0) {
         this.path = path;
 
         this.width = width;
@@ -56,13 +56,11 @@ public class Character {
         this.x = x;
         this.y = y;
 
-        this.velocityX = vx;
-        this.velocityY = vy;
+        this.velocityX = velocityX;
+        this.velocityY = velocityY;
 
         this.rotation = rotation;
-        this.rotationVelocity = rotationVel;
-
-        this.flipped = flipped;
+        this.rotationVelocity = rotationVelocity;
     }
     
     
@@ -181,17 +179,6 @@ public class Character {
 
     public void SetRotationVel(float rotationVelocity) {
         this.rotationVelocity = rotationVelocity;
-    }
-
-/*
-    // Set/Get methods for flipped
-    public bool GetFlipped() {
-        return this.flipped;
-    }
-*/
-
-    public void SetFlipped(bool flipped) {
-        this.flipped = flipped;
     }
 
     // Move character with velocity
