@@ -32,9 +32,12 @@ public class VideoService
 
     public void DrawPlayer(Player player)
     {
+      
+       // DrawCircle(player.x,player.y,player.radius,WHITE);
+        DrawTexture(LoadTextureFromImage(player.charImage), player.x, player.y, WHITE);
+       // DrawRectangle(player.x,player.y,370,370,WHITE);
         
-        DrawCircle(player.x,player.y,player.radius,WHITE);
-        DrawTexture(ImageService.SetShipImage(), player.x, player.y, WHITE);
+        
 
     }
 
