@@ -7,32 +7,32 @@ public class Character
     public int y = 30;
     public int radius = 30;
     public Image charImage;
-    public void setX(int X)
+    public void SetX(int X)
     {
         x = X;
     }
 
-    public void setY(int Y)
+    public void SetY(int Y)
     {
         y = Y;
     }
 
-    public void setRadius(int Radius)
+    public void SetRadius(int Radius)
     {
         radius = Radius;
     }
 
-    public void setTexture(Image im)
+    public void SetTexture(Image im)
     {
         charImage = im;
     }
 
-    public int getWidth()
+    public int GetWidth()
     {
         return charImage.width;
     }
 
-    public int getHeight()
+    public int GetHeight()
     {
         return charImage.height;
     }
