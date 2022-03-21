@@ -12,8 +12,8 @@ public class Director
         SetTimer();
         VideoService vd= new();
         Player player = new();
-        player.setTexture(ImageService.SetShipStartImage());
-        player.setRadius(10);
+        player.SetTexture(ImageService.SetShipStartImage());
+        player.SetRadius(10);
 
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
       
