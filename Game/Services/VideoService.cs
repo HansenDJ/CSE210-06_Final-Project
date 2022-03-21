@@ -3,6 +3,7 @@ using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 namespace generalNamespace;
+
 public class VideoService
 {
     public static int scrnWidth = 1400;
@@ -17,7 +18,7 @@ public class VideoService
 
     private static void DrawBackdrop()
     {
-        Raylib.ClearBackground(Color.BLACK);
+        Raylib.ClearBackground(Raylib_cs.Color.RED);
     }
 
     private static void DrawEntities()
@@ -32,7 +33,7 @@ public class VideoService
 
     public void DrawPlayer(Player player)
     {
-      
+        
        // DrawCircle(player.x,player.y,player.radius,WHITE);
         DrawTexture(LoadTextureFromImage(player.charImage), player.x, player.y, WHITE);
        // DrawRectangle(player.x,player.y,370,370,WHITE);

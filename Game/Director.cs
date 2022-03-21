@@ -23,6 +23,13 @@ public class Director
             if (action)
             {
                 Raylib.BeginDrawing();
+                if (KeyboardService.WKeyDown())
+                {
+                    player.y -= 5;
+                }else if (KeyboardService.SKeyDown())
+                {
+                    player.y += 5;
+                }
                 VideoService.Draw();
                 vd.DrawPlayer(player);
                 Raylib.EndDrawing();

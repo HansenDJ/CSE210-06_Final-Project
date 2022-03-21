@@ -37,4 +37,5 @@ public class Character
         return charImage.height;
     }
     
+    
 }

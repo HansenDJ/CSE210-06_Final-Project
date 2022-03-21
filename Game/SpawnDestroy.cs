@@ -3,8 +3,11 @@ using Raylib_cs;
 
 namespace generalNamespace;
 
+
 public class SpawnDestory
 {
+    public List<Character> entityList = new();
+    
     // public void SetPlayerCoordinates()
     // {
     //     Player player = new();
