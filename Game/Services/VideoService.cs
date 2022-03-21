@@ -9,20 +9,27 @@ public class VideoService
     public static int scrnWidth = 1400;
     public static int scrnHeight = 900;
 
-    public static void Draw()
+    public static void Draw(List<Enemy> objectsToDraw)
     {
         DrawBackdrop();
-        DrawEntities();
+        DrawEntities(objectsToDraw);
         DrawShip();
     }
 
     private static void DrawBackdrop()
     {
-        Raylib.ClearBackground(Raylib_cs.Color.RED);
+        Raylib.ClearBackground(Raylib_cs.Color.BLACK);
     }
 
-    private static void DrawEntities()
+    private static void DrawEntities(List<Enemy> objectsToDraw)
     {
+        for (int i = 0; i < objectsToDraw.Count; i ++) {
+            DrawEnemy(objectsToDraw[i]);
+        }
+    }
+    public static void DrawEnemy(Enemy enemy) // draws an artifact
+    {
+        DrawTexture(LoadTextureFromImage(enemy.charImage), enemy.x, enemy.y, WHITE);
         
     }
 
