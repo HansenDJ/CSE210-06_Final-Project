@@ -22,17 +22,19 @@ public class Character
         radius = Radius;
     }
 
-    public void SetTexture(Image im)
+    public void SetImage(Image image)
     {
-        charImage = im;
+        charImage = image;
     }
 
-    public int GetWidth()
+    // Returns the width of the image file
+    public int GetImageWidth()
     {
         return charImage.width;
     }
 
-    public int GetHeight()
+    // Returns the height of the image file
+    public int GetImageHeight()
     {
         return charImage.height;
     }
