@@ -25,10 +25,10 @@ public class Director
                 Raylib.BeginDrawing();
                 if (KeyboardService.WKeyDown())
                 {
-                    player.y -= 5;
+                    player.y -= player.GetPlayerMovementSpeed();
                 }else if (KeyboardService.SKeyDown())
                 {
-                    player.y += 5;
+                    player.y += player.GetPlayerMovementSpeed();
                 }
                 VideoService.Draw();
                 vd.DrawPlayer(player);
