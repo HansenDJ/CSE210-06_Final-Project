@@ -23,29 +23,39 @@ public class VideoService
 
     private static void DrawEntities(List<Enemy> objectsToDraw)
     {
-        for (int i = 0; i < objectsToDraw.Count; i ++) {
+        for (int i = 0; i < objectsToDraw.Count; i++)
+        {
             DrawEnemy(objectsToDraw[i]);
         }
     }
     public static void DrawEnemy(Enemy enemy) // draws an artifact
     {
         DrawTexture(LoadTextureFromImage(enemy.charImage), enemy.x, enemy.y, WHITE);
-        
+
     }
 
     private static void DrawShip()
     {
-        
+
     }
 
     public void DrawPlayer(Player player)
     {
-        
-       // DrawCircle(player.x,player.y,player.radius,WHITE);
+
+        // DrawCircle(player.x,player.y,player.radius,WHITE);
         DrawTexture(LoadTextureFromImage(player.charImage), player.x, player.y, WHITE);
-       // DrawRectangle(player.x,player.y,370,370,WHITE);
-        
-        
+        // DrawRectangle(player.x,player.y,370,370,WHITE);
+
+
+
+    }
+
+    public void DrawCoinCount()
+    {
+
+    }
+    public void DrawHeartCount()
+    {
 
     }
 

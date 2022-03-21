@@ -9,12 +9,54 @@ public class ImageService
 
     // Create methods to define in the RaylibImageService class to load the image files into textures.
 
+    //Basic assets 
+
     public static Image SetShipStartImage()
     {
-        // Load ship image
+        // Load ship image for player
         return LoadImage("Game/Images/ship/startship.png");
     }
 
+    public static Image SetCoinStartImage()
+    {
+        // Load Coin image to pick up coin
+        return LoadImage("Game/Images/   /    .png");
+    }
+
+    //Back Grounds
+    public static Image SetEarthBGStartImage()
+    {
+        // Load Back Gound for Earth level
+        return LoadImage("Game/Images/bg/earthbg.png");
+    }
+
+    public static Image SetFireBGStartImage()
+    {
+        // Load Back Gound for Fire level
+        return LoadImage("Game/Images/bg/firebg.png");
+    }
+
+    public static Image SetAirBGStartImage()
+    {
+        // Load Back Gound for Air level
+        return LoadImage("Game/Images/bg/airbg.png");
+    }
+
+    public static Image SetWaterBGStartImage()
+    {
+        // Load Back Gound for Water level
+        return LoadImage("Game/Images/bg/waterbg.png");
+    }
+
+    public static Image SetShadowBGStartImage()
+    {
+        // Load Back Gound for Shadow level
+        return LoadImage("Game/Images/bg/shadowbg.png");
+    }
+
+
+
+    //Earth
     public static Image SetEarthOneStartImage()
     {
         // Load ship image for Earth LV 1
@@ -38,6 +80,7 @@ public class ImageService
         // Load ship image for Earth Boss
         return LoadImage("Game/Images/ship/earthboss.png");
     }
+
     //Fire
 
     public static Image SetFireOneStartImage()
@@ -89,7 +132,7 @@ public class ImageService
         return LoadImage("Game/Images/ship/airboss.png");
     }
 
-    //Water
+    //Water and Ice
     public static Image SetWaterOneStartImage()
     {
         // Load ship image for Water LV 1
@@ -137,5 +180,18 @@ public class ImageService
     {
         // Load ship image for Shadow Boss
         return LoadImage("Game/Images/ship/shadowboss.png");
+    }
+
+    //Heads Up Display
+    public static Image SetHeartStartImage()
+    {
+        // Load Heart Icon for Health
+        return LoadImage("Game/Images/    /      .png");
+    }
+
+    public static Image SetCoinCountImage()
+    {
+        // Load Coin Icon for Hud. This is diffrent than the coin icon for the player to pick up. 
+        return LoadImage("Game/Images/    /      .png");
     }
 }
