@@ -40,7 +40,7 @@ public class SpawnDestory
     public void makeEntitiesMove() {
         for(int i = 0; i < entityList.Count; i++) {
             entityList[i].MoveEntity();
-            if (entityList[i].x < 0)
+            if (entityList[i].x < -50)
             {
                 entityList.RemoveAt(i);
             }
