@@ -1,5 +1,7 @@
 namespace generalNamespace;
 using Raylib_cs;
+
+using static Raylib_cs.Raylib;
 public class Character
 {
     public int x;
@@ -10,6 +12,7 @@ public class Character
     public int offsetHeight = 30;
 
     public Image charImage;
+    public Texture2D charTexture;
     
     public void SetX(int characterX)
     {
@@ -24,6 +27,7 @@ public class Character
     public void SetImage(Image image)
     {
         charImage = image;
+        charTexture = LoadTextureFromImage(image);
     }
 
     // Returns the width of the image file

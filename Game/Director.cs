@@ -9,6 +9,7 @@ public class Director
     static bool action = false;
     public void StartGame()
     {
+        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
         SetTimer();
         VideoService vd= new();
         Player player = new();
@@ -17,7 +18,7 @@ public class Director
         player.SetPlayerStats();
         player.SetPlayerXY(player);
 
-        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
+       
       
         while (!Raylib.WindowShouldClose())
         {

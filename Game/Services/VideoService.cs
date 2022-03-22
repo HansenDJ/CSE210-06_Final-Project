@@ -34,7 +34,7 @@ public class VideoService
     }
     public static void DrawEnemy(Enemy enemy) // draws an artifact
     {
-        DrawTexture(LoadTextureFromImage(enemy.charImage), enemy.x, enemy.y, WHITE);
+        DrawTexture(enemy.charTexture, enemy.x, enemy.y, WHITE);
     }
 
     private static void DrawShip()
@@ -44,7 +44,8 @@ public class VideoService
 
     public void DrawPlayer(Player player)
     {
-        DrawTexture(LoadTextureFromImage(player.charImage), player.x, player.y, WHITE);
+        
+        DrawTexture(player.charTexture, player.x, player.y, WHITE);
     }
 
     public void DrawCoinCount()
