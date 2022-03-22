@@ -42,5 +42,8 @@ public class VideoService
 
     }
 
-
+    public void DrawTextureAsRectangle(Character character)
+    {
+        DrawRectangleLines(character.x, character.y, character.GetImageWidth(), character.GetImageHeight(), GREEN);
+    }
 }

@@ -32,6 +32,7 @@ public class Director
                 }
                 VideoService.Draw();
                 vd.DrawPlayer(player);
+                vd.DrawTextureAsRectangle(player);  //Testing rectangle outlines for colliders
                 Raylib.EndDrawing();
                 action = false;
             }

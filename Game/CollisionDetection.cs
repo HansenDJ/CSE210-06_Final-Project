@@ -20,8 +20,13 @@ public class CollisionDetection
     // }
 
     // Detect collision between two characters. Their collision box is calculated by the height and width of their image file.
-    // public bool CheckCollision(Player player, Enemy enemy)
+    
+    
+    
+    // public bool CheckCollision(Character character1, Character character2)
     // {
-        
+    //     // Calculates the distance between two objects
+    //     // Distance formula: d = sqrt((x2-x1)^2+(y2-y1)^2)
+    //     float distance = character1.GetTextureWidth() character1.GetTextureHeight()
     // }
 }
