@@ -20,7 +20,6 @@ public class SpawnDestory
                 enemy.SetRandomMoveSpeed();
                 enemy.charImage = ImageService.SetEarthOneStartImage();
                 entityList.Add(enemy);
-                //vd.DrawColliderBox(enemy);
                 break;
             case '2':
                
