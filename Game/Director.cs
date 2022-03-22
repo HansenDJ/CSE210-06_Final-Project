@@ -12,6 +12,7 @@ public class Director
         SetTimer();
         VideoService vd= new();
         Player player = new();
+        SpawnDestory sp = new SpawnDestory();
         player.SetImage(ImageService.SetShipStartImage());
         player.SetRadius(10);
 
@@ -23,6 +24,10 @@ public class Director
             if (action)
             {
                 Raylib.BeginDrawing();
+                if (sp.CheckIfSpawnNeeded()) {
+                    sp.SpawnEnemy('1');
+                }
+                sp.makeEntitiesMove();
                 if (KeyboardService.WKeyDown())
                 {
                     player.y -= player.GetPlayerMovementSpeed();
@@ -30,7 +35,7 @@ public class Director
                 {
                     player.y += player.GetPlayerMovementSpeed();
                 }
-                VideoService.Draw();
+                VideoService.Draw(sp.GetEntities());
                 vd.DrawPlayer(player);
                 vd.DrawTextureAsRectangle(player);  //Testing rectangle outlines for colliders
                 Raylib.EndDrawing();
