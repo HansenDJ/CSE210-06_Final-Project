@@ -14,7 +14,34 @@ public class Player : Character
         playerMovementSpeed = 10;    // Set default in the director
         playerHealth = 100;     // Set default in the director
     }
-    
+
+    public void PlayerMoveKeys()
+    {
+        if (KeyboardService.WKeyDown())
+        {
+            if (y > 10)
+            {
+                y -= GetPlayerMovementSpeed();  
+            }
+                
+        }else if (KeyboardService.SKeyDown())
+        {
+            if (y < 890)
+            {
+               y += GetPlayerMovementSpeed();
+            }
+                 
+        }
+
+        if (KeyboardService.AKeyDown())
+        {
+            if(x > 10) {}
+            x -= GetPlayerMovementSpeed();
+        }else if (KeyboardService.DKeyDown() & x < 895)
+        {
+            x += GetPlayerMovementSpeed();
+        }
+    }
     public int GetPlayerMovementSpeed()
     {
         return playerMovementSpeed;

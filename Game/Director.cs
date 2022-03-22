@@ -30,13 +30,7 @@ public class Director
                     sp.SpawnEnemy('1');
                 }
                 sp.EntityListLoop(player);
-                if (KeyboardService.WKeyDown())
-                {
-                    player.y -= player.GetPlayerMovementSpeed();
-                }else if (KeyboardService.SKeyDown())
-                {
-                    player.y += player.GetPlayerMovementSpeed();
-                }
+                player.PlayerMoveKeys();
                 VideoService.Draw(sp.GetEntities());
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player

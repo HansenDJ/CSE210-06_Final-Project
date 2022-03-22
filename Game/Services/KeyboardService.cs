@@ -23,4 +23,12 @@ public static class KeyboardService
     {
         return Raylib.IsKeyUp(KeyboardKey.KEY_S);
     }
+    public static bool AKeyDown()
+    {
+        return Raylib.IsKeyDown(KeyboardKey.KEY_A);
+    }
+    public static bool DKeyDown()
+    {
+        return Raylib.IsKeyDown(KeyboardKey.KEY_D);
+    }
 }
