@@ -21,17 +21,20 @@ public class VideoService
         Raylib.ClearBackground(Raylib_cs.Color.BLACK);
     }
 
+    /* QUESTION: Should end be -1 or not?
+    -------------------------------------
+    -----------------------------------*/
     private static void DrawEntities(List<Enemy> objectsToDraw)
     {
-        for (int i = 0; i < objectsToDraw.Count; i++)
+        for (int i = 0; i < objectsToDraw.Count - 1; i++)
         {
             DrawEnemy(objectsToDraw[i]);
+            DrawColliderBox(objectsToDraw[i]);
         }
     }
     public static void DrawEnemy(Enemy enemy) // draws an artifact
     {
         DrawTexture(LoadTextureFromImage(enemy.charImage), enemy.x, enemy.y, WHITE);
-
     }
 
     private static void DrawShip()
@@ -41,13 +44,7 @@ public class VideoService
 
     public void DrawPlayer(Player player)
     {
-
-        // DrawCircle(player.x,player.y,player.radius,WHITE);
         DrawTexture(LoadTextureFromImage(player.charImage), player.x, player.y, WHITE);
-        // DrawRectangle(player.x,player.y,370,370,WHITE);
-
-
-
     }
 
     public void DrawCoinCount()
@@ -59,8 +56,8 @@ public class VideoService
 
     }
 
-    public void DrawTextureAsRectangle(Character character)
+    public static void DrawColliderBox(Character character)
     {
-        DrawRectangleLines(character.x, character.y, character.GetImageWidth(), character.GetImageHeight(), GREEN);
+        DrawRectangleLines(character.x + character.offsetWidth / 2, character.y + character.offsetHeight / 2, character.GetImageWidth() - character.offsetWidth, character.GetImageHeight() - character.offsetHeight, GREEN);
     }
 }

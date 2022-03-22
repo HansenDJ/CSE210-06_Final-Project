@@ -7,8 +7,10 @@ public class Enemy : Character
 {
     Random rnd = new Random();
     public int moveSpeed = 0;
+    public int maxEnemies = 5;
+    
     public void SetRandomMoveSpeed() {
-        moveSpeed = rnd.Next(1, 10);
+        moveSpeed = rnd.Next(1, 3);
     }
     public void MoveEntity()
     {

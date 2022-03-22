@@ -14,7 +14,8 @@ public class Director
         Player player = new();
         SpawnDestory sp = new SpawnDestory();
         player.SetImage(ImageService.SetShipStartImage());
-        player.SetRadius(10);
+        player.SetPlayerStats();
+        player.SetPlayerXY(player);
 
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
       
@@ -27,7 +28,7 @@ public class Director
                 if (sp.CheckIfSpawnNeeded()) {
                     sp.SpawnEnemy('1');
                 }
-                sp.makeEntitiesMove();
+                sp.EntityListLoop(player);
                 if (KeyboardService.WKeyDown())
                 {
                     player.y -= player.GetPlayerMovementSpeed();
@@ -37,7 +38,7 @@ public class Director
                 }
                 VideoService.Draw(sp.GetEntities());
                 vd.DrawPlayer(player);
-                vd.DrawTextureAsRectangle(player);  //Testing rectangle outlines for colliders
+                VideoService.DrawColliderBox(player);  // Draws collider box around player
                 Raylib.EndDrawing();
                 action = false;
             }
@@ -45,7 +46,7 @@ public class Director
         }
     }
     static void SetTimer() {
-        timer = new System.Timers.Timer(20);
+        timer = new System.Timers.Timer(15);
 
         timer.Elapsed += OnTimedEvent;
         timer.AutoReset = true;

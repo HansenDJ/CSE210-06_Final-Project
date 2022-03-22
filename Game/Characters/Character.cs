@@ -1,25 +1,24 @@
 namespace generalNamespace;
 using Raylib_cs;
-using static Raylib_cs.Raylib;
 public class Character
 {
-    public int x = 30;
-    public int y = 30;
-    public int radius = 30;
+    public int x;
+    public int y;
+    // Width offset for collider box
+    public int offsetWidth = 10;
+    // Height offset for collider box
+    public int offsetHeight = 30;
+
     public Image charImage;
-    public void SetX(int X)
+    
+    public void SetX(int characterX)
     {
-        x = X;
+        x = characterX;
     }
 
-    public void SetY(int Y)
+    public void SetY(int characterY)
     {
-        y = Y;
-    }
-
-    public void SetRadius(int Radius)
-    {
-        radius = Radius;
+        y = characterY;
     }
 
     public void SetImage(Image image)
