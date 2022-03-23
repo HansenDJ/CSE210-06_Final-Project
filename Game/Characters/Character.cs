@@ -1,7 +1,8 @@
-namespace generalNamespace;
 using Raylib_cs;
-
 using static Raylib_cs.Raylib;
+
+namespace generalNamespace;
+
 public class Character
 {
     public int x;

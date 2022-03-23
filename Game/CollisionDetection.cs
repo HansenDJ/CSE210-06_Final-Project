@@ -1,5 +1,7 @@
 using System;
+
 namespace generalNamespace;
+
 public class CollisionDetection
 {
     Player player = new();

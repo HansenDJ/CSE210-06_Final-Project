@@ -1,6 +1,7 @@
 using System;
 using Raylib_cs;
 using System.Timers;
+
 namespace generalNamespace;
 
 public class Director
@@ -14,7 +15,7 @@ public class Director
         VideoService vd= new();
         Player player = new();
         SpawnDestory sp = new SpawnDestory();
-        player.SetImage(ImageService.SetShipStartImage());
+        player.SetTexture(ImageService.SetShipStartImage());
         player.SetPlayerStats();
         player.SetPlayerXY(player);
 

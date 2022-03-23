@@ -5,7 +5,6 @@ using static Raylib_cs.Raylib;
 
 namespace generalNamespace;
 
-
 public class SpawnDestory
 {
     Random rnd = new Random();
@@ -22,7 +21,7 @@ public class SpawnDestory
                 enemy.SetY(rnd.Next(enemy.GetImageHeight(), VideoService.scrnHeight - enemy.GetImageHeight()));
                 enemy.SetX(1500);
                 enemy.SetRandomMoveSpeed();
-                enemy.SetImage(ImageService.SetEarthOneStartImage());
+                enemy.SetTexture(ImageService.SetEarthOneStartImage());
                 
                 entityList.Add(enemy);
                 break;
@@ -40,7 +39,7 @@ public class SpawnDestory
                 Weapon _weapon = new Weapon();
                 _weapon.SetY(target.y);
                 _weapon.SetX(target.x);
-                _weapon.SetImage(weapon);
+                _weapon.SetTexture(weapon);
                 WeaponList.Add(_weapon);
                
                 break;

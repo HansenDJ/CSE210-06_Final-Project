@@ -18,27 +18,27 @@ public class Player : Character
 
     public int PlayerMoveKeys()
     {
-        if (KeyboardService.WKeyDown())
+        if (KeyboardService.WKeyDown() || KeyboardService.UpKeyDown())
         {
             if (y > 10)
             {
                 y -= GetPlayerMovementSpeed();  
             }
                 
-        }else if (KeyboardService.SKeyDown())
+        }else if (KeyboardService.SKeyDown() || KeyboardService.DownKeyDown())
         {
-            if (y < 890)
+            if (y < VideoService.scrnHeight - 10)
             {
                y += GetPlayerMovementSpeed();
             }
                  
         }
 
-        if (KeyboardService.AKeyDown())
+        if (KeyboardService.AKeyDown() || KeyboardService.LeftKeyDown() && x >= offsetWidth)
         {
             if(x > 10) {}
             x -= GetPlayerMovementSpeed();
-        }else if (KeyboardService.DKeyDown() & x < 895)
+        }else if (KeyboardService.DKeyDown() || KeyboardService.RightKeyDown() && x < VideoService.scrnWidth / 2)
         {
             x += GetPlayerMovementSpeed();
         }
