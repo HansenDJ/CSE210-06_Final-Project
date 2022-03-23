@@ -8,12 +8,16 @@ public class Player : Character
     // Player constants
     public static int playerMovementSpeed = 10;
     public static int playerHealth = 100;
+    private int offsetW = 10;
+    private int offsetH = 30;
 
     // SETS player constants
     public void SetPlayerStats()
     {
         playerMovementSpeed = 10;    // Set default in the director
         playerHealth = 100;     // Set default in the director
+        SetOffsetColliderWidth(offsetW);    // Width offset for player collider box
+        SetOffsetColliderHeight(offsetH);   // Height offset for player collider box
     }
 
     public int PlayerMoveKeys()
@@ -34,7 +38,7 @@ public class Player : Character
                  
         }
 
-        if (KeyboardService.AKeyDown() || KeyboardService.LeftKeyDown() && x >= offsetWidth)
+        if (KeyboardService.AKeyDown() || KeyboardService.LeftKeyDown() && x >= offsetColliderWidth)
         {
             if(x > 10) {}
             x -= GetPlayerMovementSpeed();

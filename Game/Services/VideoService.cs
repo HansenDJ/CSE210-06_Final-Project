@@ -67,6 +67,6 @@ public class VideoService
 
     public static void DrawColliderBox(Character character)
     {
-          DrawRectangleLines(character.x + character.offsetWidth / 2, character.y + character.offsetHeight / 2, character.GetImageWidth() - character.offsetWidth, character.GetImageHeight() - character.offsetHeight, GREEN);
+        DrawRectangleLines(character.x + character.GetOffsetColliderWidth() / 2, character.y + character.GetOffsetColliderHeight() / 2, character.GetImageWidth() - character.offsetColliderWidth, character.GetImageHeight() - character.offsetColliderHeight, GREEN);
     }
 }
