@@ -12,14 +12,14 @@ public class SpawnDestory
     CollisionDetection collisionDetection = new CollisionDetection();
     
     public List<Enemy> entityList = new();
-    public List<Weapon> WeaponList = new();
+    public List<Weapon> weaponList = new();
     public int maxEnemies = 5;
     public void SpawnEnemy(char entity) {
         switch(entity) {
             case '1':
                 Enemy enemy = new Enemy();
-                enemy.SetY(rnd.Next(enemy.GetImageHeight(), VideoService.scrnHeight - enemy.GetImageHeight()));
-                enemy.SetX(1500);
+                enemy.SetY(rnd.Next(0, VideoService.scrnHeight - enemy.GetColliderBoxWidth() * 2));
+                enemy.SetX(VideoService.scrnWidth + enemy.GetImageWidth());
                 enemy.SetRandomMoveSpeed();
                 enemy.SetTexture(ImageService.SetEarthOneStartImage());
                 
@@ -33,14 +33,14 @@ public class SpawnDestory
                 break;
         }
     }
-    public void SpawnWeapon(char wType, Character target, Image weapon) {
-        switch(wType) {
+    public void SpawnWeapon(char weaponType, Character target, Image weapon) {
+        switch(weaponType) {
             case '1':
                 Weapon _weapon = new Weapon();
                 _weapon.SetY(target.y);
                 _weapon.SetX(target.x);
                 _weapon.SetTexture(weapon);
-                WeaponList.Add(_weapon);
+                weaponList.Add(_weapon);
                
                 break;
             case '2':
@@ -65,7 +65,7 @@ public class SpawnDestory
 
     public List<Weapon> getWeapons()
     {
-        return WeaponList;
+        return weaponList;
     }
 
     // Loop through all the enemies on the screen inside the entityList
@@ -89,19 +89,19 @@ public class SpawnDestory
     }
     public void MakeWeaponsMove()
     {
-        for (int index = 0; index < WeaponList.Count - 1 ; index++)
+        for (int index = 0; index < weaponList.Count - 1 ; index++)
         {
-            WeaponList[index].MoveWeaponRight();
+            weaponList[index].MoveWeaponRight();
             for (int j = 0; j < entityList.Count - 1; j++)
             {
-                if (collisionDetection.CheckCollision(entityList[j], WeaponList[index]))
+                if (collisionDetection.CheckCollision(entityList[j], weaponList[index]))
                 {
-                    OnCollisionActionWeapon(entityList[j],WeaponList[index],j,index);
+                    OnCollisionActionWeapon(entityList[j],weaponList[index],j,index);
                 }
             }
-            if(WeaponList[index].x < -50 || WeaponList[index].x > 1450)
+            if(weaponList[index].x < -50 || weaponList[index].x > 1450)
             {
-                WeaponList.RemoveAt(index);
+                weaponList.RemoveAt(index);
             }
         }
      
@@ -111,7 +111,7 @@ public class SpawnDestory
         if(collisionDetection.CheckCollision(player, weapon))
         {
             entityList.RemoveAt(enemyIndex);
-            WeaponList.RemoveAt(weaponIndex);
+            weaponList.RemoveAt(weaponIndex);
             // TEST: Remove enemy if collides with player
         }
     }
