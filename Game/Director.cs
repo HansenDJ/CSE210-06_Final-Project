@@ -6,6 +6,7 @@ namespace generalNamespace;
 public class Director
 {
     private static System.Timers.Timer timer;
+    private static int reloadTime = 0;
     static bool action = false;
     public void StartGame()
     {
@@ -25,6 +26,7 @@ public class Director
             
             if (action)
             {
+                reloadTime += 20;
                 Raylib.BeginDrawing();
                 if (sp.CheckIfSpawnNeeded()) {
                     sp.SpawnEnemy('1');
@@ -33,7 +35,11 @@ public class Director
               
                 if (player.PlayerMoveKeys() == 1)
                 {
-                    sp.SpawnWeapon('1',player,ImageService.SetLaser1Image()) ;  
+                    if (reloadTime >= 400)
+                    {
+                        sp.SpawnWeapon('1',player,ImageService.SetLaser1Image()) ;
+                        reloadTime = 0;
+                    }
                 } 
                 sp.MakeWeaponsMove();
                 VideoService.Draw(sp.GetEntities(),sp.getWeapons());

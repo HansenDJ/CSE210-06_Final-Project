@@ -11,7 +11,7 @@ public class SpawnDestory
     Random rnd = new Random();
     VideoService vd = new VideoService();
     CollisionDetection collisionDetection = new CollisionDetection();
-    
+
     public List<Enemy> entityList = new();
     public List<Weapon> WeaponList = new();
     public int maxEnemies = 5;
@@ -97,7 +97,7 @@ public class SpawnDestory
             {
                 if (collisionDetection.CheckCollision(entityList[j], WeaponList[index]))
                 {
-                    OnCollisionActionWeapon(entityList[j],WeaponList[index],j,index);
+                     OnCollisionActionWeapon(entityList[j],WeaponList[index],j,index);
                 }
             }
             if(WeaponList[index].x < -50 || WeaponList[index].x > 1450)
