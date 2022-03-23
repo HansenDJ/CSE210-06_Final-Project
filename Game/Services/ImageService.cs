@@ -23,7 +23,7 @@ public class ImageService
         return LoadImage("Game/Images/   /    .png");
     }
 
-    //Back Grounds
+    //Backgrounds
     public static Image SetEarthBGStartImage()
     {
         // Load Back Gound for Earth level
@@ -82,7 +82,6 @@ public class ImageService
     }
 
     //Fire
-
     public static Image SetFireOneStartImage()
     {
         // Load ship image for Fire LV 1
@@ -191,7 +190,12 @@ public class ImageService
 
     public static Image SetCoinCountImage()
     {
-        // Load Coin Icon for Hud. This is diffrent than the coin icon for the player to pick up. 
+        // Load Coin Icon for HUD. This is different than the coin icon for the player to pick up.
         return LoadImage("Game/Images/    /      .png");
+    }
+    public static Image SetLaser1Image()
+    {
+        // Load Coin Icon for HUD. This is different than the coin icon for the player to pick up.
+        return LoadImage("Game/Images/lasers/laser1.png");
     }
 }
