@@ -27,6 +27,7 @@ public class VideoService
     -----------------------------------*/
     private static void DrawEntities(List<Enemy> objectsToDraw,List<Weapon> weaponsToDraw)
     {
+        Console.WriteLine( "Object Count: " + objectsToDraw.Count().ToString() + "Weapon Count" + weaponsToDraw.Count().ToString());
         for (int i = 0; i < objectsToDraw.Count - 1; i++)
         {
             DrawEntity(objectsToDraw[i]);
@@ -65,6 +66,6 @@ public class VideoService
 
     public static void DrawColliderBox(Character character)
     {
-        DrawRectangleLines(character.x + character.offsetWidth / 2, character.y + character.offsetHeight / 2, character.GetImageWidth() - character.offsetWidth, character.GetImageHeight() - character.offsetHeight, GREEN);
+          DrawRectangleLines(character.x + character.offsetWidth / 2, character.y + character.offsetHeight / 2, character.GetImageWidth() - character.offsetWidth, character.GetImageHeight() - character.offsetHeight, GREEN);
     }
 }
