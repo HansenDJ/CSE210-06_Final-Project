@@ -71,59 +71,59 @@ public class SpawnDestory
     // Loop through all the enemies on the screen inside the entityList
     public void EntityListLoop(Player player)
     {
-        for(int i = 0; i < entityList.Count - 1; i++)
+        for(int i_entity = 0; i_entity < entityList.Count - 1; i_entity++)
         {
-            OnCollisionAction(player, i);
+            OnCollisionAction(player, i_entity);
             
-            MakeEntitiesMove(i);
+            MakeEntitiesMove(i_entity);
         }
     }
-    public void MakeEntitiesMove(int index)
+    public void MakeEntitiesMove(int i_moveEntity)
     {
-        entityList[index].MoveEntity();
+        entityList[i_moveEntity].MoveEntity();
         // Remove an enemy if it moves off the left side of the screen
-        if(entityList[index].x < -50)
+        if(entityList[i_moveEntity].x < -50)
         {
-            entityList.RemoveAt(index);
+            entityList.RemoveAt(i_moveEntity);
         }
     }
     public void MakeWeaponsMove()
     {
-        for (int index = 0; index < weaponList.Count - 1 ; index++)
+        for (int i_moveWeapon = 0; i_moveWeapon < weaponList.Count - 1 ; i_moveWeapon++)
         {
-            weaponList[index].MoveWeaponRight();
+            weaponList[i_moveWeapon].MoveWeaponRight();
             for (int j = 0; j < entityList.Count - 1; j++)
             {
-                if (collisionDetection.CheckCollision(entityList[j], weaponList[index]))
+                if (collisionDetection.CheckCollision(entityList[j], weaponList[i_moveWeapon]))
                 {
-                    OnCollisionActionWeapon(entityList[j],weaponList[index],j,index);
+                    OnCollisionActionWeapon(entityList[j],weaponList[i_moveWeapon],j,i_moveWeapon);
                 }
             }
-            if(weaponList[index].x < -50 || weaponList[index].x > 1450)
+            if(weaponList[i_moveWeapon].x < -50 || weaponList[i_moveWeapon].x > 1450)
             {
-                weaponList.RemoveAt(index);
+                weaponList.RemoveAt(i_moveWeapon);
             }
         }
      
     }
-    public void OnCollisionActionWeapon(Enemy player, Weapon weapon,int enemyIndex,int weaponIndex)
+    public void OnCollisionActionWeapon(Enemy player, Weapon weapon,int i_enemy,int i_weapon)
     {
         if(collisionDetection.CheckCollision(player, weapon))
         {
-            entityList.RemoveAt(enemyIndex);
-            weaponList.RemoveAt(weaponIndex);
+            entityList.RemoveAt(i_enemy);
+            weaponList.RemoveAt(i_weapon);
             // TEST: Remove enemy if collides with player
         }
     }
     
 
     // Occurs when the player collides with an enemy
-    public void OnCollisionAction(Player player, int index)
+    public void OnCollisionAction(Player player, int i_collision)
     {
-        if(collisionDetection.CheckCollision(player, entityList[index]))
+        if(collisionDetection.CheckCollision(player, entityList[i_collision]))
         {
             // TEST: Remove enemy if collides with player
-            entityList.RemoveAt(index);
+            entityList.RemoveAt(i_collision);
         }
     }
     
