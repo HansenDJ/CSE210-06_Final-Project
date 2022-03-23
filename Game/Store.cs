@@ -5,7 +5,11 @@ public class Store
 {
     public string name;
     public int price;
-    //void ability();
+    public void Ability(){}
+    // public bool IsPurchased()
+    // {
+    //     IsPurchased = false
+    // }
 }
 public class StoreList
 {
