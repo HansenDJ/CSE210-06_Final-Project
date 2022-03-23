@@ -1,14 +1,21 @@
 using System;
+using System.Windows;
 using generalNamespace.Laser;
 using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
+
 namespace generalNamespace;
 
 public class VideoService
 {
     public static int scrnWidth = 1400;
-    public static int scrnHeight = 900;
+    public static int scrnHeight = 850;
+
+    // public static double FullPrimaryScreenWidth { get; }
+    // public static double FullPrimaryScreenHeight { get; }
+    // public static int scrnWidth = Convert.ToInt32(FullPrimaryScreenWidth);
+    // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
     public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw)
     {
@@ -66,6 +73,6 @@ public class VideoService
 
     public static void DrawColliderBox(Character character)
     {
-          DrawRectangleLines(character.x + character.offsetWidth / 2, character.y + character.offsetHeight / 2, character.GetImageWidth() - character.offsetWidth, character.GetImageHeight() - character.offsetHeight, GREEN);
+        DrawRectangleLines(character.x + character.GetOffsetColliderWidth() / 2, character.y + character.GetOffsetColliderHeight() / 2, character.GetColliderBoxWidth(), character.GetColliderBoxHeight(), GREEN);
     }
 }

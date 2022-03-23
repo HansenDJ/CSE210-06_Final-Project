@@ -14,7 +14,7 @@ public static class KeyboardService
         return Raylib.IsKeyUp(KeyboardKey.KEY_W);
     }
 
-        public static bool SKeyDown()
+    public static bool SKeyDown()
     {
         return Raylib.IsKeyDown(KeyboardKey.KEY_S);
     }
@@ -31,6 +31,27 @@ public static class KeyboardService
     {
         return Raylib.IsKeyDown(KeyboardKey.KEY_D);
     }
+
+    public static bool UpKeyDown()
+    {
+        return Raylib.IsKeyDown(KeyboardKey.KEY_UP);
+    }
+
+    public static bool DownKeyDown()
+    {
+        return Raylib.IsKeyDown(KeyboardKey.KEY_DOWN);
+    }
+
+    public static bool LeftKeyDown()
+    {
+        return Raylib.IsKeyDown(KeyboardKey.KEY_LEFT);
+    }
+
+    public static bool RightKeyDown()
+    {
+        return Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT);
+    }
+
     public static bool SpaceKeyDown()
     {
         return Raylib.IsKeyDown(KeyboardKey.KEY_SPACE);

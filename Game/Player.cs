@@ -6,39 +6,46 @@ namespace generalNamespace;
 public class Player : Character
 {
     // Player constants
-    public static int playerMovementSpeed = 10;
-    public static int playerHealth = 100;
+    public static int playerMovementSpeed = 0;
+    public static int playerHealth = 0;
+    private int offsetW = 10;
+    private int offsetH = 30;
 
     // SETS player constants
     public void SetPlayerStats()
     {
-        playerMovementSpeed = 10;    // Set default in the director
+        playerMovementSpeed = 8;    // Set default in the director
         playerHealth = 100;     // Set default in the director
+        SetOffsetColliderWidth(offsetW);    // Width offset for player collider box
+        SetOffsetColliderHeight(offsetH);   // Height offset for player collider box
     }
 
     public int PlayerMoveKeys()
     {
-        if (KeyboardService.WKeyDown())
+        // Up movement with W key or up arrow key
+        if (KeyboardService.WKeyDown() || KeyboardService.UpKeyDown())
         {
-            if (y > 10)
+            if (y >= 0)
             {
                 y -= GetPlayerMovementSpeed();  
             }
-                
-        }else if (KeyboardService.SKeyDown())
+        // Down movement with S key or down arrow key
+        }else if (KeyboardService.SKeyDown() || KeyboardService.DownKeyDown())
         {
-            if (y < 890)
+            if (y <= VideoService.scrnHeight - GetColliderBoxHeight() * 2)
             {
                y += GetPlayerMovementSpeed();
             }
                  
         }
 
-        if (KeyboardService.AKeyDown())
+        // Left movement with A key or left arrow key
+        if ((KeyboardService.AKeyDown() || KeyboardService.LeftKeyDown()) && x >= offsetColliderWidth)
         {
             if(x > 10) {}
             x -= GetPlayerMovementSpeed();
-        }else if (KeyboardService.DKeyDown() & x < 895)
+        // Right movement with D key or right arrow key
+        }else if ((KeyboardService.DKeyDown() || KeyboardService.RightKeyDown()) && x < VideoService.scrnWidth / 2 - GetOffsetColliderWidth())
         {
             x += GetPlayerMovementSpeed();
         }

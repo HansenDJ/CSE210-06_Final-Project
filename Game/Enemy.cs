@@ -10,7 +10,7 @@ public class Enemy : Character
     
     
     public void SetRandomMoveSpeed() {
-        moveSpeed = rnd.Next(1, 3);
+        moveSpeed = rnd.Next(2, 4);
     }
     public void MoveEntity()
     {
