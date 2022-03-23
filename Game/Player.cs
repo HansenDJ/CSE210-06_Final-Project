@@ -1,4 +1,5 @@
 using System;
+using generalNamespace.Laser;
 
 namespace generalNamespace;
 
@@ -15,7 +16,7 @@ public class Player : Character
         playerHealth = 100;     // Set default in the director
     }
 
-    public void PlayerMoveKeys()
+    public int PlayerMoveKeys()
     {
         if (KeyboardService.WKeyDown())
         {
@@ -41,6 +42,13 @@ public class Player : Character
         {
             x += GetPlayerMovementSpeed();
         }
+
+        if (KeyboardService.SpaceKeyDown())
+        {
+            return 1;
+        }
+
+        return 0;
     }
     public int GetPlayerMovementSpeed()
     {

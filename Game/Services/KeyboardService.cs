@@ -31,4 +31,8 @@ public static class KeyboardService
     {
         return Raylib.IsKeyDown(KeyboardKey.KEY_D);
     }
+    public static bool SpaceKeyDown()
+    {
+        return Raylib.IsKeyReleased(KeyboardKey.KEY_SPACE);
+    }
 }

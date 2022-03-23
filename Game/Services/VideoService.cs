@@ -1,4 +1,5 @@
 using System;
+using generalNamespace.Laser;
 using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
@@ -9,10 +10,10 @@ public class VideoService
     public static int scrnWidth = 1400;
     public static int scrnHeight = 900;
 
-    public static void Draw(List<Enemy> objectsToDraw)
+    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw)
     {
         DrawBackdrop();
-        DrawEntities(objectsToDraw);
+        DrawEntities(objectsToDraw,weaponsToDraw);
         DrawShip();
     }
 
@@ -24,17 +25,22 @@ public class VideoService
     /* QUESTION: Should end be -1 or not?
     -------------------------------------
     -----------------------------------*/
-    private static void DrawEntities(List<Enemy> objectsToDraw)
+    private static void DrawEntities(List<Enemy> objectsToDraw,List<Weapon> weaponsToDraw)
     {
         for (int i = 0; i < objectsToDraw.Count - 1; i++)
         {
-            DrawEnemy(objectsToDraw[i]);
+            DrawEntity(objectsToDraw[i]);
             DrawColliderBox(objectsToDraw[i]);
         }
+        for (int i = 0; i < weaponsToDraw.Count - 1; i++)
+        {
+            DrawEntity(weaponsToDraw[i]);
+            DrawColliderBox(weaponsToDraw[i]);
+        }
     }
-    public static void DrawEnemy(Enemy enemy) // draws an artifact
+    public static void DrawEntity(Character entity) // draws an artifact
     {
-        DrawTexture(enemy.charTexture, enemy.x, enemy.y, WHITE);
+        DrawTexture(entity.charTexture, entity.x, entity.y, WHITE);
     }
 
     private static void DrawShip()

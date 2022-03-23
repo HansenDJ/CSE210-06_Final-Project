@@ -30,8 +30,12 @@ public class Director
                     sp.SpawnEnemy('1');
                 }
                 sp.EntityListLoop(player);
-                player.PlayerMoveKeys();
-                VideoService.Draw(sp.GetEntities());
+                sp.MakeWeaponsMove();
+                if (player.PlayerMoveKeys() == 1)
+                {
+                    sp.SpawnWeapon('1',player,ImageService.SetLaser1Image()) ;  
+                } 
+                VideoService.Draw(sp.GetEntities(),sp.getWeapons());
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 Raylib.EndDrawing();
