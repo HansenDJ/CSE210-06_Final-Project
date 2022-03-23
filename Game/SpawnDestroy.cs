@@ -75,6 +75,7 @@ public class SpawnDestory
         for(int i = 0; i < entityList.Count - 1; i++)
         {
             OnCollisionAction(player, i);
+            
             MakeEntitiesMove(i);
         }
     }
@@ -89,10 +90,16 @@ public class SpawnDestory
     }
     public void MakeWeaponsMove()
     {
-        for (int index = 0; index < WeaponList.Count; index++)
+        for (int index = 0; index < WeaponList.Count - 1 ; index++)
         {
             WeaponList[index].MoveWeaponRight();
-         
+            for (int j = 0; j < entityList.Count - 1; j++)
+            {
+                if (collisionDetection.CheckCollision(entityList[j], WeaponList[index]))
+                {
+                    OnCollisionActionWeapon(entityList[j],WeaponList[index],j,index);
+                }
+            }
             if(WeaponList[index].x < -50 || WeaponList[index].x > 1450)
             {
                 WeaponList.RemoveAt(index);
@@ -100,6 +107,16 @@ public class SpawnDestory
         }
      
     }
+    public void OnCollisionActionWeapon(Enemy player, Weapon weapon,int enemyIndex,int weaponIndex)
+    {
+        if(collisionDetection.CheckCollision(player, weapon))
+        {
+            entityList.RemoveAt(enemyIndex);
+            WeaponList.RemoveAt(weaponIndex);
+            // TEST: Remove enemy if collides with player
+        }
+    }
+    
 
     // Occurs when the player collides with an enemy
     public void OnCollisionAction(Player player, int index)
