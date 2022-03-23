@@ -27,13 +27,6 @@ public class Director
             
             if (action)
             {
-                reloadTime += 20;
-                Raylib.BeginDrawing();
-                if (sp.CheckIfSpawnNeeded()) {
-                    sp.SpawnEnemy('1');
-                }
-                sp.EntityListLoop(player);
-              
                 if (player.PlayerMoveKeys() == 1)
                 {
                     if (reloadTime >= 400)
@@ -42,8 +35,16 @@ public class Director
                         reloadTime = 0;
                     }
                 } 
+                reloadTime += 20;
+                Raylib.BeginDrawing();
+                if (sp.CheckIfSpawnNeeded()) {
+                    sp.SpawnEnemy('1');
+                }
+                sp.EntityListLoop(player);
+              
+                
                 sp.MakeWeaponsMove();
-                VideoService.Draw(sp.GetEntities(),sp.getWeapons());
+                VideoService.Draw(sp.GetEntities(),sp.getWeapons(),player);
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 Raylib.EndDrawing();
