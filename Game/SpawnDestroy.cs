@@ -22,6 +22,7 @@ public class SpawnDestory
                 enemy.SetY(rnd.Next(enemy.GetImageHeight(), VideoService.scrnHeight - enemy.GetImageHeight()));
                 enemy.SetX(1500);
                 enemy.SetRandomMoveSpeed();
+                enemy.setHealth(10);
                 enemy.SetTexture(ImageService.SetEarthOneStartImage());
                 
                 entityList.Add(enemy);
@@ -111,7 +112,11 @@ public class SpawnDestory
     {
         if(collisionDetection.CheckCollision(player, weapon))
         {
-            entityList.RemoveAt(enemyIndex);
+            entityList[enemyIndex].health -= weapon.strength;
+            if (entityList[enemyIndex].health <= 0)
+            {
+                entityList.RemoveAt(enemyIndex);
+            }
             WeaponList.RemoveAt(weaponIndex);
             // TEST: Remove enemy if collides with player
         }
