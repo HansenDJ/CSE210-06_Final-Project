@@ -1,4 +1,5 @@
 using System;
+using generalNamespace.Laser;
 using Raylib_cs;
 using static Raylib_cs.Raylib;
 
@@ -10,16 +11,39 @@ public class SpawnDestory
     Random rnd = new Random();
     VideoService vd = new VideoService();
     CollisionDetection collisionDetection = new CollisionDetection();
-    Enemy enemy = new Enemy();
+    
     public List<Enemy> entityList = new();
+    public List<Weapon> WeaponList = new();
+    public int maxEnemies = 5;
     public void SpawnEnemy(char entity) {
         switch(entity) {
             case '1':
+                Enemy enemy = new Enemy();
                 enemy.SetY(rnd.Next(enemy.GetImageHeight(), VideoService.scrnHeight - enemy.GetImageHeight()));
                 enemy.SetX(1500);
                 enemy.SetRandomMoveSpeed();
-                enemy.charImage = ImageService.SetEarthOneStartImage();
+                enemy.setHealth(10);
+                enemy.SetTexture(ImageService.SetEarthOneStartImage());
+                
                 entityList.Add(enemy);
+                break;
+            case '2':
+               
+                break;
+            case '3':
+               
+                break;
+        }
+    }
+    public void SpawnWeapon(char wType, Character target, Image weapon) {
+        switch(wType) {
+            case '1':
+                Weapon _weapon = new Weapon();
+                _weapon.SetY(target.y);
+                _weapon.SetX(target.x);
+                _weapon.SetTexture(weapon);
+                WeaponList.Add(_weapon);
+               
                 break;
             case '2':
                
@@ -32,7 +56,7 @@ public class SpawnDestory
 
     public bool CheckIfSpawnNeeded()
     {
-        return (enemy.maxEnemies - (entityList.Count - 1) > 0);
+        return (maxEnemies - (entityList.Count - 1) > 0);
     }
 
     // Create a list of the artifacts on the screen
@@ -41,12 +65,18 @@ public class SpawnDestory
         return entityList;
     }
 
+    public List<Weapon> getWeapons()
+    {
+        return WeaponList;
+    }
+
     // Loop through all the enemies on the screen inside the entityList
     public void EntityListLoop(Player player)
     {
         for(int i = 0; i < entityList.Count - 1; i++)
         {
             OnCollisionAction(player, i);
+            
             MakeEntitiesMove(i);
         }
     }
@@ -59,6 +89,39 @@ public class SpawnDestory
             entityList.RemoveAt(index);
         }
     }
+    public void MakeWeaponsMove()
+    {
+        for (int index = 0; index < WeaponList.Count - 1 ; index++)
+        {
+            WeaponList[index].MoveWeaponRight();
+            for (int j = 0; j < entityList.Count - 1; j++)
+            {
+                if (collisionDetection.CheckCollision(entityList[j], WeaponList[index]))
+                {
+                    OnCollisionActionWeapon(entityList[j],WeaponList[index],j,index);
+                }
+            }
+            if(WeaponList[index].x < -50 || WeaponList[index].x > 1450)
+            {
+                WeaponList.RemoveAt(index);
+            }
+        }
+     
+    }
+    public void OnCollisionActionWeapon(Enemy player, Weapon weapon,int enemyIndex,int weaponIndex)
+    {
+        if(collisionDetection.CheckCollision(player, weapon))
+        {
+            entityList[enemyIndex].health -= weapon.strength;
+            if (entityList[enemyIndex].health <= 0)
+            {
+                entityList.RemoveAt(enemyIndex);
+            }
+            WeaponList.RemoveAt(weaponIndex);
+            // TEST: Remove enemy if collides with player
+        }
+    }
+    
 
     // Occurs when the player collides with an enemy
     public void OnCollisionAction(Player player, int index)

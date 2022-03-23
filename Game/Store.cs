@@ -1,11 +1,16 @@
 using System;
+
 using generalNamespace;
 
 public class Store
 {
     public string name;
     public int price;
-    //void ability();
+    public void Ability(){}
+    // public bool IsPurchased()
+    // {
+    //     IsPurchased = false
+    // }
 }
 public class StoreList
 {
@@ -32,11 +37,11 @@ public class StoreList
         MovementSpeed.price = 100;
     }
 
-    public void StoreItemMistle()
+    public void StoreItemMissile()
     {
-        Store Mistle = new Store();
-        Mistle.name = "Mistle";
-        Mistle.price = 100;
+        Store Missile = new Store();
+        Missile.name = "Missile";
+        Missile.price = 100;
     }
 
     public void StoreItemBomb()

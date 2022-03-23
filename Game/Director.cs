@@ -1,44 +1,53 @@
 using System;
 using Raylib_cs;
 using System.Timers;
+
 namespace generalNamespace;
 
 public class Director
 {
     private static System.Timers.Timer timer;
+    private static int reloadTime = 0;
     static bool action = false;
     public void StartGame()
     {
+        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
         SetTimer();
         VideoService vd= new();
         Player player = new();
         SpawnDestory sp = new SpawnDestory();
-        player.SetImage(ImageService.SetShipStartImage());
+        player.SetTexture(ImageService.SetShipStartImage());
         player.SetPlayerStats();
         player.SetPlayerXY(player);
 
-        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
+       
       
         while (!Raylib.WindowShouldClose())
         {
             
-            if (action)
+            if (action) 
             {
+                reloadTime += 20;
                 Raylib.BeginDrawing();
                 if (sp.CheckIfSpawnNeeded()) {
                     sp.SpawnEnemy('1');
                 }
                 sp.EntityListLoop(player);
-                if (KeyboardService.WKeyDown())
-                {
-                    player.y -= player.GetPlayerMovementSpeed();
-                }else if (KeyboardService.SKeyDown())
-                {
-                    player.y += player.GetPlayerMovementSpeed();
-                }
-                VideoService.Draw(sp.GetEntities());
+              
+                
+                sp.MakeWeaponsMove();
+                VideoService.Draw(sp.GetEntities(),sp.getWeapons(),player);
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
+                
+                if (player.PlayerMoveKeys() == 1)
+                {
+                    if (reloadTime >= 1200)
+                    {
+                        sp.SpawnWeapon('1',player,ImageService.SetLaser1Image()) ;
+                        reloadTime = 0;
+                    }
+                } 
                 Raylib.EndDrawing();
                 action = false;
             }
@@ -46,7 +55,7 @@ public class Director
         }
     }
     static void SetTimer() {
-        timer = new System.Timers.Timer(15);
+        timer = new System.Timers.Timer(5);
 
         timer.Elapsed += OnTimedEvent;
         timer.AutoReset = true;
