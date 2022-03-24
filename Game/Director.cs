@@ -30,7 +30,7 @@ public class Director
                 reloadTime += 20;
                 Raylib.BeginDrawing();
                 if (sp.CheckIfSpawnNeeded()) {
-                    sp.SpawnEnemy('1');
+                    sp.SpawnEnemy(1);     // Create method in Level.cs to choose which enemy to spawn based on level number
                 }
                 sp.EntityListLoop(player);
               
@@ -46,6 +46,7 @@ public class Director
                 VideoService.Draw(sp.GetEntities(),sp.getWeapons());
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
+                // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
                 Raylib.EndDrawing();
                 action = false;
             }
