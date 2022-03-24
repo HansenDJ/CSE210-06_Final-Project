@@ -4,8 +4,8 @@ using generalNamespace;
 
 public class Store
 {
-    public string name;
-    public int price;
+    public string name = "";
+    public int price = 0;
     public void Ability(){}
     // public bool IsPurchased()
     // {
