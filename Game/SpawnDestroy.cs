@@ -193,7 +193,7 @@ public class SpawnDestory
         }
     }
 
-        public void SpawnFireEnemy(int enemyDifficulty)
+    public void SpawnFireEnemy(int enemyDifficulty)
     {
         switch (enemyDifficulty)
         {

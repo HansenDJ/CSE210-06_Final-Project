@@ -25,10 +25,10 @@ public class CollisionDetection
     public bool CheckCollision(Character character1, Character character2)
     {
         // Check if two images are touching
-        if (character1.x < character2.x + character2.GetImageWidth() - character2.GetOffsetColliderWidth() &&
-        character1.x + character1.GetImageWidth() - character1.GetOffsetColliderWidth() > character2.x &&
-        character1.y < character2.y + character2.GetImageHeight() - character2.GetOffsetColliderHeight() &&
-        character1.GetImageHeight() - character1.GetOffsetColliderHeight() + character1.y > character2.y)
+        if (character1.x < character2.x + character2.GetColliderBoxWidth() &&
+        character1.x + character1.GetColliderBoxWidth() > character2.x &&
+        character1.y < character2.y + character2.GetColliderBoxHeight() &&
+        character1.GetColliderBoxHeight() + character1.y > character2.y)
         {
             // Collision detected
             return true;

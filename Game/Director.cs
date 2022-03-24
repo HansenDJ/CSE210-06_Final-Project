@@ -7,18 +7,23 @@ namespace generalNamespace;
 public class Director
 {
     private static System.Timers.Timer timer;
+    // Number of milliseconds between frames
+    int updateFrameTime = 5;
     private static int reloadTime = 0;
     static bool action = false;
     public void StartGame()
     {
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
-        SetTimer();
+        SetTimer(updateFrameTime);
         VideoService vd= new();
         Player player = new();
         SpawnDestory sp = new SpawnDestory();
         player.SetTexture(ImageService.SetShipStartImage());
         player.SetPlayerStats();
         player.SetPlayerXY(player);
+        
+        // // TEST
+        // Random rnd = new Random();
 
        
       
@@ -27,10 +32,17 @@ public class Director
             
             if (action) 
             {
+                // // TEST
+                // updateFrameTime = 20;
+                // VideoService.scrnWidth = rnd.Next(1000, 1401);
+                // VideoService.scrnHeight = rnd.Next(600, 851);
+                // Raylib.SetWindowSize(VideoService.scrnWidth, VideoService.scrnHeight);
+                // updateFrameTime = 5;
+
                 reloadTime += 20;
                 Raylib.BeginDrawing();
                 if (sp.CheckIfSpawnNeeded()) {
-                    sp.SpawnEnemy(1);     // Create method in Level.cs to choose which enemy to spawn based on level number
+                    sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
                 }
                 sp.EntityListLoop(player);
               
@@ -49,7 +61,7 @@ public class Director
                     }
                 }
                 sp.MakeWeaponsMove();
-                VideoService.Draw(sp.GetEntities(),sp.getWeapons());
+                VideoService.Draw(sp.GetEntities(),sp.getWeapons(), player);
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
@@ -59,8 +71,10 @@ public class Director
             
         }
     }
-    static void SetTimer() {
-        timer = new System.Timers.Timer(5);
+
+    // Change updateFrameTime variable above to change number of milliseconds between frames
+    static void SetTimer(int frameTime) {
+        timer = new System.Timers.Timer(frameTime);
 
         timer.Elapsed += OnTimedEvent;
         timer.AutoReset = true;
