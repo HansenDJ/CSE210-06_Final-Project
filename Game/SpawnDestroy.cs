@@ -370,7 +370,11 @@ public class SpawnDestory
     {
         if (collisionDetection.CheckCollision(player, weapon))
         {
-            entityList.RemoveAt(enemyIndex);
+            entityList[enemyIndex].health -= weapon.strength;
+            if (entityList[enemyIndex].health <= 0)
+            {
+                entityList.RemoveAt(enemyIndex);
+            }
             WeaponList.RemoveAt(weaponIndex);
             // TEST: Remove enemy if collides with player
         }

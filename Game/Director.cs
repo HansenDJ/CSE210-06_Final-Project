@@ -25,7 +25,7 @@ public class Director
         while (!Raylib.WindowShouldClose())
         {
             
-            if (action)
+            if (action) 
             {
                 reloadTime += 20;
                 Raylib.BeginDrawing();
@@ -34,14 +34,20 @@ public class Director
                 }
                 sp.EntityListLoop(player);
               
+                
+                sp.MakeWeaponsMove();
+                VideoService.Draw(sp.GetEntities(),sp.getWeapons(),player);
+                vd.DrawPlayer(player);
+                VideoService.DrawColliderBox(player);  // Draws collider box around player
+                
                 if (player.PlayerMoveKeys() == 1)
                 {
-                    if (reloadTime >= 400)
+                    if (reloadTime >= 1200)
                     {
                         sp.SpawnWeapon('1',player,ImageService.SetLaser1Image()) ;
                         reloadTime = 0;
                     }
-                } 
+                }
                 sp.MakeWeaponsMove();
                 VideoService.Draw(sp.GetEntities(),sp.getWeapons());
                 vd.DrawPlayer(player);
@@ -54,7 +60,7 @@ public class Director
         }
     }
     static void SetTimer() {
-        timer = new System.Timers.Timer(15);
+        timer = new System.Timers.Timer(5);
 
         timer.Elapsed += OnTimedEvent;
         timer.AutoReset = true;
