@@ -27,31 +27,31 @@ public class ImageService
     public static Image SetEarthBGStartImage()
     {
         // Load Back Gound for Earth level
-        return LoadImage("Game/Images/bg/map3earthbg.png");
+        return LoadImage("Game/Images/bg/map1earthbg.png");
     }
 
     public static Image SetFireBGStartImage()
     {
         // Load Back Gound for Fire level
-        return LoadImage("Game/Images/bg/firebg.png");
+        return LoadImage("Game/Images/bg/map2waterbg.png");
     }
 
     public static Image SetAirBGStartImage()
     {
         // Load Back Gound for Air level
-        return LoadImage("Game/Images/bg/airbg.png");
+        return LoadImage("Game/Images/bg/map3airbg.png");
     }
 
     public static Image SetWaterBGStartImage()
     {
         // Load Back Gound for Water level
-        return LoadImage("Game/Images/bg/waterbg.png");
+        return LoadImage("Game/Images/bg/map4firebg.png");
     }
 
     public static Image SetShadowBGStartImage()
     {
         // Load Back Gound for Shadow level
-        return LoadImage("Game/Images/bg/shadowbg.png");
+        return LoadImage("Game/Images/bg/map5shadowbg.png");
     }
 
 
