@@ -59,7 +59,6 @@ public class SpawnDestory
                 enemyEarth.offsetW = 10;
                 enemyEarth.offsetH = 30;
                 enemyEarth.SetTexture(ImageService.SetEarthTwoStartImage());
-
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 earth enemy image file

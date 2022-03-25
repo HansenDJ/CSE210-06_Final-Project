@@ -13,7 +13,7 @@ public class Character
     public int offsetColliderHeight = 30;
     public int colliderBoxWidth = 0;
     public int colliderBoxHeight = 0;
-    // Width and height offsets for collider box from character image file
+    // Width and height offsets for collider box from image file
     public int offsetW = 0;
     public int offsetH = 0;
 
