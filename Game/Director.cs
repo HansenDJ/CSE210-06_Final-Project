@@ -23,6 +23,8 @@ public class Director
         player.SetPlayerXY(player);
         BackgroundService bg = new BackgroundService();
         bg.SetTexture(ImageService.SetEarthBGStartImage(),ImageService.SetEarthBGStartImage());
+        Coin coin = new Coin();
+        coin.SetTexture(ImageService.SetCoinGif());
         
         // // TEST
         // Random rnd = new Random();
@@ -51,6 +53,13 @@ public class Director
                 }
                 sp.EntityListLoop(player);
               
+                
+                sp.MakeWeaponsMove();
+                VideoService.Draw(sp.GetEntities(),sp.getWeapons(),player);
+                vd.DrawPlayer(player);
+                VideoService.DrawColliderBox(player);  // Draws collider box around player
+                vd.DrawCoinCount(coin);
+                
                 if (player.PlayerMoveKeys() == 1)
                 {
                     if (reloadTime >= 1200)
