@@ -34,12 +34,13 @@ public class BackgroundService
             x2 = 1920;
         }
     }
-    public void SetTexture(Image imagebg,Image imagebg2)
+    public void SetTexture(Image imagebg)
     {
         bg1Image = imagebg;
-        bg2Image = imagebg2;
         bg1Texture = LoadTextureFromImage(bg1Image);
-        bg2Texture = LoadTextureFromImage(bg2Image);
+        bg2Texture = LoadTextureFromImage(bg1Image);
     }
+
+   
 
 }

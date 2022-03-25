@@ -4,8 +4,15 @@ public static class DifficultyHandler
 {
     public static int difficultyHandler = 0;
     public static int enemyCount = 3;
+    public static int level = 1;
+    public static bool levelChange = false;
 
 
+    public static void LevelUp()
+    {
+        level += 1;
+        levelChange = true;
+    }
     public static void incrementHandler()
     {
         difficultyHandler += 1;

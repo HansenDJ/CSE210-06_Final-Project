@@ -48,8 +48,8 @@ public class VideoService
         {
             if (!weaponsToDraw[i].location)
             {
-                weaponsToDraw[i].SetX(player.x);
-                weaponsToDraw[i].SetY(player.y);
+                weaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
+                weaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
                 weaponsToDraw[i].location = true;
                 {
                     

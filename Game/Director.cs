@@ -22,7 +22,7 @@ public class Director
         player.SetPlayerStats();
         player.SetPlayerXY(player);
         BackgroundService bg = new BackgroundService();
-        bg.SetTexture(ImageService.SetEarthBGStartImage(),ImageService.SetEarthBGStartImage());
+        bg.SetTexture(ImageService.SetEarthBGStartImage());
         Coin coin = new Coin();
         coin.SetTexture(ImageService.SetCoinGif());
         
@@ -36,7 +36,26 @@ public class Director
             
             if (action)
             {
-                
+                if (DifficultyHandler.levelChange)
+                {
+                    DifficultyHandler.levelChange = false;
+                    switch (DifficultyHandler.level)
+                    {
+                        case 2:
+                            bg.SetTexture(ImageService.SetWaterBGStartImage());
+                            break;
+                        case 3:
+                            bg.SetTexture(ImageService.SetAirBGStartImage());
+                            break;
+                        case 4:
+                            bg.SetTexture(ImageService.SetFireBGStartImage());
+                            break;
+                        case 5:
+                            bg.SetTexture(ImageService.SetShadowBGStartImage());
+                            break;
+                    }
+                   
+                }
                 DifficultyHandler.incrementHandler();
                 // // TEST
                 // updateFrameTime = 20;
