@@ -30,8 +30,9 @@ public class Director
         while (!Raylib.WindowShouldClose())
         {
             
-            if (action) 
+            if (action)
             {
+                DifficultyHandler.incrementHandler();
                 // // TEST
                 // updateFrameTime = 20;
                 // VideoService.scrnWidth = rnd.Next(1000, 1401);
