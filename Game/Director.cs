@@ -21,6 +21,8 @@ public class Director
         player.SetTexture(ImageService.SetShipStartImage());
         player.SetPlayerStats();
         player.SetPlayerXY(player);
+        BackgroundService bg = new BackgroundService();
+        bg.SetTexture(ImageService.SetEarthBGStartImage(),ImageService.SetEarthBGStartImage());
         
         // // TEST
         // Random rnd = new Random();
@@ -32,6 +34,7 @@ public class Director
             
             if (action)
             {
+                
                 DifficultyHandler.incrementHandler();
                 // // TEST
                 // updateFrameTime = 20;
@@ -42,6 +45,7 @@ public class Director
 
                 reloadTime += 20;
                 Raylib.BeginDrawing();
+              
                 if (sp.CheckIfSpawnNeeded()) {
                     sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
                 }
@@ -56,7 +60,7 @@ public class Director
                     }
                 }
                 sp.MakeWeaponsMove();
-                VideoService.Draw(sp.GetEntities(),sp.getWeapons(), player);
+                VideoService.Draw(sp.GetEntities(),sp.getWeapons(), player,bg);
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
