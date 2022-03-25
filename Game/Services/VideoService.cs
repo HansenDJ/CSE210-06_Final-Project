@@ -18,25 +18,24 @@ public class VideoService
     // public static int scrnWidth = Convert.ToInt32(FullPrimaryScreenWidth);
     // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
-    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw,Player player,BackgroundService bg)
+    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw, Player player)
     {
-        DrawBackdrop(bg);
+        DrawBackdrop();
         DrawEntities(objectsToDraw,weaponsToDraw,player);
         DrawShip();
     }
 
-    private static void DrawBackdrop(BackgroundService bg)
+    private static void DrawBackdrop()
     {
         Raylib.ClearBackground(Raylib_cs.Color.BLACK);
-        DrawTexture(bg.bg1Texture,0,0,WHITE);
     }
 
-    /* QUESTION: Should end be -1 or not?
+    /* QUESTION: Should end condition for for loop be -1 or not?
     -------------------------------------
     -----------------------------------*/
-    private static void DrawEntities(List<Enemy> objectsToDraw,List<Weapon> weaponsToDraw,Player player)
+    private static void DrawEntities(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw, Player player)
     {
-        Console.WriteLine( "Object Count: " + objectsToDraw.Count().ToString() + "Weapon Count" + weaponsToDraw.Count().ToString());
+        Console.WriteLine("Object Count: " + objectsToDraw.Count().ToString() + "Weapon Count" + weaponsToDraw.Count().ToString());
         for (int i = 0; i < objectsToDraw.Count - 1; i++)
         {
             DrawEntity(objectsToDraw[i]);
@@ -46,8 +45,8 @@ public class VideoService
         {
             if (!weaponsToDraw[i].location)
             {
-                weaponsToDraw[i].SetX(player.x);
-                weaponsToDraw[i].SetY(player.y);
+                weaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
+                weaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
                 weaponsToDraw[i].location = true;
                 {
                     
@@ -87,6 +86,4 @@ public class VideoService
     {
         DrawRectangleLines(character.x + character.GetOffsetColliderWidth() / 2, character.y + character.GetOffsetColliderHeight() / 2, character.GetColliderBoxWidth(), character.GetColliderBoxHeight(), GREEN);
     }
-
-    
 }
