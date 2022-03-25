@@ -209,8 +209,12 @@ public class SpawnDestory
         {
             case '1':
                 Weapon _weapon = new Weapon();
-                _weapon.SetY(target.y);
-                _weapon.SetX(target.x);
+                _weapon.offsetW = 5;
+                _weapon.offsetW = 10;
+                _weapon.SetOffsetColliderWidth(_weapon.offsetW);
+                _weapon.SetOffsetColliderHeight(_weapon.offsetH);
+                _weapon.SetX(target.x + target.GetColliderBoxWidth());
+                _weapon.SetY(target.y + target.GetColliderBoxHeight() / 2);
                 _weapon.SetTexture(weapon);
                 WeaponList.Add(_weapon);
 

@@ -25,8 +25,8 @@ public class BackgroundService
 
     public void ServeBackgrounds()
     {
-        x1 -= 1;
-        x2 -= 1;
+        x1 -= 8;
+        x2 -= 8;
         if (x2 <= 0)
         {
             x1 = 0;

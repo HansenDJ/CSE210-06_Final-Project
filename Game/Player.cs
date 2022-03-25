@@ -16,7 +16,7 @@ public class Player : Character
     // SETS player constants
     public void SetPlayerStats()
     {
-        playerMovementSpeed = 1;    // Set default in the director
+        playerMovementSpeed = 15;    // Set default in the director
         playerHealth = 100;     // Set default in the director
         SetOffsetColliderWidth(offsetW);    // Width offset for player collider box
         SetOffsetColliderHeight(offsetH);   // Height offset for player collider box

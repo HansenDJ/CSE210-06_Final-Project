@@ -35,10 +35,16 @@ public class Director
       
         while (!Raylib.WindowShouldClose())
         {
-            
+            // Input
+            if (sp.CheckIfSpawnNeeded()) {
+                sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
+            }
+
+            // Updates
+            timer.Count();
             // if (action)
-            // {
-                timer.Count();
+            while(timer.CheckLagging())
+            {
                 if (DifficultyHandler.levelChange)
                 {
                     DifficultyHandler.levelChange = false;
@@ -67,30 +73,32 @@ public class Director
                 // Raylib.SetWindowSize(VideoService.scrnWidth, VideoService.scrnHeight);
                 // updateFrameTime = 5;
 
-                reloadTime += 20;
-                Raylib.BeginDrawing();
-                bg.ServeBackgrounds();
-                if (sp.CheckIfSpawnNeeded()) {
-                    sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
-                }
-                sp.EntityListLoop(player);
-                
                 if (player.PlayerMoveKeys() == 1)
                 {
-                    if (reloadTime >= 1200)
+                    if (reloadTime >= 200)
                     {
-                        sp.SpawnWeapon('1',player,ImageService.SetLaser1Image()) ;
+                        sp.SpawnWeapon('1',player,ImageService.SetLaser1Image());
                         reloadTime = 0;
                     }
                 }
+
+                reloadTime += 20;
+                sp.EntityListLoop(player);
+                
                 sp.MakeWeaponsMove();
+                
+                timer.RealTime();
+
+                // Output
+                Raylib.BeginDrawing();
+                bg.ServeBackgrounds();
                 VideoService.Draw(sp.GetEntities(),sp.getWeapons(), player,bg, coin);
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
                 Raylib.EndDrawing();
             //     action = false;
-            // }
+            }
             
         }
     }
