@@ -204,4 +204,100 @@ public class ImageService
         // Load Coin Icon for HUD. This is different than the coin icon for the player to pick up.
         return LoadImage("Game/Images/coin.png");
     }
+
+    public static Image exp000()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp000.png");
+    }
+
+    public static Image exp001()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp001.png");
+    }
+
+    public static Image exp002()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp002.png");
+    }
+
+    public static Image exp003()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp003.png");
+    }
+
+    public static Image exp004()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp004.png");
+    }
+
+    public static Image exp005()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp005.png");
+    }
+
+    public static Image exp006()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp006.png");
+    }
+
+    public static Image exp007()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp007.png");
+    }
+
+    public static Image exp008()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp008.png");
+    }
+
+    public static Image exp009()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp009.png");
+    }
+
+    public static Image exp010()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp010.png");
+    }
+
+    public static Image exp011()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp011.png");
+    }
+
+    public static Image exp012()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp012.png");
+    }
+
+    public static Image exp013()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp013.png");
+    }
+
+    public static Image exp014()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp014.png");
+    }
+
+    public static Image exp015()
+    {
+        // Load explosion Icon for images/explosion..
+        return LoadImage("Game/Images/explosion/exp015.png");
+    }
 }
