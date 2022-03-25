@@ -29,7 +29,7 @@ public class VideoService
     {
         Raylib.ClearBackground(Raylib_cs.Color.BLACK);
         DrawTexture(bg.bg1Texture,bg.x1,bg.y1,WHITE);
-        DrawTexture(bg.bg2Texture,bg.x1,bg.x2,WHITE);
+        DrawTexture(bg.bg2Texture,bg.x2,bg.y2,WHITE);
     }
 
     /* QUESTION: Should end be -1 or not?

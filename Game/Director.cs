@@ -47,7 +47,7 @@ public class Director
 
                 reloadTime += 20;
                 Raylib.BeginDrawing();
-              
+                bg.ServeBackgrounds();
                 if (sp.CheckIfSpawnNeeded()) {
                     sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
                 }
