@@ -45,247 +45,160 @@ public class SpawnDestory
 
     public void SpawnEarthEnemy(int enemyDifficulty)
     {
+        Enemy enemyEarth = new Enemy();
         switch (enemyDifficulty)
         {
             case 1:
-                Enemy enemyEarthOne = new Enemy();
-                // Width and height offsets for collider box from enemy image file
-                enemyEarthOne.offsetW = 10;
-                enemyEarthOne.offsetH = 30;
-                enemyEarthOne.SetOffsetColliderWidth(enemyEarthOne.offsetW);
-                enemyEarthOne.SetOffsetColliderHeight(enemyEarthOne.offsetH);
-                enemyEarthOne.SetY(rnd.Next(enemyEarthOne.GetImageHeight(), VideoService.scrnHeight - enemyEarthOne.GetColliderBoxHeight() * 2));
-                enemyEarthOne.SetX(1500);
-                enemyEarthOne.SetRandomMoveSpeed();
-                enemyEarthOne.SetTexture(ImageService.SetEarthOneStartImage());
-
-
-                entityList.Add(enemyEarthOne);
+                // Width and height offsets for collider box from lv 1 earth enemy image file
+                enemyEarth.offsetW = 10;
+                enemyEarth.offsetH = 30;
+                enemyEarth.SetTexture(ImageService.SetEarthOneStartImage());
                 break;
             case 2:
-                Enemy enemyEarthTwo = new Enemy();
-                 // Width and height offsets for collider box from enemy image file
-                enemyEarthTwo.offsetW = 10;
-                enemyEarthTwo.offsetH = 30;
-                enemyEarthTwo.SetOffsetColliderWidth(enemyEarthTwo.offsetW);
-                enemyEarthTwo.SetOffsetColliderHeight(enemyEarthTwo.offsetH);
-                enemyEarthTwo.SetY(rnd.Next(enemyEarthTwo.GetImageHeight(), VideoService.scrnHeight - enemyEarthTwo.GetImageHeight()));
-                enemyEarthTwo.SetX(1500);
-                enemyEarthTwo.SetRandomMoveSpeed();
-                enemyEarthTwo.SetTexture(ImageService.SetEarthTwoStartImage());
-
-                entityList.Add(enemyEarthTwo);
+                // Width and height offsets for collider box from lv 2 earth enemy image file
+                enemyEarth.offsetW = 10;
+                enemyEarth.offsetH = 30;
+                enemyEarth.SetTexture(ImageService.SetEarthTwoStartImage());
 
                 break;
             case 3:
-                Enemy enemyEarthThree = new Enemy();
-                // Width and height offsets for collider box from enemy image file
-                enemyEarthThree.offsetW = 10;
-                enemyEarthThree.offsetH = 30;
-                enemyEarthThree.SetOffsetColliderWidth(enemyEarthThree.offsetW);
-                enemyEarthThree.SetOffsetColliderHeight(enemyEarthThree.offsetH);
-                enemyEarthThree.SetY(rnd.Next(enemyEarthThree.GetImageHeight(), VideoService.scrnHeight - enemyEarthThree.GetImageHeight()));
-                enemyEarthThree.SetX(1500);
-                enemyEarthThree.SetRandomMoveSpeed();
-                enemyEarthThree.SetTexture(ImageService.SetEarthTwoStartImage());
-
-                entityList.Add(enemyEarthThree);
+                // Width and height offsets for collider box from lv 3 earth enemy image file
+                enemyEarth.offsetW = 10;
+                enemyEarth.offsetH = 30;
+                enemyEarth.SetTexture(ImageService.SetEarthThreeStartImage());
                 break;
         }
+        enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
+        enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
+        enemyEarth.SetY(rnd.Next(enemyEarth.GetImageHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
+        enemyEarth.SetX(1500);
+        enemyEarth.SetRandomMoveSpeed();
+        entityList.Add(enemyEarth);
     }
 
     public void SpawnWaterEnemy(int enemyDifficulty)
     {
+        Enemy enemyWater = new Enemy();
         switch (enemyDifficulty)
         {
             case 1:
-                Enemy enemyWaterOne = new Enemy();
-                // Width and height offsets for collider box from enemy image file
-                enemyWaterOne.offsetW = 10;
-                enemyWaterOne.offsetH = 30;
-                enemyWaterOne.SetOffsetColliderWidth(enemyWaterOne.offsetW);
-                enemyWaterOne.SetOffsetColliderHeight(enemyWaterOne.offsetH);
-                enemyWaterOne.SetY(rnd.Next(enemyWaterOne.GetImageHeight(), VideoService.scrnHeight - enemyWaterOne.GetColliderBoxHeight() * 2));
-                enemyWaterOne.SetX(1500);
-                enemyWaterOne.SetRandomMoveSpeed();
-                enemyWaterOne.SetTexture(ImageService.SetWaterOneStartImage());
-
-
-                entityList.Add(enemyWaterOne);
+                // Width and height offsets for collider box from lv 1 water enemy image file
+                enemyWater.offsetW = 10;
+                enemyWater.offsetH = 30;
+                enemyWater.SetTexture(ImageService.SetWaterOneStartImage());
                 break;
             case 2:
-                Enemy enemyWaterTwo = new Enemy();
-                enemyWaterTwo.offsetW = 10;
-                enemyWaterTwo.offsetH = 30;
-                enemyWaterTwo.SetOffsetColliderWidth(enemyWaterTwo.offsetW);
-                enemyWaterTwo.SetOffsetColliderHeight(enemyWaterTwo.offsetH);
-                enemyWaterTwo.SetY(rnd.Next(enemyWaterTwo.GetImageHeight(), VideoService.scrnHeight - enemyWaterTwo.GetImageHeight()));
-                enemyWaterTwo.SetX(1500);
-                enemyWaterTwo.SetRandomMoveSpeed();
-                enemyWaterTwo.SetTexture(ImageService.SetWaterTwoStartImage());
-
-                entityList.Add(enemyWaterTwo);
-
+                // Width and height offsets for collider box from lv 2 water enemy image file
+                enemyWater.offsetW = 10;
+                enemyWater.offsetH = 30;
+                enemyWater.SetTexture(ImageService.SetWaterTwoStartImage());
                 break;
             case 3:
-                Enemy enemyWaterThree = new Enemy();
-                enemyWaterThree.offsetW = 10;
-                enemyWaterThree.offsetH = 30;
-                enemyWaterThree.SetOffsetColliderWidth(enemyWaterThree.offsetW);
-                enemyWaterThree.SetOffsetColliderHeight(enemyWaterThree.offsetH);
-                enemyWaterThree.SetY(rnd.Next(enemyWaterThree.GetImageHeight(), VideoService.scrnHeight - enemyWaterThree.GetImageHeight()));
-                enemyWaterThree.SetX(1500);
-                enemyWaterThree.SetRandomMoveSpeed();
-                enemyWaterThree.SetTexture(ImageService.SetWaterThreeStartImage());
-
-                entityList.Add(enemyWaterThree);
+                // Width and height offsets for collider box from lv 3 water enemy image file
+                enemyWater.offsetW = 10;
+                enemyWater.offsetH = 30;
+                enemyWater.SetTexture(ImageService.SetWaterThreeStartImage());
                 break;
         }
+        enemyWater.SetOffsetColliderWidth(enemyWater.offsetW);
+        enemyWater.SetOffsetColliderHeight(enemyWater.offsetH);
+        enemyWater.SetY(rnd.Next(enemyWater.GetImageHeight(), VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2));
+        enemyWater.SetX(1500);
+        enemyWater.SetRandomMoveSpeed();
+        entityList.Add(enemyWater);
     }
     public void SpawnAirEnemy(int enemyDifficulty)
     {
+        Enemy enemyAir = new Enemy();
         switch (enemyDifficulty)
         {
             case 1:
-                Enemy enemyAirOne = new Enemy();
-                // Width and height offsets for collider box from enemy image file
-                enemyAirOne.offsetW = 10;
-                enemyAirOne.offsetH = 30;
-                enemyAirOne.SetOffsetColliderWidth(enemyAirOne.offsetW);
-                enemyAirOne.SetOffsetColliderHeight(enemyAirOne.offsetH);
-                enemyAirOne.SetY(rnd.Next(enemyAirOne.GetImageHeight(), VideoService.scrnHeight - enemyAirOne.GetColliderBoxHeight() * 2));
-                enemyAirOne.SetX(1500);
-                enemyAirOne.SetRandomMoveSpeed();
-                enemyAirOne.SetTexture(ImageService.SetAirOneStartImage());
-
-
-                entityList.Add(enemyAirOne);
+                // Width and height offsets for collider box from lv 1 air enemy image file
+                enemyAir.offsetW = 10;
+                enemyAir.offsetH = 30;
+                enemyAir.SetTexture(ImageService.SetAirOneStartImage());
                 break;
             case 2:
-                Enemy enemyAirTwo = new Enemy();
-                 // Width and height offsets for collider box from enemy image file
-                enemyAirTwo.offsetW = 10;
-                enemyAirTwo.offsetH = 30;
-                enemyAirTwo.SetOffsetColliderWidth(enemyAirTwo.offsetW);
-                enemyAirTwo.SetOffsetColliderHeight(enemyAirTwo.offsetH);
-                enemyAirTwo.SetY(rnd.Next(enemyAirTwo.GetImageHeight(), VideoService.scrnHeight - enemyAirTwo.GetImageHeight()));
-                enemyAirTwo.SetX(1500);
-                enemyAirTwo.SetRandomMoveSpeed();
-                enemyAirTwo.SetTexture(ImageService.SetAirTwoStartImage());
-
-                entityList.Add(enemyAirTwo);
-
+                // Width and height offsets for collider box from lv 2 air enemy image file
+                enemyAir.offsetW = 10;
+                enemyAir.offsetH = 30;
+                enemyAir.SetTexture(ImageService.SetAirTwoStartImage());
                 break;
             case 3:
-                Enemy enemyAirThree = new Enemy();
-                // Width and height offsets for collider box from enemy image file
-                enemyAirThree.offsetW = 10;
-                enemyAirThree.offsetH = 30;
-                enemyAirThree.SetOffsetColliderWidth(enemyAirThree.offsetW);
-                enemyAirThree.SetOffsetColliderHeight(enemyAirThree.offsetH);
-                enemyAirThree.SetY(rnd.Next(enemyAirThree.GetImageHeight(), VideoService.scrnHeight - enemyAirThree.GetImageHeight()));
-                enemyAirThree.SetX(1500);
-                enemyAirThree.SetRandomMoveSpeed();
-                enemyAirThree.SetTexture(ImageService.SetAirThreeStartImage());
-
-                entityList.Add(enemyAirThree);
+                // Width and height offsets for collider box from lv 3 air enemy image file
+                enemyAir.offsetW = 10;
+                enemyAir.offsetH = 30;
+                enemyAir.SetTexture(ImageService.SetAirThreeStartImage());
                 break;
         }
+        enemyAir.SetOffsetColliderWidth(enemyAir.offsetW);
+        enemyAir.SetOffsetColliderHeight(enemyAir.offsetH);
+        enemyAir.SetY(rnd.Next(enemyAir.GetImageHeight(), VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2));
+        enemyAir.SetX(1500);
+        enemyAir.SetRandomMoveSpeed();
+        entityList.Add(enemyAir);
     }
 
     public void SpawnFireEnemy(int enemyDifficulty)
     {
+        Enemy enemyFire = new Enemy();
         switch (enemyDifficulty)
         {
             case 1:
-                Enemy enemyFireOne = new Enemy();
-                // Width and height offsets for collider box from enemy image file
-                enemyFireOne.offsetW = 10;
-                enemyFireOne.offsetH = 30;
-                enemyFireOne.SetOffsetColliderWidth(enemyFireOne.offsetW);
-                enemyFireOne.SetOffsetColliderHeight(enemyFireOne.offsetH);
-                enemyFireOne.SetY(rnd.Next(enemyFireOne.GetImageHeight(), VideoService.scrnHeight - enemyFireOne.GetColliderBoxHeight() * 2));
-                enemyFireOne.SetX(1500);
-                enemyFireOne.SetRandomMoveSpeed();
-                enemyFireOne.SetTexture(ImageService.SetFireOneStartImage());
-
-
-                entityList.Add(enemyFireOne);
+                // Width and height offsets for collider box from lv 1 fire enemy image file
+                enemyFire.offsetW = 10;
+                enemyFire.offsetH = 30;
+                enemyFire.SetTexture(ImageService.SetFireOneStartImage());
                 break;
             case 2:
-                Enemy enemyFireTwo = new Enemy();
-                enemyFireTwo.offsetW = 10;
-                enemyFireTwo.offsetH = 30;
-                enemyFireTwo.SetOffsetColliderHeight(enemyFireTwo.offsetH);
-                enemyFireTwo.SetY(rnd.Next(enemyFireTwo.GetImageHeight(), VideoService.scrnHeight - enemyFireTwo.GetImageHeight()));
-                enemyFireTwo.SetX(1500);
-                enemyFireTwo.SetRandomMoveSpeed();
-                enemyFireTwo.SetTexture(ImageService.SetFireTwoStartImage());
-
-                entityList.Add(enemyFireTwo);
-
+                // Width and height offsets for collider box from lv 2 fire enemy image file
+                enemyFire.offsetW = 10;
+                enemyFire.offsetH = 30;
+                enemyFire.SetTexture(ImageService.SetFireTwoStartImage());
                 break;
             case 3:
-                Enemy enemyFireThree = new Enemy();
-                enemyFireThree.offsetW = 10;
-                enemyFireThree.offsetH = 30;
-                enemyFireThree.SetOffsetColliderWidth(enemyFireThree.offsetW);
-                enemyFireThree.SetOffsetColliderHeight(enemyFireThree.offsetH);
-                enemyFireThree.SetY(rnd.Next(enemyFireThree.GetImageHeight(), VideoService.scrnHeight - enemyFireThree.GetImageHeight()));
-                enemyFireThree.SetX(1500);
-                enemyFireThree.SetRandomMoveSpeed();
-                enemyFireThree.SetTexture(ImageService.SetFireThreeStartImage());
-
-                entityList.Add(enemyFireThree);
+                enemyFire.offsetW = 10;
+                enemyFire.offsetH = 30;
+                enemyFire.SetTexture(ImageService.SetFireThreeStartImage());
                 break;
         }
+        enemyFire.SetOffsetColliderWidth(enemyFire.offsetW);
+        enemyFire.SetOffsetColliderHeight(enemyFire.offsetH);
+        enemyFire.SetY(rnd.Next(enemyFire.GetImageHeight(), VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2));
+        enemyFire.SetX(1500);
+        enemyFire.SetRandomMoveSpeed();
+        entityList.Add(enemyFire);
     }
-       public void SpawnShadowEnemy(int enemyDifficulty)
+    public void SpawnShadowEnemy(int enemyDifficulty)
     {
+        Enemy enemyShadow = new Enemy();
         switch (enemyDifficulty)
         {
             case 1:
-                Enemy enemyShadowOne = new Enemy();
-                // Width and height offsets for collider box from enemy image file
-                enemyShadowOne.offsetW = 10;
-                enemyShadowOne.offsetH = 30;
-                enemyShadowOne.SetOffsetColliderWidth(enemyShadowOne.offsetW);
-                enemyShadowOne.SetOffsetColliderHeight(enemyShadowOne.offsetH);
-                enemyShadowOne.SetY(rnd.Next(enemyShadowOne.GetImageHeight(), VideoService.scrnHeight - enemyShadowOne.GetColliderBoxHeight() * 2));
-                enemyShadowOne.SetX(1500);
-                enemyShadowOne.SetRandomMoveSpeed();
-                enemyShadowOne.SetTexture(ImageService.SetShadowOneStartImage());
-
-
-                entityList.Add(enemyShadowOne);
+                // Width and height offsets for collider box from lv 1 shadow enemy image file
+                enemyShadow.offsetW = 10;
+                enemyShadow.offsetH = 30;
+                enemyShadow.SetTexture(ImageService.SetShadowOneStartImage());
                 break;
             case 2:
-                Enemy enemyShadowTwo = new Enemy();
-                enemyShadowTwo.offsetW = 10;
-                enemyShadowTwo.offsetH = 30;
-                enemyShadowTwo.SetOffsetColliderHeight(enemyShadowTwo.offsetH);
-                enemyShadowTwo.SetY(rnd.Next(enemyShadowTwo.GetImageHeight(), VideoService.scrnHeight - enemyShadowTwo.GetImageHeight()));
-                enemyShadowTwo.SetX(1500);
-                enemyShadowTwo.SetRandomMoveSpeed();
-                enemyShadowTwo.SetTexture(ImageService.SetShadowTwoStartImage());
-
-                entityList.Add(enemyShadowTwo);
-
+                // Width and height offsets for collider box from lv 2 shadow enemy image file
+                enemyShadow.offsetW = 10;
+                enemyShadow.offsetH = 30;
+                enemyShadow.SetTexture(ImageService.SetShadowTwoStartImage());
                 break;
             case 3:
-                Enemy enemyShadowThree = new Enemy();
-                enemyShadowThree.offsetW = 10;
-                enemyShadowThree.offsetH = 30;
-                enemyShadowThree.SetOffsetColliderWidth(enemyShadowThree.offsetW);
-                enemyShadowThree.SetOffsetColliderHeight(enemyShadowThree.offsetH);
-                enemyShadowThree.SetY(rnd.Next(enemyShadowThree.GetImageHeight(), VideoService.scrnHeight - enemyShadowThree.GetImageHeight()));
-                enemyShadowThree.SetX(1500);
-                enemyShadowThree.SetRandomMoveSpeed();
-                enemyShadowThree.SetTexture(ImageService.SetShadowThreeStartImage());
-
-                entityList.Add(enemyShadowThree);
+                // Width and height offsets for collider box from lv 3 shadow enemy image file
+                enemyShadow.offsetW = 10;
+                enemyShadow.offsetH = 30;
+                enemyShadow.SetTexture(ImageService.SetShadowThreeStartImage());
                 break;
         }
+        enemyShadow.SetOffsetColliderWidth(enemyShadow.offsetW);
+        enemyShadow.SetOffsetColliderHeight(enemyShadow.offsetH);
+        enemyShadow.SetY(rnd.Next(enemyShadow.GetImageHeight(), VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2));
+        enemyShadow.SetX(1500);
+        enemyShadow.SetRandomMoveSpeed();
+        entityList.Add(enemyShadow);
     }
 
 
@@ -317,7 +230,7 @@ public class SpawnDestory
         return (maxEnemies - (entityList.Count - 1) > 0);
     }
 
-    // Create a list of the artifacts on the screen
+    // Create a list of the enemies on the screen
     public List<Enemy> GetEntities()
     {
         return entityList;
