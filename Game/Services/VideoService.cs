@@ -28,7 +28,8 @@ public class VideoService
     private static void DrawBackdrop(BackgroundService bg)
     {
         Raylib.ClearBackground(Raylib_cs.Color.BLACK);
-        DrawTexture(bg.bg1Texture,0,0,WHITE);
+        DrawTexture(bg.bg1Texture,bg.x1,bg.y1,WHITE);
+        DrawTexture(bg.bg2Texture,bg.x1,bg.x2,WHITE);
     }
 
     /* QUESTION: Should end be -1 or not?

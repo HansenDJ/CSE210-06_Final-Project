@@ -27,7 +27,7 @@ public class ImageService
     public static Image SetEarthBGStartImage()
     {
         // Load Back Gound for Earth level
-        return LoadImage("Game/Images/bg/earthbg.png");
+        return LoadImage("Game/Images/bg/map3earthbg.png");
     }
 
     public static Image SetFireBGStartImage()

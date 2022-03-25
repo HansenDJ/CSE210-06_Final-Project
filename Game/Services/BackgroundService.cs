@@ -10,7 +10,7 @@ public class BackgroundService
     public Texture2D bg1Texture;
     public Texture2D bg2Texture;
     public int x1 = 0;
-    public int x2 = 0;
+    public int x2 = 1920;
     public int y1 = 0;
     public int y2 = 0;
 
@@ -22,6 +22,16 @@ public class BackgroundService
     public void Setbg2()
     {
         
+    }
+
+    public void ServeBackgrounds()
+    {
+        x1 += 1;
+        x2 += 1;
+        if (x2 == 0)
+        {
+            
+        }
     }
     public void SetTexture(Image imagebg,Image imagebg2)
     {
