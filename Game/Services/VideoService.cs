@@ -18,9 +18,10 @@ public class VideoService
     // public static int scrnWidth = Convert.ToInt32(FullPrimaryScreenWidth);
     // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
-    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw,Player player,BackgroundService bg)
+    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw,Player player,BackgroundService bg, Coin coin)
     {
         DrawBackdrop(bg);
+        DrawCoinCount(coin);
         DrawEntities(objectsToDraw,weaponsToDraw,player);
         DrawShip();
     }
@@ -75,7 +76,7 @@ public class VideoService
         DrawTexture(player.charTexture, player.x, player.y, WHITE);
     }
 
-    public void DrawCoinCount(Coin coin)
+    public static void DrawCoinCount(Coin coin)
     {
         Raylib.DrawText("coincount", 1250,22,20,WHITE);
          DrawTexture(coin.charTexture,1220,20,WHITE);
