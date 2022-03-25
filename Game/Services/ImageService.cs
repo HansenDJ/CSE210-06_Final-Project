@@ -198,4 +198,10 @@ public class ImageService
         // Load Coin Icon for HUD. This is different than the coin icon for the player to pick up.
         return LoadImage("Game/Images/lasers/laser1.png");
     }
+
+    public static Image SetCoinGif()
+    {
+        // Load Coin Icon for HUD. This is different than the coin icon for the player to pick up.
+        return LoadImage("Game/Images/coin.png");
+    }
 }

@@ -21,6 +21,8 @@ public class Director
         player.SetTexture(ImageService.SetShipStartImage());
         player.SetPlayerStats();
         player.SetPlayerXY(player);
+        Coin coin = new Coin();
+        coin.SetTexture(ImageService.SetCoinGif());
         
         // // TEST
         // Random rnd = new Random();
@@ -51,6 +53,7 @@ public class Director
                 VideoService.Draw(sp.GetEntities(),sp.getWeapons(),player);
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
+                vd.DrawCoinCount(coin);
                 
                 if (player.PlayerMoveKeys() == 1)
                 {
