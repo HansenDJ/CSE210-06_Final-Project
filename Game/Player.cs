@@ -8,16 +8,16 @@ public class Player : Character
     // Player constants
     public static int playerMovementSpeed = 0;
     public static int playerHealth = 0;
-    private int offsetW = 10;
-    private int offsetH = 30;
+    private int offsetW = 18;
+    private int offsetH = 14;
    
     
 
     // SETS player constants
     public void SetPlayerStats()
     {
-        playerMovementSpeed = 15;    // Set default in the director
-        playerHealth = 100;     // Set default in the director
+        playerMovementSpeed = 15;
+        playerHealth = 100;
         SetOffsetColliderWidth(offsetW);    // Width offset for player collider box
         SetOffsetColliderHeight(offsetH);   // Height offset for player collider box
     }

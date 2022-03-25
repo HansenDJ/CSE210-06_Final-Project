@@ -35,12 +35,12 @@ public class Director
       
         while (!Raylib.WindowShouldClose())
         {
-            // Input
+            // INPUT
             if (sp.CheckIfSpawnNeeded()) {
                 sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
             }
 
-            // Updates
+            // UPDATES
             timer.Count();
             // if (action)
             while(timer.CheckLagging())
@@ -89,7 +89,7 @@ public class Director
                 
                 timer.RealTime();
 
-                // Output
+                // OUTPUT
                 Raylib.BeginDrawing();
                 bg.ServeBackgrounds();
                 VideoService.Draw(sp.GetEntities(),sp.getWeapons(), player,bg, coin);

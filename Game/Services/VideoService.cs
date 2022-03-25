@@ -33,12 +33,9 @@ public class VideoService
         DrawTexture(bg.bg2Texture,bg.x2,bg.y2,WHITE);
     }
 
-    /* QUESTION: Should end be -1 or not?
-    -------------------------------------
-    -----------------------------------*/
     private static void DrawEntities(List<Enemy> objectsToDraw,List<Weapon> weaponsToDraw,Player player)
     {
-        Console.WriteLine( "Object Count: " + objectsToDraw.Count().ToString() + "Weapon Count" + weaponsToDraw.Count().ToString());
+        Console.WriteLine( "Object Count: " + objectsToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
         for (int i = 0; i < objectsToDraw.Count - 1; i++)
         {
             DrawEntity(objectsToDraw[i]);
