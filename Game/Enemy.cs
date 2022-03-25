@@ -14,7 +14,7 @@ public class Enemy : Character
         health = hp;
     }
     public void SetRandomMoveSpeed() {
-        moveSpeed = rnd.Next(2, 4);
+        moveSpeed = rnd.Next(3, 5);
     }
     public void MoveEntity()
     {

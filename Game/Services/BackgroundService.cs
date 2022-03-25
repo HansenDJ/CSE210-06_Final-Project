@@ -26,11 +26,12 @@ public class BackgroundService
 
     public void ServeBackgrounds()
     {
-        x1 += 1;
-        x2 += 1;
-        if (x2 == 0)
+        x1 -= 2;
+        x2 -= 2;
+        if (x2 <= 0)
         {
-            
+            x1 = 0;
+            x2 = 1920;
         }
     }
     public void SetTexture(Image imagebg,Image imagebg2)
