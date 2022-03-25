@@ -6,16 +6,18 @@ namespace generalNamespace;
 
 public class Director
 {
-    private static System.Timers.Timer timer;
+    // private static System.Timers.Timer timer;
     // Number of milliseconds between frames
-    int updateFrameTime = 5;
+    // int updateFrameTime = 5;
+    
     private static int reloadTime = 0;
     static bool action = false;
     public void StartGame()
     {
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
-        SetTimer(updateFrameTime);
-        VideoService vd= new();
+        Timer timer = new();
+        // SetTimer(updateFrameTime);
+        VideoService vd = new();
         Player player = new();
         SpawnDestory sp = new SpawnDestory();
         player.SetTexture(ImageService.SetShipStartImage());
@@ -36,6 +38,7 @@ public class Director
             
             if (action)
             {
+                timer.Count();
                 if (DifficultyHandler.levelChange)
                 {
                     DifficultyHandler.levelChange = false;
@@ -92,16 +95,16 @@ public class Director
         }
     }
 
-    // Change updateFrameTime variable above to change number of milliseconds between frames
-    static void SetTimer(int frameTime) {
-        timer = new System.Timers.Timer(frameTime);
+    // // Change updateFrameTime variable above to change number of milliseconds between frames
+    // static void SetTimer(int frameTime) {
+    //     timer = new System.Timers.Timer(frameTime);
 
-        timer.Elapsed += OnTimedEvent;
-        timer.AutoReset = true;
-        timer.Enabled = true;
-    }
+    //     timer.Elapsed += OnTimedEvent;
+    //     timer.AutoReset = true;
+    //     timer.Enabled = true;
+    // }
 
-    static void OnTimedEvent(Object source, ElapsedEventArgs e) {
-        action = true;
-    }
+    // static void OnTimedEvent(Object source, ElapsedEventArgs e) {
+    //     action = true;
+    // }
 }

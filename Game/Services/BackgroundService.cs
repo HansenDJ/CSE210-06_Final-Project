@@ -1,5 +1,4 @@
 using Raylib_cs;
-using Raylib_cs;
 using static Raylib_cs.Raylib;
 namespace generalNamespace;
 
@@ -26,8 +25,8 @@ public class BackgroundService
 
     public void ServeBackgrounds()
     {
-        x1 -= 2;
-        x2 -= 2;
+        x1 -= 1;
+        x2 -= 1;
         if (x2 <= 0)
         {
             x1 = 0;
