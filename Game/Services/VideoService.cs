@@ -75,9 +75,10 @@ public class VideoService
         DrawTexture(player.charTexture, player.x, player.y, WHITE);
     }
 
-    public void DrawCoinCount()
+    public void DrawCoinCount(Coin coin)
     {
-
+        Raylib.DrawText("coincount", 1250,22,20,WHITE);
+         DrawTexture(coin.charTexture,1220,20,WHITE);
     }
     public void DrawHeartCount()
     {
