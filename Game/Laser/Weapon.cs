@@ -4,7 +4,7 @@ public class Weapon : Character
 
 {
     public Character owner;
-    public int speed = 15;
+    public int speed = 5;
     public bool location = false;
     public int strength = 5;
     
