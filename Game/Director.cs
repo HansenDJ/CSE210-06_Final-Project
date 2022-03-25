@@ -27,9 +27,6 @@ public class Director
         bg.SetTexture(ImageService.SetEarthBGStartImage());
         Coin coin = new Coin();
         coin.SetTexture(ImageService.SetCoinGif());
-        
-        // // TEST
-        // Random rnd = new Random();
 
        
       
@@ -37,7 +34,7 @@ public class Director
         {
             // INPUT
             if (sp.CheckIfSpawnNeeded()) {
-                sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
+                sp.SpawnEnemy(1);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
             }
 
             // UPDATES
@@ -66,12 +63,6 @@ public class Director
                    
                 }
                 DifficultyHandler.incrementHandler();
-                // // TEST
-                // updateFrameTime = 20;
-                // VideoService.scrnWidth = rnd.Next(1000, 1401);
-                // VideoService.scrnHeight = rnd.Next(600, 851);
-                // Raylib.SetWindowSize(VideoService.scrnWidth, VideoService.scrnHeight);
-                // updateFrameTime = 5;
 
                 if (player.PlayerMoveKeys() == 1)
                 {
