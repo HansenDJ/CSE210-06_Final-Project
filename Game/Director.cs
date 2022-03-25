@@ -51,12 +51,6 @@ public class Director
                 }
                 sp.EntityListLoop(player);
               
-                
-                sp.MakeWeaponsMove();
-                VideoService.Draw(sp.GetEntities(),sp.getWeapons(),player,bg);
-                vd.DrawPlayer(player);
-                VideoService.DrawColliderBox(player);  // Draws collider box around player
-                
                 if (player.PlayerMoveKeys() == 1)
                 {
                     if (reloadTime >= 1200)
