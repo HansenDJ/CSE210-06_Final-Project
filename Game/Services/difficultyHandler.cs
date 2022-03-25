@@ -2,20 +2,26 @@ namespace generalNamespace;
 
 public static class DifficultyHandler
 {
-    public static float difficulty = 3F;
+    public static int difficultyHandler = 0;
     public static int enemyCount = 3;
-    
-  
 
+
+    public static void incrementHandler()
+    {
+        difficultyHandler += 1;
+        if (difficultyHandler == 4000)
+        {
+            difficultyHandler = 0;
+            IncreaseDifficulty();
+        }
+    }
    public static void IncreaseDifficulty()
    {
-       difficulty += 1;
        enemyCount += 1;
    }
    public enum Level 
    {
-       VeryEasy,
-       Easy,
+       
        Level1,
        Level2,
        Level3,

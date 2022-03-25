@@ -7,6 +7,8 @@ public class Weapon : Character
     public int speed = 5;
     public bool location = false;
     public int strength = 5;
+    
+    
 
     public void setStrength(int s)
     {
