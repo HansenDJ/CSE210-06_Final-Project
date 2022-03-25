@@ -11,7 +11,7 @@ public class Director
     // int updateFrameTime = 5;
     
     private static int reloadTime = 0;
-    static bool action = false;
+    // static bool action = false;
     public void StartGame()
     {
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
@@ -36,8 +36,8 @@ public class Director
         while (!Raylib.WindowShouldClose())
         {
             
-            if (action)
-            {
+            // if (action)
+            // {
                 timer.Count();
                 if (DifficultyHandler.levelChange)
                 {
@@ -89,8 +89,8 @@ public class Director
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
                 Raylib.EndDrawing();
-                action = false;
-            }
+            //     action = false;
+            // }
             
         }
     }
