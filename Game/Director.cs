@@ -23,6 +23,8 @@ public class Director
         player.SetPlayerXY(player);
         BackgroundService bg = new BackgroundService();
         bg.SetTexture(ImageService.SetEarthBGStartImage(),ImageService.SetEarthBGStartImage());
+        Coin coin = new Coin();
+        coin.SetTexture(ImageService.SetCoinGif());
         
         // // TEST
         // Random rnd = new Random();
@@ -45,12 +47,12 @@ public class Director
 
                 reloadTime += 20;
                 Raylib.BeginDrawing();
-              
+                bg.ServeBackgrounds();
                 if (sp.CheckIfSpawnNeeded()) {
                     sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
                 }
                 sp.EntityListLoop(player);
-              
+                
                 if (player.PlayerMoveKeys() == 1)
                 {
                     if (reloadTime >= 1200)
