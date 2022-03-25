@@ -52,13 +52,6 @@ public class Director
                     sp.SpawnEnemy(4);     // Create method in Level.cs to choose which enemy to spawn based on level number
                 }
                 sp.EntityListLoop(player);
-              
-                
-                sp.MakeWeaponsMove();
-                VideoService.Draw(sp.GetEntities(),sp.getWeapons(),player);
-                vd.DrawPlayer(player);
-                VideoService.DrawColliderBox(player);  // Draws collider box around player
-                vd.DrawCoinCount(coin);
                 
                 if (player.PlayerMoveKeys() == 1)
                 {
