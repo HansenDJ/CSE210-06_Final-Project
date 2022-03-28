@@ -14,6 +14,7 @@ public class SpawnDestory
 
     public List<Enemy> entityList = new();
     public List<Weapon> WeaponList = new();
+    public List<Weapon> EnemyWeaponsList = new();
     public int maxEnemies = 5;
 
     // Level 1 enemy collider box width and height offsets
@@ -148,6 +149,7 @@ public class SpawnDestory
         entityList.Add(enemyAir);
     }
 
+    
     public void SpawnFireEnemy(int enemyDifficulty)
     {
         Enemy enemyFire = new Enemy();
@@ -248,13 +250,33 @@ public class SpawnDestory
         return WeaponList;
     }
 
+    public List<Weapon> getEnemyWeapons()
+    {
+        return EnemyWeaponsList;
+    }
+
     // Loop through all the enemies on the screen inside the entityList
     public void EntityListLoop(Player player)
     {
         for (int i = 0; i < entityList.Count - 1; i++)
         {
             OnCollisionAction(player, i);
-
+            if (entityList[i].y - player.y < 100)
+            {
+                Random rnd = new Random();
+                int chance = rnd.Next(1, 100);
+                if (chance > 95)
+                {
+                    Weapon _EnemyWeapon = new Weapon();
+                    _EnemyWeapon.speed = 10;
+                    _EnemyWeapon.SetTexture(ImageService.SetLazers3());
+                    _EnemyWeapon.x = entityList[i].x;
+                    _EnemyWeapon.y = entityList[i].y;
+                    EnemyWeaponsList.Add(_EnemyWeapon);
+                }
+             
+              
+            }
             MakeEntitiesMove(i);
         }
     }
@@ -286,6 +308,37 @@ public class SpawnDestory
         }
 
     }
+    public void MakeEnemyWeaponsMove(Player player)
+    {
+        for (int index = 0; index < EnemyWeaponsList.Count; index++)
+        {
+            EnemyWeaponsList[index].MoveWeaponLeft();
+            
+                if (collisionDetection.CheckCollision(player, EnemyWeaponsList[index]))
+                {
+                //    OnCollisionActionEnemyWeapon(player, WeaponList[index],index);
+                }
+                if (EnemyWeaponsList[index].x < -50 || EnemyWeaponsList[index].x > 1450)
+            {
+               EnemyWeaponsList.RemoveAt(index);
+            }
+        }
+
+    }
+
+    public void OnCollisionActionEnemyWeapon(Player player, Weapon weapon, int index)
+    {
+        if (collisionDetection.CheckCollision(player, weapon))
+        {
+            Director.playerHealth -= 5;
+            if (Director.playerHealth <= 0)
+            {
+                Console.WriteLine("Died");
+            }
+            EnemyWeaponsList.RemoveAt(index);
+        }
+    }
+
     public void OnCollisionActionWeapon(Enemy player, Weapon weapon, int enemyIndex, int weaponIndex)
     {
         if (collisionDetection.CheckCollision(player, weapon))

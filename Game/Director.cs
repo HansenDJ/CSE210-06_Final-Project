@@ -9,12 +9,13 @@ public class Director
     // private static System.Timers.Timer timer;
     // Number of milliseconds between frames
     // int updateFrameTime = 5;
-    
+    public static int playerHealth = 50;
     private static int reloadTime = 0;
     // static bool action = false;
     public void StartGame()
     {
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
+        ExplosionService.LoadAnimation();
         Timer timer = new();
         // SetTimer(updateFrameTime);
         VideoService vd = new();
@@ -27,9 +28,10 @@ public class Director
         bg.SetTexture(ImageService.SetEarthBGStartImage());
         Coin coin = new Coin();
         coin.SetTexture(ImageService.SetCoinGif());
-
        
-      
+
+
+
         while (!Raylib.WindowShouldClose())
         {
             // INPUT
@@ -77,13 +79,14 @@ public class Director
                 sp.EntityListLoop(player);
                 
                 sp.MakeWeaponsMove();
+                sp.MakeEnemyWeaponsMove(player);
                 
                 timer.RealTime();
 
                 // OUTPUT
                 Raylib.BeginDrawing();
                 bg.ServeBackgrounds();
-                VideoService.Draw(sp.GetEntities(),sp.getWeapons(), player,bg, coin);
+                VideoService.Draw(sp.GetEntities(),sp.getWeapons(), player,bg, coin,sp.getEnemyWeapons());
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets

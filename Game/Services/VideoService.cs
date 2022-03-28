@@ -18,11 +18,11 @@ public class VideoService
     // public static int scrnWidth = Convert.ToInt32(FullPrimaryScreenWidth);
     // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
-    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw,Player player,BackgroundService bg, Coin coin)
+    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw,Player player,BackgroundService bg, Coin coin,List<Weapon> EnemyWeaponsToDraw)
     {
         DrawBackdrop(bg);
         DrawCoinCount(coin);
-        DrawEntities(objectsToDraw,weaponsToDraw,player);
+        DrawEntities(objectsToDraw,weaponsToDraw,player,EnemyWeaponsToDraw);
         DrawShip();
     }
 
@@ -33,7 +33,7 @@ public class VideoService
         DrawTexture(bg.bg2Texture,bg.x2,bg.y2,WHITE);
     }
 
-    private static void DrawEntities(List<Enemy> objectsToDraw,List<Weapon> weaponsToDraw,Player player)
+    private static void DrawEntities(List<Enemy> objectsToDraw,List<Weapon> weaponsToDraw,Player player,List<Weapon> EnemyWeaponsToDraw)
     {
         Console.WriteLine( "Object Count: " + objectsToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
         for (int i = 0; i < objectsToDraw.Count - 1; i++)
@@ -59,6 +59,22 @@ public class VideoService
             DrawEntity(weaponsToDraw[i]);
             DrawColliderBox(weaponsToDraw[i]);
         }
+        for (int i = 0; i < EnemyWeaponsToDraw.Count - 1; i++)
+        {
+           // if (!EnemyWeaponsToDraw[i].location)
+           // {
+                //EnemyWeaponsToDraw[i].offsetW = 5;
+              //  EnemyWeaponsToDraw[i].offsetW = 10;
+              //  EnemyWeaponsToDraw[i].SetOffsetColliderWidth(player.offsetW);
+              //  EnemyWeaponsToDraw[i].SetOffsetColliderHeight(player.offsetH);
+              //  EnemyWeaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
+             //  EnemyWeaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
+             //   EnemyWeaponsToDraw[i].location = true;
+              
+           // }
+            DrawEntity(EnemyWeaponsToDraw[i]);
+            DrawColliderBox(EnemyWeaponsToDraw[i]);
+        }
     }
     
     public static void DrawEntity(Character entity) // draws an artifact
@@ -73,7 +89,7 @@ public class VideoService
 
     public void DrawPlayer(Player player)
     {
-        
+        DrawTexture(player.charTexture, player.x, player.y, WHITE);
         DrawTexture(player.charTexture, player.x, player.y, WHITE);
     }
 

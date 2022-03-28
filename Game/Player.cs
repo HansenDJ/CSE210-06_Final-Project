@@ -19,6 +19,7 @@ public class Player : Character
     public static char moveDirectionlr = 's';
     public static int moveIncrementL = 0;
     public static int moveIncrementR = 0;
+    
    
     
 
