@@ -9,7 +9,6 @@ namespace generalNamespace;
 public class SpawnDestory
 {
     Random rnd = new Random();
-    VideoService vd = new VideoService();
     CollisionDetection collisionDetection = new CollisionDetection();
 
     public List<Enemy> entityList = new();
