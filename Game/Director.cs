@@ -18,6 +18,7 @@ public class Director
         Timer timer = new();
         // SetTimer(updateFrameTime);
         VideoService vd = new();
+        // AudioService audioService = new();
         Player player = new();
         SpawnDestory sp = new SpawnDestory();
         player.SetTexture(ImageService.SetShipStartImage());
@@ -27,7 +28,6 @@ public class Director
         bg.SetTexture(ImageService.SetEarthBGStartImage());
         Coin coin = new Coin();
         coin.SetTexture(ImageService.SetCoinGif());
-
        
       
         while (!Raylib.WindowShouldClose())
@@ -36,6 +36,7 @@ public class Director
             if (sp.CheckIfSpawnNeeded()) {
                 sp.SpawnEnemy(1);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
             }
+            // audioService.LoadAudio(audioService.soundBattleLv1);
 
             // UPDATES
             timer.Count();
@@ -92,6 +93,8 @@ public class Director
             }
             
         }
+        // audioService.UnloadAudio(audioService.soundBattleLv1);
+        // audioService.CloseAudio();
     }
 
     // // Change updateFrameTime variable above to change number of milliseconds between frames
