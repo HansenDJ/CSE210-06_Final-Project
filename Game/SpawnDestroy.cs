@@ -310,13 +310,13 @@ public class SpawnDestory
     }
     public void MakeEnemyWeaponsMove(Player player)
     {
-        for (int index = 0; index < EnemyWeaponsList.Count; index++)
+        for (int index = 0; index < EnemyWeaponsList.Count - 1; index++)
         {
             EnemyWeaponsList[index].MoveWeaponLeft();
             
                 if (collisionDetection.CheckCollision(player, EnemyWeaponsList[index]))
                 {
-                //    OnCollisionActionEnemyWeapon(player, WeaponList[index],index);
+                    OnCollisionActionEnemyWeapon(player, EnemyWeaponsList[index],index);
                 }
                 if (EnemyWeaponsList[index].x < -50 || EnemyWeaponsList[index].x > 1450)
             {
