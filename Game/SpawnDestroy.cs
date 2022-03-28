@@ -339,9 +339,9 @@ public class SpawnDestory
         }
     }
 
-    public void OnCollisionActionWeapon(Enemy player, Weapon weapon, int enemyIndex, int weaponIndex)
+    public void OnCollisionActionWeapon(Enemy enemy, Weapon weapon, int enemyIndex, int weaponIndex)
     {
-        if (collisionDetection.CheckCollision(player, weapon))
+        if (collisionDetection.CheckCollision(enemy, weapon))
         {
             entityList[enemyIndex].health -= weapon.strength;
             if (entityList[enemyIndex].health <= 0)
