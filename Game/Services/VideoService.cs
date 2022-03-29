@@ -62,17 +62,17 @@ public class VideoService
         }
         for (int i = 0; i < EnemyWeaponsToDraw.Count - 1; i++)
         {
-           // if (!EnemyWeaponsToDraw[i].location)
-           // {
-                //EnemyWeaponsToDraw[i].offsetW = 5;
-              //  EnemyWeaponsToDraw[i].offsetW = 10;
-              //  EnemyWeaponsToDraw[i].SetOffsetColliderWidth(player.offsetW);
-              //  EnemyWeaponsToDraw[i].SetOffsetColliderHeight(player.offsetH);
-              //  EnemyWeaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
-             //  EnemyWeaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
-             //   EnemyWeaponsToDraw[i].location = true;
+           if (!EnemyWeaponsToDraw[i].location)
+           {
+                EnemyWeaponsToDraw[i].offsetW = 5;
+                EnemyWeaponsToDraw[i].offsetW = 10;
+                EnemyWeaponsToDraw[i].SetOffsetColliderWidth(player.offsetW);
+                EnemyWeaponsToDraw[i].SetOffsetColliderHeight(player.offsetH);
+                EnemyWeaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
+                EnemyWeaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
+                EnemyWeaponsToDraw[i].location = true;
               
-           // }
+           }
             DrawEnemy(EnemyWeaponsToDraw[i]);
             DrawColliderBox(EnemyWeaponsToDraw[i]);
         }
