@@ -13,7 +13,7 @@ public class Enemy : Character
     // Max laser spawn delay
     public int laserMaxCount = 600;
 
-    public int leveofenemy = 0;
+    public int levelOfEnemy = 0;
 
     public void setHealth(int hp)
     {
