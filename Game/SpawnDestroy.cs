@@ -333,8 +333,8 @@ public class SpawnDestory
     {
         if (collisionDetection.CheckCollision(player, weapon))
         {
-            Playerstats.playerHealth -= 5;
-            if (Playerstats.playerHealth <= 0)
+            PlayerStats.playerHealth -= 5;
+            if (PlayerStats.playerHealth <= 0)
             {
                 Console.WriteLine("Died");
             }
