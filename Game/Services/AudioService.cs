@@ -4,32 +4,33 @@ using static Raylib_cs.Raylib;
 
 namespace generalNamespace;
 
-public class AudioService
+public static class AudioService
 {
-    public Sound soundBattleLv1 = LoadSound("Game/sounds/battlelv1.wav");
+    public static Sound lv1Shot = LoadSound("Game/sounds/lv1shot.wav");
 
-    public AudioService()
+    // Constructor
+    public static void InitSound()
     {
         InitAudioDevice();      // Initialize audio device
     }
 
-    public Sound LoadAudio(Sound audioFile)
+    public static Sound LoadAudio(Sound audioFile)
     {
         return audioFile;
     }
 
-    public void PlayAudio(Sound audioFile)
+    public static void PlayAudio(Sound audioFile)
     {
         LoadAudio(audioFile);
         PlaySound(audioFile);
     }
 
-    public void UnloadAudio(Sound audioFile)
+    public static void UnloadAudio(Sound audioFile)
     {
         UnloadSound(audioFile);     // Unload sound data
     }
 
-    public void CloseAudio()
+    public static void CloseAudio()
     {
         CloseAudioDevice();     // Close audio device
     }

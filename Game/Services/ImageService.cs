@@ -198,7 +198,7 @@ public class ImageService
         // Load Coin Icon for HUD. This is different than the coin icon for the player to pick up.
         return LoadImage("Game/Images/lasers/laser1.png");
     }
-    public static Image SetLazers3()
+    public static Image SetLasers3()
     {
         // Load Coin Icon for HUD. This is different than the coin icon for the player to pick up.
         return LoadImage("Game/Images/lasers/lazers3.png");

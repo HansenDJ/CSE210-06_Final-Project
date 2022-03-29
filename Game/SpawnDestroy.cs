@@ -255,29 +255,29 @@ public class SpawnDestory
     }
 
     // Loop through all the enemies on the screen inside the entityList
-    public void EntityListLoop(Player player)
+    public async void EntityListLoop(Player player)
     {
         for (int i = 0; i < entityList.Count - 1; i++)
         {
             OnCollisionAction(player, i);
-            if (entityList[i].y - player.y < 100)
+            entityList[i].laserCounter += 20;
+            if (((player.y - 100 <= entityList[i].y) && (entityList[i].y <= player.y + 100)) && entityList[i].laserCounter >= entityList[i].laserMaxCount)
             {
-                Random rnd = new Random();
-                int chance = rnd.Next(1, 100);
-                if (chance > 95)
-                {
-                    Weapon _EnemyWeapon = new Weapon();
-                    _EnemyWeapon.speed = 10;
-                    _EnemyWeapon.SetTexture(ImageService.SetLazers3());
-                    _EnemyWeapon.x = entityList[i].x;
-                    _EnemyWeapon.y = entityList[i].y;
-                    EnemyWeaponsList.Add(_EnemyWeapon);
-                }
-             
-              
+                CreateEnemyWeapon(i);
+                entityList[i].laserCounter = 0;
             }
             MakeEntitiesMove(i);
         }
+    }
+    public void CreateEnemyWeapon(int enemyI)
+    {
+        Weapon _EnemyWeapon = new Weapon();
+        _EnemyWeapon.speed = 10;
+        _EnemyWeapon.SetTexture(ImageService.SetLasers3());
+        _EnemyWeapon.x = entityList[enemyI].x;
+        _EnemyWeapon.y = entityList[enemyI].y;
+        AudioService.PlayAudio(AudioService.lv1Shot);
+        EnemyWeaponsList.Add(_EnemyWeapon);
     }
     public void MakeEntitiesMove(int index)
     {
@@ -318,9 +318,9 @@ public class SpawnDestory
                     OnCollisionActionEnemyWeapon(player, EnemyWeaponsList[index],index);
                 }
                 if (EnemyWeaponsList[index].x < -50 || EnemyWeaponsList[index].x > 1450)
-            {
-               EnemyWeaponsList.RemoveAt(index);
-            }
+                {
+                    EnemyWeaponsList.RemoveAt(index);
+                }
         }
 
     }
