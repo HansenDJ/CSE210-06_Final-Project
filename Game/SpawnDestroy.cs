@@ -267,6 +267,7 @@ public class SpawnDestory
                 entityList[i].laserCounter = 0;
             }
             MakeEntitiesMove(i);
+            RemoveEntity(i);
         }
     }
     public void CreateEnemyWeapon(int enemyI)
@@ -282,10 +283,13 @@ public class SpawnDestory
     public void MakeEntitiesMove(int index)
     {
         entityList[index].MoveEntity();
+    }
+    private void RemoveEntity(int removeIndex)
+    {
         // Remove an enemy if it moves off the left side of the screen
-        if (entityList[index].x < -50)
+        if (entityList[removeIndex].x < -50)
         {
-            entityList.RemoveAt(index);
+            entityList.RemoveAt(removeIndex);
         }
     }
     public void MakeWeaponsMove()
@@ -329,8 +333,8 @@ public class SpawnDestory
     {
         if (collisionDetection.CheckCollision(player, weapon))
         {
-            Director.playerHealth -= 5;
-            if (Director.playerHealth <= 0)
+            Playerstats.playerHealth -= 5;
+            if (Playerstats.playerHealth <= 0)
             {
                 Console.WriteLine("Died");
             }

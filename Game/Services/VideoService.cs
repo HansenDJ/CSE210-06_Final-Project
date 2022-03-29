@@ -22,6 +22,7 @@ public class VideoService
     {
         DrawBackdrop(bg);
         DrawCoinCount(coin);
+        DrawHeartCount();
         DrawEntities(objectsToDraw,weaponsToDraw,player,EnemyWeaponsToDraw);
         DrawShip();
     }
@@ -98,9 +99,9 @@ public class VideoService
         Raylib.DrawText("coincount", 1250,22,20,WHITE);
          DrawTexture(coin.charTexture,1220,20,WHITE);
     }
-    public void DrawHeartCount()
+    public static void DrawHeartCount()
     {
-
+        Raylib.DrawText($"{Playerstats.playerHealth}/{Playerstats.maxPlayerHealth}", 30,22,20,WHITE);
     }
 
     public static void DrawColliderBox(Character character)

@@ -9,8 +9,6 @@ public class Director
     // private static System.Timers.Timer timer;
     // Number of milliseconds between frames
     // int updateFrameTime = 5;
-    public static int playerHealth = 50;
-    public static int maxPlayerHealth = 50;
     private static int reloadTime = 0;
     // static bool action = false;
     public void StartGame()
