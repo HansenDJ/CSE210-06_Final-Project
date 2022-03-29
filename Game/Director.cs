@@ -74,7 +74,7 @@ public class Director
                 }
 
                 reloadTime += 20;
-                sp.EntityListLoop(player);
+                sp.EnemyListLoop(player);
                 
                 sp.MakeWeaponsMove();
                 sp.MakeEnemyWeaponsMove(player);
@@ -84,7 +84,7 @@ public class Director
                 // OUTPUT
                 Raylib.BeginDrawing();
                 bg.ServeBackgrounds();
-                VideoService.Draw(sp.GetEntities(),sp.getWeapons(), player,bg, coin,sp.getEnemyWeapons());
+                VideoService.Draw(sp.GetEnemies(),sp.getWeapons(), player,bg, coin,sp.getEnemyWeapons());
                 vd.DrawPlayer(player);
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets

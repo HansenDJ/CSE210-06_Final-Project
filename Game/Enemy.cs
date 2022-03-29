@@ -22,7 +22,7 @@ public class Enemy : Character
     public void SetRandomMoveSpeed() {
         moveSpeed = rnd.Next(5, 8);
     }
-    public void MoveEntity()
+    public void MoveEnemy()
     {
         x -= moveSpeed;
     }
