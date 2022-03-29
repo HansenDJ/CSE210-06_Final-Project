@@ -277,15 +277,19 @@ public class SpawnDestory
               
             }
             MakeEntitiesMove(i);
+            RemoveEntity(i);
         }
     }
     public void MakeEntitiesMove(int index)
     {
         entityList[index].MoveEntity();
+    }
+    private void RemoveEntity(int removeIndex)
+    {
         // Remove an enemy if it moves off the left side of the screen
-        if (entityList[index].x < -50)
+        if (entityList[removeIndex].x < -50)
         {
-            entityList.RemoveAt(index);
+            entityList.RemoveAt(removeIndex);
         }
     }
     public void MakeWeaponsMove()
