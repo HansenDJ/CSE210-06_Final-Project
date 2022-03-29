@@ -9,6 +9,8 @@ public class Enemy : Character
     public int moveSpeed = 0;
     public int health = 5;
 
+    public int leveofenemy = 0;
+
     public void setHealth(int hp)
     {
         health = hp;
@@ -20,4 +22,5 @@ public class Enemy : Character
     {
         x -= moveSpeed;
     }
+
 }
