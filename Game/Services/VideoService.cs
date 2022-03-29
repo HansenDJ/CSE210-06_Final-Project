@@ -23,7 +23,7 @@ public class VideoService
         DrawBackdrop(bg);
         DrawCoinCount(coin);
         DrawHeartCount();
-        DrawEntities(objectsToDraw,weaponsToDraw,player,EnemyWeaponsToDraw);
+        DrawEnemies(objectsToDraw,weaponsToDraw,player,EnemyWeaponsToDraw);
         DrawShip();
     }
 
@@ -34,12 +34,12 @@ public class VideoService
         DrawTexture(bg.bg2Texture,bg.x2,bg.y2,WHITE);
     }
 
-    private static void DrawEntities(List<Enemy> objectsToDraw,List<Weapon> weaponsToDraw,Player player,List<Weapon> EnemyWeaponsToDraw)
+    private static void DrawEnemies(List<Enemy> objectsToDraw,List<Weapon> weaponsToDraw,Player player,List<Weapon> EnemyWeaponsToDraw)
     {
         Console.WriteLine( "Object Count: " + objectsToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
         for (int i = 0; i < objectsToDraw.Count - 1; i++)
         {
-            DrawEntity(objectsToDraw[i]);
+            DrawEnemy(objectsToDraw[i]);
             DrawColliderBox(objectsToDraw[i]);
         }
         for (int i = 0; i < weaponsToDraw.Count - 1; i++)
@@ -57,7 +57,7 @@ public class VideoService
                     
                 }
             }
-            DrawEntity(weaponsToDraw[i]);
+            DrawEnemy(weaponsToDraw[i]);
             DrawColliderBox(weaponsToDraw[i]);
         }
         for (int i = 0; i < EnemyWeaponsToDraw.Count - 1; i++)
@@ -73,14 +73,14 @@ public class VideoService
              //   EnemyWeaponsToDraw[i].location = true;
               
            // }
-            DrawEntity(EnemyWeaponsToDraw[i]);
+            DrawEnemy(EnemyWeaponsToDraw[i]);
             DrawColliderBox(EnemyWeaponsToDraw[i]);
         }
     }
     
-    public static void DrawEntity(Character entity) // draws an artifact
+    public static void DrawEnemy(Character enemy) // draws an artifact
     {
-        DrawTexture(entity.charTexture, entity.x, entity.y, WHITE);
+        DrawTexture(enemy.charTexture, enemy.x, enemy.y, WHITE);
     }
 
     private static void DrawShip()
