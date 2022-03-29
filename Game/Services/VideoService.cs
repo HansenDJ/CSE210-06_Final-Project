@@ -18,12 +18,13 @@ public class VideoService
     // public static int scrnWidth = Convert.ToInt32(FullPrimaryScreenWidth);
     // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
-    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw,Player player,BackgroundService bg, Coin coin,List<Weapon> EnemyWeaponsToDraw)
+    public static void Draw(List<Enemy> objectsToDraw, List<Weapon> weaponsToDraw,Player player,BackgroundService bg, Coin coin,List<Weapon> EnemyWeaponsToDraw,List<Cordinate> ExplosionC)
     {
         DrawBackdrop(bg);
         DrawCoinCount(coin);
         DrawHeartCount();
         DrawEnemies(objectsToDraw,weaponsToDraw,player,EnemyWeaponsToDraw);
+        ExplosionAnimation(ExplosionC);
         DrawShip();
     }
 
@@ -85,9 +86,13 @@ public class VideoService
 
     }
 
-    public static void ExplosionAnimation(int x, int y,int frame)
+    public static void ExplosionAnimation(List<Cordinate> e)
     {
-        DrawTexture(ExplosionService.LoadAnimation()[frame],x,y,WHITE);
+        for (int i = 0; i < e.Count; i++)
+        {
+            DrawTexture(ExplosionService.LoadAnimation()[e[i].frame],e[i].x,e[i].y,WHITE);
+        }
+        
     }
 
     public void DrawPlayer(Player player)

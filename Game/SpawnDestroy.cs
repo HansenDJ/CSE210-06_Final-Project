@@ -255,6 +255,18 @@ public class SpawnDestory
         return EnemyWeaponsList;
     }
 
+    public List<Cordinate> getExplosions()
+    {
+        for (int i = 0; i < ExplosionCordinates.Count; i++)
+        {
+            if (ExplosionCordinates[i].frame > 15)
+            {
+                ExplosionCordinates.RemoveAt(i);
+            }
+        }
+        return ExplosionCordinates;
+    }
+
     // Loop through all the enemies on the screen inside the enemyList
     public async void EnemyListLoop(Player player)
     {
