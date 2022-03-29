@@ -53,9 +53,6 @@ public class VideoService
                 weaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
                 weaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
                 weaponsToDraw[i].location = true;
-                {
-                    
-                }
             }
             DrawEnemy(weaponsToDraw[i]);
             DrawColliderBox(weaponsToDraw[i]);
@@ -66,10 +63,10 @@ public class VideoService
            {
                 EnemyWeaponsToDraw[i].offsetW = 5;
                 EnemyWeaponsToDraw[i].offsetW = 10;
-                EnemyWeaponsToDraw[i].SetOffsetColliderWidth(player.offsetW);
-                EnemyWeaponsToDraw[i].SetOffsetColliderHeight(player.offsetH);
-                EnemyWeaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
-                EnemyWeaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
+                EnemyWeaponsToDraw[i].SetOffsetColliderWidth(EnemyWeaponsToDraw[i].offsetW);
+                EnemyWeaponsToDraw[i].SetOffsetColliderHeight(EnemyWeaponsToDraw[i].offsetH);
+                EnemyWeaponsToDraw[i].SetX(EnemyWeaponsToDraw[i].x - EnemyWeaponsToDraw[i].GetColliderBoxWidth());
+                EnemyWeaponsToDraw[i].SetY(EnemyWeaponsToDraw[i].y - EnemyWeaponsToDraw[i].GetColliderBoxHeight() / 2);
                 EnemyWeaponsToDraw[i].location = true;
               
            }
