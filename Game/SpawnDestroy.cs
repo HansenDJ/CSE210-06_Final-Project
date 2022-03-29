@@ -362,7 +362,10 @@ public class SpawnDestory
             enemyList[enemyIndex].health -= weapon.strength;
             if (enemyList[enemyIndex].health <= 0)
             {
-              
+                Cordinate c = new Cordinate();
+                c.x = enemyList[enemyIndex].x;
+                c.y = enemyList[enemyIndex].y;
+                ExplosionCordinates.Add(c);
                 
                 enemyList.RemoveAt(enemyIndex);
             }
