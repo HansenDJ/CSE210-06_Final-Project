@@ -275,6 +275,7 @@ public class SpawnDestory
     {
         for (int i = 0; i < ExplosionCordinates.Count; i++)
         {
+            ExplosionCordinates[i].frame += 1;
             if (ExplosionCordinates[i].frame > 15)
             {
                 ExplosionCordinates.RemoveAt(i);
