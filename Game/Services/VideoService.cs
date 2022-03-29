@@ -88,11 +88,18 @@ public class VideoService
 
     }
 
+    public static void ExplosionAnimation(int x, int y,int frame)
+    {
+        DrawTexture(ExplosionService.LoadAnimation()[frame],x,y,WHITE);
+    }
+
     public void DrawPlayer(Player player)
     {
         DrawTexture(player.charTexture, player.x, player.y, WHITE);
         DrawTexture(player.charTexture, player.x, player.y, WHITE);
     }
+
+    
 
     public static void DrawCoinCount(Coin coin)
     {

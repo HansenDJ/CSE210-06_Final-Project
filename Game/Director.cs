@@ -72,6 +72,7 @@ public class Director
                         reloadTime = 0;
                     }
                 }
+                
 
                 reloadTime += 20;
                 sp.EnemyListLoop(player);
@@ -83,6 +84,7 @@ public class Director
 
                 // OUTPUT
                 Raylib.BeginDrawing();
+                
                 bg.ServeBackgrounds();
                 VideoService.Draw(sp.GetEnemies(),sp.getWeapons(), player,bg, coin,sp.getEnemyWeapons());
                 vd.DrawPlayer(player);
