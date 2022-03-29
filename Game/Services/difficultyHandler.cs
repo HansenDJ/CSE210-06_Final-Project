@@ -13,6 +13,15 @@ public static class DifficultyHandler
         level += 1;
         levelChange = true;
     }
+
+    public static int getEnemyLevel()
+    {
+        int difficulty = 1;
+        Random rnd = new Random();
+        difficulty = rnd.Next(1, 3);
+        return difficulty;
+    }
+    
     public static void incrementHandler()
     {
         difficultyHandler += 1;

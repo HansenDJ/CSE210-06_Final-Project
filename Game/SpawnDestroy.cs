@@ -11,9 +11,10 @@ public class SpawnDestory
     Random rnd = new Random();
     CollisionDetection collisionDetection = new CollisionDetection();
 
-    public List<Enemy> enemyList = new();
+    public List<Enemy> entityList = new();
     public List<Weapon> WeaponList = new();
     public List<Weapon> EnemyWeaponsList = new();
+    public List<Cordinate> ExplosionCordinates = new();
     public int maxEnemies = 5;
 
     // Level 1 enemy collider box width and height offsets
@@ -26,7 +27,7 @@ public class SpawnDestory
     private int lvThreeEnemyOffsetW = 30;
     private int lvThreeEnemyOffsetH = 10;
 
-    private int RandomEnemy()
+    private int RandomEntity()
     {
         return rnd.Next(1, 4);   // Enemy difficulty is 1, 2, or 3
     }
@@ -36,19 +37,19 @@ public class SpawnDestory
         switch (level)
         {
             case 1:
-                SpawnEarthEnemy(RandomEnemy());
+                SpawnEarthEnemy(RandomEntity());
                 break;
             case 2:
-                SpawnWaterEnemy(RandomEnemy());
+                SpawnWaterEnemy(RandomEntity());
                 break;
             case 3:
-                SpawnAirEnemy(RandomEnemy());    
+                SpawnAirEnemy(RandomEntity());    
                 break;
             case 4:
-                SpawnFireEnemy(RandomEnemy());
+                SpawnFireEnemy(RandomEntity());
                 break;
             case 5:
-                SpawnShadowEnemy(RandomEnemy());
+                SpawnShadowEnemy(RandomEntity());
                 break;
         }
     }
@@ -63,21 +64,18 @@ public class SpawnDestory
                 enemyEarth.offsetW = lvOneEnemyOffsetW;
                 enemyEarth.offsetH = lvOneEnemyOffsetH;
                 enemyEarth.SetTexture(ImageService.SetEarthOneStartImage());
-                enemyEarth.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 earth enemy image file
                 enemyEarth.offsetW = lvTwoEnemyOffsetW;
                 enemyEarth.offsetH = lvTwoEnemyOffsetH;
                 enemyEarth.SetTexture(ImageService.SetEarthTwoStartImage());
-                enemyEarth.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 earth enemy image file
                 enemyEarth.offsetW = lvThreeEnemyOffsetW;
                 enemyEarth.offsetH = lvThreeEnemyOffsetH;
                 enemyEarth.SetTexture(ImageService.SetEarthThreeStartImage());
-                enemyEarth.levelOfEnemy = 3;
                 break;
         }
         enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
@@ -85,7 +83,7 @@ public class SpawnDestory
         enemyEarth.SetY(rnd.Next(enemyEarth.GetImageHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
         enemyEarth.SetX(1500);
         enemyEarth.SetRandomMoveSpeed();
-        enemyList.Add(enemyEarth);
+        entityList.Add(enemyEarth);
     }
 
     public void SpawnWaterEnemy(int enemyDifficulty)
@@ -98,21 +96,18 @@ public class SpawnDestory
                 enemyWater.offsetW = lvOneEnemyOffsetW;
                 enemyWater.offsetH = lvOneEnemyOffsetH;
                 enemyWater.SetTexture(ImageService.SetWaterOneStartImage());
-                enemyWater.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 water enemy image file
                 enemyWater.offsetW = lvTwoEnemyOffsetW;
                 enemyWater.offsetH = lvTwoEnemyOffsetH;
                 enemyWater.SetTexture(ImageService.SetWaterTwoStartImage());
-                enemyWater.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 water enemy image file
                 enemyWater.offsetW = lvThreeEnemyOffsetW;
                 enemyWater.offsetH = lvThreeEnemyOffsetH;
                 enemyWater.SetTexture(ImageService.SetWaterThreeStartImage());
-                enemyWater.levelOfEnemy = 3;
                 break;
         }
         enemyWater.SetOffsetColliderWidth(enemyWater.offsetW);
@@ -120,7 +115,7 @@ public class SpawnDestory
         enemyWater.SetY(rnd.Next(enemyWater.GetImageHeight(), VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2));
         enemyWater.SetX(1500);
         enemyWater.SetRandomMoveSpeed();
-        enemyList.Add(enemyWater);
+        entityList.Add(enemyWater);
     }
     public void SpawnAirEnemy(int enemyDifficulty)
     {
@@ -132,21 +127,18 @@ public class SpawnDestory
                 enemyAir.offsetW = lvOneEnemyOffsetW;
                 enemyAir.offsetH = lvOneEnemyOffsetH;
                 enemyAir.SetTexture(ImageService.SetAirOneStartImage());
-                enemyAir.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 air enemy image file
                 enemyAir.offsetW = lvTwoEnemyOffsetW;
                 enemyAir.offsetH = lvTwoEnemyOffsetH;
                 enemyAir.SetTexture(ImageService.SetAirTwoStartImage());
-                enemyAir.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 air enemy image file
                 enemyAir.offsetW = lvThreeEnemyOffsetW;
                 enemyAir.offsetH = lvThreeEnemyOffsetH;
                 enemyAir.SetTexture(ImageService.SetAirThreeStartImage());
-                enemyAir.levelOfEnemy = 3;
                 break;
         }
         enemyAir.SetOffsetColliderWidth(enemyAir.offsetW);
@@ -154,7 +146,7 @@ public class SpawnDestory
         enemyAir.SetY(rnd.Next(enemyAir.GetImageHeight(), VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2));
         enemyAir.SetX(1500);
         enemyAir.SetRandomMoveSpeed();
-        enemyList.Add(enemyAir);
+        entityList.Add(enemyAir);
     }
 
     
@@ -168,20 +160,17 @@ public class SpawnDestory
                 enemyFire.offsetW = lvOneEnemyOffsetW;
                 enemyFire.offsetH = lvOneEnemyOffsetH;
                 enemyFire.SetTexture(ImageService.SetFireOneStartImage());
-                enemyFire.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 fire enemy image file
                 enemyFire.offsetW = lvTwoEnemyOffsetW;
                 enemyFire.offsetH = lvTwoEnemyOffsetH;
                 enemyFire.SetTexture(ImageService.SetFireTwoStartImage());
-                enemyFire.levelOfEnemy = 2;
                 break;
             case 3:
                 enemyFire.offsetW = lvThreeEnemyOffsetW;
                 enemyFire.offsetH = lvThreeEnemyOffsetH;
                 enemyFire.SetTexture(ImageService.SetFireThreeStartImage());
-                enemyFire.levelOfEnemy = 3;
                 break;
         }
         enemyFire.SetOffsetColliderWidth(enemyFire.offsetW);
@@ -189,7 +178,7 @@ public class SpawnDestory
         enemyFire.SetY(rnd.Next(enemyFire.GetImageHeight(), VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2));
         enemyFire.SetX(1500);
         enemyFire.SetRandomMoveSpeed();
-        enemyList.Add(enemyFire);
+        entityList.Add(enemyFire);
     }
     public void SpawnShadowEnemy(int enemyDifficulty)
     {
@@ -201,21 +190,18 @@ public class SpawnDestory
                 enemyShadow.offsetW = lvOneEnemyOffsetW;
                 enemyShadow.offsetH = lvOneEnemyOffsetH;
                 enemyShadow.SetTexture(ImageService.SetShadowOneStartImage());
-                enemyShadow.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 shadow enemy image file
                 enemyShadow.offsetW = lvTwoEnemyOffsetW;
                 enemyShadow.offsetH = lvTwoEnemyOffsetH;
                 enemyShadow.SetTexture(ImageService.SetShadowTwoStartImage());
-                enemyShadow.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 shadow enemy image file
                 enemyShadow.offsetW = lvThreeEnemyOffsetW;
                 enemyShadow.offsetH = lvThreeEnemyOffsetH;
                 enemyShadow.SetTexture(ImageService.SetShadowThreeStartImage());
-                enemyShadow.levelOfEnemy = 3;
                 break;
         }
         enemyShadow.SetOffsetColliderWidth(enemyShadow.offsetW);
@@ -223,7 +209,7 @@ public class SpawnDestory
         enemyShadow.SetY(rnd.Next(enemyShadow.GetImageHeight(), VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2));
         enemyShadow.SetX(1500);
         enemyShadow.SetRandomMoveSpeed();
-        enemyList.Add(enemyShadow);
+        entityList.Add(enemyShadow);
     }
 
 
@@ -250,13 +236,13 @@ public class SpawnDestory
 
     public bool CheckIfSpawnNeeded()
     {
-        return (maxEnemies - (enemyList.Count - 1) > 0);
+        return (maxEnemies - (entityList.Count - 1) > 0);
     }
 
     // Create a list of the enemies on the screen
     public List<Enemy> GetEnemies()
     {
-        return enemyList;
+        return entityList;
     }
 
     public List<Weapon> getWeapons()
@@ -269,20 +255,20 @@ public class SpawnDestory
         return EnemyWeaponsList;
     }
 
-    // Loop through all the enemies on the screen inside the enemyList
+    // Loop through all the enemies on the screen inside the entityList
     public async void EnemyListLoop(Player player)
     {
-        for (int i = 0; i < enemyList.Count - 1; i++)
+        for (int i = 0; i < entityList.Count - 1; i++)
         {
             OnCollisionAction(player, i);
-            enemyList[i].laserCounter += 20;
-            if (((player.y - 100 <= enemyList[i].y) && (enemyList[i].y <= player.y + 100)) && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
+            entityList[i].laserCounter += 20;
+            if (((player.y - 100 <= entityList[i].y) && (entityList[i].y <= player.y + 100)) && entityList[i].laserCounter >= entityList[i].laserMaxCount)
             {
                 CreateEnemyWeapon(i);
-                enemyList[i].laserCounter = 0;
+                entityList[i].laserCounter = 0;
             }
-            MakeEnemiesMove(i);
-            RemoveEnemy(i);
+            MakeEntitiesMove(i);
+            RemoveEntity(i);
         }
     }
     public void CreateEnemyWeapon(int enemyI)
@@ -290,21 +276,21 @@ public class SpawnDestory
         Weapon _EnemyWeapon = new Weapon();
         _EnemyWeapon.speed = 10;
         _EnemyWeapon.SetTexture(ImageService.SetLasers3());
-        _EnemyWeapon.x = enemyList[enemyI].x;
-        _EnemyWeapon.y = enemyList[enemyI].y;
+        _EnemyWeapon.x = entityList[enemyI].x;
+        _EnemyWeapon.y = entityList[enemyI].y;
         AudioService.PlayAudio(AudioService.lv1Shot);
         EnemyWeaponsList.Add(_EnemyWeapon);
     }
-    public void MakeEnemiesMove(int index)
+    public void MakeEntitiesMove(int index)
     {
-        enemyList[index].MoveEnemy();
+        entityList[index].MoveEnemy();
     }
-    private void RemoveEnemy(int removeIndex)
+    private void RemoveEntity(int removeIndex)
     {
         // Remove an enemy if it moves off the left side of the screen
-        if (enemyList[removeIndex].x < -50)
+        if (entityList[removeIndex].x < -50)
         {
-            enemyList.RemoveAt(removeIndex);
+            entityList.RemoveAt(removeIndex);
         }
     }
     public void MakeWeaponsMove()
@@ -312,11 +298,11 @@ public class SpawnDestory
         for (int index = 0; index < WeaponList.Count - 1; index++)
         {
             WeaponList[index].MoveWeaponRight();
-            for (int j = 0; j < enemyList.Count - 1; j++)
+            for (int j = 0; j < entityList.Count - 1; j++)
             {
-                if (collisionDetection.CheckCollision(enemyList[j], WeaponList[index]))
+                if (collisionDetection.CheckCollision(entityList[j], WeaponList[index]))
                 {
-                    OnCollisionActionWeapon(enemyList[j], WeaponList[index], j, index);
+                    OnCollisionActionWeapon(entityList[j], WeaponList[index], j, index);
                 }
             }
             if (WeaponList[index].x < -50 || WeaponList[index].x > 1450)
@@ -361,10 +347,12 @@ public class SpawnDestory
     {
         if (collisionDetection.CheckCollision(enemy, weapon))
         {
-            enemyList[enemyIndex].health -= weapon.strength;
-            if (enemyList[enemyIndex].health <= 0)
+            entityList[enemyIndex].health -= weapon.strength;
+            if (entityList[enemyIndex].health <= 0)
             {
-                enemyList.RemoveAt(enemyIndex);
+              
+                
+                entityList.RemoveAt(enemyIndex);
             }
             WeaponList.RemoveAt(weaponIndex);
             // TEST: Remove enemy if collides with player
@@ -375,10 +363,10 @@ public class SpawnDestory
     // Occurs when the player collides with an enemy
     public void OnCollisionAction(Player player, int index)
     {
-        if (collisionDetection.CheckCollision(player, enemyList[index]))
+        if (collisionDetection.CheckCollision(player, entityList[index]))
         {
             // TEST: Remove enemy if collides with player
-            enemyList.RemoveAt(index);
+            entityList.RemoveAt(index);
         }
     }
 
