@@ -101,7 +101,7 @@ public class VideoService
     }
     public static void DrawHeartCount()
     {
-        Raylib.DrawText($"{Playerstats.playerHealth}/{Playerstats.maxPlayerHealth}", 30,22,20,WHITE);
+        Raylib.DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 30,22,20,WHITE);
     }
 
     public static void DrawColliderBox(Character character)

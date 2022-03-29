@@ -18,7 +18,6 @@ public class Director
         Timer timer = new();
         // SetTimer(updateFrameTime);
         VideoService vd = new();
-        // AudioService audioService = new();
         Player player = new();
         SpawnDestory sp = new SpawnDestory();
         player.SetTexture(ImageService.SetShipStartImage());
@@ -28,8 +27,8 @@ public class Director
         bg.SetTexture(ImageService.SetEarthBGStartImage());
         Coin coin = new Coin();
         coin.SetTexture(ImageService.SetCoinGif());
-       
-
+        AudioService.InitSound();
+        AudioService.LoadAudio(AudioService.lv1Shot);
 
 
         while (!Raylib.WindowShouldClose())
@@ -38,35 +37,33 @@ public class Director
             if (sp.CheckIfSpawnNeeded()) {
                 sp.SpawnEnemy(1);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
             }
-            // audioService.LoadAudio(audioService.soundBattleLv1);
 
             // UPDATES
             timer.Count();
             // if (action)
+            if (DifficultyHandler.levelChange)
+            {
+                DifficultyHandler.levelChange = false;
+                switch (DifficultyHandler.level)
+                {
+                    case 2:
+                        bg.SetTexture(ImageService.SetWaterBGStartImage());
+                        break;
+                    case 3:
+                        bg.SetTexture(ImageService.SetAirBGStartImage());
+                        break;
+                    case 4:
+                        bg.SetTexture(ImageService.SetFireBGStartImage());
+                        break;
+                    case 5:
+                        bg.SetTexture(ImageService.SetShadowBGStartImage());
+                        break;
+                }
+                
+            }
+            DifficultyHandler.incrementHandler();
             while(timer.CheckLagging())
             {
-                if (DifficultyHandler.levelChange)
-                {
-                    DifficultyHandler.levelChange = false;
-                    switch (DifficultyHandler.level)
-                    {
-                        case 2:
-                            bg.SetTexture(ImageService.SetWaterBGStartImage());
-                            break;
-                        case 3:
-                            bg.SetTexture(ImageService.SetAirBGStartImage());
-                            break;
-                        case 4:
-                            bg.SetTexture(ImageService.SetFireBGStartImage());
-                            break;
-                        case 5:
-                            bg.SetTexture(ImageService.SetShadowBGStartImage());
-                            break;
-                    }
-                   
-                }
-                DifficultyHandler.incrementHandler();
-
                 if (player.PlayerMoveKeys() == 1)
                 {
                     if (reloadTime >= 200)
@@ -96,8 +93,8 @@ public class Director
             }
             
         }
-        // audioService.UnloadAudio(audioService.soundBattleLv1);
-        // audioService.CloseAudio();
+        AudioService.UnloadAudio(AudioService.lv1Shot);
+        AudioService.CloseAudio();
     }
 
     // // Change updateFrameTime variable above to change number of milliseconds between frames
