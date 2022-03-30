@@ -13,7 +13,8 @@ public static class loadScreenVisual
                         "You were gambling in a casino and your opponent has a Royal Flush." +
                         "\n In order to maintain freedom you must destroy enemies and collect" +
                         "\nenough coins. If you fail to obtain the required amount of coins " +
-                        "\nyou will be sold as a slave to work in the galactic mines.",250,250,25,Color.WHITE);
+                        "\nyou will be sold as a slave to work in the galactic mines." +
+                        "\npush the Spacebar to begin your journey.",250,250,25,Color.WHITE);
         Raylib.EndDrawing();
     }
 }
