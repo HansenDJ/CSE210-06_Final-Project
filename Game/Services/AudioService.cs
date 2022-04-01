@@ -7,6 +7,7 @@ public static class AudioService
 {
     public static Sound lv1Shot = LoadSound("Game/sounds/lv1shot.wav");
 
+    public static Sound GameOverSound = LoadSound("Game/sounds/game_over.wav");
     // Constructor
     public static void InitSound()
     {
