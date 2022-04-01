@@ -203,25 +203,25 @@ public static class ImageService
             allImages.Add(earthTwoEnemyImage);
             allImages.Add(earthThreeEnemyImage);
             allImages.Add(earthBossEnemyImage);
-            // allImages.Add(fireOneEnemyImage);
-            // allImages.Add(fireTwoEnemyImage);
-            // allImages.Add(fireThreeEnemyImage);
-            // allImages.Add(fireBossEnemyImage);
-            // allImages.Add(airOneEnemyImage);
-            // allImages.Add(airTwoEnemyImage);
-            // allImages.Add(airThreeEnemyImage);
-            // allImages.Add(airBossEnemyImage);
-            // allImages.Add(waterOneEnemyImage);
-            // allImages.Add(waterTwoEnemyImage);
-            // allImages.Add(waterThreeEnemyImage);
-            // allImages.Add(waterBossEnemyImage);
-            // allImages.Add(shadowOneEnemyImage);
-            // allImages.Add(shadowTwoEnemyImage);
-            // allImages.Add(shadowThreeEnemyImage);
-            // allImages.Add(shadowBossEnemyImage);
-            // allImages(coinCounterImage);
-            // allImages.Add(coinDropImage);  Uncomment when full file name added above
-            // allImages.Add(coinGifImage);  Uncomment when full file name added above
+            allImages.Add(fireOneEnemyImage);
+            allImages.Add(fireTwoEnemyImage);
+            allImages.Add(fireThreeEnemyImage);
+            allImages.Add(fireBossEnemyImage);
+            allImages.Add(airOneEnemyImage);
+            allImages.Add(airTwoEnemyImage);
+            allImages.Add(airThreeEnemyImage);
+            allImages.Add(airBossEnemyImage);
+            allImages.Add(waterOneEnemyImage);
+            allImages.Add(waterTwoEnemyImage);
+            allImages.Add(waterThreeEnemyImage);
+            allImages.Add(waterBossEnemyImage);
+            allImages.Add(shadowOneEnemyImage);
+            allImages.Add(shadowTwoEnemyImage);
+            allImages.Add(shadowThreeEnemyImage);
+            allImages.Add(shadowBossEnemyImage);
+        //    allImages(coinCounterImage);
+          //  allImages.Add(coinDropImage);  Uncomment when full file name added above
+           // allImages.Add(coinGifImage);  Uncomment when full file name added above
             allImages.Add(laser1Image);
             allImages.Add(laser11Image);
 
@@ -235,22 +235,22 @@ public static class ImageService
             allTextures.Add(earthTwoEnemyTexture);
             allTextures.Add(earthThreeEnemyTexture);
             allTextures.Add(earthBossEnemyTexture);
-            // allTextures.Add(fireOneEnemyTexture);
-            // allTextures.Add(fireTwoEnemyTexture);
-            // allTextures.Add(fireThreeEnemyTexture);
-            // allTextures.Add(fireBossEnemyTexture);
-            // allTextures.Add(airOneEnemyTexture);
-            // allTextures.Add(airTwoEnemyTexture);
-            // allTextures.Add(airThreeEnemyTexture);
-            // allTextures.Add(airBossEnemyTexture);
-            // allTextures.Add(waterOneEnemyTexture);
-            // allTextures.Add(waterTwoEnemyTexture);
-            // allTextures.Add(waterThreeEnemyTexture);
-            // allTextures.Add(waterBossEnemyTexture);
-            // allTextures.Add(shadowOneEnemyTexture);
-            // allTextures.Add(shadowTwoEnemyTexture);
-            // allTextures.Add(shadowThreeEnemyTexture);
-            // allTextures.Add(shadowBossEnemyTexture);
+            allTextures.Add(fireOneEnemyTexture);
+            allTextures.Add(fireTwoEnemyTexture);
+            allTextures.Add(fireThreeEnemyTexture);
+            allTextures.Add(fireBossEnemyTexture);
+            allTextures.Add(airOneEnemyTexture);
+            allTextures.Add(airTwoEnemyTexture);
+            allTextures.Add(airThreeEnemyTexture);
+            allTextures.Add(airBossEnemyTexture);
+            allTextures.Add(waterOneEnemyTexture);
+            allTextures.Add(waterTwoEnemyTexture);
+            allTextures.Add(waterThreeEnemyTexture);
+            allTextures.Add(waterBossEnemyTexture);
+            allTextures.Add(shadowOneEnemyTexture);
+            allTextures.Add(shadowTwoEnemyTexture);
+            allTextures.Add(shadowThreeEnemyTexture);
+            allTextures.Add(shadowBossEnemyTexture);
             // allTextures.Add(heartIconTexture);  Uncomment when full file name added above
             allTextures.Add(coinCounterTexture);
             // allTextures.Add(coinDropTexture);  Uncomment when full file name added above
@@ -270,22 +270,22 @@ public static class ImageService
             allImages[i] = UnloadImageFile(earthTwoEnemyImage);
             allImages[i] = UnloadImageFile(earthThreeEnemyImage);
             allImages[i] = UnloadImageFile(earthBossEnemyImage);
-            // allImages[i] = UnloadImageFile(fireOneEnemyImage);
-            // allImages[i] = UnloadImageFile(fireTwoEnemyImage);
-            // allImages[i] = UnloadImageFile(fireThreeEnemyImage);
-            // allImages[i] = UnloadImageFile(fireBossEnemyImage);
-            // allImages[i] = UnloadImageFile(airOneEnemyImage);
-            // allImages[i] = UnloadImageFile(airTwoEnemyImage);
-            // allImages[i] = UnloadImageFile(airThreeEnemyImage);
-            // allImages[i] = UnloadImageFile(airBossEnemyImage);
-            // allImages[i] = UnloadImageFile(waterOneEnemyImage);
-            // allImages[i] = UnloadImageFile(waterTwoEnemyImage);
-            // allImages[i] = UnloadImageFile(waterThreeEnemyImage);
-            // allImages[i] = UnloadImageFile(waterBossEnemyImage);
-            // allImages[i] = UnloadImageFile(shadowOneEnemyImage);
-            // allImages[i] = UnloadImageFile(shadowTwoEnemyImage);
-            // allImages[i] = UnloadImageFile(shadowThreeEnemyImage);
-            // allImages[i] = UnloadImageFile(shadowBossEnemyImage);
+            allImages[i] = UnloadImageFile(fireOneEnemyImage);
+            allImages[i] = UnloadImageFile(fireTwoEnemyImage);
+            allImages[i] = UnloadImageFile(fireThreeEnemyImage);
+            allImages[i] = UnloadImageFile(fireBossEnemyImage);
+            allImages[i] = UnloadImageFile(airOneEnemyImage);
+            allImages[i] = UnloadImageFile(airTwoEnemyImage);
+            allImages[i] = UnloadImageFile(airThreeEnemyImage);
+            allImages[i] = UnloadImageFile(airBossEnemyImage);
+            allImages[i] = UnloadImageFile(waterOneEnemyImage);
+            allImages[i] = UnloadImageFile(waterTwoEnemyImage);
+            allImages[i] = UnloadImageFile(waterThreeEnemyImage);
+            allImages[i] = UnloadImageFile(waterBossEnemyImage);
+            allImages[i] = UnloadImageFile(shadowOneEnemyImage);
+            allImages[i] = UnloadImageFile(shadowTwoEnemyImage);
+            allImages[i] = UnloadImageFile(shadowThreeEnemyImage);
+            allImages[i] = UnloadImageFile(shadowBossEnemyImage);
             // allImages[i] = UnloadImageFile(heartIconImage);  Uncomment when full file name added above
             allImages[i] = UnloadImageFile(coinCounterImage);
             // allImages[i] = UnloadImageFile(coinDropImage);  Uncomment when full file name added above
