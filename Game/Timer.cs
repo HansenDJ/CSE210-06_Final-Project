@@ -17,6 +17,8 @@ public class Timer {
         this.updates = 0;
     }
 
+   
+
     public void RealTime() {
         this.lag -= this.TIME_STEP;
         this.updates += 1;
