@@ -365,6 +365,7 @@ public class SpawnDestory
         if (PlayerStats.playerHealth <= 0)
         {
             PlayerStats.playerHealth = 0;
+            
         }
     }
     public void OnCollisionActionEnemyWeapon(Player player, Weapon weapon, int index)
