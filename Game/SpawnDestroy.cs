@@ -248,7 +248,8 @@ public class SpawnDestory
 
     public bool CheckIfSpawnNeeded()
     {
-        return (maxEnemies - (enemyList.Count - 1) > 0);
+        // Return true if size of enemyList is less than maxEnemies number
+        return (enemyList.Count < maxEnemies);
     }
 
     // Create a list of the enemies on the screen
