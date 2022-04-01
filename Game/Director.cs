@@ -42,7 +42,7 @@ public class Director
         {
             // INPUT
             if (sp.CheckIfSpawnNeeded()) {
-                sp.SpawnEnemy(1);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+                sp.SpawnEnemy(DifficultyHandler.level);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
             }
 
             // UPDATES
@@ -50,7 +50,11 @@ public class Director
             timeNow = DateTime.Now;
             secondsPassed = (timeNow - startTime).TotalSeconds;
 
-            DifficultyHandler.LevelUp(secondsPassed / 90D);
+            if (DifficultyHandler.LevelUp(secondsPassed / 30D))
+            {
+                sp.maxEnemies = DifficultyHandler.enemyCount;
+                
+            }
             
             
             // if (action)
@@ -82,7 +86,7 @@ public class Director
                 }
                 
             }
-            DifficultyHandler.incrementHandler();
+           
             while(timer.CheckLagging())
             {
                 if (player.PlayerMoveKeys() == 1)
