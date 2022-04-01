@@ -19,7 +19,18 @@ internal class Program
 
             
         }
-        Director director = new Director();
+          Director director = new Director();
         director.StartGame();
+    //    GameLoop();
+      
     }
+
+    public void GameLoop(){
+      
+
+
+      //  GameLoop();
+
+    }
+
 }

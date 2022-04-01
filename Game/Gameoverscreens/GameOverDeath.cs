@@ -8,6 +8,7 @@ public static class GameOverDeath
 {
    public static Image charImage;
     public static Texture2D charTexture;
+
    public static void loadScreen()
     {
         //AudioService.InitSound();
@@ -16,7 +17,8 @@ public static class GameOverDeath
         SetTexture(SetSpaceBGStartImage());
         Raylib.ClearBackground(Color.BLACK);
         Raylib.DrawTexture(charTexture,0,0,Color.WHITE);
-        Raylib.DrawText("You took too much damage and died",270,270,25,Color.WHITE);
+        Raylib.DrawText("Game Over",440,270,100,Color.WHITE);
+        Raylib.DrawText("You took too much damage and died.",470,400,25,Color.WHITE);
         Raylib.EndDrawing();
         //AudioService.UnloadAudio(AudioService.loadscreen);
         //AudioService.CloseAudio();
