@@ -27,4 +27,21 @@ public class Enemy : Character
         x -= moveSpeed;
     }
 
+    public void LevelOneDifficulty ()
+    {
+       Enemy levelOne = new Enemy();
+       levelOne.levelOfEnemy = 1;
+    }
+
+     public void LevelTwoDifficulty ()
+    {
+       Enemy levelTwo = new Enemy();
+       levelTwo.levelOfEnemy = 2;
+    }
+
+    public void LevelThreeDifficulty ()
+    {
+       Enemy levelThree = new Enemy();
+       levelThree.levelOfEnemy = 3;
+    }
 }
