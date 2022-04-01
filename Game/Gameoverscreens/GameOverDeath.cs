@@ -1,28 +1,27 @@
 using Raylib_cs;
-using generalNamespace;
 
 namespace CSE210_06_Final_Project;
 
-
 public static class GameOverDeath
 {
-   public static Image charImage;
+    public static Image charImage;
     public static Texture2D charTexture;
 
-   public static void loadScreen()
+    public static void loadScreen()
     {
         //AudioService.InitSound();
         //AudioService.LoadAudio(AudioService.loadscreen);
         Raylib.BeginDrawing();
         SetTexture(SetSpaceBGStartImage());
         Raylib.ClearBackground(Color.BLACK);
-        Raylib.DrawTexture(charTexture,0,0,Color.WHITE);
-        Raylib.DrawText("Game Over",440,270,100,Color.WHITE);
-        Raylib.DrawText("You took too much damage and died.",470,400,25,Color.WHITE);
+        Raylib.DrawTexture(charTexture, 0, 0, Color.WHITE);
+        Raylib.DrawText("Game Over", 440, 270, 100, Color.WHITE);
+        Raylib.DrawText("You took too much damage and died.", 470, 400, 25, Color.WHITE);
         Raylib.EndDrawing();
         //AudioService.UnloadAudio(AudioService.loadscreen);
         //AudioService.CloseAudio();
     }
+
     public static void SetTexture(Image image)
     {
         charImage = image;

@@ -6,12 +6,12 @@ public static class DifficultyHandler
     public static int enemyCount = 3;
     public static int currentLevel = 1;
     public static int previousLevel = 1;
-    public static bool levelChange = false;
+    public static bool levelChange;
 
 
     public static bool LevelUp(double time)
     {
-        int lvl = Convert.ToInt32(time);
+        var lvl = Convert.ToInt32(time);
         currentLevel = 1 + lvl;
         if (currentLevel > previousLevel)
         {
@@ -28,22 +28,21 @@ public static class DifficultyHandler
 
     public static int GetEnemyLevel()
     {
-        int difficulty = 1;
-        Random rnd = new Random();
+        var difficulty = 1;
+        var rnd = new Random();
         difficulty = rnd.Next(1, 3);
         return difficulty;
     }
-    
-   
-   public static void IncreaseDifficulty()
-   {
-       enemyCount += 5;
-   }
-  
 
-   public static int GetEnemyCount()
-   {
-       return enemyCount;
-   }
 
+    public static void IncreaseDifficulty()
+    {
+        enemyCount += 5;
+    }
+
+
+    public static int GetEnemyCount()
+    {
+        return enemyCount;
+    }
 }

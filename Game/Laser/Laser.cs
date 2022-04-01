@@ -1,7 +1,5 @@
 namespace generalNamespace.Laser;
 
-public class Laser: Weapon
+public class Laser : Weapon
 {
-
-
 }

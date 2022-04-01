@@ -1,38 +1,42 @@
 namespace generalNamespace;
 
-public class Timer {
-
-    public float TIME_STEP = (float) (1.0 / 60.0);
+public class Timer
+{
+    private float frames;
     private float lag;
     private DateTime previous;
-    private float frames;
     private float seconds;
+
+    public float TIME_STEP = (float) (1.0 / 60.0);
     private float updates;
-    
-    public Timer() {
-        this.lag = 0;
-        this.previous = DateTime.Now;
-        this.frames = 0;
-        this.seconds = 0;
-        this.updates = 0;
+
+    public Timer()
+    {
+        lag = 0;
+        previous = DateTime.Now;
+        frames = 0;
+        seconds = 0;
+        updates = 0;
     }
 
-   
 
-    public void RealTime() {
-        this.lag -= this.TIME_STEP;
-        this.updates += 1;
+    public void RealTime()
+    {
+        lag -= TIME_STEP;
+        updates += 1;
     }
 
-    public void Count() {
-        DateTime current = DateTime.Now;
-        TimeSpan elapsed = current - this.previous;
-        this.previous = current;
-        this.lag += (float) elapsed.TotalSeconds;
-        this.frames += 1;
+    public void Count()
+    {
+        var current = DateTime.Now;
+        var elapsed = current - previous;
+        previous = current;
+        lag += (float) elapsed.TotalSeconds;
+        frames += 1;
     }
 
-    public bool CheckLagging() {
-        return this.lag >= this.TIME_STEP;
+    public bool CheckLagging()
+    {
+        return lag >= TIME_STEP;
     }
 }

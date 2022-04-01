@@ -1,48 +1,50 @@
-using System;
-using Raylib_cs;
-
 namespace generalNamespace;
 
 public class Enemy : Character
 {
-    Random rnd = new Random();
-    public int moveSpeed = 0;
     public int health = 5;
+
     // Timer for laser spawn delay
     public int laserCounter = 0;
+
     // Max laser spawn delay
     public int laserMaxCount = 600;
 
-    public int levelOfEnemy = 0;
+    public int levelOfEnemy;
+    public int moveSpeed;
+    private readonly Random rnd = new();
 
     public void setHealth()
     {
         health = 5 * DifficultyHandler.currentLevel;
     }
-    public void SetSpeedandHealth() {
+
+    public void SetSpeedandHealth()
+    {
         setHealth();
         moveSpeed = rnd.Next(5, 8);
     }
+
     public void MoveEnemy()
     {
         x -= moveSpeed;
     }
 
-    public void LevelOneDifficulty ()
+    public void LevelOneDifficulty()
     {
-       Enemy levelOne = new Enemy();
-       levelOne.levelOfEnemy = 1;
+        var levelOne = new Enemy();
+        levelOne.levelOfEnemy = 1;
     }
 
-     public void LevelTwoDifficulty ()
+    public void LevelTwoDifficulty()
     {
-       Enemy levelTwo = new Enemy();
-       levelTwo.levelOfEnemy = 2;
+        var levelTwo = new Enemy();
+        levelTwo.levelOfEnemy = 2;
     }
 
-    public void LevelThreeDifficulty ()
+    public void LevelThreeDifficulty()
     {
-       Enemy levelThree = new Enemy();
-       levelThree.levelOfEnemy = 3;
+        var levelThree = new Enemy();
+        levelThree.levelOfEnemy = 3;
     }
 }

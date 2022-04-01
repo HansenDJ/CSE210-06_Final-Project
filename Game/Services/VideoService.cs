@@ -1,8 +1,4 @@
-using System;
-using System.Net;
-using System.Windows;
 using generalNamespace.Laser;
-using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 
@@ -18,32 +14,35 @@ public class VideoService
     // public static int scrnWidth = Convert.ToInt32(FullPrimaryScreenWidth);
     // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
-    public static void Draw(List<Enemy> enemiesDraw, List<Weapon> playerWeaponsToDraw,Player player,BackgroundService bg, Coin coin,List<Weapon> enemyWeaponsToDraw,List<Coordinate> ExplosionC)
+    public static void Draw(List<Enemy> enemiesDraw, List<Weapon> playerWeaponsToDraw, Player player,
+        BackgroundService bg, Coin coin, List<Weapon> enemyWeaponsToDraw, List<Coordinate> ExplosionC)
     {
         DrawBackdrop(bg);
         DrawCoinCount(coin);
         DrawHeartCount();
-        DrawCharacters(enemiesDraw,playerWeaponsToDraw,player,enemyWeaponsToDraw);
+        DrawCharacters(enemiesDraw, playerWeaponsToDraw, player, enemyWeaponsToDraw);
         ExplosionAnimation(ExplosionC);
         DrawPlayer(player);
     }
 
     private static void DrawBackdrop(BackgroundService bg)
     {
-        Raylib.ClearBackground(Raylib_cs.Color.BLACK);
-        DrawTexture(bg.bg1Texture,bg.x1,bg.y1,WHITE);
-        DrawTexture(bg.bg2Texture,bg.x2,bg.y2,WHITE);
+        ClearBackground(BLACK);
+        DrawTexture(bg.bg1Texture, bg.x1, bg.y1, WHITE);
+        DrawTexture(bg.bg2Texture, bg.x2, bg.y2, WHITE);
     }
 
-    private static void DrawCharacters(List<Enemy> enemiesToDraw,List<Weapon> weaponsToDraw,Player player,List<Weapon> EnemyWeaponsToDraw)
+    private static void DrawCharacters(List<Enemy> enemiesToDraw, List<Weapon> weaponsToDraw, Player player,
+        List<Weapon> EnemyWeaponsToDraw)
     {
-     //   Console.WriteLine( "Object Count: " + enemiesToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
-        for (int i = 0; i < enemiesToDraw.Count - 1; i++)
+        //   Console.WriteLine( "Object Count: " + enemiesToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
+        for (var i = 0; i < enemiesToDraw.Count - 1; i++)
         {
             DrawCharacter(enemiesToDraw[i]);
             DrawColliderBox(enemiesToDraw[i]);
         }
-        for (int i = 0; i < weaponsToDraw.Count - 1; i++)
+
+        for (var i = 0; i < weaponsToDraw.Count - 1; i++)
         {
             if (!weaponsToDraw[i].location)
             {
@@ -55,10 +54,12 @@ public class VideoService
                 weaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
                 weaponsToDraw[i].location = true;
             }
+
             DrawCharacter(weaponsToDraw[i]);
             DrawColliderBox(weaponsToDraw[i]);
         }
-        for (int i = 0; i < EnemyWeaponsToDraw.Count - 1; i++)
+
+        for (var i = 0; i < EnemyWeaponsToDraw.Count - 1; i++)
         {
             // // int enemyX = enemiesToDraw[EnemyWeaponsToDraw[i].enemyIndex].x;
             // // int enemyY = enemiesToDraw[EnemyWeaponsToDraw[i].enemyIndex].y;
@@ -66,9 +67,9 @@ public class VideoService
             // EnemyWeaponsToDraw[i].SetOffsetColliderHeight(EnemyWeaponsToDraw[i].offsetH);
             // EnemyWeaponsToDraw[i].SetX(EnemyWeaponsToDraw[i].x - EnemyWeaponsToDraw[i].GetColliderBoxWidth());
             // EnemyWeaponsToDraw[i].SetY(EnemyWeaponsToDraw[i].y - EnemyWeaponsToDraw[i].GetColliderBoxHeight() / 2);
-        
-           if (!EnemyWeaponsToDraw[i].location)
-           {
+
+            if (!EnemyWeaponsToDraw[i].location)
+            {
                 EnemyWeaponsToDraw[i].offsetW = EnemyWeaponsToDraw[i].offsetW;
                 EnemyWeaponsToDraw[i].offsetH = EnemyWeaponsToDraw[i].offsetH;
                 EnemyWeaponsToDraw[i].SetOffsetColliderWidth(EnemyWeaponsToDraw[i].offsetW);
@@ -76,12 +77,13 @@ public class VideoService
                 EnemyWeaponsToDraw[i].SetX(EnemyWeaponsToDraw[i].x - EnemyWeaponsToDraw[i].GetColliderBoxWidth());
                 EnemyWeaponsToDraw[i].SetY(EnemyWeaponsToDraw[i].y - EnemyWeaponsToDraw[i].GetColliderBoxHeight() / 2);
                 EnemyWeaponsToDraw[i].location = true;
-           }
+            }
+
             DrawCharacter(EnemyWeaponsToDraw[i]);
             DrawColliderBox(EnemyWeaponsToDraw[i]);
         }
     }
-    
+
     public static void DrawCharacter(Character characterToDraw) // draws an artifact
     {
         // This method should be able to draw enemy ships, player and enemy weapons.
@@ -90,11 +92,8 @@ public class VideoService
 
     public static void ExplosionAnimation(List<Coordinate> e)
     {
-        for (int i = 0; i < e.Count; i++)
-        {
-            DrawTexture(ImageService.LoadExplosionAnimation()[e[i].frame],e[i].x,e[i].y,WHITE);
-        }
-        
+        for (var i = 0; i < e.Count; i++)
+            DrawTexture(ImageService.LoadExplosionAnimation()[e[i].frame], e[i].x, e[i].y, WHITE);
     }
 
     public static void DrawPlayer(Player player)
@@ -103,22 +102,22 @@ public class VideoService
         DrawColliderBox(player);
     }
 
-    
 
     public static void DrawCoinCount(Coin coin)
     {
-        Raylib.DrawText($"{CurrencyHandler.money}", 1250,22,20,WHITE);
-        DrawTexture(ImageService.coinCounterTexture,1220,20,WHITE);
+        DrawText($"{CurrencyHandler.money}", 1250, 22, 20, WHITE);
+        DrawTexture(ImageService.coinCounterTexture, 1220, 20, WHITE);
     }
+
     public static void DrawHeartCount()
     {
-        Raylib.DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 30,22,20,WHITE);
+        DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 30, 22, 20, WHITE);
     }
 
     public static void DrawColliderBox(Character character)
     {
-        DrawRectangleLines(character.x + character.GetOffsetColliderWidth() / 2, character.y + character.GetOffsetColliderHeight() / 2, character.GetColliderBoxWidth(), character.GetColliderBoxHeight(), GREEN);
+        DrawRectangleLines(character.x + character.GetOffsetColliderWidth() / 2,
+            character.y + character.GetOffsetColliderHeight() / 2, character.GetColliderBoxWidth(),
+            character.GetColliderBoxHeight(), GREEN);
     }
-
-    
 }

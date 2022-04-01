@@ -2,7 +2,7 @@ namespace generalNamespace;
 
 public static class CurrencyHandler
 {
-    public static int money = 0;
+    public static int money;
 
     public static int GetMoneyAmount()
     {
@@ -16,34 +16,24 @@ public static class CurrencyHandler
             money -= cost;
             return true;
         }
-        else
 
-            return false;
+        return false;
     }
 
     public static int CheckMoney()
     {
-        if (money < 220)
-        {
-            return 1;
-        }
+        if (money < 220) return 1;
 
-        else if (money >= 220 && money < 550)
-        {
-            return 2;
-        }
-        else if (money >= 550 && money < 1000)
-        {
-            return 3;
-        }
-        else if (money >= 1000)
+        if (money >= 220 && money < 550) return 2;
+
+        if (money >= 550 && money < 1000) return 3;
+
+        if (money >= 1000)
         {
             return 4;
         }
-        else
-        {
-            Console.WriteLine("ERROR:Money is negative!");
-            return 5;
-        }
+
+        Console.WriteLine("ERROR:Money is negative!");
+        return 5;
     }
 }
