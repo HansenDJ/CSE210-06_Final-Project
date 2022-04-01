@@ -1,9 +1,7 @@
-using System;
 using generalNamespace;
 
 public class Coin : Character
 {
-    
     public int CoinCount = 0;
     // public int Getreward(int LevelOfEnemy, int CoinCount){
     //     if(LevelOfEnemy = 1){

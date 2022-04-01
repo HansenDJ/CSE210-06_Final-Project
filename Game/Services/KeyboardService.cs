@@ -23,18 +23,22 @@ public static class KeyboardService
     {
         return Raylib.IsKeyReleased(KeyboardKey.KEY_S);
     }
+
     public static bool AKeyDown()
     {
         return Raylib.IsKeyDown(KeyboardKey.KEY_A);
     }
+
     public static bool DKeyDown()
     {
         return Raylib.IsKeyDown(KeyboardKey.KEY_D);
     }
+
     public static bool AKeyReleased()
     {
         return Raylib.IsKeyReleased(KeyboardKey.KEY_A);
     }
+
     public static bool DKeyReleased()
     {
         return Raylib.IsKeyReleased(KeyboardKey.KEY_D);
@@ -59,12 +63,13 @@ public static class KeyboardService
     {
         return Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT);
     }
-    
+
 
     public static bool SpaceKeyDown()
     {
-        return Raylib.IsKeyDown(KeyboardKey.KEY_SPACE)||Raylib.IsKeyDown(KeyboardKey.KEY_ENTER);
+        return Raylib.IsKeyDown(KeyboardKey.KEY_SPACE) || Raylib.IsKeyDown(KeyboardKey.KEY_ENTER);
     }
+
     public static bool UpKeyReleased()
     {
         return Raylib.IsKeyReleased(KeyboardKey.KEY_UP);

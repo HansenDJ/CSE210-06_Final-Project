@@ -1,16 +1,11 @@
-using Raylib_cs;
-using Raylib_cs;
-using static Raylib_cs.Raylib;
 namespace generalNamespace;
 
 public static class ExplosionService
 {
-   
-
     // public static List<Texture2D> LoadExplosionAnimation()
     // {
     //     List<Texture2D> explosionAnimation = new List<Texture2D>();
-        
+
     //         explosionAnimation.Add(LoadTextureFromImage(LoadImage("Game/Images/explosion/exp000.png")));  // Explosion image part 0
     //         explosionAnimation.Add(LoadTextureFromImage(LoadImage("Game/Images/explosion/exp001.png")));  // Explosion image part 1
     //         explosionAnimation.Add(LoadTextureFromImage(LoadImage("Game/Images/explosion/exp002.png")));  // Explosion image part 2
@@ -30,5 +25,4 @@ public static class ExplosionService
 
     //         return explosionAnimation;
     // }
-    
 }

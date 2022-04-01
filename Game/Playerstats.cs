@@ -1,5 +1,3 @@
-using System;
-
 namespace generalNamespace;
 
 public static class PlayerStats
@@ -8,14 +6,9 @@ public static class PlayerStats
 
     public static int maxPlayerHealth = 150;
 
- public static bool PlayerDeadCheck()
+    public static bool PlayerDeadCheck()
     {
-        if (playerHealth <= 0)
-        {
-            return true;
-        }
+        if (playerHealth <= 0) return true;
         return false;
     }
-
-
 }

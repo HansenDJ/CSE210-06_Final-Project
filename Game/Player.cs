@@ -1,38 +1,33 @@
-using System;
-using generalNamespace.Laser;
-
 namespace generalNamespace;
 
 public class Player : Character
 {
     // Player constants
     public static int playerMovementSpeed = 0;
-    public static int playerHealth = 0;
-    private int offsetW = 18;
-    private int offsetH = 14;
-    public static int moveHandler = 0;
+    public static int playerHealth;
+    public static int moveHandler;
     public static char moveDirection = 's';
-    public static int moveIncrement = 0;
+    public static int moveIncrement;
 
-    public static int moveHandlerL = 0;
-    public static int moveHandlerR = 0;
+    public static int moveHandlerL;
+    public static int moveHandlerR;
     public static char moveDirectionlr = 's';
-    public static int moveIncrementL = 0;
-    public static int moveIncrementR = 0;
-    
-   
-    
+    public static int moveIncrementL;
+    public static int moveIncrementR;
+    private readonly int offsetH = 14;
+    private readonly int offsetW = 18;
+
 
     // SETS player constants
     public void SetPlayerStats()
     {
         // playerMovementSpeed = 15;
         playerHealth = 100;
-        SetOffsetColliderWidth(offsetW);    // Width offset for player collider box
-        SetOffsetColliderHeight(offsetH);   // Height offset for player collider box
+        SetOffsetColliderWidth(offsetW); // Width offset for player collider box
+        SetOffsetColliderHeight(offsetH); // Height offset for player collider box
     }
 
-        public void moveHandleUPDW(char direction)
+    public void moveHandleUPDW(char direction)
     {
         if (direction == 'u')
         {
@@ -64,7 +59,7 @@ public class Player : Character
         }
     }
 
-    void MoveHandleLR(char direction)
+    private void MoveHandleLR(char direction)
     {
         if (direction == 'l')
         {
@@ -78,8 +73,9 @@ public class Player : Character
                 moveHandlerL = 0;
                 moveDirectionlr = 'l';
                 moveIncrementL = 0;
-            }  
-        }else if (direction == 'r')
+            }
+        }
+        else if (direction == 'r')
         {
             if (moveDirectionlr == 'r')
             {
@@ -91,20 +87,22 @@ public class Player : Character
                 moveHandlerR = 0;
                 moveDirectionlr = 'r';
                 moveIncrementR = 0;
-            }  
+            }
         }
     }
 
 
-
     public int PlayerMoveKeys()
     {
-        if (KeyboardService.WKeyReleased() || KeyboardService.UpKeyReleased() || KeyboardService.SKeyReleased() || KeyboardService.DownKeyReleased())
+        if (KeyboardService.WKeyReleased() || KeyboardService.UpKeyReleased() || KeyboardService.SKeyReleased() ||
+            KeyboardService.DownKeyReleased())
         {
             moveHandler = 0;
             moveIncrement = 0;
         }
-        if (KeyboardService.AKeyReleased() || KeyboardService.LeftKeyReleased() || KeyboardService.RightKeyReleased() || KeyboardService.DKeyReleased())
+
+        if (KeyboardService.AKeyReleased() || KeyboardService.LeftKeyReleased() || KeyboardService.RightKeyReleased() ||
+            KeyboardService.DKeyReleased())
         {
             moveHandlerL = 0;
             moveHandlerR = 0;
@@ -116,44 +114,41 @@ public class Player : Character
         if (KeyboardService.WKeyDown() || KeyboardService.UpKeyDown())
         {
             moveHandleUPDW('u');
-            if (y >= 0)
-            {
-                y -= moveHandler;  
-            }
-        // Down movement with S key or down arrow key
+            if (y >= 0) y -= moveHandler;
+            // Down movement with S key or down arrow key
         }
+
         if (KeyboardService.SKeyDown() || KeyboardService.DownKeyDown())
         {
             moveHandleUPDW('d');
-            if (y <= VideoService.scrnHeight - GetColliderBoxHeight() * 2)
-            {
-               y += moveHandler;
-            }
-
+            if (y <= VideoService.scrnHeight - GetColliderBoxHeight() * 2) y += moveHandler;
         }
 
         // Left movement with A key or left arrow key
         if ((KeyboardService.AKeyDown() || KeyboardService.LeftKeyDown()) && x >= offsetColliderWidth)
         {
             MoveHandleLR('l');
-            if(x > 10) {}
+            if (x > 10)
+            {
+            }
+
             x -= moveHandlerL;
             x -= moveHandlerR;
-        // Right movement with D key or right arrow key
+            // Right movement with D key or right arrow key
         }
-        if ((KeyboardService.DKeyDown() || KeyboardService.RightKeyDown()) && x < VideoService.scrnWidth / 2 - GetOffsetColliderWidth())
+
+        if ((KeyboardService.DKeyDown() || KeyboardService.RightKeyDown()) &&
+            x < VideoService.scrnWidth / 2 - GetOffsetColliderWidth())
         {
             MoveHandleLR('r');
             x += moveHandlerL;
             x += moveHandlerR;
         }
 
-        if (KeyboardService.SpaceKeyDown())
-        {
-            return 1;
-        }
+        if (KeyboardService.SpaceKeyDown()) return 1;
         return 0;
     }
+
     // public int GetPlayerMovementSpeed()
     // {
     //     return playerMovementSpeed;

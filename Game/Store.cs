@@ -1,81 +1,79 @@
-using System;
-
-using generalNamespace;
-
 public class Store
 {
     public string name = "";
-    public int price = 0;
-    public void Ability(){}
+    public int price;
+
+    public void Ability()
+    {
+    }
     // public bool IsPurchased()
     // {
     //     IsPurchased = false
     // }
 }
+
 public class StoreList
 {
-
-
     public void StoreItemHeart()
     {
-        Store heart = new Store();
+        var heart = new Store();
         heart.name = "Heart";
         heart.price = 100;
     }
 
     public void StoreItemFireRate()
     {
-        Store FireRate = new Store();
+        var FireRate = new Store();
         FireRate.name = "FireRate";
         FireRate.price = 100;
     }
 
     public void StoreItemMovementSpeed()
     {
-        Store MovementSpeed = new Store();
+        var MovementSpeed = new Store();
         MovementSpeed.name = "MovementSpeed";
         MovementSpeed.price = 100;
     }
 
     public void StoreItemMissile()
     {
-        Store Missile = new Store();
+        var Missile = new Store();
         Missile.name = "Missile";
         Missile.price = 100;
     }
 
     public void StoreItemBomb()
     {
-        Store Bomb = new Store();
+        var Bomb = new Store();
         Bomb.name = "Bomb";
         Bomb.price = 100;
     }
 
     public void StoreItemFireStone()
     {
-        Store FireStone = new Store();
+        var FireStone = new Store();
         FireStone.name = "FireStone";
         FireStone.price = 1000;
     }
 
     public void StoreItemIceStone()
     {
-        Store IceStone = new Store();
+        var IceStone = new Store();
         IceStone.name = "IceStone";
         IceStone.price = 1000;
     }
 
     public void StoreItemEletricStone()
     {
-        Store EletricStone = new Store();
+        var EletricStone = new Store();
         EletricStone.name = "EletricStone";
         EletricStone.price = 1000;
     }
+
     public void StoreItemGeoStone()
     {
-        Store GeoStone = new Store();
+        var GeoStone = new Store();
         GeoStone.name = "GeoStone";
         GeoStone.price = 1000;
     }
-
 }
