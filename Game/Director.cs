@@ -1,6 +1,7 @@
 using System;
 using Raylib_cs;
 using System.Timers;
+using CSE210_06_Final_Project;
 
 namespace generalNamespace;
 
@@ -47,7 +48,29 @@ public class Director
             }
 
             // UPDATES
-            timer.Count();
+            if (!PlayerStats.PlayerDeadCheck())
+            {
+                timer.Count();
+            }
+            else
+            {
+                GameOverDeath.loadScreen();
+                if (KeyboardService.SpaceKeyDown())
+                {
+                    bg.LoadBGTexture(ImageService.earthBGStartTexture);
+                    timer.Count();
+                    PlayerStats.playerHealth = 50;
+                    DifficultyHandler.currentLevel = 1;
+                    DifficultyHandler.previousLevel = 1;
+                    DifficultyHandler.enemyCount = 3;
+                  
+                     startTime = DateTime.Now;
+                    timeNow = DateTime.Now;
+                    secondsPassed = 0;
+
+                }
+            }
+           
           //  if(PlayerStats.PlayerDeadCheck()) {
            //     timer.TIME_STEP = 0;
 
