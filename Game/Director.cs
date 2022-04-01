@@ -63,6 +63,7 @@ public class Director
                     DifficultyHandler.currentLevel = 1;
                     DifficultyHandler.previousLevel = 1;
                     DifficultyHandler.enemyCount = 3;
+                    sp.ClearMap();
                   
                      startTime = DateTime.Now;
                     timeNow = DateTime.Now;
