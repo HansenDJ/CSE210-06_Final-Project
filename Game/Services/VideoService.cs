@@ -85,7 +85,6 @@ public class VideoService
     public static void DrawCharacter(Character characterToDraw) // draws an artifact
     {
         // This method should be able to draw enemy ships, player and enemy weapons.
-        // Don't use charTexture because that variable isn't set in Character.cs.
         DrawTexture(characterToDraw.charTexture, characterToDraw.x, characterToDraw.y, WHITE);
     }
 

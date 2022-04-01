@@ -168,21 +168,21 @@ public class SpawnDestory
                 // Width and height offsets for collider box from lv 1 air enemy image file
                 enemyAir.offsetW = lvOneEnemyOffsetW;
                 enemyAir.offsetH = lvOneEnemyOffsetH;
-                ImageService.GetTexture(ImageService.airOneEnemyTexture);
+                enemyAir.SetCharTexture(ImageService.airOneEnemyTexture);
                 enemyAir.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 air enemy image file
                 enemyAir.offsetW = lvTwoEnemyOffsetW;
                 enemyAir.offsetH = lvTwoEnemyOffsetH;
-                ImageService.GetTexture(ImageService.airTwoEnemyTexture);
+                enemyAir.SetCharTexture(ImageService.airTwoEnemyTexture);
                 enemyAir.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 air enemy image file
                 enemyAir.offsetW = lvThreeEnemyOffsetW;
                 enemyAir.offsetH = lvThreeEnemyOffsetH;
-                ImageService.GetTexture(ImageService.airThreeEnemyTexture);
+                enemyAir.SetCharTexture(ImageService.airThreeEnemyTexture);
                 enemyAir.levelOfEnemy = 3;
                 break;
         }
@@ -208,20 +208,20 @@ public class SpawnDestory
                 // Width and height offsets for collider box from lv 1 fire enemy image file
                 enemyFire.offsetW = lvOneEnemyOffsetW;
                 enemyFire.offsetH = lvOneEnemyOffsetH;
-                ImageService.GetTexture(ImageService.fireOneEnemyTexture);
+                enemyFire.SetCharTexture(ImageService.fireOneEnemyTexture);
                 enemyFire.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 fire enemy image file
                 enemyFire.offsetW = lvTwoEnemyOffsetW;
                 enemyFire.offsetH = lvTwoEnemyOffsetH;
-                ImageService.GetTexture(ImageService.fireTwoEnemyTexture);
+                enemyFire.SetCharTexture(ImageService.fireTwoEnemyTexture);
                 enemyFire.levelOfEnemy = 2;
                 break;
             case 3:
                 enemyFire.offsetW = lvThreeEnemyOffsetW;
                 enemyFire.offsetH = lvThreeEnemyOffsetH;
-                ImageService.GetTexture(ImageService.fireThreeEnemyTexture);
+                enemyFire.SetCharTexture(ImageService.fireThreeEnemyTexture);
                 enemyFire.levelOfEnemy = 3;
                 break;
         }
@@ -247,21 +247,21 @@ public class SpawnDestory
                 // Width and height offsets for collider box from lv 1 shadow enemy image file
                 enemyShadow.offsetW = lvOneEnemyOffsetW;
                 enemyShadow.offsetH = lvOneEnemyOffsetH;
-                ImageService.GetTexture(ImageService.shadowOneEnemyTexture);
+                enemyShadow.SetCharTexture(ImageService.shadowOneEnemyTexture);
                 enemyShadow.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 shadow enemy image file
                 enemyShadow.offsetW = lvTwoEnemyOffsetW;
                 enemyShadow.offsetH = lvTwoEnemyOffsetH;
-                ImageService.GetTexture(ImageService.shadowTwoEnemyTexture);
+                enemyShadow.SetCharTexture(ImageService.shadowTwoEnemyTexture);
                 enemyShadow.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 shadow enemy image file
                 enemyShadow.offsetW = lvThreeEnemyOffsetW;
                 enemyShadow.offsetH = lvThreeEnemyOffsetH;
-                ImageService.GetTexture(ImageService.shadowThreeEnemyTexture);
+                enemyShadow.SetCharTexture(ImageService.shadowThreeEnemyTexture);
                 enemyShadow.levelOfEnemy = 3;
                 break;
         }

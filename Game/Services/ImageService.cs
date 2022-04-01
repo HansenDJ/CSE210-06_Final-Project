@@ -32,21 +32,21 @@ public static class ImageService
     public static Image earthTwoEnemyImage = LoadImage("Game/Images/ship/earthlv2.png");  // Enemy earth lv 2
     public static Image earthThreeEnemyImage = LoadImage("Game/Images/ship/earthlv3.png");  // Enemy earth lv 3
     public static Image earthBossEnemyImage = LoadImage("Game/Images/ship/earthboss.png");  // Boss enemy earth
-        // Fire enemies
-    public static Image fireOneEnemyImage = LoadImage("Game/Images/ship/firelv1.png");  // Enemy fire lv 1
-    public static Image fireTwoEnemyImage = LoadImage("Game/Images/ship/firelv2.png");  // Enemy fire lv 2
-    public static Image fireThreeEnemyImage = LoadImage("Game/Images/ship/firelv3.png");  // Enemy fire lv 3
-    public static Image fireBossEnemyImage = LoadImage("Game/Images/ship/fireboss.png");  // Boss enemy fire
-        // Air enemies
-    public static Image airOneEnemyImage = LoadImage("Game/Images/ship/airlv1.png");  // Enemy air lv 1
-    public static Image airTwoEnemyImage = LoadImage("Game/Images/ship/airlv2.png");  // Enemy air lv 2
-    public static Image airThreeEnemyImage = LoadImage("Game/Images/ship/airlv3.png");  // Enemy air lv 3
-    public static Image airBossEnemyImage = LoadImage("Game/Images/ship/airboss.png");  // Boss enemy air
         // Water enemies
     public static Image waterOneEnemyImage = LoadImage("Game/Images/ship/waterlv1.png");  // Enemy water lv 1
     public static Image waterTwoEnemyImage = LoadImage("Game/Images/ship/waterlv2.png");  // Enemy water lv 2
     public static Image waterThreeEnemyImage = LoadImage("Game/Images/ship/waterlv3.png");  // Enemy water lv 3
     public static Image waterBossEnemyImage = LoadImage("Game/Images/ship/waterboss.png");  // Boss enemy water
+        // Air enemies
+    public static Image airOneEnemyImage = LoadImage("Game/Images/ship/airlv1.png");  // Enemy air lv 1
+    public static Image airTwoEnemyImage = LoadImage("Game/Images/ship/airlv2.png");  // Enemy air lv 2
+    public static Image airThreeEnemyImage = LoadImage("Game/Images/ship/airlv3.png");  // Enemy air lv 3
+    public static Image airBossEnemyImage = LoadImage("Game/Images/ship/airboss.png");  // Boss enemy air
+        // Fire enemies
+    public static Image fireOneEnemyImage = LoadImage("Game/Images/ship/firelv1.png");  // Enemy fire lv 1
+    public static Image fireTwoEnemyImage = LoadImage("Game/Images/ship/firelv2.png");  // Enemy fire lv 2
+    public static Image fireThreeEnemyImage = LoadImage("Game/Images/ship/firelv3.png");  // Enemy fire lv 3
+    public static Image fireBossEnemyImage = LoadImage("Game/Images/ship/fireboss.png");  // Boss enemy fire
         // Shadow enemies
     public static Image shadowOneEnemyImage = LoadImage("Game/Images/ship/shadowlv1.png");  // Enemy shadow lv 1
     public static Image shadowTwoEnemyImage = LoadImage("Game/Images/ship/shadowlv2.png");  // Enemy shadow lv 2
@@ -82,21 +82,21 @@ public static class ImageService
     public static Texture2D earthTwoEnemyTexture = LoadTextureFromImage(earthTwoEnemyImage);  // Enemy earth lv 2
     public static Texture2D earthThreeEnemyTexture = LoadTextureFromImage(earthThreeEnemyImage);  // Enemy earth lv 3
     public static Texture2D earthBossEnemyTexture = LoadTextureFromImage(earthBossEnemyImage);  // Boss enemy earth
-        // Fire enemies
-    public static Texture2D fireOneEnemyTexture = LoadTextureFromImage(fireOneEnemyImage);  // Enemy fire lv 1
-    public static Texture2D fireTwoEnemyTexture = LoadTextureFromImage(fireTwoEnemyImage);  // Enemy fire lv 2
-    public static Texture2D fireThreeEnemyTexture = LoadTextureFromImage(fireThreeEnemyImage);  // Enemy fire lv 3
-    public static Texture2D fireBossEnemyTexture = LoadTextureFromImage(fireBossEnemyImage);  // Boss enemy fire
-        // Air enemies
-    public static Texture2D airOneEnemyTexture = LoadTextureFromImage(airOneEnemyImage);  // Enemy air lv 1
-    public static Texture2D airTwoEnemyTexture = LoadTextureFromImage(airTwoEnemyImage);  // Enemy air lv 2
-    public static Texture2D airThreeEnemyTexture = LoadTextureFromImage(airThreeEnemyImage);  // Enemy air lv 3
-    public static Texture2D airBossEnemyTexture = LoadTextureFromImage(airBossEnemyImage);  // Boss enemy air
         // Water enemies
     public static Texture2D waterOneEnemyTexture = LoadTextureFromImage(waterOneEnemyImage);  // Enemy water lv 1
     public static Texture2D waterTwoEnemyTexture = LoadTextureFromImage(waterTwoEnemyImage);  // Enemy water lv 2
     public static Texture2D waterThreeEnemyTexture = LoadTextureFromImage(waterThreeEnemyImage);  // Enemy water lv 3
     public static Texture2D waterBossEnemyTexture = LoadTextureFromImage(waterBossEnemyImage);  // Boss enemy water
+        // Air enemies
+    public static Texture2D airOneEnemyTexture = LoadTextureFromImage(airOneEnemyImage);  // Enemy air lv 1
+    public static Texture2D airTwoEnemyTexture = LoadTextureFromImage(airTwoEnemyImage);  // Enemy air lv 2
+    public static Texture2D airThreeEnemyTexture = LoadTextureFromImage(airThreeEnemyImage);  // Enemy air lv 3
+    public static Texture2D airBossEnemyTexture = LoadTextureFromImage(airBossEnemyImage);  // Boss enemy air
+        // Fire enemies
+    public static Texture2D fireOneEnemyTexture = LoadTextureFromImage(fireOneEnemyImage);  // Enemy fire lv 1
+    public static Texture2D fireTwoEnemyTexture = LoadTextureFromImage(fireTwoEnemyImage);  // Enemy fire lv 2
+    public static Texture2D fireThreeEnemyTexture = LoadTextureFromImage(fireThreeEnemyImage);  // Enemy fire lv 3
+    public static Texture2D fireBossEnemyTexture = LoadTextureFromImage(fireBossEnemyImage);  // Boss enemy fire
         // Shadow enemies
     public static Texture2D shadowOneEnemyTexture = LoadTextureFromImage(shadowOneEnemyImage);  // Enemy shadow lv 1
     public static Texture2D shadowTwoEnemyTexture = LoadTextureFromImage(shadowTwoEnemyImage);  // Enemy shadow lv 2
@@ -122,10 +122,10 @@ public static class ImageService
 
 
     /*---METHODS---*/
-    public static Texture2D GetTexture(Texture2D textureToReturn)
-    {
-        return textureToReturn;
-    }
+    // public static Texture2D GetTexture(Texture2D textureToReturn)
+    // {
+    //     return textureToReturn;
+    // }
     public static Texture2D LoadInTexture(Image image)
     {
         Texture2D texture = LoadTextureFromImage(image);
@@ -209,18 +209,18 @@ public static class ImageService
             allImages.Add(earthTwoEnemyImage);
             allImages.Add(earthThreeEnemyImage);
             allImages.Add(earthBossEnemyImage);
-            allImages.Add(fireOneEnemyImage);
-            allImages.Add(fireTwoEnemyImage);
-            allImages.Add(fireThreeEnemyImage);
-            allImages.Add(fireBossEnemyImage);
-            allImages.Add(airOneEnemyImage);
-            allImages.Add(airTwoEnemyImage);
-            allImages.Add(airThreeEnemyImage);
-            allImages.Add(airBossEnemyImage);
             allImages.Add(waterOneEnemyImage);
             allImages.Add(waterTwoEnemyImage);
             allImages.Add(waterThreeEnemyImage);
             allImages.Add(waterBossEnemyImage);
+            allImages.Add(airOneEnemyImage);
+            allImages.Add(airTwoEnemyImage);
+            allImages.Add(airThreeEnemyImage);
+            allImages.Add(airBossEnemyImage);
+            allImages.Add(fireOneEnemyImage);
+            allImages.Add(fireTwoEnemyImage);
+            allImages.Add(fireThreeEnemyImage);
+            allImages.Add(fireBossEnemyImage);
             allImages.Add(shadowOneEnemyImage);
             allImages.Add(shadowTwoEnemyImage);
             allImages.Add(shadowThreeEnemyImage);
@@ -245,18 +245,18 @@ public static class ImageService
             allTextures.Add(earthTwoEnemyTexture);
             allTextures.Add(earthThreeEnemyTexture);
             allTextures.Add(earthBossEnemyTexture);
-            allTextures.Add(fireOneEnemyTexture);
-            allTextures.Add(fireTwoEnemyTexture);
-            allTextures.Add(fireThreeEnemyTexture);
-            allTextures.Add(fireBossEnemyTexture);
-            allTextures.Add(airOneEnemyTexture);
-            allTextures.Add(airTwoEnemyTexture);
-            allTextures.Add(airThreeEnemyTexture);
-            allTextures.Add(airBossEnemyTexture);
             allTextures.Add(waterOneEnemyTexture);
             allTextures.Add(waterTwoEnemyTexture);
             allTextures.Add(waterThreeEnemyTexture);
             allTextures.Add(waterBossEnemyTexture);
+            allTextures.Add(airOneEnemyTexture);
+            allTextures.Add(airTwoEnemyTexture);
+            allTextures.Add(airThreeEnemyTexture);
+            allTextures.Add(airBossEnemyTexture);
+            allTextures.Add(fireOneEnemyTexture);
+            allTextures.Add(fireTwoEnemyTexture);
+            allTextures.Add(fireThreeEnemyTexture);
+            allTextures.Add(fireBossEnemyTexture);
             allTextures.Add(shadowOneEnemyTexture);
             allTextures.Add(shadowTwoEnemyTexture);
             allTextures.Add(shadowThreeEnemyTexture);
@@ -283,18 +283,18 @@ public static class ImageService
             allImages[i] = UnloadImageFile(earthTwoEnemyImage);
             allImages[i] = UnloadImageFile(earthThreeEnemyImage);
             allImages[i] = UnloadImageFile(earthBossEnemyImage);
-            allImages[i] = UnloadImageFile(fireOneEnemyImage);
-            allImages[i] = UnloadImageFile(fireTwoEnemyImage);
-            allImages[i] = UnloadImageFile(fireThreeEnemyImage);
-            allImages[i] = UnloadImageFile(fireBossEnemyImage);
-            allImages[i] = UnloadImageFile(airOneEnemyImage);
-            allImages[i] = UnloadImageFile(airTwoEnemyImage);
-            allImages[i] = UnloadImageFile(airThreeEnemyImage);
-            allImages[i] = UnloadImageFile(airBossEnemyImage);
             allImages[i] = UnloadImageFile(waterOneEnemyImage);
             allImages[i] = UnloadImageFile(waterTwoEnemyImage);
             allImages[i] = UnloadImageFile(waterThreeEnemyImage);
             allImages[i] = UnloadImageFile(waterBossEnemyImage);
+            allImages[i] = UnloadImageFile(airOneEnemyImage);
+            allImages[i] = UnloadImageFile(airTwoEnemyImage);
+            allImages[i] = UnloadImageFile(airThreeEnemyImage);
+            allImages[i] = UnloadImageFile(airBossEnemyImage);
+            allImages[i] = UnloadImageFile(fireOneEnemyImage);
+            allImages[i] = UnloadImageFile(fireTwoEnemyImage);
+            allImages[i] = UnloadImageFile(fireThreeEnemyImage);
+            allImages[i] = UnloadImageFile(fireBossEnemyImage);
             allImages[i] = UnloadImageFile(shadowOneEnemyImage);
             allImages[i] = UnloadImageFile(shadowTwoEnemyImage);
             allImages[i] = UnloadImageFile(shadowThreeEnemyImage);

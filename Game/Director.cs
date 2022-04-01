@@ -43,7 +43,7 @@ public class Director
               
             // INPUT
             if (sp.CheckIfSpawnNeeded()) {
-                sp.SpawnEnemy(DifficultyHandler.level);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+                sp.SpawnEnemy(DifficultyHandler.currentLevel);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
             }
 
             // UPDATES
@@ -69,7 +69,7 @@ public class Director
             if (DifficultyHandler.levelChange)
             {
                 DifficultyHandler.levelChange = false;
-                switch (DifficultyHandler.level)
+                switch (DifficultyHandler.currentLevel)
                 {
                     case 2:
                         BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
