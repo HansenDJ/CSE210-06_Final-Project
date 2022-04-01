@@ -2,7 +2,7 @@ namespace generalNamespace;
 
 public class Timer {
 
-    private float TIME_STEP = (float) (1.0 / 60.0);
+    public float TIME_STEP = (float) (1.0 / 60.0);
     private float lag;
     private DateTime previous;
     private float frames;

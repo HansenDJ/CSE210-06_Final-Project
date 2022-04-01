@@ -54,6 +54,28 @@ public class SpawnDestory
             case 5:
                 SpawnShadowEnemy(RandomEnemy());
                 break;
+            default:
+                Random r = new Random();
+                int enemyType = r.Next(1, 5);
+                switch (enemyType)
+            {
+                case 1:
+                    SpawnEarthEnemy(RandomEnemy());
+                    break;
+                case 2:
+                    SpawnWaterEnemy(RandomEnemy());
+                    break;
+                case 3:
+                    SpawnAirEnemy(RandomEnemy());
+                    break;
+                case 4:
+                    SpawnFireEnemy(RandomEnemy());
+                    break;
+                case 5:
+                    SpawnShadowEnemy(RandomEnemy());
+                    break;
+            }
+                break;
         }
     }
 
@@ -93,7 +115,7 @@ public class SpawnDestory
             )
         );
         enemyEarth.SetX(1500);
-        enemyEarth.SetRandomMoveSpeed();
+        enemyEarth.SetSpeedandHealth();
         enemyList.Add(enemyEarth);
     }
 
@@ -133,7 +155,7 @@ public class SpawnDestory
             )
         );
         enemyWater.SetX(1500);
-        enemyWater.SetRandomMoveSpeed();
+        enemyWater.SetSpeedandHealth();
         enemyList.Add(enemyWater);
     }
 
@@ -173,7 +195,7 @@ public class SpawnDestory
             )
         );
         enemyAir.SetX(1500);
-        enemyAir.SetRandomMoveSpeed();
+        enemyAir.SetSpeedandHealth();
         enemyList.Add(enemyAir);
     }
 
@@ -212,7 +234,7 @@ public class SpawnDestory
             )
         );
         enemyFire.SetX(1500);
-        enemyFire.SetRandomMoveSpeed();
+        enemyFire.SetSpeedandHealth();
         enemyList.Add(enemyFire);
     }
 
@@ -252,7 +274,7 @@ public class SpawnDestory
             )
         );
         enemyShadow.SetX(1500);
-        enemyShadow.SetRandomMoveSpeed();
+        enemyShadow.SetSpeedandHealth();
         enemyList.Add(enemyShadow);
     }
 
