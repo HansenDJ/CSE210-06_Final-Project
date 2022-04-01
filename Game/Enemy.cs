@@ -15,11 +15,12 @@ public class Enemy : Character
 
     public int levelOfEnemy = 0;
 
-    public void setHealth(int hp)
+    public void setHealth()
     {
-        health = hp;
+        health = 5 * DifficultyHandler.level;
     }
-    public void SetRandomMoveSpeed() {
+    public void SetSpeedandHealth() {
+        setHealth();
         moveSpeed = rnd.Next(5, 8);
     }
     public void MoveEnemy()
