@@ -14,6 +14,9 @@ public class Director
     // static bool action = false;
     public void StartGame()
     {
+        DateTime startTime = DateTime.Now;
+        DateTime timeNow = DateTime.Now;
+        double secondsPassed = 0;
         ImageService.LoadAllImages();
         ImageService.LoadAllTextures();
         ImageService.LoadExplosionAnimation();
@@ -44,6 +47,12 @@ public class Director
 
             // UPDATES
             timer.Count();
+            timeNow = DateTime.Now;
+            secondsPassed = (timeNow - startTime).TotalSeconds;
+
+            DifficultyHandler.LevelUp(secondsPassed / 90D);
+            
+            
             // if (action)
             if (DifficultyHandler.levelChange)
             {
