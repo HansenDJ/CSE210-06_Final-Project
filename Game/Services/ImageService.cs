@@ -270,22 +270,22 @@ public static class ImageService
             allImages[i] = UnloadImageFile(earthTwoEnemyImage);
             allImages[i] = UnloadImageFile(earthThreeEnemyImage);
             allImages[i] = UnloadImageFile(earthBossEnemyImage);
-            allImages[i] = UnloadImageFile(fireOneEnemyImage);
-            allImages[i] = UnloadImageFile(fireTwoEnemyImage);
-            allImages[i] = UnloadImageFile(fireThreeEnemyImage);
-            allImages[i] = UnloadImageFile(fireBossEnemyImage);
-            allImages[i] = UnloadImageFile(airOneEnemyImage);
-            allImages[i] = UnloadImageFile(airTwoEnemyImage);
-            allImages[i] = UnloadImageFile(airThreeEnemyImage);
-            allImages[i] = UnloadImageFile(airBossEnemyImage);
-            allImages[i] = UnloadImageFile(waterOneEnemyImage);
-            allImages[i] = UnloadImageFile(waterTwoEnemyImage);
-            allImages[i] = UnloadImageFile(waterThreeEnemyImage);
-            allImages[i] = UnloadImageFile(waterBossEnemyImage);
-            allImages[i] = UnloadImageFile(shadowOneEnemyImage);
-            allImages[i] = UnloadImageFile(shadowTwoEnemyImage);
-            allImages[i] = UnloadImageFile(shadowThreeEnemyImage);
-            allImages[i] = UnloadImageFile(shadowBossEnemyImage);
+            // allImages[i] = UnloadImageFile(fireOneEnemyImage);
+            // allImages[i] = UnloadImageFile(fireTwoEnemyImage);
+            // allImages[i] = UnloadImageFile(fireThreeEnemyImage);
+            // allImages[i] = UnloadImageFile(fireBossEnemyImage);
+            // allImages[i] = UnloadImageFile(airOneEnemyImage);
+            // allImages[i] = UnloadImageFile(airTwoEnemyImage);
+            // allImages[i] = UnloadImageFile(airThreeEnemyImage);
+            // allImages[i] = UnloadImageFile(airBossEnemyImage);
+            // allImages[i] = UnloadImageFile(waterOneEnemyImage);
+            // allImages[i] = UnloadImageFile(waterTwoEnemyImage);
+            // allImages[i] = UnloadImageFile(waterThreeEnemyImage);
+            // allImages[i] = UnloadImageFile(waterBossEnemyImage);
+            // allImages[i] = UnloadImageFile(shadowOneEnemyImage);
+            // allImages[i] = UnloadImageFile(shadowTwoEnemyImage);
+            // allImages[i] = UnloadImageFile(shadowThreeEnemyImage);
+            // allImages[i] = UnloadImageFile(shadowBossEnemyImage);
             // allImages[i] = UnloadImageFile(heartIconImage);  Uncomment when full file name added above
             allImages[i] = UnloadImageFile(coinCounterImage);
             // allImages[i] = UnloadImageFile(coinDropImage);  Uncomment when full file name added above
@@ -293,6 +293,8 @@ public static class ImageService
             allImages[i] = UnloadImageFile(laser1Image);
             allImages[i] = UnloadImageFile(laser11Image);
         }
+
+        Director.unloadCheck = true;
 
         return allImages;
     }

@@ -15,7 +15,7 @@ public class SpawnDestory
     public List<Weapon> playerWeaponList = new();
     public List<Weapon> enemyWeaponsList = new();
     public List<Coordinate> explosionCoordinates = new();
-    public int maxEnemies = 50;
+    public int maxEnemies = 5;
 
     // Level 1 enemy collider box width and height offsets
     private int lvOneEnemyOffsetW = 18;

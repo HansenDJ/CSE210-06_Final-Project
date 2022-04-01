@@ -10,6 +10,7 @@ public class Director
     // Number of milliseconds between frames
     // int updateFrameTime = 5;
     private static int reloadTime = 0;
+    // public static bool unloadCheck = false;
     // static bool action = false;
     public void StartGame()
     {
@@ -102,8 +103,11 @@ public class Director
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
                 Raylib.EndDrawing();
             //     action = false;
+                // if(unloadCheck == false)
+                // {
+                //     ImageService.UnloadAllImages();
+                // }
             }
-            // ImageService.UnloadAllImages();
         }
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
