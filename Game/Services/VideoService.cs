@@ -108,7 +108,7 @@ public class VideoService
 
     public static void DrawCoinCount(Coin coin)
     {
-        Raylib.DrawText("coincount", 1250,22,20,WHITE);
+        Raylib.DrawText($"{CurrencyHandler.money}", 1250,22,20,WHITE);
         DrawTexture(ImageService.coinCounterTexture,1220,20,WHITE);
     }
     public static void DrawHeartCount()
