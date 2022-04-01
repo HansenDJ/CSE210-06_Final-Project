@@ -59,7 +59,7 @@ public class Director
                 {
                     bg.LoadBGTexture(ImageService.earthBGStartTexture);
                     timer.Count();
-                    PlayerStats.playerHealth = 50;
+                    PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                     DifficultyHandler.currentLevel = 1;
                     DifficultyHandler.previousLevel = 1;
                     DifficultyHandler.enemyCount = 3;
