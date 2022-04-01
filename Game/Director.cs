@@ -40,9 +40,7 @@ public class Director
         while (!Raylib.WindowShouldClose())
         {
             // INPUT
-            if (sp.CheckIfSpawnNeeded())
-                sp.SpawnEnemy(DifficultyHandler
-                    .currentLevel); // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+            SpawnCheck(sp);
 
             // UPDATES
             if (!PlayerStats.PlayerDeadCheck())
@@ -53,7 +51,7 @@ public class Director
             {
                 GameOverDeath.loadScreen();
                 if (KeyboardService.SpaceKeyDown())
-                    startTime = RestartLevel(bg, timer, sp);
+                    startTime = RestartLevel(bg, timer, sp, coin);
                 //
             }
 
@@ -71,38 +69,7 @@ public class Director
 
 
             // if (action)
-            if (DifficultyHandler.levelChange)
-            {
-                DifficultyHandler.levelChange = false;
-                switch (DifficultyHandler.currentLevel)
-                {
-                    case 1:
-                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
-                        bg.LoadBGTexture(ImageService.earthBGStartTexture);
-                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
-                        break;
-                    case 2:
-                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
-                        bg.LoadBGTexture(ImageService.waterBGStartTexture);
-                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
-                        break;
-                    case 3:
-                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
-                        bg.LoadBGTexture(ImageService.airBGStartTexture);
-                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
-                        break;
-                    case 4:
-                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
-                        bg.LoadBGTexture(ImageService.fireBGStartTexture);
-                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
-                        break;
-                    case 5:
-                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
-                        bg.LoadBGTexture(ImageService.shadowBGStartTexture);
-                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
-                        break;
-                }
-            }
+            LevelChangeCheck(bg);
 
             while (timer.CheckLagging())
             {
@@ -139,7 +106,50 @@ public class Director
         AudioService.CloseAudio();
     }
 
-    private static DateTime RestartLevel(BackgroundService bg, Timer timer, SpawnDestory sp)
+    private static void SpawnCheck(SpawnDestory sp)
+    {
+        if (sp.CheckIfSpawnNeeded())
+            sp.SpawnEnemy(DifficultyHandler
+                .currentLevel); // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+    }
+
+    private static void LevelChangeCheck(BackgroundService bg)
+    {
+        if (DifficultyHandler.levelChange)
+        {
+            DifficultyHandler.levelChange = false;
+            switch (DifficultyHandler.currentLevel)
+            {
+                case 1:
+                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                    bg.LoadBGTexture(ImageService.earthBGStartTexture);
+                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+                    break;
+                case 2:
+                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                    bg.LoadBGTexture(ImageService.waterBGStartTexture);
+                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+                    break;
+                case 3:
+                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                    bg.LoadBGTexture(ImageService.airBGStartTexture);
+                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+                    break;
+                case 4:
+                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                    bg.LoadBGTexture(ImageService.fireBGStartTexture);
+                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+                    break;
+                case 5:
+                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                    bg.LoadBGTexture(ImageService.shadowBGStartTexture);
+                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+                    break;
+            }
+        }
+    }
+
+    private static DateTime RestartLevel(BackgroundService bg, Timer timer, SpawnDestory sp, Coin coin)
     {
         DateTime startTime;
         DateTime timeNow;
@@ -151,6 +161,7 @@ public class Director
         DifficultyHandler.previousLevel = 1;
         DifficultyHandler.enemyCount = 3;
         DifficultyHandler.levelChange = true;
+        coin.CoinCount = 0;
         sp.ClearMap();
 
         startTime = DateTime.Now;
