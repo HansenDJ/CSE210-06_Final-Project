@@ -35,28 +35,14 @@ public class Director
         // coin.SetTexture(ImageService.SetCoinGif());
         AudioService.InitSound();
         AudioService.LoadAudio(AudioService.lv1Shot);
-
-
+        
         while (!Raylib.WindowShouldClose())
         {
             // INPUT
             SpawnCheck(sp);
-
             // UPDATES
-            if (!PlayerStats.PlayerDeadCheck())
-            {
-                timer.Count();
-            }
-            else
-            {
-                GameOverDeath.loadScreen();
-                if (KeyboardService.SpaceKeyDown())
-                    startTime = RestartLevel(bg, timer, sp, coin);
-                //
-            }
+            startTime = CheckIfDied(timer, startTime, bg, sp, coin);
             TimeService(startTime, sp);
-
-
             // if (action)
             LevelChangeCheck(bg);
 
@@ -65,6 +51,23 @@ public class Director
 
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
+    }
+
+    private static DateTime CheckIfDied(Timer timer, DateTime startTime, BackgroundService bg, SpawnDestory sp, Coin coin)
+    {
+        if (!PlayerStats.PlayerDeadCheck())
+        {
+            timer.Count();
+        }
+        else
+        {
+            GameOverDeath.loadScreen();
+            if (KeyboardService.SpaceKeyDown())
+                startTime = RestartLevel(bg, timer, sp, coin);
+            //
+        }
+
+        return startTime;
     }
 
     private static void TimerCheckLagandDraw(Timer timer, Player player, SpawnDestory sp, BackgroundService bg, Coin coin)
