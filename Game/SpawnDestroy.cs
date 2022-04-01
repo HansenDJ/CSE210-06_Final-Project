@@ -64,18 +64,21 @@ public class SpawnDestory
                 enemyEarth.offsetW = lvOneEnemyOffsetW;
                 enemyEarth.offsetH = lvOneEnemyOffsetH;
                 enemyEarth.SetCharTexture(ImageService.earthOneEnemyTexture);
+                enemyEarth.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 earth enemy image file
                 enemyEarth.offsetW = lvTwoEnemyOffsetW;
                 enemyEarth.offsetH = lvTwoEnemyOffsetH;
                 enemyEarth.SetCharTexture(ImageService.earthTwoEnemyTexture);
+                enemyEarth.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 earth enemy image file
                 enemyEarth.offsetW = lvThreeEnemyOffsetW;
                 enemyEarth.offsetH = lvThreeEnemyOffsetH;
                 enemyEarth.SetCharTexture(ImageService.earthThreeEnemyTexture);
+                enemyEarth.levelOfEnemy = 3;
                 break;
         }
         enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
@@ -96,18 +99,21 @@ public class SpawnDestory
                 enemyWater.offsetW = lvOneEnemyOffsetW;
                 enemyWater.offsetH = lvOneEnemyOffsetH;
                 enemyWater.SetCharTexture(ImageService.waterOneEnemyTexture);
+                enemyWater.levelOfEnemy =1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 water enemy image file
                 enemyWater.offsetW = lvTwoEnemyOffsetW;
                 enemyWater.offsetH = lvTwoEnemyOffsetH;
                 enemyWater.SetCharTexture(ImageService.waterTwoEnemyTexture);
+                enemyWater.levelOfEnemy =2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 water enemy image file
                 enemyWater.offsetW = lvThreeEnemyOffsetW;
                 enemyWater.offsetH = lvThreeEnemyOffsetH;
                 enemyWater.SetCharTexture(ImageService.waterThreeEnemyTexture);
+                enemyWater.levelOfEnemy =3;
                 break;
         }
         enemyWater.SetOffsetColliderWidth(enemyWater.offsetW);
@@ -127,18 +133,21 @@ public class SpawnDestory
                 enemyAir.offsetW = lvOneEnemyOffsetW;
                 enemyAir.offsetH = lvOneEnemyOffsetH;
                 ImageService.GetTexture(ImageService.airOneEnemyTexture);
+                enemyAir.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 air enemy image file
                 enemyAir.offsetW = lvTwoEnemyOffsetW;
                 enemyAir.offsetH = lvTwoEnemyOffsetH;
                 ImageService.GetTexture(ImageService.airTwoEnemyTexture);
+                enemyAir.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 air enemy image file
                 enemyAir.offsetW = lvThreeEnemyOffsetW;
                 enemyAir.offsetH = lvThreeEnemyOffsetH;
                 ImageService.GetTexture(ImageService.airThreeEnemyTexture);
+                enemyAir.levelOfEnemy = 3;
                 break;
         }
         enemyAir.SetOffsetColliderWidth(enemyAir.offsetW);
@@ -160,17 +169,20 @@ public class SpawnDestory
                 enemyFire.offsetW = lvOneEnemyOffsetW;
                 enemyFire.offsetH = lvOneEnemyOffsetH;
                 ImageService.GetTexture(ImageService.fireOneEnemyTexture);
+                enemyFire.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 fire enemy image file
                 enemyFire.offsetW = lvTwoEnemyOffsetW;
                 enemyFire.offsetH = lvTwoEnemyOffsetH;
                 ImageService.GetTexture(ImageService.fireTwoEnemyTexture);
+                enemyFire.levelOfEnemy = 2;
                 break;
             case 3:
                 enemyFire.offsetW = lvThreeEnemyOffsetW;
                 enemyFire.offsetH = lvThreeEnemyOffsetH;
                 ImageService.GetTexture(ImageService.fireThreeEnemyTexture);
+                enemyFire.levelOfEnemy = 3;
                 break;
         }
         enemyFire.SetOffsetColliderWidth(enemyFire.offsetW);
@@ -190,18 +202,21 @@ public class SpawnDestory
                 enemyShadow.offsetW = lvOneEnemyOffsetW;
                 enemyShadow.offsetH = lvOneEnemyOffsetH;
                 ImageService.GetTexture(ImageService.shadowOneEnemyTexture);
+                enemyShadow.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 shadow enemy image file
                 enemyShadow.offsetW = lvTwoEnemyOffsetW;
                 enemyShadow.offsetH = lvTwoEnemyOffsetH;
                 ImageService.GetTexture(ImageService.shadowTwoEnemyTexture);
+                enemyShadow.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 shadow enemy image file
                 enemyShadow.offsetW = lvThreeEnemyOffsetW;
                 enemyShadow.offsetH = lvThreeEnemyOffsetH;
                 ImageService.GetTexture(ImageService.shadowThreeEnemyTexture);
+                enemyShadow.levelOfEnemy = 3;
                 break;
         }
         enemyShadow.SetOffsetColliderWidth(enemyShadow.offsetW);

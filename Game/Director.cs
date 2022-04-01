@@ -13,7 +13,6 @@ public class Director
     // static bool action = false;
     public void StartGame()
     {
-        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
         ImageService.LoadAllImages();
         ImageService.LoadAllTextures();
         ImageService.LoadExplosionAnimation();
