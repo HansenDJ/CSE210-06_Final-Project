@@ -37,6 +37,7 @@ public class Director
 
         while (!Raylib.WindowShouldClose())
         {
+              
             // INPUT
             if (sp.CheckIfSpawnNeeded()) {
                 sp.SpawnEnemy(1);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
@@ -44,6 +45,13 @@ public class Director
 
             // UPDATES
             timer.Count();
+          //  if(PlayerStats.PlayerDeadCheck()) {
+           //     timer.TIME_STEP = 0;
+
+            //      break;
+            //  }
+            
+
             // if (action)
             if (DifficultyHandler.levelChange)
             {
@@ -112,7 +120,7 @@ public class Director
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
     }
-
+       
     // // Change updateFrameTime variable above to change number of milliseconds between frames
     // static void SetTimer(int frameTime) {
     //     timer = new System.Timers.Timer(frameTime);
