@@ -164,11 +164,12 @@ public class Director
         timer.Count();
        
         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+        DifficultyHandler.levelChange = true;
         LevelChangeCheck(bg);
         DifficultyHandler.currentLevel = 1;
         DifficultyHandler.previousLevel = 1;
         DifficultyHandler.enemyCount = 3;
-        DifficultyHandler.levelChange = true;
+       
         coin.CoinCount = 0;
         sp.ClearMap();
 
