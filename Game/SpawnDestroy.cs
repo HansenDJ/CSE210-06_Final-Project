@@ -504,4 +504,13 @@ public class SpawnDestory
             enemyList.RemoveAt(index);
         }
     }
+
+    public void ClearMap()
+    {
+        enemyList.Clear();
+        playerWeaponList.Clear();
+        enemyWeaponsList.Clear();
+        explosionCoordinates.Clear();
+        maxEnemies = 5;
+    }
 }
