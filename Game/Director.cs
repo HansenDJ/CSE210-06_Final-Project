@@ -97,7 +97,7 @@ public class Director
                 Raylib.BeginDrawing();
                 
                 bg.ServeBackgrounds();
-                VideoService.Draw(sp.GetEnemies(),sp.getPlayerWeapons(), player,bg, coin,sp.getEnemyWeapons());   // sp.getExplosions()
+                VideoService.Draw(sp.GetEnemies(),sp.getPlayerWeapons(), player,bg, coin,sp.getEnemyWeapons(),sp.getExplosions());
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
                 Raylib.EndDrawing();

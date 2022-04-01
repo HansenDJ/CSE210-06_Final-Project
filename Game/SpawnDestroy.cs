@@ -14,8 +14,8 @@ public class SpawnDestory
     public List<Enemy> enemyList = new();
     public List<Weapon> playerWeaponList = new();
     public List<Weapon> enemyWeaponsList = new();
-    // public List<Coordinate> explosionCoordinates = new();
-    public int maxEnemies = 10000;
+    public List<Coordinate> explosionCoordinates = new();
+    public int maxEnemies = 50;
 
     // Level 1 enemy collider box width and height offsets
     private int lvOneEnemyOffsetW = 18;
@@ -227,12 +227,6 @@ public class SpawnDestory
         enemyList.Add(enemyShadow);
     }
 
-
-    // public Texture2D GetWeaponTexture()
-    // {
-    //     return 
-    // }
-
     public void SpawnWeapon(char weaponType, Character target, Texture2D weaponTexture)
     {
         switch (weaponType)
@@ -273,18 +267,18 @@ public class SpawnDestory
         return enemyWeaponsList;
     }
 
-    // public List<Coordinate> getExplosions()
-    // {
-    //     for (int i = 0; i < explosionCoordinates.Count - 1; i++)
-    //     {
-    //         explosionCoordinates[i].frame += 1;
-    //         if (explosionCoordinates[i].frame > 15)
-    //         {
-    //             explosionCoordinates.RemoveAt(i);
-    //         }
-    //     }
-    //     return explosionCoordinates;
-    // }
+    public List<Coordinate> getExplosions()
+    {
+        for (int i = 0; i < explosionCoordinates.Count; i++)
+        {
+            explosionCoordinates[i].frame += 1;
+            if (explosionCoordinates[i].frame > 15)
+            {
+                explosionCoordinates.RemoveAt(i);
+            }
+        }
+        return explosionCoordinates;
+    }
 
     // Loop through all the enemies on the screen inside the enemyList
     public async void EnemyListLoop(Player player)
@@ -389,10 +383,10 @@ public class SpawnDestory
             enemyList[enemyIndex].health -= weapon.strength;
             if (enemyList[enemyIndex].health <= 0)
             {
-                // Coordinate c = new Coordinate();
-                // c.x = enemyList[enemyIndex].x;
-                // c.y = enemyList[enemyIndex].y;
-                // explosionCoordinates.Add(c);
+                Coordinate c = new Coordinate();
+                c.x = enemyList[enemyIndex].x;
+                c.y = enemyList[enemyIndex].y;
+                explosionCoordinates.Add(c);
 
                 enemyList.RemoveAt(enemyIndex);  // Change so that the enemy is destroyed when the enemy health goes to zero
             }

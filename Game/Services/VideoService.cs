@@ -18,13 +18,13 @@ public class VideoService
     // public static int scrnWidth = Convert.ToInt32(FullPrimaryScreenWidth);
     // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
-    public static void Draw(List<Enemy> enemiesDraw, List<Weapon> playerWeaponsToDraw,Player player,BackgroundService bg, Coin coin,List<Weapon> enemyWeaponsToDraw)  // List<Coordinate> ExplosionC
+    public static void Draw(List<Enemy> enemiesDraw, List<Weapon> playerWeaponsToDraw,Player player,BackgroundService bg, Coin coin,List<Weapon> enemyWeaponsToDraw,List<Coordinate> ExplosionC)
     {
         DrawBackdrop(bg);
         DrawCoinCount(coin);
         DrawHeartCount();
         DrawCharacters(enemiesDraw,playerWeaponsToDraw,player,enemyWeaponsToDraw);
-        // ExplosionAnimation(ExplosionC);
+        ExplosionAnimation(ExplosionC);
         DrawPlayer(player);
     }
 
