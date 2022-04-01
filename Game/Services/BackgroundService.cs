@@ -4,10 +4,12 @@ namespace generalNamespace;
 
 public class BackgroundService
 {
-    private Image bg1Image;
-    private Image bg2Image;
+    // private Image bg1Image;
+    // private Image bg2Image;
     public Texture2D bg1Texture;
     public Texture2D bg2Texture;
+    public static Texture2D previousBGTexture;
+    public static Texture2D currentBGTexture;
     public int x1 = 0;
     public int x2 = 1920;
     public int y1 = 0;
@@ -33,11 +35,12 @@ public class BackgroundService
             x2 = 1920;
         }
     }
-    public void SetTexture(Image imagebg)
+    public void LoadBGTexture(Texture2D backgroundTexture)
     {
-        bg1Image = imagebg;
-        bg1Texture = LoadTextureFromImage(bg1Image);
-        bg2Texture = LoadTextureFromImage(bg1Image);
+        bg1Texture = backgroundTexture;
+        bg2Texture = backgroundTexture;
+        // UnloadImage(imagebg);
+        currentBGTexture = bg1Texture;
     }
 
    

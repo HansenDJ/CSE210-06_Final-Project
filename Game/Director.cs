@@ -14,19 +14,23 @@ public class Director
     public void StartGame()
     {
         Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
-        ExplosionService.LoadAnimation();
+        ImageService.LoadAllImages();
+        ImageService.LoadAllTextures();
+        ImageService.LoadExplosionAnimation();
+        // Raylib.SetTargetFPS(60); // TRY TO USE INSTEAD OF TIMER
         Timer timer = new();
         // SetTimer(updateFrameTime);
         VideoService vd = new();
+        BackgroundService bg = new();
         Player player = new();
-        SpawnDestory sp = new SpawnDestory();
-        player.SetTexture(ImageService.SetShipStartImage());
+        SpawnDestory sp = new();
+        Coin coin = new();
+        // player.SetTexture(ImageService.SetShipStartImage());
+        bg.LoadBGTexture(ImageService.earthBGStartTexture);
+        player.SetCharTexture(ImageService.startShipTexture);
         player.SetPlayerStats();
         player.SetPlayerXY(player);
-        BackgroundService bg = new BackgroundService();
-        bg.SetTexture(ImageService.SetEarthBGStartImage());
-        Coin coin = new Coin();
-        coin.SetTexture(ImageService.SetCoinGif());
+        // coin.SetTexture(ImageService.SetCoinGif());
         AudioService.InitSound();
         AudioService.LoadAudio(AudioService.lv1Shot);
 
@@ -47,16 +51,24 @@ public class Director
                 switch (DifficultyHandler.level)
                 {
                     case 2:
-                        bg.SetTexture(ImageService.SetWaterBGStartImage());
+                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                        bg.LoadBGTexture(ImageService.waterBGStartTexture);
+                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
                         break;
                     case 3:
-                        bg.SetTexture(ImageService.SetAirBGStartImage());
+                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                        bg.LoadBGTexture(ImageService.airBGStartTexture);
+                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
                         break;
                     case 4:
-                        bg.SetTexture(ImageService.SetFireBGStartImage());
+                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                        bg.LoadBGTexture(ImageService.fireBGStartTexture);
+                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
                         break;
                     case 5:
-                        bg.SetTexture(ImageService.SetShadowBGStartImage());
+                        BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                        bg.LoadBGTexture(ImageService.shadowBGStartTexture);
+                        ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
                         break;
                 }
                 
@@ -68,7 +80,7 @@ public class Director
                 {
                     if (reloadTime >= 200)
                     {
-                        sp.SpawnWeapon('1',player,ImageService.SetLaser1Image());
+                        sp.SpawnWeapon('1',player,ImageService.laser1Texture);   // FIX: Don't load texture every time space clicked
                         reloadTime = 0;
                     }
                 }
@@ -77,7 +89,7 @@ public class Director
                 reloadTime += 20;
                 sp.EnemyListLoop(player);
                 
-                sp.MakeWeaponsMove();
+                sp.MakePlayerWeaponsMove();
                 sp.MakeEnemyWeaponsMove(player);
                 
                 timer.RealTime();
@@ -86,16 +98,15 @@ public class Director
                 Raylib.BeginDrawing();
                 
                 bg.ServeBackgrounds();
-                VideoService.Draw(sp.GetEnemies(),sp.getWeapons(), player,bg, coin,sp.getEnemyWeapons());
-                vd.DrawPlayer(player);
+                VideoService.Draw(sp.GetEnemies(),sp.getPlayerWeapons(), player,bg, coin,sp.getEnemyWeapons());   // sp.getExplosions()
                 VideoService.DrawColliderBox(player);  // Draws collider box around player
                 // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
                 Raylib.EndDrawing();
             //     action = false;
             }
-            
+            // ImageService.UnloadAllImages();
         }
-        AudioService.UnloadAudio(AudioService.lv1Shot);
+        AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
     }
 

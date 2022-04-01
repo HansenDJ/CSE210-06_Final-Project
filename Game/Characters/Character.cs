@@ -17,7 +17,7 @@ public class Character
     public int offsetW = 0;
     public int offsetH = 0;
 
-    public Image charImage;
+    // public Image charImage;
     public Texture2D charTexture;
     
     public void SetX(int characterX)
@@ -48,26 +48,38 @@ public class Character
     // Return the width and height of the character collider box
     public int GetColliderBoxWidth()
     {
-        return GetImageWidth() - offsetColliderWidth;
+        return GetTextureWidth() - offsetColliderWidth;
     }
     public int GetColliderBoxHeight()
     {
-        return GetImageHeight() - offsetColliderHeight;
+        return GetTextureHeight() - offsetColliderHeight;
     }
 
-    public void SetTexture(Image image)
+    // public Texture2D SetTexture(Image image)
+    // {
+    //     charImage = image;
+    //     charTexture = LoadTextureFromImage(charImage);
+    //     // UnloadImage(charImage);
+    //     return charTexture;
+    // }
+
+    public void SetCharTexture(Texture2D characterTexture)
     {
-        charImage = image;
-        charTexture = LoadTextureFromImage(image);
+        charTexture = characterTexture;
     }
-    // Returns the width of the image file
-    public int GetImageWidth()
+    public Texture2D GetCharTexture()
     {
-        return charImage.width;
+        return charTexture;
+    }
+
+    // Returns the width of the image file
+    public int GetTextureWidth()
+    {
+        return charTexture.width;
     }
     // Returns the height of the image file
-    public int GetImageHeight()
+    public int GetTextureHeight()
     {
-        return charImage.height;
+        return charTexture.height;
     }
 }
