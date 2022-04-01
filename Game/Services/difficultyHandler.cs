@@ -5,13 +5,20 @@ public static class DifficultyHandler
     public static int difficultyHandler = 0;
     public static int enemyCount = 3;
     public static int level = 1;
+    public static int previouslevel = 1;
     public static bool levelChange = false;
 
 
-    public static void LevelUp()
+    public static void LevelUp(double time)
     {
-        level += 1;
-        levelChange = true;
+        int lvl = Convert.ToInt32(time);
+        level = 1 + lvl;
+        if (level > previouslevel)
+        {
+            // do level changes here;
+            previouslevel = level;
+            Console.WriteLine("Level UP " + level);
+        }
     }
 
     public static int getEnemyLevel()

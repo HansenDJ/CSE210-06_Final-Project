@@ -49,7 +49,8 @@ public class Director
             timer.Count();
             timeNow = DateTime.Now;
             secondsPassed = (timeNow - startTime).TotalSeconds;
-            Console.WriteLine((timeNow - startTime).TotalSeconds);
+
+            DifficultyHandler.LevelUp(secondsPassed / 90D);
             
             
             // if (action)
