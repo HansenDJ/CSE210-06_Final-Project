@@ -108,12 +108,7 @@ public class SpawnDestory
         }
         enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
         enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
-        enemyEarth.SetY(
-            rnd.Next(
-                enemyEarth.GetTextureHeight(),
-                VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2
-            )
-        );
+        enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
         enemyEarth.SetX(1500);
         enemyEarth.SetSpeedandHealth();
         enemyList.Add(enemyEarth);
@@ -148,12 +143,7 @@ public class SpawnDestory
         }
         enemyWater.SetOffsetColliderWidth(enemyWater.offsetW);
         enemyWater.SetOffsetColliderHeight(enemyWater.offsetH);
-        enemyWater.SetY(
-            rnd.Next(
-                enemyWater.GetTextureHeight(),
-                VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2
-            )
-        );
+        enemyWater.SetY(rnd.Next(enemyWater.GetTextureHeight(), VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2));
         enemyWater.SetX(1500);
         enemyWater.SetSpeedandHealth();
         enemyList.Add(enemyWater);
@@ -188,12 +178,7 @@ public class SpawnDestory
         }
         enemyAir.SetOffsetColliderWidth(enemyAir.offsetW);
         enemyAir.SetOffsetColliderHeight(enemyAir.offsetH);
-        enemyAir.SetY(
-            rnd.Next(
-                enemyAir.GetTextureHeight(),
-                VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2
-            )
-        );
+        enemyAir.SetY(rnd.Next(enemyAir.GetTextureHeight(), VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2));
         enemyAir.SetX(1500);
         enemyAir.SetSpeedandHealth();
         enemyList.Add(enemyAir);
@@ -227,12 +212,7 @@ public class SpawnDestory
         }
         enemyFire.SetOffsetColliderWidth(enemyFire.offsetW);
         enemyFire.SetOffsetColliderHeight(enemyFire.offsetH);
-        enemyFire.SetY(
-            rnd.Next(
-                enemyFire.GetTextureHeight(),
-                VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2
-            )
-        );
+        enemyFire.SetY(rnd.Next(enemyFire.GetTextureHeight(), VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2));
         enemyFire.SetX(1500);
         enemyFire.SetSpeedandHealth();
         enemyList.Add(enemyFire);
@@ -267,12 +247,7 @@ public class SpawnDestory
         }
         enemyShadow.SetOffsetColliderWidth(enemyShadow.offsetW);
         enemyShadow.SetOffsetColliderHeight(enemyShadow.offsetH);
-        enemyShadow.SetY(
-            rnd.Next(
-                enemyShadow.GetTextureHeight(),
-                VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2
-            )
-        );
+        enemyShadow.SetY(rnd.Next(enemyShadow.GetTextureHeight(), VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2));
         enemyShadow.SetX(1500);
         enemyShadow.SetSpeedandHealth();
         enemyList.Add(enemyShadow);
