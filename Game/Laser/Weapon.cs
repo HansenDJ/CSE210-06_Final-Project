@@ -11,11 +11,11 @@ public class Weapon : Character
     
     
 
-    public void setStrength(int s)
+    public void SetStrength(int s)
     {
         strength = s;
     }
-    public void setOwner(Character c)
+    public void SetOwner(Character c)
     {
         owner = c;
     }

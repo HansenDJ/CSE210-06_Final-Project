@@ -93,7 +93,7 @@ public class SpawnDestory
             )
         );
         enemyEarth.SetX(1500);
-        enemyEarth.SetRandomMoveSpeed();
+        enemyEarth.SetSpeedandHealth();
         enemyList.Add(enemyEarth);
     }
 
@@ -133,7 +133,7 @@ public class SpawnDestory
             )
         );
         enemyWater.SetX(1500);
-        enemyWater.SetRandomMoveSpeed();
+        enemyWater.SetSpeedandHealth();
         enemyList.Add(enemyWater);
     }
 
@@ -173,7 +173,7 @@ public class SpawnDestory
             )
         );
         enemyAir.SetX(1500);
-        enemyAir.SetRandomMoveSpeed();
+        enemyAir.SetSpeedandHealth();
         enemyList.Add(enemyAir);
     }
 
@@ -212,7 +212,7 @@ public class SpawnDestory
             )
         );
         enemyFire.SetX(1500);
-        enemyFire.SetRandomMoveSpeed();
+        enemyFire.SetSpeedandHealth();
         enemyList.Add(enemyFire);
     }
 
@@ -252,7 +252,7 @@ public class SpawnDestory
             )
         );
         enemyShadow.SetX(1500);
-        enemyShadow.SetRandomMoveSpeed();
+        enemyShadow.SetSpeedandHealth();
         enemyList.Add(enemyShadow);
     }
 
