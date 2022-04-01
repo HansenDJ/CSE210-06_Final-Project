@@ -294,7 +294,7 @@ public static class ImageService
             allImages[i] = UnloadImageFile(laser11Image);
         }
 
-        Director.unloadCheck = true;
+        // Director.unloadCheck = true;
 
         return allImages;
     }
