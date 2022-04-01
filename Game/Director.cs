@@ -67,7 +67,7 @@ public class Director
                      startTime = DateTime.Now;
                     timeNow = DateTime.Now;
                     secondsPassed = 0;
-
+//
                 }
             }
            
