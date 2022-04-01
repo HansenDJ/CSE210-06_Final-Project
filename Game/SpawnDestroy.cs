@@ -54,6 +54,28 @@ public class SpawnDestory
             case 5:
                 SpawnShadowEnemy(RandomEnemy());
                 break;
+            default:
+                Random r = new Random();
+                int enemyType = r.Next(1, 5);
+                switch (enemyType)
+            {
+                case 1:
+                    SpawnEarthEnemy(RandomEnemy());
+                    break;
+                case 2:
+                    SpawnWaterEnemy(RandomEnemy());
+                    break;
+                case 3:
+                    SpawnAirEnemy(RandomEnemy());
+                    break;
+                case 4:
+                    SpawnFireEnemy(RandomEnemy());
+                    break;
+                case 5:
+                    SpawnShadowEnemy(RandomEnemy());
+                    break;
+            }
+                break;
         }
     }
 
