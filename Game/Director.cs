@@ -9,7 +9,7 @@ public class Director
     // private static System.Timers.Timer timer;
     // Number of milliseconds between frames
     // int updateFrameTime = 5;
-    private static int reloadTime = 0;
+
     // public static bool unloadCheck = false;
     // static bool action = false;
     public void StartGame()
@@ -43,7 +43,7 @@ public class Director
               
             // INPUT
             if (sp.CheckIfSpawnNeeded()) {
-                sp.SpawnEnemy(DifficultyHandler.level);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+                sp.SpawnEnemy(DifficultyHandler.currentLevel);     // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
             }
 
             // UPDATES
@@ -69,7 +69,7 @@ public class Director
             if (DifficultyHandler.levelChange)
             {
                 DifficultyHandler.levelChange = false;
-                switch (DifficultyHandler.level)
+                switch (DifficultyHandler.currentLevel)
                 {
                     case 2:
                         BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
@@ -97,17 +97,13 @@ public class Director
            
             while(timer.CheckLagging())
             {
-                if (player.PlayerMoveKeys() == 1)
+                if (player.PlayerMoveKeys() == 1) //When spacebar pressed
                 {
-                    if (reloadTime >= 200)
-                    {
-                        sp.SpawnWeapon('1',player,ImageService.laser1Texture);   // FIX: Don't load texture every time space clicked
-                        reloadTime = 0;
-                    }
+                    sp.ShootWeapon(player);
                 }
                 
 
-                reloadTime += 20;
+                sp.IncrementReloadTime();
                 sp.EnemyListLoop(player);
                 
                 sp.MakePlayerWeaponsMove();
