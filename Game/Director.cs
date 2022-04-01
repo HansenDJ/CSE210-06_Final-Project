@@ -54,56 +54,60 @@ public class Director
                     startTime = RestartLevel(bg, timer, sp, coin);
                 //
             }
-
-            //  if(PlayerStats.PlayerDeadCheck()) {
-            //     timer.TIME_STEP = 0;
-
-            //      break;
-            //  }
-
-
-            timeNow = DateTime.Now;
-            secondsPassed = (timeNow - startTime).TotalSeconds;
-
-            if (DifficultyHandler.LevelUp(secondsPassed / 30D)) sp.maxEnemies = DifficultyHandler.enemyCount;
+            TimeService(startTime, sp);
 
 
             // if (action)
             LevelChangeCheck(bg);
 
-            while (timer.CheckLagging())
-            {
-                if (player.PlayerMoveKeys() == 1) //When spacebar pressed
-                    sp.ShootWeapon(player);
-
-
-                sp.IncrementReloadTime();
-                sp.EnemyListLoop(player);
-
-                sp.MakePlayerWeaponsMove();
-                sp.MakeEnemyWeaponsMove(player);
-
-                timer.RealTime();
-
-                // OUTPUT
-                Raylib.BeginDrawing();
-
-                bg.ServeBackgrounds();
-                VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin, sp.getEnemyWeapons(),
-                    sp.getExplosions());
-                VideoService.DrawColliderBox(player); // Draws collider box around player
-                // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
-                Raylib.EndDrawing();
-                //     action = false;
-                // if(unloadCheck == false)
-                // {
-                //     ImageService.UnloadAllImages();
-                // }
-            }
+            TimerCheckLagandDraw(timer, player, sp, bg, coin);
         }
 
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
+    }
+
+    private static void TimerCheckLagandDraw(Timer timer, Player player, SpawnDestory sp, BackgroundService bg, Coin coin)
+    {
+        while (timer.CheckLagging())
+        {
+            if (player.PlayerMoveKeys() == 1) //When spacebar pressed
+                sp.ShootWeapon(player);
+
+
+            sp.IncrementReloadTime();
+            sp.EnemyListLoop(player);
+
+            sp.MakePlayerWeaponsMove();
+            sp.MakeEnemyWeaponsMove(player);
+
+            timer.RealTime();
+
+            // OUTPUT
+            Raylib.BeginDrawing();
+
+            bg.ServeBackgrounds();
+            VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin, sp.getEnemyWeapons(),
+                sp.getExplosions());
+            VideoService.DrawColliderBox(player); // Draws collider box around player
+            // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
+            Raylib.EndDrawing();
+            //     action = false;
+            // if(unloadCheck == false)
+            // {
+            //     ImageService.UnloadAllImages();
+            // }
+        }
+    }
+
+    private static void TimeService(DateTime startTime, SpawnDestory sp)
+    {
+        DateTime timeNow;
+        double secondsPassed;
+        timeNow = DateTime.Now;
+        secondsPassed = (timeNow - startTime).TotalSeconds;
+
+        if (DifficultyHandler.LevelUp(secondsPassed / 30D)) sp.maxEnemies = DifficultyHandler.enemyCount;
     }
 
     private static void SpawnCheck(SpawnDestory sp)
@@ -154,9 +158,10 @@ public class Director
         DateTime startTime;
         DateTime timeNow;
         double secondsPassed;
-        bg.LoadBGTexture(ImageService.earthBGStartTexture);
         timer.Count();
+       
         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+        LevelChangeCheck(bg);
         DifficultyHandler.currentLevel = 1;
         DifficultyHandler.previousLevel = 1;
         DifficultyHandler.enemyCount = 3;
