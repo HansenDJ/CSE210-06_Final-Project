@@ -5,9 +5,9 @@ using static Raylib_cs.Raylib;
 
 namespace generalNamespace;
 
-
 public class SpawnDestory
 {
+
     Random rnd = new Random();
     CollisionDetection collisionDetection = new CollisionDetection();
 
@@ -16,20 +16,23 @@ public class SpawnDestory
     public List<Weapon> enemyWeaponsList = new();
     public List<Coordinate> explosionCoordinates = new();
     public int maxEnemies = 5;
+    public int randomMoney = 0;
 
     // Level 1 enemy collider box width and height offsets
     private int lvOneEnemyOffsetW = 18;
     private int lvOneEnemyOffsetH = 14;
+
     // Level 2 enemy collider box width and height offsets
     private int lvTwoEnemyOffsetW = 30;
     private int lvTwoEnemyOffsetH = 10;
+
     // Level 3 enemy collider box width and height offsets
     private int lvThreeEnemyOffsetW = 30;
     private int lvThreeEnemyOffsetH = 10;
 
     private int RandomEnemy()
     {
-        return rnd.Next(1, 4);   // Enemy difficulty is 1, 2, or 3
+        return rnd.Next(1, 4); // Enemy difficulty is 1, 2, or 3
     }
 
     public void SpawnEnemy(int level)
@@ -43,7 +46,7 @@ public class SpawnDestory
                 SpawnWaterEnemy(RandomEnemy());
                 break;
             case 3:
-                SpawnAirEnemy(RandomEnemy());    
+                SpawnAirEnemy(RandomEnemy());
                 break;
             case 4:
                 SpawnFireEnemy(RandomEnemy());
@@ -83,7 +86,12 @@ public class SpawnDestory
         }
         enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
         enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
-        enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
+        enemyEarth.SetY(
+            rnd.Next(
+                enemyEarth.GetTextureHeight(),
+                VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2
+            )
+        );
         enemyEarth.SetX(1500);
         enemyEarth.SetRandomMoveSpeed();
         enemyList.Add(enemyEarth);
@@ -99,30 +107,36 @@ public class SpawnDestory
                 enemyWater.offsetW = lvOneEnemyOffsetW;
                 enemyWater.offsetH = lvOneEnemyOffsetH;
                 enemyWater.SetCharTexture(ImageService.waterOneEnemyTexture);
-                enemyWater.levelOfEnemy =1;
+                enemyWater.levelOfEnemy = 1;
                 break;
             case 2:
                 // Width and height offsets for collider box from lv 2 water enemy image file
                 enemyWater.offsetW = lvTwoEnemyOffsetW;
                 enemyWater.offsetH = lvTwoEnemyOffsetH;
                 enemyWater.SetCharTexture(ImageService.waterTwoEnemyTexture);
-                enemyWater.levelOfEnemy =2;
+                enemyWater.levelOfEnemy = 2;
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 water enemy image file
                 enemyWater.offsetW = lvThreeEnemyOffsetW;
                 enemyWater.offsetH = lvThreeEnemyOffsetH;
                 enemyWater.SetCharTexture(ImageService.waterThreeEnemyTexture);
-                enemyWater.levelOfEnemy =3;
+                enemyWater.levelOfEnemy = 3;
                 break;
         }
         enemyWater.SetOffsetColliderWidth(enemyWater.offsetW);
         enemyWater.SetOffsetColliderHeight(enemyWater.offsetH);
-        enemyWater.SetY(rnd.Next(enemyWater.GetTextureHeight(), VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2));
+        enemyWater.SetY(
+            rnd.Next(
+                enemyWater.GetTextureHeight(),
+                VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2
+            )
+        );
         enemyWater.SetX(1500);
         enemyWater.SetRandomMoveSpeed();
         enemyList.Add(enemyWater);
     }
+
     public void SpawnAirEnemy(int enemyDifficulty)
     {
         Enemy enemyAir = new Enemy();
@@ -152,13 +166,17 @@ public class SpawnDestory
         }
         enemyAir.SetOffsetColliderWidth(enemyAir.offsetW);
         enemyAir.SetOffsetColliderHeight(enemyAir.offsetH);
-        enemyAir.SetY(rnd.Next(enemyAir.GetTextureHeight(), VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2));
+        enemyAir.SetY(
+            rnd.Next(
+                enemyAir.GetTextureHeight(),
+                VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2
+            )
+        );
         enemyAir.SetX(1500);
         enemyAir.SetRandomMoveSpeed();
         enemyList.Add(enemyAir);
     }
 
-    
     public void SpawnFireEnemy(int enemyDifficulty)
     {
         Enemy enemyFire = new Enemy();
@@ -187,11 +205,17 @@ public class SpawnDestory
         }
         enemyFire.SetOffsetColliderWidth(enemyFire.offsetW);
         enemyFire.SetOffsetColliderHeight(enemyFire.offsetH);
-        enemyFire.SetY(rnd.Next(enemyFire.GetTextureHeight(), VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2));
+        enemyFire.SetY(
+            rnd.Next(
+                enemyFire.GetTextureHeight(),
+                VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2
+            )
+        );
         enemyFire.SetX(1500);
         enemyFire.SetRandomMoveSpeed();
         enemyList.Add(enemyFire);
     }
+
     public void SpawnShadowEnemy(int enemyDifficulty)
     {
         Enemy enemyShadow = new Enemy();
@@ -221,7 +245,12 @@ public class SpawnDestory
         }
         enemyShadow.SetOffsetColliderWidth(enemyShadow.offsetW);
         enemyShadow.SetOffsetColliderHeight(enemyShadow.offsetH);
-        enemyShadow.SetY(rnd.Next(enemyShadow.GetTextureHeight(), VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2));
+        enemyShadow.SetY(
+            rnd.Next(
+                enemyShadow.GetTextureHeight(),
+                VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2
+            )
+        );
         enemyShadow.SetX(1500);
         enemyShadow.SetRandomMoveSpeed();
         enemyList.Add(enemyShadow);
@@ -287,7 +316,10 @@ public class SpawnDestory
         {
             OnCollisionAction(player, i);
             enemyList[i].laserCounter += 20;
-            if (((player.y - 100 <= enemyList[i].y) && (enemyList[i].y <= player.y + 100)) && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
+            if (
+                ((player.y - 100 <= enemyList[i].y) && (enemyList[i].y <= player.y + 100))
+                && enemyList[i].laserCounter >= enemyList[i].laserMaxCount
+            )
             {
                 CreateEnemyWeapon(i, enemyList[i]);
                 enemyList[i].laserCounter = 0;
@@ -296,6 +328,7 @@ public class SpawnDestory
             RemoveEnemy(i);
         }
     }
+
     public void CreateEnemyWeapon(int enemyI, Enemy enemy)
     {
         Weapon _EnemyWeapon = new Weapon();
@@ -308,14 +341,16 @@ public class SpawnDestory
         _EnemyWeapon.SetOffsetColliderHeight(enemy.offsetH);
         _EnemyWeapon.SetX(enemy.x - enemy.GetColliderBoxWidth());
         _EnemyWeapon.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
-        
+
         AudioService.PlayAudio(AudioService.lv1Shot);
         enemyWeaponsList.Add(_EnemyWeapon);
     }
+
     public void MakeEnemiesMove(int index)
     {
         enemyList[index].MoveEnemy();
     }
+
     private void RemoveEnemy(int removeIndex)
     {
         // Remove an enemy if it moves off the left side of the screen
@@ -324,6 +359,7 @@ public class SpawnDestory
             enemyList.RemoveAt(removeIndex);
         }
     }
+
     public void MakePlayerWeaponsMove()
     {
         for (int index = 0; index < playerWeaponList.Count - 1; index++)
@@ -341,25 +377,25 @@ public class SpawnDestory
                 playerWeaponList.RemoveAt(index);
             }
         }
-
     }
+
     public void MakeEnemyWeaponsMove(Player player)
     {
         for (int index = 0; index < enemyWeaponsList.Count - 1; index++)
         {
             enemyWeaponsList[index].MoveWeaponLeft();
-            
-                if (collisionDetection.CheckCollision(player, enemyWeaponsList[index]))
-                {
-                    OnCollisionActionEnemyWeapon(player, enemyWeaponsList[index],index);
-                }
-                if (enemyWeaponsList[index].x < -50 || enemyWeaponsList[index].x > 1450)
-                {
-                    enemyWeaponsList.RemoveAt(index);
-                }
-        }
 
+            if (collisionDetection.CheckCollision(player, enemyWeaponsList[index]))
+            {
+                OnCollisionActionEnemyWeapon(player, enemyWeaponsList[index], index);
+            }
+            if (enemyWeaponsList[index].x < -50 || enemyWeaponsList[index].x > 1450)
+            {
+                enemyWeaponsList.RemoveAt(index);
+            }
+        }
     }
+
     public void PlayerDeadCheck()
     {
         if (PlayerStats.playerHealth <= 0)
@@ -367,6 +403,7 @@ public class SpawnDestory
             PlayerStats.playerHealth = 0;
         }
     }
+
     public void OnCollisionActionEnemyWeapon(Player player, Weapon weapon, int index)
     {
         if (collisionDetection.CheckCollision(player, weapon))
@@ -391,12 +428,42 @@ public class SpawnDestory
                 c.y = enemyList[enemyIndex].y;
                 explosionCoordinates.Add(c);
 
+                if(enemyList[enemyIndex].levelOfEnemy == 1)
+                {
+                    SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
+                    CurrencyHandler.money += randomMoney;
+                }
+                else if(enemyList[enemyIndex].levelOfEnemy == 2)
+                {
+                    SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
+                    CurrencyHandler.money += randomMoney;
+                }
+                else if(enemyList[enemyIndex].levelOfEnemy == 3)
+                {
+                    SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
+                    CurrencyHandler.money += randomMoney;
+                }
                 enemyList.RemoveAt(enemyIndex);  // Change so that the enemy is destroyed when the enemy health goes to zero
             }
             playerWeaponList.RemoveAt(weaponIndex);  // Change so that the weapon is destroyed when the enemy health goes to zero
         }
     }
 
+    public void SetRandomMoney(int enemyLevelNumber)
+    {
+        switch(enemyLevelNumber)
+        {
+            case 1:
+                randomMoney = rnd.Next(1,5);
+                break;
+            case 2:
+                randomMoney = rnd.Next(6,10);
+                break;
+            case 3:
+                randomMoney = rnd.Next(11, 15);
+                break;
+        }
+    }
 
     // Occurs when the player collides with an enemy
     public void OnCollisionAction(Player player, int index)
@@ -407,5 +474,4 @@ public class SpawnDestory
             enemyList.RemoveAt(index);
         }
     }
-
 }
