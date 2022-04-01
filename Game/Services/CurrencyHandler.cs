@@ -1,14 +1,14 @@
 namespace generalNamespace;
-
+ 
 public static class CurrencyHandler
 {
-    private static int money = 0;
-
+    public static int money = 0;
+ 
     public static int GetMoneyAmount()
     {
         return money;
     }
-
+ 
     public static void AddOne()
     {
         money += 1;
@@ -33,7 +33,7 @@ public static class CurrencyHandler
     {
         money += 100;
     }
-
+ 
     public static bool payMoney(int cost)
     {
         if (money >= cost)
@@ -42,10 +42,11 @@ public static class CurrencyHandler
             return true;
         }
         else
-
+ 
             return false;
     }
        
     }
-    
-    
+   
+   
+ 

@@ -361,16 +361,20 @@ public class SpawnDestory
         }
 
     }
-
+    public void PlayerDeadCheck()
+    {
+        if (PlayerStats.playerHealth <= 0)
+        {
+            PlayerStats.playerHealth = 0;
+            
+        }
+    }
     public void OnCollisionActionEnemyWeapon(Player player, Weapon weapon, int index)
     {
         if (collisionDetection.CheckCollision(player, weapon))
         {
-            PlayerStats.playerHealth -= 5;
-            if (PlayerStats.playerHealth <= 0)
-            {
-                Console.WriteLine("Died");
-            }
+            PlayerDeadCheck();
+            PlayerStats.playerHealth -= weapon.strength;
             enemyWeaponsList.RemoveAt(index);
         }
     }

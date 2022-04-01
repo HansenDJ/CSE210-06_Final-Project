@@ -37,7 +37,7 @@ public class VideoService
 
     private static void DrawCharacters(List<Enemy> enemiesToDraw,List<Weapon> weaponsToDraw,Player player,List<Weapon> EnemyWeaponsToDraw)
     {
-        Console.WriteLine( "Object Count: " + enemiesToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
+     //   Console.WriteLine( "Object Count: " + enemiesToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
         for (int i = 0; i < enemiesToDraw.Count - 1; i++)
         {
             DrawCharacter(enemiesToDraw[i]);
@@ -108,7 +108,7 @@ public class VideoService
 
     public static void DrawCoinCount(Coin coin)
     {
-        Raylib.DrawText("coincount", 1250,22,20,WHITE);
+        Raylib.DrawText($"{CurrencyHandler.money}", 1250,22,20,WHITE);
         DrawTexture(ImageService.coinCounterTexture,1220,20,WHITE);
     }
     public static void DrawHeartCount()
