@@ -21,7 +21,7 @@ public static class loadScreenVisual
                          "\namount of coins you will be sold as a slave to work in the galactic"+
                          "\nmines.",260,270,25,Color.WHITE);
         Raylib.DrawText("Push the [Spacebar] to begin your journey.",370,490,25,Color.WHITE);
-
+        
         Raylib.EndDrawing();
     }
     public static void SetTexture(Image image)
