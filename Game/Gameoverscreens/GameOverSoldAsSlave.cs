@@ -4,21 +4,39 @@ using generalNamespace;
 namespace CSE210_06_Final_Project;
 
 
-public static class GameOverSoldAsSlave
+public class GameOverSoldAsSlave
 {
-   public static Image charImage;
-   public static Texture2D charTexture;
+   public Image charImage;
+   public Texture2D charTexture;
 
-   public static int soldAsSlave;
+   public int soldAsSlave;
 
-   public static string soldText;
+   public string soldText;
+    public void SlaveLines(){
+       
+        soldAsSlave = rnd.Next(1,3);
 
+        switch(soldAsSlave)
+        {
+            case 1:
+                soldText = "click a button.";
+                break;
+            case 2:
+                soldText = "clean the 73 bathrooms of your master's home.";
+                break;
+            case 3:
+                soldText = "punch a tree.";  
+                break;
+        }
 
-   public static void loadScreen()
+    }
+
+   public void loadScreen()
     {
         //AudioService.InitSound();
         //AudioService.LoadAudio(AudioService.loadscreen);
         Raylib.BeginDrawing();
+        SlaveLines();
         SetTexture(SetSpaceBGStartImage());
         Raylib.ClearBackground(Color.BLACK);
         Raylib.DrawTexture(charTexture,0,0,Color.WHITE);
@@ -30,37 +48,19 @@ public static class GameOverSoldAsSlave
         //AudioService.UnloadAudio(AudioService.loadscreen);
         //AudioService.CloseAudio();
     }
-    public static void SetTexture(Image image)
+    public void SetTexture(Image image)
     {
         charImage = image;
         charTexture = Raylib.LoadTextureFromImage(image);
     }
 
-    public static Image SetSpaceBGStartImage()
+    public Image SetSpaceBGStartImage()
     {
         // Load Back Gound for Earth level
         return Raylib.LoadImage("Game/Images/bg/spacebg.png");
     }
 
-    // Random rnd = new Random();
+    Random rnd = new Random();
 
-    // public static string SlaveLines(){
-       
-    //     soldAsSlave = rnd.Next(1,3);
-
-    //     switch(soldAsSlave)
-    //     {
-    //         case 1:
-    //             soldText = "click a button.";
-
-    //         case 2:
-    //             soldText = "clean the 73 bathrooms of your master's home.";
-                
-    //         case 3:
-                
-    //             soldText = "punch a tree.";  
-                
-    //     }
-
-    // }
+    
 }
