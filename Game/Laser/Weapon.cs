@@ -8,6 +8,7 @@ public class Weapon : Character
     public int speed = 25;
     public bool location = false;
     public int strength = 5;
+    public static int reloadTime = 0;
     
     
 

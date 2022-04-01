@@ -7,7 +7,6 @@ namespace generalNamespace;
 
 public class SpawnDestory
 {
-
     Random rnd = new Random();
     CollisionDetection collisionDetection = new CollisionDetection();
 
@@ -17,6 +16,7 @@ public class SpawnDestory
     public List<Coordinate> explosionCoordinates = new();
     public int maxEnemies = 5;
     public int randomMoney = 0;
+    public int maxReloadTime = 0;
 
     // Level 1 enemy collider box width and height offsets
     private int lvOneEnemyOffsetW = 18;
@@ -256,22 +256,49 @@ public class SpawnDestory
         enemyList.Add(enemyShadow);
     }
 
-    public void SpawnWeapon(char weaponType, Character target, Texture2D weaponTexture)
+    public void SpawnWeapon(int weaponType, Character target)
     {
+        Weapon _weaponSwitcher = new Weapon();
         switch (weaponType)
         {
-            case '1':
-                Weapon _weapon = new Weapon();
-                _weapon.SetCharTexture(weaponTexture); // Load the weapon laser image when weapon purchased
-                playerWeaponList.Add(_weapon);
+            case 1:
+                _weaponSwitcher.SetCharTexture(ImageService.laser1Texture); // Load the weapon laser image when weapon purchased
+                playerWeaponList.Add(_weaponSwitcher);
+                _weaponSwitcher.strength = 5;
+                maxReloadTime = 300;
 
                 break;
-            case '2':
-
+            case 2:
+                _weaponSwitcher.SetCharTexture(ImageService.laser3Texture); // Load the weapon laser image when weapon purchased
+                playerWeaponList.Add(_weaponSwitcher);
+                _weaponSwitcher.strength = 10;
+                maxReloadTime = 250;
                 break;
-            case '3':
-
+            case 3:
+                _weaponSwitcher.SetCharTexture(ImageService.laser5Texture); // Load the weapon laser image when weapon purchased
+                playerWeaponList.Add(_weaponSwitcher);
+                _weaponSwitcher.strength = 15;
+                maxReloadTime = 200;
                 break;
+            case 4:
+                _weaponSwitcher.SetCharTexture(ImageService.laser7Texture); // Load the weapon laser image when weapon purchased
+                playerWeaponList.Add(_weaponSwitcher);
+                _weaponSwitcher.strength = 20;
+                maxReloadTime = 150;
+                break;
+        }
+    }
+    public void IncrementReloadTime()
+    {
+       Weapon.reloadTime += 20; 
+    }
+    public void ShootWeapon(Player playerToShoot)
+    {
+
+        if (Weapon.reloadTime >= maxReloadTime)
+        {
+            SpawnWeapon(CurrencyHandler.CheckMoney(), playerToShoot);
+            Weapon.reloadTime = 0;
         }
     }
 
@@ -402,7 +429,6 @@ public class SpawnDestory
         if (PlayerStats.playerHealth <= 0)
         {
             PlayerStats.playerHealth = 0;
-            
         }
     }
 
@@ -416,7 +442,12 @@ public class SpawnDestory
         }
     }
 
-    public void OnCollisionActionPlayerWeapon(Enemy enemy, Weapon weapon, int enemyIndex, int weaponIndex)
+    public void OnCollisionActionPlayerWeapon(
+        Enemy enemy,
+        Weapon weapon,
+        int enemyIndex,
+        int weaponIndex
+    )
     {
         if (collisionDetection.CheckCollision(enemy, weapon))
         {
@@ -430,36 +461,36 @@ public class SpawnDestory
                 c.y = enemyList[enemyIndex].y;
                 explosionCoordinates.Add(c);
 
-                if(enemyList[enemyIndex].levelOfEnemy == 1)
+                if (enemyList[enemyIndex].levelOfEnemy == 1)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += randomMoney;
                 }
-                else if(enemyList[enemyIndex].levelOfEnemy == 2)
+                else if (enemyList[enemyIndex].levelOfEnemy == 2)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += randomMoney;
                 }
-                else if(enemyList[enemyIndex].levelOfEnemy == 3)
+                else if (enemyList[enemyIndex].levelOfEnemy == 3)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += randomMoney;
                 }
-                enemyList.RemoveAt(enemyIndex);  // Change so that the enemy is destroyed when the enemy health goes to zero
+                enemyList.RemoveAt(enemyIndex); // Change so that the enemy is destroyed when the enemy health goes to zero
             }
-            playerWeaponList.RemoveAt(weaponIndex);  // Change so that the weapon is destroyed when the enemy health goes to zero
+            playerWeaponList.RemoveAt(weaponIndex); // Change so that the weapon is destroyed when the enemy health goes to zero
         }
     }
 
     public void SetRandomMoney(int enemyLevelNumber)
     {
-        switch(enemyLevelNumber)
+        switch (enemyLevelNumber)
         {
             case 1:
-                randomMoney = rnd.Next(1,5);
+                randomMoney = rnd.Next(1, 5);
                 break;
             case 2:
-                randomMoney = rnd.Next(6,10);
+                randomMoney = rnd.Next(6, 10);
                 break;
             case 3:
                 randomMoney = rnd.Next(11, 15);

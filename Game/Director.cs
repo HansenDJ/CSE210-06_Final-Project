@@ -9,7 +9,7 @@ public class Director
     // private static System.Timers.Timer timer;
     // Number of milliseconds between frames
     // int updateFrameTime = 5;
-    private static int reloadTime = 0;
+
     // public static bool unloadCheck = false;
     // static bool action = false;
     public void StartGame()
@@ -85,17 +85,13 @@ public class Director
             DifficultyHandler.incrementHandler();
             while(timer.CheckLagging())
             {
-                if (player.PlayerMoveKeys() == 1)
+                if (player.PlayerMoveKeys() == 1) //When spacebar pressed
                 {
-                    if (reloadTime >= 200)
-                    {
-                        sp.SpawnWeapon('1',player,ImageService.laser1Texture);   // FIX: Don't load texture every time space clicked
-                        reloadTime = 0;
-                    }
+                    sp.ShootWeapon(player);
                 }
                 
 
-                reloadTime += 20;
+                sp.IncrementReloadTime();
                 sp.EnemyListLoop(player);
                 
                 sp.MakePlayerWeaponsMove();
