@@ -23,20 +23,20 @@ public static class CurrencyHandler
 
     public static int CheckMoney()
     {
-        if (money < 100)
+        if (money < 220)
         {
             return 1;
         }
 
-        else if (money >= 100 && money < 200)
+        else if (money >= 220 && money < 550)
         {
             return 2;
         }
-        else if (money >= 200 && money < 300)
+        else if (money >= 550 && money < 1000)
         {
             return 3;
         }
-        else if (money >= 300)
+        else if (money >= 1000)
         {
             return 4;
         }
