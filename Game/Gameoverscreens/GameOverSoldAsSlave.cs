@@ -9,7 +9,7 @@ public static class GameOverSoldAsSlave
    public static Image charImage;
    public static Texture2D charTexture;
 
-   public static string soldAsSlave;
+   public static int soldAsSlave;
 
    public static string soldText;
 
@@ -42,21 +42,21 @@ public static class GameOverSoldAsSlave
         return Raylib.LoadImage("Game/Images/bg/spacebg.png");
     }
 
-    
+    // Random rnd = new Random();
 
     // public static string SlaveLines(){
-
+       
     //     soldAsSlave = rnd.Next(1,3);
 
     //     switch(soldAsSlave)
     //     {
-    //         case '1':
+    //         case 1:
     //             soldText = "click a button.";
 
-    //         case '2':
+    //         case 2:
     //             soldText = "clean the 73 bathrooms of your master's home.";
                 
-    //         case '3':
+    //         case 3:
                 
     //             soldText = "punch a tree.";  
                 
