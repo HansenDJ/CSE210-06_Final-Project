@@ -38,6 +38,10 @@ public static class KeyboardService
     {
         return Raylib.IsKeyReleased(KeyboardKey.KEY_A);
     }
+    public static bool TabKeyReleased()
+    {
+        return Raylib.IsKeyReleased(KeyboardKey.KEY_TAB);
+    }
 
     public static bool DKeyReleased()
     {
