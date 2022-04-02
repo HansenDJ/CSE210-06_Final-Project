@@ -25,9 +25,31 @@ public class Enemy : Character
         moveSpeed = rnd.Next(5, 8);
     }
 
-    public void MoveEnemy()
+    public void MoveEnemy(int playery)
     {
         x -= moveSpeed;
+        if (levelOfEnemy == 3)
+        {
+            if (y < playery)
+            {
+                y += 3;
+            }
+            else
+            {
+                y -= 3;
+            }
+        }else if(levelOfEnemy == 2) {
+
+                if (y < playery)
+                {
+                    y += 1;
+                }
+                else
+                {
+                    y -= 1;
+                
+            }
+        }
     }
 
     public void LevelOneDifficulty()

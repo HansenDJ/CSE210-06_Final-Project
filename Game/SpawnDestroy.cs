@@ -400,7 +400,7 @@ public class SpawnDestory
                 }
             }
 
-            MakeEnemiesMove(i);
+            MakeEnemiesMove(i,player.y);
             RemoveEnemyOffScreen(i);
         }
     }
@@ -422,9 +422,9 @@ public class SpawnDestory
         enemyWeaponsList.Add(_EnemyWeapon);
     }
 
-    public void MakeEnemiesMove(int index)
+    public void MakeEnemiesMove(int index, int playery)
     {
-        enemyList[index].MoveEnemy();
+        enemyList[index].MoveEnemy(playery);
     }
 
     private void RemoveEnemyOffScreen(int removeIndex)
