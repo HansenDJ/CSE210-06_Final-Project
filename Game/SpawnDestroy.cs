@@ -342,17 +342,20 @@ public class SpawnDestory
         {
             OnCollisionAction(player, i);
             enemyList[i].laserCounter += 20;
-            if (player.y - 100 <= enemyList[i].y
-                && enemyList[i].y <= player.y + 100
-                && enemyList[i].x >= player.x + player.offsetColliderWidth
-                && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
+            if (enemyList[i])
             {
-                CreateEnemyWeapon(i, enemyList[i]);
-                enemyList[i].laserCounter = 0;
+                if (player.y - 100 <= enemyList[i].y
+                    && enemyList[i].y <= player.y + 100
+                    && enemyList[i].x >= player.x + player.offsetColliderWidth
+                    && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
+                {
+                    CreateEnemyWeapon(i, enemyList[i]);
+                    enemyList[i].laserCounter = 0;
+                }
             }
 
             MakeEnemiesMove(i);
-            RemoveEnemy(i);
+            RemoveEnemyOffScreen(i);
         }
     }
 
@@ -378,10 +381,13 @@ public class SpawnDestory
         enemyList[index].MoveEnemy();
     }
 
-    private void RemoveEnemy(int removeIndex)
+    private void RemoveEnemyOffScreen(int removeIndex)
     {
         // Remove an enemy if it moves off the left side of the screen
-        if (enemyList[removeIndex].x < -50) enemyList.RemoveAt(removeIndex);
+        if (enemyList[removeIndex].x < -50)
+        {
+            enemyList.RemoveAt(removeIndex);
+        }
     }
 
     public void MakePlayerWeaponsMove()
