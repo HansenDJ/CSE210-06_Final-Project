@@ -35,6 +35,7 @@ public class Director
         player.SetCharTexture(ImageService.startShipTexture);
         player.SetPlayerStats();
         player.SetPlayerXY(player);
+        
         // coin.SetTexture(ImageService.SetCoinGif());
         AudioService.InitSound();
         AudioService.LoadAudio(AudioService.lv1Shot);
@@ -48,6 +49,7 @@ public class Director
             TimeService(startTime, sp);
             // if (action)
             LevelChangeCheck(bg);
+            Powerup.ReduceEffectTime();
 
             TimerCheckLagandDraw(timer, player, sp, bg, coin);
         }
@@ -106,6 +108,14 @@ public class Director
                     {
                         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                     }
+                }
+            }else if (KeyboardService.capsReleased())
+            {
+                if (CurrencyHandler.money >= 100)
+                {
+                    CurrencyHandler.money -= 100;
+                    Powerup.randomEffect();
+                   
                 }
             }
 

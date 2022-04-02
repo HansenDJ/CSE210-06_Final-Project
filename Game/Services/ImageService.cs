@@ -103,6 +103,7 @@ public static class ImageService
     public static Image laser10Image = LoadImage("Game/Images/lasers/laser10.png"); // Laser10 image Small Blue
     public static Image laser11Image = LoadImage("Game/Images/lasers/laser11.png"); // Laser11 image Small Green 
     public static Image laser12Image = LoadImage("Game/Images/lasers/laser12.png"); // Laser12 image Small Pink
+    public static Image laser10UpImage = LoadImage("Game/Images/lasers/laser10Up.png"); // Laser10 but verticle Small Blue
 
     //PowerUp Images Loaded
 
@@ -194,6 +195,7 @@ public static class ImageService
     public static Texture2D laser10Texture = LoadTextureFromImage(laser10Image); // Laser10 texture
     public static Texture2D laser11Texture = LoadTextureFromImage(laser11Image); // Laser11 texture 
     public static Texture2D laser12Texture = LoadTextureFromImage(laser12Image); // Laser12 texture
+    public static Texture2D laser10UpTexture = LoadTextureFromImage(laser10UpImage); // Laser10 texture but its verticle
 
     // Power Up Images
 
@@ -292,11 +294,13 @@ public static class ImageService
         allImages.Add(laser10Image);
         allImages.Add(laser11Image);
         allImages.Add(laser12Image);
+        allImages.Add(laser10UpImage);
         allImages.Add(powerUpHealth);
         allImages.Add(powerUpRicochet);
         allImages.Add(powerUpShield);
         allImages.Add(heartIconImage);
 
+        
 
         allImages.Add(exp000Image);
         allImages.Add(exp001Image);
@@ -356,10 +360,12 @@ public static class ImageService
         allTextures.Add(laser10Texture);
         allTextures.Add(laser11Texture);
         allTextures.Add(laser12Texture);
+        allTextures.Add(laser10UpTexture);
         allTextures.Add(powerUpHealthTexture);
         allTextures.Add(powerUpRicochetTexture);
         allTextures.Add(powerUpShieldTexture);
         allTextures.Add(heartIconTexture);
+        
 
         return allTextures;
     }
@@ -402,10 +408,12 @@ public static class ImageService
         UnloadImage(laser10Image);
         UnloadImage(laser11Image);
         UnloadImage(laser12Image);
+        UnloadImage(laser10UpImage);
         UnloadImage(powerUpHealthTexture);
         UnloadImage(powerUpRicochetTexture);
         UnloadImage(powerUpShieldTexture);
         UnloadImage(heartIconImage); 
+        
 
         UnloadImage(exp000Image);
         UnloadImage(exp001Image);
@@ -466,10 +474,12 @@ public static class ImageService
         UnloadTexture(laser10Texture);
         UnloadTexture(laser11Texture);
         UnloadTexture(laser12Texture);
+        UnloadTexture(laser10UpTexture);
         UnloadTexture(powerUpHealthTexture);
         UnloadTexture(powerUpRicochetTexture);
         UnloadTexture(powerUpShieldTexture);
         UnloadTexture(heartIconTexture); 
+        
 
         UnloadTexture(exp000Texture);
         UnloadTexture(exp001Texture);

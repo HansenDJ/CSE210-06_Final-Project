@@ -43,6 +43,12 @@ public static class KeyboardService
         return Raylib.IsKeyReleased(KeyboardKey.KEY_TAB);
     }
 
+    public static bool capsReleased()
+    {
+        return Raylib.IsKeyReleased(KeyboardKey.KEY_CAPS_LOCK);
+        
+    }
+
     public static bool DKeyReleased()
     {
         return Raylib.IsKeyReleased(KeyboardKey.KEY_D);
