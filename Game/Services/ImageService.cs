@@ -12,8 +12,7 @@ public static class ImageService
 
     public static Image fireBGStartImage = LoadImage("Game/Images/bg/map4firebg.png"); // Background for fire level
 
-    public static Image
-        shadowBGStartImage = LoadImage("Game/Images/bg/map5shadowbg.png"); // Background for shadow level
+    public static Image shadowBGStartImage = LoadImage("Game/Images/bg/map5shadowbg.png"); // Background for shadow level
 
     // BACKGROUND TEXTURES
     public static Texture2D earthBGStartTexture = LoadTextureFromImage(earthBGStartImage);
@@ -82,7 +81,7 @@ public static class ImageService
     public static Image exp015Image = LoadImage("Game/Images/explosion/exp015.png"); // Explosion image part 15
 
     // HUD - Heads Up Display
-    public static Image heartIconImage = LoadImage("Game/Images/    /  **heart**  .png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Heart icon for health
+    public static Image heartIconImage = LoadImage("Game/Images/heart.png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Heart icon for health
 
     public static Image coinCounterImage = LoadImage("Game/Images/coin.png"); // Coin to be displayed by coin counter
 
@@ -105,6 +104,14 @@ public static class ImageService
     public static Image laser11Image = LoadImage("Game/Images/lasers/laser11.png"); // Laser11 image Small Green 
     public static Image laser12Image = LoadImage("Game/Images/lasers/laser12.png"); // Laser12 image Small Pink
     public static Image laser10UpImage = LoadImage("Game/Images/lasers/laser10Up.png"); // Laser10 but verticle Small Blue
+
+    //PowerUp Images Loaded
+
+    public static Image powerUpHealth = LoadImage("Game/Images/powerUp/restoreHealth.png");
+
+    public static Image powerUpShield = LoadImage("Game/Images/powerUp/shield.png");
+
+    public static Image powerUpRicochet = LoadImage("Game/Images/powerUp/ricochet.png");
 
 
     /*---Textures---*/
@@ -166,8 +173,7 @@ public static class ImageService
     public static Texture2D exp015Texture = LoadTextureFromImage(exp015Image); // Explosion texture part 15
 
     // HUD - Heads Up Display
-    public static Texture2D
-        heartIconTexture = LoadTextureFromImage(heartIconImage); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Heart icon for health
+    public static Texture2D heartIconTexture = LoadTextureFromImage(heartIconImage); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Heart icon for health
 
     public static Texture2D coinCounterTexture = LoadTextureFromImage(coinCounterImage); // Coin to be displayed by coin counter
 
@@ -191,6 +197,14 @@ public static class ImageService
     public static Texture2D laser12Texture = LoadTextureFromImage(laser12Image); // Laser12 texture
     public static Texture2D laser10UpTexture = LoadTextureFromImage(laser10UpImage); // Laser10 texture but its verticle
 
+    // Power Up Images
+
+    public static Texture2D powerUpHealthTexture = LoadTextureFromImage(powerUpHealth);
+
+    public static Texture2D powerUpShieldTexture = LoadTextureFromImage(powerUpShield);
+    public static Texture2D powerUpRicochetTexture = LoadTextureFromImage(powerUpRicochet);
+    
+    
 
     public static int explosionFrameLength = 16;
 
@@ -265,7 +279,7 @@ public static class ImageService
         allImages.Add(shadowTwoEnemyImage);
         allImages.Add(shadowThreeEnemyImage);
         allImages.Add(shadowBossEnemyImage);
-        // allImages.Add(coinCounterImage);
+        allImages.Add(coinCounterImage);
         // allImages.Add(coinDropImage);  Uncomment when full file name added above
         // allImages.Add(coinGifImage);  Uncomment when full file name added above
         allImages.Add(laser1Image);
@@ -281,6 +295,12 @@ public static class ImageService
         allImages.Add(laser11Image);
         allImages.Add(laser12Image);
         allImages.Add(laser10UpImage);
+        allImages.Add(powerUpHealth);
+        allImages.Add(powerUpRicochet);
+        allImages.Add(powerUpShield);
+        allImages.Add(heartIconImage);
+
+        
 
         allImages.Add(exp000Image);
         allImages.Add(exp001Image);
@@ -325,7 +345,6 @@ public static class ImageService
         allTextures.Add(shadowTwoEnemyTexture);
         allTextures.Add(shadowThreeEnemyTexture);
         allTextures.Add(shadowBossEnemyTexture);
-        // allTextures.Add(heartIconTexture);  Uncomment when full file name added above
         allTextures.Add(coinCounterTexture);
         // allTextures.Add(coinDropTexture);  Uncomment when full file name added above
         // allTextures.Add(coinGifTexture);  Uncomment when full file name added above
@@ -342,6 +361,11 @@ public static class ImageService
         allTextures.Add(laser11Texture);
         allTextures.Add(laser12Texture);
         allTextures.Add(laser10UpTexture);
+        allTextures.Add(powerUpHealthTexture);
+        allTextures.Add(powerUpRicochetTexture);
+        allTextures.Add(powerUpShieldTexture);
+        allTextures.Add(heartIconTexture);
+        
 
         return allTextures;
     }
@@ -368,8 +392,7 @@ public static class ImageService
         UnloadImage(shadowOneEnemyImage);
         UnloadImage(shadowTwoEnemyImage);
         UnloadImage(shadowThreeEnemyImage);
-        UnloadImage(shadowBossEnemyImage);
-        // UnloadImage(heartIconImage);  Uncomment when full file name added above
+        UnloadImage(shadowBossEnemyImage); 
         UnloadImage(coinCounterImage);
         // UnloadImage(coinDropImage);  Uncomment when full file name added above
         // UnloadImage(coinGifImage);  Uncomment when full file name added above
@@ -386,6 +409,11 @@ public static class ImageService
         UnloadImage(laser11Image);
         UnloadImage(laser12Image);
         UnloadImage(laser10UpImage);
+        UnloadImage(powerUpHealthTexture);
+        UnloadImage(powerUpRicochetTexture);
+        UnloadImage(powerUpShieldTexture);
+        UnloadImage(heartIconImage); 
+        
 
         UnloadImage(exp000Image);
         UnloadImage(exp001Image);
@@ -430,7 +458,7 @@ public static class ImageService
         UnloadTexture(shadowTwoEnemyTexture);
         UnloadTexture(shadowThreeEnemyTexture);
         UnloadTexture(shadowBossEnemyTexture);
-        // UnloadTexture(heartIconTexture);  Uncomment when full file name added above
+        UnloadTexture(heartIconTexture);  
         UnloadTexture(coinCounterTexture);
         // UnloadTexture(coinDropTexture);  Uncomment when full file name added above
         // UnloadTexture(coinGifTexture);  Uncomment when full file name added above
@@ -447,6 +475,11 @@ public static class ImageService
         UnloadTexture(laser11Texture);
         UnloadTexture(laser12Texture);
         UnloadTexture(laser10UpTexture);
+        UnloadTexture(powerUpHealthTexture);
+        UnloadTexture(powerUpRicochetTexture);
+        UnloadTexture(powerUpShieldTexture);
+        UnloadTexture(heartIconTexture); 
+        
 
         UnloadTexture(exp000Texture);
         UnloadTexture(exp001Texture);
@@ -466,5 +499,9 @@ public static class ImageService
         UnloadTexture(exp015Texture);
 
         // Director.unloadCheck = true;
+        // Powerup Images
+
+
+
     }
 }
