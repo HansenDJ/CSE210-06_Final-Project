@@ -11,7 +11,7 @@ internal class Program
         while (!Raylib.WindowShouldClose()) // Detect window close button or ESC key
         {
             loadScreenVisual.loadScreen();
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_SPACE)) break;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_ENTER)) break;
         }
 
         var director = new Director();

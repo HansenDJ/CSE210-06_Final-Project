@@ -44,6 +44,7 @@ public class GameOverSoldAsSlave
         Raylib.DrawText("You could pay your debts back....", 490, 400, 25, Color.WHITE);
         Raylib.DrawText("You have been sold as a slave and will forever have to", 360, 430, 25, Color.WHITE);
         Raylib.DrawText($"{soldText}", 380, 460, 25, Color.WHITE);
+        Raylib.DrawText("Push the [ENTER] to begin your journey.", 370, 490, 25, Color.WHITE);
         Raylib.EndDrawing();
         //AudioService.UnloadAudio(AudioService.loadscreen);
         //AudioService.CloseAudio();
