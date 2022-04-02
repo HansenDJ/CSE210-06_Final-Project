@@ -76,6 +76,41 @@ public class SpawnDestory
         }
     }
 
+    public void SpawnBoss(int level)
+    {
+        var enemyEarth = new Enemy();
+        switch (level)
+        {
+            case 1:
+                // Width and height offsets for collider box from lv 1 earth enemy image file
+                enemyEarth.offsetW = lvOneEnemyOffsetW;
+                enemyEarth.offsetH = lvOneEnemyOffsetH;
+                enemyEarth.SetCharTexture(ImageService.earthOneEnemyTexture);
+                enemyEarth.levelOfEnemy = 1;
+                break;
+            case 2:
+                // Width and height offsets for collider box from lv 2 earth enemy image file
+                enemyEarth.offsetW = lvTwoEnemyOffsetW;
+                enemyEarth.offsetH = lvTwoEnemyOffsetH;
+                enemyEarth.SetCharTexture(ImageService.earthTwoEnemyTexture);
+                enemyEarth.levelOfEnemy = 2;
+                break;
+            case 3:
+                // Width and height offsets for collider box from lv 3 earth enemy image file
+                enemyEarth.offsetW = lvThreeEnemyOffsetW;
+                enemyEarth.offsetH = lvThreeEnemyOffsetH;
+                enemyEarth.SetCharTexture(ImageService.earthThreeEnemyTexture);
+                enemyEarth.levelOfEnemy = 3;
+                break;
+        }
+
+        enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
+        enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
+        enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
+        enemyEarth.SetX(1500);
+        enemyEarth.SetSpeedandHealth();
+        enemyList.Add(enemyEarth);
+    }
     public void SpawnEarthEnemy(int enemyDifficulty)
     {
         var enemyEarth = new Enemy();
@@ -411,6 +446,7 @@ public class SpawnDestory
             case 1:
                 var _EnemyWeaponOne = new Weapon();
                 _EnemyWeaponOne.speed = 10;
+                _EnemyWeaponOne.strength = 5;
                 _EnemyWeaponOne.SetCharTexture(ImageService.laser11Texture);
                 _EnemyWeaponOne.enemyIndex = enemyI;
 
@@ -427,6 +463,7 @@ public class SpawnDestory
             case 2:
                 var _EnemyWeaponTwo = new Weapon();
                 _EnemyWeaponTwo.speed = 10;
+                _EnemyWeaponTwo.strength = 10;
                 _EnemyWeaponTwo.SetCharTexture(ImageService.laser10Texture);
                 _EnemyWeaponTwo.enemyIndex = enemyI;
 
@@ -442,6 +479,7 @@ public class SpawnDestory
             case 3:
                 var _EnemyWeaponThree = new Weapon();
                 _EnemyWeaponThree.speed = 10;
+                _EnemyWeaponThree.strength = 15;
                 _EnemyWeaponThree.SetCharTexture(ImageService.laser12Texture);
                 _EnemyWeaponThree.enemyIndex = enemyI;
 
