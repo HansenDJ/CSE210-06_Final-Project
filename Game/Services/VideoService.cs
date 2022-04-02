@@ -120,6 +120,11 @@ public class VideoService
     public static void DrawHeartCount()
     {
         DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 1250, 55, 20, WHITE);
+        if (Powerup.effectTime > 0)
+        {
+            DrawText(Powerup.effectTime.ToString(), 100, 55, 20, WHITE);
+        }
+        
     }
 
     public static void DrawColliderBox(Character character)
