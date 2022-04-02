@@ -265,6 +265,7 @@ public class SpawnDestory
            
             _weaponSwitcher.SetX(customx);
             _weaponSwitcher.SetY(customy);
+           
         }
         switch (weaponType)
         {
@@ -383,6 +384,7 @@ public class SpawnDestory
             OnCollisionAction(player, i);
             enemyList[i].laserCounter += 9;
             {
+                // ERROR Only spaw weapon when player alive
                 if (player.y - 100 <= enemyList[i].y
                     && enemyList[i].y <= player.y + 100
                     && enemyList[i].x >= player.x + player.offsetColliderWidth
@@ -397,7 +399,7 @@ public class SpawnDestory
             RemoveEnemyOffScreen(i);
         }
     }
-
+    
     public void CreateEnemyWeapon(int enemyI, Enemy enemy)
     {
         var _EnemyWeapon = new Weapon();
@@ -437,7 +439,7 @@ public class SpawnDestory
             for (var j = 0; j < enemyList.Count - 1; j++)
                 if (collisionDetection.CheckCollision(enemyList[j], playerWeaponList[index]))
                     OnCollisionActionPlayerWeapon(enemyList[j], playerWeaponList[index], j, index);
-            if (playerWeaponList[index].x < -50 || playerWeaponList[index].x > 1450) playerWeaponList.RemoveAt(index);
+            if (playerWeaponList[index].x < -50 || playerWeaponList[index].x > 1450 || playerWeaponList[index].y < 0 || playerWeaponList[index].y > 1000) playerWeaponList.RemoveAt(index);
         }
     }
 
