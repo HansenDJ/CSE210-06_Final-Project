@@ -111,7 +111,7 @@ public class Director
                         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                     }
                 }
-            }else if (KeyboardService.capsReleased())
+            }else if (KeyboardService.ShiftReleased())
             {
                 if (CurrencyHandler.money >= 100)
                 {
