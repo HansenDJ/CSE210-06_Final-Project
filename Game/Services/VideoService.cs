@@ -42,9 +42,10 @@ public class VideoService
             DrawColliderBox(enemiesToDraw[i]);
         }
 
+       
         for (var i = 0; i < weaponsToDraw.Count - 1; i++)
         {
-            if (!weaponsToDraw[i].location)
+            if (!weaponsToDraw[i].location && weaponsToDraw[i].powerUpShot == 1)
             {
                 weaponsToDraw[i].offsetW = 5;
                 weaponsToDraw[i].offsetH = 10;
@@ -53,7 +54,12 @@ public class VideoService
                 weaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
                 weaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
                 weaponsToDraw[i].location = true;
+            }else if (!weaponsToDraw[i].location && !(weaponsToDraw[i].powerUpShot == 1))
+            {
+                weaponsToDraw[i].location = true;
+                
             }
+            
 
             DrawCharacter(weaponsToDraw[i]);
             DrawColliderBox(weaponsToDraw[i]);
