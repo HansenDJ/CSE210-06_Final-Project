@@ -9,6 +9,7 @@ public class Weapon : Character
     public Character owner;
     public int speed = 25;
     public int strength = 5;
+    public int direction = 0;
 
 
     public void SetStrength(int s)
@@ -29,5 +30,30 @@ public class Weapon : Character
     public void MoveWeaponRight()
     {
         x += speed;
+    }
+
+    public void ChooseWeaponDirectionandMove()
+    {
+        switch (direction)
+        {
+            case 0:
+                MoveWeaponLeft();
+                break;
+            case 1: MoveWeaponRight();
+                break;
+            case 2: MoveWeaponUp();
+                break;
+            case 3: MoveWeaponDown();
+                break;
+        }
+    }
+    public void MoveWeaponUp()
+    {
+        y -= speed;
+    }
+
+    public void MoveWeaponDown()
+    {
+        y += speed;
     }
 }

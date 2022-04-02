@@ -52,6 +52,7 @@ public class Director
             TimerCheckLagandDraw(timer, player, sp, bg, coin);
         }
 
+        ImageService.UnloadAllTextures();
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
     }
@@ -94,7 +95,7 @@ public class Director
 
             bg.ServeBackgrounds();
             VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin, sp.getEnemyWeapons(),
-                sp.getExplosions());
+            sp.getExplosions());
             VideoService.DrawColliderBox(player); // Draws collider box around player
             // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
             Raylib.EndDrawing();
@@ -120,9 +121,8 @@ public class Director
     {
         if (secondsPassed > BackgroundService.movefast)
         {
-            if (sp.CheckIfSpawnNeeded())
-                sp.SpawnEnemy(DifficultyHandler
-                    .currentLevel); // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+            // Choose which enemy to spawn based on level number
+            if (sp.CheckIfSpawnNeeded())sp.SpawnEnemy(DifficultyHandler.currentLevel);
         }
        
     }

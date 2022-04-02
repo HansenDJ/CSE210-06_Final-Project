@@ -106,8 +106,7 @@ public class SpawnDestory
 
         enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
         enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
-        enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(),
-            VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
+        enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
         enemyEarth.SetX(1500);
         enemyEarth.SetSpeedandHealth();
         enemyList.Add(enemyEarth);
@@ -143,8 +142,7 @@ public class SpawnDestory
 
         enemyWater.SetOffsetColliderWidth(enemyWater.offsetW);
         enemyWater.SetOffsetColliderHeight(enemyWater.offsetH);
-        enemyWater.SetY(rnd.Next(enemyWater.GetTextureHeight(),
-            VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2));
+        enemyWater.SetY(rnd.Next(enemyWater.GetTextureHeight(), VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2));
         enemyWater.SetX(1500);
         enemyWater.SetSpeedandHealth();
         enemyList.Add(enemyWater);
@@ -180,8 +178,7 @@ public class SpawnDestory
 
         enemyAir.SetOffsetColliderWidth(enemyAir.offsetW);
         enemyAir.SetOffsetColliderHeight(enemyAir.offsetH);
-        enemyAir.SetY(rnd.Next(enemyAir.GetTextureHeight(),
-            VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2));
+        enemyAir.SetY(rnd.Next(enemyAir.GetTextureHeight(), VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2));
         enemyAir.SetX(1500);
         enemyAir.SetSpeedandHealth();
         enemyList.Add(enemyAir);
@@ -216,8 +213,7 @@ public class SpawnDestory
 
         enemyFire.SetOffsetColliderWidth(enemyFire.offsetW);
         enemyFire.SetOffsetColliderHeight(enemyFire.offsetH);
-        enemyFire.SetY(rnd.Next(enemyFire.GetTextureHeight(),
-            VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2));
+        enemyFire.SetY(rnd.Next(enemyFire.GetTextureHeight(), VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2));
         enemyFire.SetX(1500);
         enemyFire.SetSpeedandHealth();
         enemyList.Add(enemyFire);
@@ -253,8 +249,7 @@ public class SpawnDestory
 
         enemyShadow.SetOffsetColliderWidth(enemyShadow.offsetW);
         enemyShadow.SetOffsetColliderHeight(enemyShadow.offsetH);
-        enemyShadow.SetY(rnd.Next(enemyShadow.GetTextureHeight(),
-            VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2));
+        enemyShadow.SetY(rnd.Next(enemyShadow.GetTextureHeight(), VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2));
         enemyShadow.SetX(1500);
         enemyShadow.SetSpeedandHealth();
         enemyList.Add(enemyShadow);
@@ -266,30 +261,26 @@ public class SpawnDestory
         switch (weaponType)
         {
             case 1:
-                _weaponSwitcher.SetCharTexture(ImageService
-                    .laser1Texture); // Load the weapon laser image when weapon purchased
+                _weaponSwitcher.SetCharTexture(ImageService.laser1Texture); // Load the weapon laser image when weapon purchased
                 playerWeaponList.Add(_weaponSwitcher);
                 _weaponSwitcher.strength = 5;
                 maxReloadTime = 400;
 
                 break;
             case 2:
-                _weaponSwitcher.SetCharTexture(ImageService
-                    .laser3Texture); // Load the weapon laser image when weapon purchased
+                _weaponSwitcher.SetCharTexture(ImageService.laser3Texture); // Load the weapon laser image when weapon purchased
                 playerWeaponList.Add(_weaponSwitcher);
                 _weaponSwitcher.strength = 10;
                 maxReloadTime = 300;
                 break;
             case 3:
-                _weaponSwitcher.SetCharTexture(ImageService
-                    .laser5Texture); // Load the weapon laser image when weapon purchased
+                _weaponSwitcher.SetCharTexture(ImageService.laser5Texture); // Load the weapon laser image when weapon purchased
                 playerWeaponList.Add(_weaponSwitcher);
                 _weaponSwitcher.strength = 15;
                 maxReloadTime = 200;
                 break;
             case 4:
-                _weaponSwitcher.SetCharTexture(ImageService
-                    .laser7Texture); // Load the weapon laser image when weapon purchased
+                _weaponSwitcher.SetCharTexture(ImageService.laser7Texture); // Load the weapon laser image when weapon purchased
                 playerWeaponList.Add(_weaponSwitcher);
                 _weaponSwitcher.strength = 20;
                 maxReloadTime = 100;
@@ -409,7 +400,7 @@ public class SpawnDestory
     {
         for (var index = 0; index < enemyWeaponsList.Count - 1; index++)
         {
-            enemyWeaponsList[index].MoveWeaponLeft();
+            enemyWeaponsList[index].ChooseWeaponDirectionandMove();
 
             if (collisionDetection.CheckCollision(player, enemyWeaponsList[index]))
                 OnCollisionActionEnemyWeapon(player, enemyWeaponsList[index], index);
@@ -422,6 +413,7 @@ public class SpawnDestory
         if (PlayerStats.playerHealth <= 0) PlayerStats.playerHealth = 0;
     }
 
+    // When enemy hit by a laser, damage the player and remove laser
     public void OnCollisionActionEnemyWeapon(Player player, Weapon weapon, int index)
     {
         if (collisionDetection.CheckCollision(player, weapon))
@@ -483,12 +475,16 @@ public class SpawnDestory
                     CurrencyHandler.money += CurrencyHandler.randomMoney;
                 }
 
-                enemyList.RemoveAt(
-                    enemyIndex); // Change so that the enemy is destroyed when the enemy health goes to zero
+                // Change so that the enemy is destroyed when the enemy health goes to zero
+                enemyList.RemoveAt(enemyIndex);
             }
 
-            playerWeaponList
-                .RemoveAt(weaponIndex); // Change so that the weapon is destroyed when the enemy health goes to zero
+            if (Powerup.isExplosiveShot)
+            {
+               
+            }
+            // Change so that the weapon is destroyed when the enemy health goes to zero
+            playerWeaponList.RemoveAt(weaponIndex);
         }
     }
 
