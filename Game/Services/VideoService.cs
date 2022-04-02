@@ -119,6 +119,7 @@ public class VideoService
 
     public static void DrawHeartCount()
     {
+        DrawTexture(ImageService.heartIconTexture, 1220, 55, WHITE);
         DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 1250, 55, 20, WHITE);
         if (Powerup.effectTime > 0)
         {

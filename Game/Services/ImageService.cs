@@ -107,11 +107,11 @@ public static class ImageService
 
     //PowerUp Images Loaded
 
-    public static Image powerUpHealth = LoadImage("Game/Images/powerUp/restoreHealth.png");
+    public static Image powerUpHealthImage = LoadImage("Game/Images/powerUp/restoreHealth.png");
 
-    public static Image powerUpShield = LoadImage("Game/Images/powerUp/shield.png");
+    public static Image powerUpShieldImage = LoadImage("Game/Images/powerUp/shield.png");
 
-    public static Image powerUpRicochet = LoadImage("Game/Images/powerUp/ricochet.png");
+    public static Image powerUpRicochetImage = LoadImage("Game/Images/powerUp/ricochet.png");
 
 
     /*---Textures---*/
@@ -199,10 +199,10 @@ public static class ImageService
 
     // Power Up Images
 
-    public static Texture2D powerUpHealthTexture = LoadTextureFromImage(powerUpHealth);
+    public static Texture2D powerUpHealthTexture = LoadTextureFromImage(powerUpHealthImage);
 
-    public static Texture2D powerUpShieldTexture = LoadTextureFromImage(powerUpShield);
-    public static Texture2D powerUpRicochetTexture = LoadTextureFromImage(powerUpRicochet);
+    public static Texture2D powerUpShieldTexture = LoadTextureFromImage(powerUpShieldImage);
+    public static Texture2D powerUpRicochetTexture = LoadTextureFromImage(powerUpRicochetImage);
     
     
 
@@ -295,9 +295,9 @@ public static class ImageService
         allImages.Add(laser11Image);
         allImages.Add(laser12Image);
         allImages.Add(laser10UpImage);
-        allImages.Add(powerUpHealth);
-        allImages.Add(powerUpRicochet);
-        allImages.Add(powerUpShield);
+        allImages.Add(powerUpHealthImage);
+        allImages.Add(powerUpRicochetImage);
+        allImages.Add(powerUpShieldImage);
         allImages.Add(heartIconImage);
 
         
@@ -409,9 +409,9 @@ public static class ImageService
         UnloadImage(laser11Image);
         UnloadImage(laser12Image);
         UnloadImage(laser10UpImage);
-        UnloadImage(powerUpHealthTexture);
-        UnloadImage(powerUpRicochetTexture);
-        UnloadImage(powerUpShieldTexture);
+        UnloadImage(powerUpHealthImage);
+        UnloadImage(powerUpRicochetImage);
+        UnloadImage(powerUpShieldImage);
         UnloadImage(heartIconImage); 
         
 
