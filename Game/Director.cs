@@ -107,7 +107,7 @@ public class Director
     private static void TimeService(DateTime startTime, SpawnDestory sp)
     {
         DateTime timeNow;
-        double secondsPassed;
+        
         timeNow = DateTime.Now;
         secondsPassed = (timeNow - startTime).TotalSeconds;
 
