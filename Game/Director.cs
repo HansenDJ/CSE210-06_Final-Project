@@ -11,11 +11,12 @@ public class Director
 
     // public static bool unloadCheck = false;
     // static bool action = false;
+   public static double secondsPassed = 0;
     public void StartGame()
     {
         var startTime = DateTime.Now;
         var timeNow = DateTime.Now;
-        double secondsPassed = 0;
+       
         ImageService.LoadAllImages();
         ImageService.LoadAllTextures();
         ImageService.LoadExplosionAnimation();
