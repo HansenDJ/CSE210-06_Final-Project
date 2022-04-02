@@ -561,7 +561,11 @@ public class SpawnDestory
         if (collisionDetection.CheckCollision(player, weapon))
         {
             PlayerDeadCheck();
-            PlayerStats.playerHealth -= weapon.strength;
+            if (!Powerup.isShielded)
+            {
+                PlayerStats.playerHealth -= weapon.strength;
+            }
+          
             enemyWeaponsList.RemoveAt(index);
         }
     }
@@ -639,9 +643,22 @@ public class SpawnDestory
     public void OnCollisionAction(Player player, int index)
     {
         if (collisionDetection.CheckCollision(player, enemyList[index]))
+        {
+            if (!Powerup.isShielded)
+            {
+                PlayerStats.playerHealth -= 50;
+            }
+            
+            var c = new Coordinate();
+            c.x = enemyList[index].x;
+            c.y = enemyList[index].y;
+            explosionCoordinates.Add(c);
+            enemyList.RemoveAt(index);
+        }
             // TEST: Remove enemy if collides with player
             //Player.playerHealth = Player.playerHealth -10;
-            enemyList.RemoveAt(index);
+        
+            
     }
 
     public void ClearMap()

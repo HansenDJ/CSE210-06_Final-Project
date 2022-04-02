@@ -107,7 +107,11 @@ public class VideoService
     public static void DrawPlayer(Player player)
     {
         DrawTexture(player.GetCharTexture(), player.x, player.y, WHITE);
-        DrawColliderBox(player);
+        if (Powerup.isShielded)
+        {
+            DrawColliderBox(player);
+        }
+        
     }
 
 
