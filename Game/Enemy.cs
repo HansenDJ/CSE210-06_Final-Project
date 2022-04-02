@@ -16,7 +16,7 @@ public class Enemy : Character
 
     public void setHealth()
     {
-        health = 5 * DifficultyHandler.currentLevel;
+        health = 5 * DifficultyHandler.currentLevel +5* levelOfEnemy;
     }
 
     public void SetSpeedandHealth()

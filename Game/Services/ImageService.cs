@@ -83,11 +83,18 @@ public static class ImageService
                 "Game/Images/  **coingif**  .png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin gif image
 
     // LASERS
-    public static Image laser1Image = LoadImage("Game/Images/lasers/laser1.png"); // Laser1 image
-    public static Image laser3Image = LoadImage("Game/Images/lasers/laser3.png"); // Laser3 image
-    public static Image laser5Image = LoadImage("Game/Images/lasers/laser5.png"); // Laser5 image
-    public static Image laser7Image = LoadImage("Game/Images/lasers/laser7.png"); // Laser7 image
-    public static Image laser11Image = LoadImage("Game/Images/lasers/laser11.png"); // Laser11 image
+    public static Image laser1Image = LoadImage("Game/Images/lasers/laser1.png"); // Laser1 image Big Blue
+    public static Image laser2Image = LoadImage("Game/Images/lasers/laser2.png"); // Laser2 image Enemy Big Blue
+    public static Image laser3Image = LoadImage("Game/Images/lasers/laser3.png"); // Laser3 image Big Green
+    public static Image laser4Image = LoadImage("Game/Images/lasers/laser4.png"); // Laser4 image Enemy Big Green
+    public static Image laser5Image = LoadImage("Game/Images/lasers/laser5.png"); // Laser5 image Big Pink
+    public static Image laser6Image = LoadImage("Game/Images/lasers/laser6.png"); // Laser6 image Enemy Big Pink
+    public static Image laser7Image = LoadImage("Game/Images/lasers/laser7.png"); // Laser7 image Big Red
+    public static Image laser8Image = LoadImage("Game/Images/lasers/laser8.png"); // Laser8 image Enemy Big Red
+    public static Image laser9Image = LoadImage("Game/Images/lasers/laser9.png"); // Laser9 image Small Red
+    public static Image laser10Image = LoadImage("Game/Images/lasers/laser10.png"); // Laser10 image Small Blue
+    public static Image laser11Image = LoadImage("Game/Images/lasers/laser11.png"); // Laser11 image Small Green 
+    public static Image laser12Image = LoadImage("Game/Images/lasers/laser12.png"); // Laser12 image Small Pink
 
 
     /*---Textures---*/
@@ -151,10 +158,17 @@ public static class ImageService
 
     // LASERS
     public static Texture2D laser1Texture = LoadTextureFromImage(laser1Image); // Laser1 texture
+    public static Texture2D laser2Texture = LoadTextureFromImage(laser2Image); // Laser2 texture
     public static Texture2D laser3Texture = LoadTextureFromImage(laser3Image); // Laser3 texture
+    public static Texture2D laser4Texture = LoadTextureFromImage(laser4Image); // Laser4 texture
     public static Texture2D laser5Texture = LoadTextureFromImage(laser5Image); // Laser5 texture
+    public static Texture2D laser6Texture = LoadTextureFromImage(laser6Image); // Laser6 texture
     public static Texture2D laser7Texture = LoadTextureFromImage(laser7Image); // Laser7 texture
+    public static Texture2D laser8Texture = LoadTextureFromImage(laser8Image); // Laser8 texture
+    public static Texture2D laser9Texture = LoadTextureFromImage(laser9Image); // Laser9 texture
+    public static Texture2D laser10Texture = LoadTextureFromImage(laser10Image); // Laser10 texture
     public static Texture2D laser11Texture = LoadTextureFromImage(laser11Image); // Laser11 texture 
+    public static Texture2D laser12Texture = LoadTextureFromImage(laser12Image); // Laser12 texture
 
 
     public static int explosionFrameLength = 15;
@@ -269,10 +283,17 @@ public static class ImageService
         //  allImages.Add(coinDropImage);  Uncomment when full file name added above
         // allImages.Add(coinGifImage);  Uncomment when full file name added above
         allImages.Add(laser1Image);
+        allImages.Add(laser2Image);
         allImages.Add(laser3Image);
+        allImages.Add(laser4Image);
         allImages.Add(laser5Image);
+        allImages.Add(laser6Image);
         allImages.Add(laser7Image);
+        allImages.Add(laser8Image);
+        allImages.Add(laser9Image);
+        allImages.Add(laser10Image);
         allImages.Add(laser11Image);
+        allImages.Add(laser12Image);
 
 
         return allImages;
@@ -306,10 +327,17 @@ public static class ImageService
         // allTextures.Add(coinDropTexture);  Uncomment when full file name added above
         // allTextures.Add(coinGifTexture);  Uncomment when full file name added above
         allTextures.Add(laser1Texture);
+        allTextures.Add(laser2Texture);
         allTextures.Add(laser3Texture);
+        allTextures.Add(laser4Texture);
         allTextures.Add(laser5Texture);
+        allTextures.Add(laser6Texture);
         allTextures.Add(laser7Texture);
+        allTextures.Add(laser8Texture);
+        allTextures.Add(laser9Texture);
+        allTextures.Add(laser10Texture);
         allTextures.Add(laser11Texture);
+        allTextures.Add(laser12Texture);
 
         return allTextures;
     }
