@@ -12,6 +12,7 @@ public class Director
     // public static bool unloadCheck = false;
     // static bool action = false;
    public static double secondsPassed = 0;
+   public static Double levelTime = 30;
     public void StartGame()
     {
         var startTime = DateTime.Now;
@@ -111,7 +112,7 @@ public class Director
         timeNow = DateTime.Now;
         secondsPassed = (timeNow - startTime).TotalSeconds;
 
-        if (DifficultyHandler.LevelUp(secondsPassed / 30D)) sp.maxEnemies = DifficultyHandler.enemyCount;
+        if (DifficultyHandler.LevelUp(secondsPassed / Director.levelTime)) sp.maxEnemies = DifficultyHandler.enemyCount;
     }
 
     private static void SpawnCheck(SpawnDestory sp)
