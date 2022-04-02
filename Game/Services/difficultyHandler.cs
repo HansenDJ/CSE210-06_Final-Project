@@ -11,7 +11,7 @@ public static class DifficultyHandler
 
     public static bool LevelUp(double time)
     {
-        var lvl = Convert.ToInt32(time);
+        var lvl = Convert.ToInt32(Math.Floor(time));
         currentLevel = 1 + lvl;
         if (currentLevel > previousLevel)
         {
