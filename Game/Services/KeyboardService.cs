@@ -38,6 +38,26 @@ public static class KeyboardService
     {
         return Raylib.IsKeyReleased(KeyboardKey.KEY_A);
     }
+    public static bool TabKeyReleased()
+    {
+        return Raylib.IsKeyReleased(KeyboardKey.KEY_TAB);
+    }
+
+    public static bool ShiftReleased()
+    {
+        bool ls = Raylib.IsKeyReleased(KeyboardKey.KEY_LEFT_SHIFT);
+        bool rs = Raylib.IsKeyReleased(KeyboardKey.KEY_RIGHT_SHIFT);
+
+        if (ls)
+        {
+            return true;
+        }else if (rs)
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     public static bool DKeyReleased()
     {

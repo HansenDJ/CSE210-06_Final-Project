@@ -14,6 +14,7 @@ public class Enemy : Character
 
     public int levelOfEnemy;
     public int moveSpeed;
+    public int chaseSpeed = 0;
     private readonly Random rnd = new();
 
     public void SetHealth()
@@ -25,6 +26,7 @@ public class Enemy : Character
     {
         SetHealth();
         SetEnemyID();
+        chaseSpeed = rnd.Next(1, 2) * levelOfEnemy;
         moveSpeed = rnd.Next(5, 8);
     }
 
@@ -43,10 +45,19 @@ public class Enemy : Character
         enemyID = Convert.ToString(id1) + Convert.ToString(id2) + Convert.ToString(id3) + Convert.ToString(id4) + Convert.ToString(char1) + Convert.ToString(char2) + Convert.ToString(char3) + Convert.ToString(char4);
         Console.WriteLine("eNeMyId: " + enemyID);
     }
-
-    public void MoveEnemy()
+    public void MoveEnemy(int playery)
     {
+        
         x -= moveSpeed;
+      
+            if (y < playery )
+            {
+                y += chaseSpeed;
+            }
+            else
+            {
+                y -= chaseSpeed;
+            }
     }
 
     public void LevelOneDifficulty()

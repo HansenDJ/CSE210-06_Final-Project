@@ -12,7 +12,7 @@ public class Director
     // public static bool unloadCheck = false;
     // static bool action = false;f
    public static double secondsPassed = 0;
-   public static Double levelTime = 1000;
+   public static Double levelTime = 90;
     public void StartGame()
     {
         var startTime = DateTime.Now;
@@ -35,12 +35,14 @@ public class Director
         player.SetCharTexture(ImageService.startShipTexture);
         player.SetPlayerStats();
         player.SetPlayerXY(player);
+        
         // coin.SetTexture(ImageService.SetCoinGif());
         AudioService.InitSound();
         AudioService.LoadAudio(AudioService.lv1Shot);
         
         while (!Raylib.WindowShouldClose())
         {
+       
             // INPUT
             SpawnCheck(sp);
             // UPDATES
@@ -48,6 +50,7 @@ public class Director
             TimeService(startTime, sp);
             // if (action)
             LevelChangeCheck(bg);
+            Powerup.ReduceEffectTime();
 
             TimerCheckLagandDraw(timer, player, sp, bg, coin);
         }
@@ -67,7 +70,24 @@ public class Director
         {
             GameOverDeath.loadScreen();
             if (KeyboardService.RKeyDown())
-                startTime = RestartLevel(bg, timer, sp);
+            {
+                timer.Count();
+                startTime = DateTime.Now;
+                secondsPassed = 0;
+               
+                DifficultyHandler.levelChange = true;
+                DifficultyHandler.currentLevel = 1;
+                DifficultyHandler.previousLevel = 1;
+                PlayerStats.maxPlayerHealth = 150;
+                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+
+                LevelChangeCheck(bg);
+
+                DifficultyHandler.enemyCount = 3;
+
+                CurrencyHandler.money = 0;
+                sp.ClearMap();
+            }
 
         }
 
@@ -80,6 +100,26 @@ public class Director
         {
             if (player.PlayerMoveKeys() == 1) //When spacebar pressed
                 sp.ShootWeapon(player);
+            if (KeyboardService.TabKeyReleased())
+            {
+                if (CurrencyHandler.money >= 100)
+                {
+                    CurrencyHandler.money -= 100;
+                    PlayerStats.playerHealth += 25;
+                    if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
+                    {
+                        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                    }
+                }
+            }else if (KeyboardService.ShiftReleased())
+            {
+                if (CurrencyHandler.money >= 100)
+                {
+                    CurrencyHandler.money -= 100;
+                    Powerup.randomEffect();
+                   
+                }
+            }
 
 
             sp.IncrementReloadTime();
@@ -162,30 +202,7 @@ public class Director
         }
     }
 
-    private static DateTime RestartLevel(BackgroundService bg, Timer timer, SpawnDestory sp)
-    {
-        DateTime startTime;
-        DateTime timeNow;
-        double secondsPassed;
-        timer.Count();
-       
-        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
-        DifficultyHandler.levelChange = true;
-        DifficultyHandler.currentLevel = 1;
-        DifficultyHandler.previousLevel = 1;
-         
-        LevelChangeCheck(bg);
-      
-        DifficultyHandler.enemyCount = 3;
-
-        CurrencyHandler.money = 0;
-        sp.ClearMap();
-
-        startTime = DateTime.Now;
-        timeNow = DateTime.Now;
-        secondsPassed = 0;
-        return startTime;
-    }
+   
 
     // // Change updateFrameTime variable above to change number of milliseconds between frames
     // static void SetTimer(int frameTime) {

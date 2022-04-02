@@ -27,6 +27,10 @@ public class SpawnDestory
     public List<Weapon> playerWeaponList = new();
     private readonly Random rnd = new();
 
+    public int getPowerUp;
+
+    public int setPowerUp;
+
     private int RandomEnemy()
     {
         return rnd.Next(1, 4); // Enemy difficulty is 1, 2, or 3
@@ -77,6 +81,41 @@ public class SpawnDestory
         }
     }
 
+    public void SpawnBoss(int level)
+    {
+        var enemyEarth = new Enemy();
+        switch (level)
+        {
+            case 1:
+                // Width and height offsets for collider box from lv 1 earth enemy image file
+                enemyEarth.offsetW = lvOneEnemyOffsetW;
+                enemyEarth.offsetH = lvOneEnemyOffsetH;
+                enemyEarth.SetCharTexture(ImageService.earthOneEnemyTexture);
+                enemyEarth.levelOfEnemy = 1;
+                break;
+            case 2:
+                // Width and height offsets for collider box from lv 2 earth enemy image file
+                enemyEarth.offsetW = lvTwoEnemyOffsetW;
+                enemyEarth.offsetH = lvTwoEnemyOffsetH;
+                enemyEarth.SetCharTexture(ImageService.earthTwoEnemyTexture);
+                enemyEarth.levelOfEnemy = 2;
+                break;
+            case 3:
+                // Width and height offsets for collider box from lv 3 earth enemy image file
+                enemyEarth.offsetW = lvThreeEnemyOffsetW;
+                enemyEarth.offsetH = lvThreeEnemyOffsetH;
+                enemyEarth.SetCharTexture(ImageService.earthThreeEnemyTexture);
+                enemyEarth.levelOfEnemy = 3;
+                break;
+        }
+
+        enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
+        enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
+        enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
+        enemyEarth.SetX(1500);
+        enemyEarth.SetSpeedandHealth();
+        enemyList.Add(enemyEarth);
+    }
     public void SpawnEarthEnemy(int enemyDifficulty)
     {
         var enemyEarth = new Enemy();
@@ -268,10 +307,14 @@ public class SpawnDestory
         _weaponSwitcher.direction = custom;
         if (custom != 1)
         {
-           
             _weaponSwitcher.SetX(customX);
             _weaponSwitcher.SetY(customY);
+            _weaponSwitcher.SetCharTexture(ImageService.laser10UpTexture);
+            playerWeaponList.Add(_weaponSwitcher);
+            _weaponSwitcher.strength = 5;
         }
+
+        else{
         switch (weaponType)
         {
             case 1:
@@ -331,7 +374,7 @@ public class SpawnDestory
                 _weaponSwitcher.strength = 20;
                 maxReloadTime = 100;
                 break;
-        }
+        }}
     }
 
     public void IncrementReloadTime()
@@ -390,41 +433,94 @@ public class SpawnDestory
             enemyList[i].laserCounter += 9;
                 // ERROR Only spawn weapon when player alive
                 // Check if enemy is within range set from the players y and enemy is to the right of player
-            // if (player.y - 100 <= enemyList[i].y
-            //     && enemyList[i].y <= player.y + 100
-            //     && enemyList[i].x >= player.x + player.offsetColliderWidth
-            //     && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
-            // {
-            //     CreateEnemyWeapon(i, enemyList[i]);
-            //     enemyList[i].laserCounter = 0;
-            // }
+            if (player.y - 100 <= enemyList[i].y
+                && enemyList[i].y <= player.y + 100
+                && enemyList[i].x >= player.x + player.offsetColliderWidth
+                && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
+            {
+                CreateEnemyWeapon(i, enemyList[i]);
+                enemyList[i].laserCounter = 0;
+            }
 
-            MakeEnemiesMove(i);
+            MakeEnemiesMove(i,player.y);
             RemoveEnemyOffScreen(i);
         }
     }
-
+    
     public void CreateEnemyWeapon(int enemyI, Enemy enemy)
-    {
-        var _EnemyWeapon = new Weapon();
-        _EnemyWeapon.weaponID = enemyList[enemyI].enemyID;
-        _EnemyWeapon.speed = 10;
-        _EnemyWeapon.SetCharTexture(ImageService.laser11Texture);
-        _EnemyWeapon.enemyIndex = enemyI;
+    { switch (enemy.levelOfEnemy)
+        {
+            case 1:
+                var _EnemyWeaponOne = new Weapon();
+                _EnemyWeaponOne.weaponID = enemyList[enemyI].enemyID;
+                _EnemyWeaponOne.speed = 10;
+                _EnemyWeaponOne.strength = 5;
+                _EnemyWeaponOne.SetCharTexture(ImageService.laser11Texture);
+                _EnemyWeaponOne.enemyIndex = enemyI;
 
-        // Set and apply laser spawn location offset
-        _EnemyWeapon.SetOffsetColliderWidth(enemy.offsetW);
-        _EnemyWeapon.SetOffsetColliderHeight(enemy.offsetH);
+                // Set and apply laser spawn location offset
+                _EnemyWeaponOne.SetOffsetColliderWidth(enemy.offsetW);
+                _EnemyWeaponOne.SetOffsetColliderHeight(enemy.offsetH);
+                _EnemyWeaponOne.SetX(enemy.x - enemy.GetColliderBoxWidth());
+                _EnemyWeaponOne.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+
+                AudioService.PlayAudio(AudioService.lv1Shot);
+                enemyWeaponsList.Add(_EnemyWeaponOne);
+
+            break;
+            case 2:
+                var _EnemyWeaponTwo = new Weapon();
+                _EnemyWeaponTwo.weaponID = enemyList[enemyI].enemyID;
+                _EnemyWeaponTwo.speed = 10;
+                _EnemyWeaponTwo.strength = 10;
+                _EnemyWeaponTwo.SetCharTexture(ImageService.laser10Texture);
+                _EnemyWeaponTwo.enemyIndex = enemyI;
+
+                // Set and apply laser spawn location offset
+                _EnemyWeaponTwo.SetOffsetColliderWidth(enemy.offsetW);
+                _EnemyWeaponTwo.SetOffsetColliderHeight(enemy.offsetH);
+                _EnemyWeaponTwo.SetX(enemy.x - enemy.GetColliderBoxWidth());
+                _EnemyWeaponTwo.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+
+                AudioService.PlayAudio(AudioService.lv1Shot);
+                enemyWeaponsList.Add(_EnemyWeaponTwo);
+            break;
+            case 3:
+                var _EnemyWeaponThree = new Weapon();
+                _EnemyWeaponThree.weaponID = enemyList[enemyI].enemyID;
+                _EnemyWeaponThree.speed = 10;
+                _EnemyWeaponThree.strength = 15;
+                _EnemyWeaponThree.SetCharTexture(ImageService.laser12Texture);
+                _EnemyWeaponThree.enemyIndex = enemyI;
+
+                // Set and apply laser spawn location offset
+                _EnemyWeaponThree.SetOffsetColliderWidth(enemy.offsetW);
+                _EnemyWeaponThree.SetOffsetColliderHeight(enemy.offsetH);
+                _EnemyWeaponThree.SetX(enemy.x - enemy.GetColliderBoxWidth());
+                _EnemyWeaponThree.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+
+                AudioService.PlayAudio(AudioService.lv1Shot);
+                enemyWeaponsList.Add(_EnemyWeaponThree);
+            break;
+        }
+        // var _EnemyWeapon = new Weapon();
+        // _EnemyWeapon.speed = 10;
+        // _EnemyWeapon.SetCharTexture(ImageService.laser11Texture);
+        // _EnemyWeapon.enemyIndex = enemyI;
+
+        // // Set and apply laser spawn location offset
+        // _EnemyWeapon.SetOffsetColliderWidth(enemy.offsetW);
+        // _EnemyWeapon.SetOffsetColliderHeight(enemy.offsetH);
         // _EnemyWeapon.SetX(enemy.x - enemy.GetColliderBoxWidth());
         // _EnemyWeapon.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-        AudioService.PlayAudio(AudioService.lv1Shot);
-        enemyWeaponsList.Add(_EnemyWeapon);
+        // AudioService.PlayAudio(AudioService.lv1Shot);
+        // enemyWeaponsList.Add(_EnemyWeapon);
     }
 
-    public void MakeEnemiesMove(int index)
+    public void MakeEnemiesMove(int index, int playery)
     {
-        enemyList[index].MoveEnemy();
+        enemyList[index].MoveEnemy(playery);
     }
 
     private void RemoveEnemyOffScreen(int removeIndex)
@@ -444,7 +540,7 @@ public class SpawnDestory
             for (var j = 0; j < enemyList.Count - 1; j++)
                 if (collisionDetection.CheckCollision(enemyList[j], playerWeaponList[index]))
                     OnCollisionActionPlayerWeapon(enemyList[j], playerWeaponList[index], j, index);
-            if (playerWeaponList[index].x < -50 || playerWeaponList[index].x > 1450) playerWeaponList.RemoveAt(index);
+            if (playerWeaponList[index].x < -50 || playerWeaponList[index].x > 1450 || playerWeaponList[index].y < 0 || playerWeaponList[index].y > 1000) playerWeaponList.RemoveAt(index);
         }
     }
 
@@ -471,7 +567,11 @@ public class SpawnDestory
         if (collisionDetection.CheckCollision(player, weapon))
         {
             PlayerDeadCheck();
-            PlayerStats.playerHealth -= weapon.strength;
+            if (!Powerup.isShielded)
+            {
+                PlayerStats.playerHealth -= weapon.strength;
+            }
+          
             enemyWeaponsList.RemoveAt(index);
         }
     }
@@ -515,16 +615,19 @@ public class SpawnDestory
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += CurrencyHandler.randomMoney;
+                    SetRandomPowerUp();
                 }
                 else if (enemyList[enemyIndex].levelOfEnemy == 2)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += CurrencyHandler.randomMoney;
+                    SetRandomPowerUp();
                 }
                 else if (enemyList[enemyIndex].levelOfEnemy == 3)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += CurrencyHandler.randomMoney;
+                    SetRandomPowerUp();
                 }
 
                 // Change so that the enemy is destroyed when the enemy health goes to zero
@@ -546,8 +649,22 @@ public class SpawnDestory
     public void OnCollisionAction(Player player, int index)
     {
         if (collisionDetection.CheckCollision(player, enemyList[index]))
-            // TEST: Remove enemy if collides with player
+        {
+            if (!Powerup.isShielded)
+            {
+                PlayerStats.playerHealth -= 50;
+            }
+            
+            var c = new Coordinate();
+            c.x = enemyList[index].x;
+            c.y = enemyList[index].y;
+            explosionCoordinates.Add(c);
             enemyList.RemoveAt(index);
+        }
+            // TEST: Remove enemy if collides with player
+            //Player.playerHealth = Player.playerHealth -10;
+        
+            
     }
 
     public void ClearMap()
@@ -558,4 +675,28 @@ public class SpawnDestory
         explosionCoordinates.Clear();
         maxEnemies = 5;
     }
+
+    public void SetRandomPowerUp()
+    {
+        getPowerUp = rnd.Next(1,101);
+        if(getPowerUp <= 5){
+            setPowerUp = rnd.Next(1,4);
+            switch (setPowerUp)
+            {
+            case 1:
+                
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            }
+        }
+        
+    }
+
+
+
 }

@@ -21,6 +21,8 @@ public class VideoService
         DrawBackdrop(bg);
         DrawCoinCount(coin);
         DrawHeartCount();
+        DrawPowerUpShield();
+        DrawPowerUpRicochet();
         DrawCharacters(enemiesDraw, playerWeaponsToDraw, player, enemyWeaponsToDraw);
         ExplosionAnimation(ExplosionC);
         DrawPlayer(player);
@@ -80,16 +82,16 @@ public class VideoService
             for (int enemyIndex = 0; enemyIndex < enemiesToDraw.Count - 1; enemyIndex++)
                 if (!EnemyWeaponsToDraw[i_weaponEnemy].location)
                 {
-                    if (enemiesToDraw[enemyIndex].enemyID == weaponsToDraw[i_weaponEnemy].weaponID)
-                    {
-                        EnemyWeaponsToDraw[i_weaponEnemy].SetX(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxWidth());
-                        EnemyWeaponsToDraw[i_weaponEnemy].SetY(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxHeight() / 2);
-                    }
-                    else
-                    {
-                        // if enemyID == weaponID --> weaponList.remove(i)
-                        continue;
-                    }
+                    // if (enemiesToDraw[enemyIndex].enemyID == weaponsToDraw[i_weaponEnemy].weaponID)
+                    // {
+                    //     EnemyWeaponsToDraw[i_weaponEnemy].SetX(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxWidth());
+                    //     EnemyWeaponsToDraw[i_weaponEnemy].SetY(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxHeight() / 2);
+                    // }
+                    // else
+                    // {
+                    //     // if enemyID == weaponID --> weaponList.remove(i)
+                    //     continue;
+                    // }
                     // EnemyWeaponsToDraw[i_weaponEnemy].offsetW = EnemyWeaponsToDraw[i_weaponEnemy].offsetW;
                     // EnemyWeaponsToDraw[i_weaponEnemy].offsetH = EnemyWeaponsToDraw[i_weaponEnemy].offsetH;
                     // EnemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderWidth(EnemyWeaponsToDraw[i_weaponEnemy].offsetW);
@@ -123,7 +125,11 @@ public class VideoService
     public static void DrawPlayer(Player player)
     {
         DrawTexture(player.GetCharTexture(), player.x, player.y, WHITE);
-        DrawColliderBox(player);
+        if (Powerup.isShielded)
+        {
+            DrawColliderBox(player);
+        }
+        
     }
 
 
@@ -137,7 +143,10 @@ public class VideoService
 
     public static void DrawHeartCount()
     {
+        DrawTexture(ImageService.heartIconTexture, 1220, 55, WHITE);
         DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 1250, 55, 20, WHITE);
+        
+        
     }
 
     public static void DrawColliderBox(Character character)
@@ -146,4 +155,23 @@ public class VideoService
             character.y + character.GetOffsetColliderHeight() / 2, character.GetColliderBoxWidth(),
             character.GetColliderBoxHeight(), GREEN);
     }
+
+    public static void DrawPowerUpShield()
+    {
+        if (Powerup.effectTime > 0 && Powerup.isShielded)
+        {
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 80, 23, 20, WHITE);
+            DrawTexture(ImageService.powerUpShieldTexture, 5, 5, WHITE);
+        }
+    }
+
+    public static void DrawPowerUpRicochet()
+    {
+        if (Powerup.effectTime > 0 && Powerup.isExplosiveShot)
+        {
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 80, 23, 20, WHITE);
+            DrawTexture(ImageService.powerUpRicochetTexture, 5, 5, WHITE);
+        }
+    }
+
 }
