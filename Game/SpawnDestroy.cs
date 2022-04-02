@@ -255,9 +255,17 @@ public class SpawnDestory
         enemyList.Add(enemyShadow);
     }
 
-    public void SpawnWeapon(int weaponType, Character target)
+    public void SpawnWeapon(int weaponType, int custom = 1,int customx = 0,int customy = 0)
     {
         var _weaponSwitcher = new Weapon();
+        _weaponSwitcher.powerUpShot = custom;
+        _weaponSwitcher.direction = custom;
+        if (custom != 1)
+        {
+           
+            _weaponSwitcher.SetX(customx);
+            _weaponSwitcher.SetY(customy);
+        }
         switch (weaponType)
         {
             case 1:
@@ -329,7 +337,7 @@ public class SpawnDestory
     {
         if (Weapon.reloadTime >= maxReloadTime)
         {
-            SpawnWeapon(CurrencyHandler.CheckMoney(), playerToShoot);
+            SpawnWeapon(CurrencyHandler.CheckMoney());
             Weapon.reloadTime = 0;
         }
     }
@@ -426,7 +434,7 @@ public class SpawnDestory
     {
         for (var index = 0; index < playerWeaponList.Count - 1; index++)
         {
-            playerWeaponList[index].MoveWeaponRight();
+            playerWeaponList[index].ChooseWeaponDirectionandMove();
             for (var j = 0; j < enemyList.Count - 1; j++)
                 if (collisionDetection.CheckCollision(enemyList[j], playerWeaponList[index]))
                     OnCollisionActionPlayerWeapon(enemyList[j], playerWeaponList[index], j, index);
@@ -519,6 +527,8 @@ public class SpawnDestory
 
             if (Powerup.isExplosiveShot)
             {
+               SpawnWeapon(2,2,enemy.x,enemy.y);
+               SpawnWeapon(2,3,enemy.x,enemy.y);
                
             }
             // Change so that the weapon is destroyed when the enemy health goes to zero
