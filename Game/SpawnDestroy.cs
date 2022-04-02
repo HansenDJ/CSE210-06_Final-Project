@@ -351,10 +351,10 @@ public class SpawnDestory
         {
             OnCollisionAction(player, i);
             enemyList[i].laserCounter += 20;
-            if (
-                player.y - 100 <= enemyList[i].y && enemyList[i].y <= player.y + 100
-                                                 && enemyList[i].laserCounter >= enemyList[i].laserMaxCount
-            )
+            if (player.y - 100 <= enemyList[i].y
+                && enemyList[i].y <= player.y + 100
+                && enemyList[i].x >= player.x + player.offsetColliderWidth
+                && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
             {
                 CreateEnemyWeapon(i, enemyList[i]);
                 enemyList[i].laserCounter = 0;
