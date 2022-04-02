@@ -42,6 +42,7 @@ public class Director
         
         while (!Raylib.WindowShouldClose())
         {
+            CurrencyHandler.money = 100000;
             // INPUT
             SpawnCheck(sp);
             // UPDATES
