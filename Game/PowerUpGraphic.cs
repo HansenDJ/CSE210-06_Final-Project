@@ -10,6 +10,7 @@ public class PowerUpGraphic
     public void Fall()
     {
         y += fallSpeed;
+        x -= 4;
     }
     
 
