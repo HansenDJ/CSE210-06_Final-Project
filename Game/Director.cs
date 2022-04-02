@@ -74,11 +74,12 @@ public class Director
                 timer.Count();
                 startTime = DateTime.Now;
                 secondsPassed = 0;
-                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+               
                 DifficultyHandler.levelChange = true;
                 DifficultyHandler.currentLevel = 1;
                 DifficultyHandler.previousLevel = 1;
                 PlayerStats.maxPlayerHealth = 150;
+                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
 
                 LevelChangeCheck(bg);
 
