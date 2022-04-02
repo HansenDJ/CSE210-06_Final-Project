@@ -26,6 +26,10 @@ public class SpawnDestory
     public List<Weapon> playerWeaponList = new();
     private readonly Random rnd = new();
 
+    public int getPowerUp;
+
+    public int setPowerUp;
+
     private int RandomEnemy()
     {
         return rnd.Next(1, 4); // Enemy difficulty is 1, 2, or 3
@@ -601,16 +605,19 @@ public class SpawnDestory
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += CurrencyHandler.randomMoney;
+                    SetRandomPowerUp();
                 }
                 else if (enemyList[enemyIndex].levelOfEnemy == 2)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += CurrencyHandler.randomMoney;
+                    SetRandomPowerUp();
                 }
                 else if (enemyList[enemyIndex].levelOfEnemy == 3)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += CurrencyHandler.randomMoney;
+                    SetRandomPowerUp();
                 }
 
                 // Change so that the enemy is destroyed when the enemy health goes to zero
@@ -645,4 +652,28 @@ public class SpawnDestory
         explosionCoordinates.Clear();
         maxEnemies = 5;
     }
+
+    public void SetRandomPowerUp()
+    {
+        getPowerUp = rnd.Next(1,101);
+        if(getPowerUp <= 5){
+            setPowerUp = rnd.Next(1,4);
+            switch (setPowerUp)
+            {
+            case 1:
+                
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            }
+        }
+        
+    }
+
+
+
 }
