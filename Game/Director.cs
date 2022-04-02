@@ -128,29 +128,28 @@ public class Director
             switch (DifficultyHandler.currentLevel)
             {
                 case 1:
-                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                   
                     bg.LoadBGTexture(ImageService.earthBGStartTexture);
-                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
                     break;
                 case 2:
-                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                  
                     bg.LoadBGTexture(ImageService.waterBGStartTexture);
-                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+            
                     break;
                 case 3:
-                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                    
                     bg.LoadBGTexture(ImageService.airBGStartTexture);
-                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+                  
                     break;
                 case 4:
-                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                   
                     bg.LoadBGTexture(ImageService.fireBGStartTexture);
-                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+                    
                     break;
                 case 5:
-                    BackgroundService.previousBGTexture = BackgroundService.currentBGTexture;
+                    
                     bg.LoadBGTexture(ImageService.shadowBGStartTexture);
-                    ImageService.UnloadTextureFile(BackgroundService.previousBGTexture);
+                   
                     break;
             }
         }
@@ -165,9 +164,10 @@ public class Director
        
         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
         DifficultyHandler.levelChange = true;
-        LevelChangeCheck(bg);
         DifficultyHandler.currentLevel = 1;
         DifficultyHandler.previousLevel = 1;
+        LevelChangeCheck(bg);
+      
         DifficultyHandler.enemyCount = 3;
        
         coin.CoinCount = 0;
