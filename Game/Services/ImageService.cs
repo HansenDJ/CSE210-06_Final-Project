@@ -14,12 +14,18 @@ public static class ImageService
 
     public static Image shadowBGStartImage = LoadImage("Game/Images/bg/map5shadowbg.png"); // Background for shadow level
 
+    public static Image spacebgImage = LoadImage("Game/Images/bg/starfield.png");
+
+
+
     // BACKGROUND TEXTURES
     public static Texture2D earthBGStartTexture = LoadTextureFromImage(earthBGStartImage);
     public static Texture2D waterBGStartTexture = LoadTextureFromImage(waterBGStartImage);
     public static Texture2D airBGStartTexture = LoadTextureFromImage(airBGStartImage);
     public static Texture2D fireBGStartTexture = LoadTextureFromImage(fireBGStartImage);
     public static Texture2D shadowBGStartTexture = LoadTextureFromImage(shadowBGStartImage);
+
+    public static Texture2D spacebgTexture = LoadTextureFromImage(spacebgImage);
 
 
     /*---IMAGES---*/
@@ -213,10 +219,10 @@ public static class ImageService
 
 
     /*---METHODS---*/
-    // public static Texture2D GetTexture(Texture2D textureToReturn)
-    // {
-    //     return textureToReturn;
-    // }
+    public static Texture2D GetTexture(Texture2D textureToReturn)
+    {
+        return textureToReturn;
+    }
     public static void LoadInTexture(Image image)
     {
         Texture2D textureToLoad = LoadTextureFromImage(image);
@@ -299,6 +305,7 @@ public static class ImageService
         allImages.Add(powerUpRicochetImage);
         allImages.Add(powerUpShieldImage);
         allImages.Add(heartIconImage);
+        allImages.Add(spacebgImage);
 
         
 
@@ -365,6 +372,7 @@ public static class ImageService
         allTextures.Add(powerUpRicochetTexture);
         allTextures.Add(powerUpShieldTexture);
         allTextures.Add(heartIconTexture);
+        allTextures.Add(spacebgTexture);
         
 
         return allTextures;
@@ -413,6 +421,7 @@ public static class ImageService
         UnloadImage(powerUpRicochetImage);
         UnloadImage(powerUpShieldImage);
         UnloadImage(heartIconImage); 
+        UnloadImage(spacebgImage);
         
 
         UnloadImage(exp000Image);
@@ -479,6 +488,7 @@ public static class ImageService
         UnloadTexture(powerUpRicochetTexture);
         UnloadTexture(powerUpShieldTexture);
         UnloadTexture(heartIconTexture); 
+        UnloadTexture(spacebgTexture);
         
 
         UnloadTexture(exp000Texture);

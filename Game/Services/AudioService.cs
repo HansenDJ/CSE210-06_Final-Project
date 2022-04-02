@@ -34,4 +34,11 @@ public static class AudioService
     {
         CloseAudioDevice(); // Close audio device
     }
+
+    // public static void DiedSound(){
+    //     if(PlayerStats.playerHealth == 0){
+    //         AudioService.LoadAudio(AudioService.GameOverSound);
+    //         AudioService.PlayAudio(AudioService.GameOverSound);
+    //     }
+    // }
 }
