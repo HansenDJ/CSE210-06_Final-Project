@@ -89,4 +89,9 @@ public static class KeyboardService
     {
         return Raylib.IsKeyReleased(KeyboardKey.KEY_RIGHT);
     }
+
+    public static bool RKeyDown()
+    {
+        return Raylib.IsKeyDown(KeyboardKey.KEY_R);
+    }
 }

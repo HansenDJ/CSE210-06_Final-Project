@@ -10,7 +10,7 @@ public class Director
     // int updateFrameTime = 5;
 
     // public static bool unloadCheck = false;
-    // static bool action = false;
+    // static bool action = false;f
    public static double secondsPassed = 0;
    public static Double levelTime = 30;
     public void StartGame()
@@ -21,6 +21,7 @@ public class Director
         ImageService.LoadAllImages();
         ImageService.LoadAllTextures();
         ImageService.LoadExplosionAnimation();
+        ImageService.UnloadAllImages();
         // Raylib.SetTargetFPS(60); // TRY TO USE INSTEAD OF TIMER
         Timer timer = new();
         // SetTimer(updateFrameTime);
@@ -51,6 +52,7 @@ public class Director
             TimerCheckLagandDraw(timer, player, sp, bg, coin);
         }
 
+        ImageService.UnloadAllTextures();
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
     }
@@ -64,9 +66,9 @@ public class Director
         else
         {
             GameOverDeath.loadScreen();
-            if (KeyboardService.SpaceKeyDown())
+            if (KeyboardService.RKeyDown())
                 startTime = RestartLevel(bg, timer, sp);
-            //
+
         }
 
         return startTime;
@@ -93,7 +95,7 @@ public class Director
 
             bg.ServeBackgrounds();
             VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin, sp.getEnemyWeapons(),
-                sp.getExplosions());
+            sp.getExplosions());
             VideoService.DrawColliderBox(player); // Draws collider box around player
             // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
             Raylib.EndDrawing();
@@ -117,9 +119,12 @@ public class Director
 
     private static void SpawnCheck(SpawnDestory sp)
     {
-        if (sp.CheckIfSpawnNeeded())
-            sp.SpawnEnemy(DifficultyHandler
-                .currentLevel); // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+        if (secondsPassed > BackgroundService.movefast)
+        {
+            // Choose which enemy to spawn based on level number
+            if (sp.CheckIfSpawnNeeded())sp.SpawnEnemy(DifficultyHandler.currentLevel);
+        }
+       
     }
 
     private static void LevelChangeCheck(BackgroundService bg)
