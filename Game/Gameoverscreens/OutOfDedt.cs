@@ -14,7 +14,7 @@ public static class OutOfDedt
         Raylib.ClearBackground(Color.BLACK);
         Raylib.DrawTexture(charTexture, 0, 0, Color.WHITE);
         Raylib.DrawText("You payed off your debt", 210, 270, 75, Color.WHITE);
-        Raylib.DrawText("Push the [Spacebar] to Contiune your journey.", 370, 490, 25, Color.WHITE);
+        Raylib.DrawText("Push the [R] to begin your journey.", 370, 490, 25, Color.WHITE);
 
         Raylib.EndDrawing();
     }

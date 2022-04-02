@@ -10,7 +10,7 @@ public class Director
     // int updateFrameTime = 5;
 
     // public static bool unloadCheck = false;
-    // static bool action = false;
+    // static bool action = false;f
    public static double secondsPassed = 0;
    public static Double levelTime = 30;
     public void StartGame()
@@ -66,9 +66,9 @@ public class Director
         else
         {
             GameOverDeath.loadScreen();
-            if (KeyboardService.SpaceKeyDown())
+            if (KeyboardService.RKeyDown())
                 startTime = RestartLevel(bg, timer, sp);
-            //
+
         }
 
         return startTime;

@@ -400,7 +400,7 @@ public class SpawnDestory
     {
         for (var index = 0; index < enemyWeaponsList.Count - 1; index++)
         {
-            enemyWeaponsList[index].MoveWeaponLeft();
+            enemyWeaponsList[index].ChooseWeaponDirectionandMove();
 
             if (collisionDetection.CheckCollision(player, enemyWeaponsList[index]))
                 OnCollisionActionEnemyWeapon(player, enemyWeaponsList[index], index);
@@ -479,6 +479,10 @@ public class SpawnDestory
                 enemyList.RemoveAt(enemyIndex);
             }
 
+            if (Powerup.isExplosiveShot)
+            {
+               
+            }
             // Change so that the weapon is destroyed when the enemy health goes to zero
             playerWeaponList.RemoveAt(weaponIndex);
         }

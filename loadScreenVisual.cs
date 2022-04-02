@@ -19,7 +19,7 @@ public static class loadScreenVisual
                         "\nenemies and collect enough coins. If you fail to obtain the required" +
                         "\namount of coins you will be sold as a slave to work in the galactic" +
                         "\nmines.", 260, 270, 25, Color.WHITE);
-        Raylib.DrawText("Push the [Spacebar] to begin your journey.", 370, 490, 25, Color.WHITE);
+        Raylib.DrawText("Push the [R] to begin your journey.", 370, 490, 25, Color.WHITE);
 
         Raylib.EndDrawing();
     }
