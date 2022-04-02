@@ -131,7 +131,7 @@ public class Director
 
             sp.IncrementReloadTime();
             sp.EnemyListLoop(player);
-            sp.PowerUpFall();
+            sp.PowerUpFall(player);
 
             sp.MakePlayerWeaponsMove();
             sp.MakeEnemyWeaponsMove(player);

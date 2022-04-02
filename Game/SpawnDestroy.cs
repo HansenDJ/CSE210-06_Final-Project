@@ -145,7 +145,7 @@ public class SpawnDestory
                 enemyEarth.levelOfEnemy = 3;
                 break;
         }
-
+        
         enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
         enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
         enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
@@ -426,18 +426,23 @@ public class SpawnDestory
     }
 
     // Loop through all the enemies on the screen inside the enemyList
-    public void PowerUpFall()
+    public void PowerUpFall(Player player)
     {
         for (int i = 0; i < PowerUpList.Count; i++)
         {
             PowerUpList[i].Fall();
+            
+            if(collisionDetection.CheckCollision(PowerUpList[i],player))
+            {
+                
+            }
             if (PowerUpList[i].y > 1000)
             {
                 PowerUpList.Remove(PowerUpList[i]);
             } 
         }
     }
-    public async void EnemyListLoop(Player player)
+    public  void EnemyListLoop(Player player)
     {
         for (var i = 0; i < enemyList.Count - 1; i++)
         {
@@ -458,7 +463,6 @@ public class SpawnDestory
             RemoveEnemyOffScreen(i);
         }
     }
-    
     public void CreateEnemyWeapon(int enemyI, Enemy enemy)
     { switch (enemy.levelOfEnemy)
         {

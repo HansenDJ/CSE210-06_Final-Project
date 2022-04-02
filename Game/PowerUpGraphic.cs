@@ -1,6 +1,6 @@
 namespace generalNamespace;
 
-public class PowerUpGraphic
+public class PowerUpGraphic : Character
 {
     public int  x = 0;
     public  int y = 0;
