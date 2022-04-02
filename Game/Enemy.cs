@@ -23,11 +23,10 @@ public class Enemy : Character
     public void SetSpeedandHealth()
     {
         setHealth();
-        if (levelOfEnemy != 1)
-        {
+        
             chaseSpeed = rnd.Next(1, 2) * levelOfEnemy;
             moveSpeed = rnd.Next(5, 8);
-        }
+        
             
          
         
