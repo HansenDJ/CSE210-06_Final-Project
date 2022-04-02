@@ -107,7 +107,7 @@ public class VideoService
     {
         DrawText($"{CurrencyHandler.money}", 1250, 22, 20, WHITE);
         DrawTexture(ImageService.coinCounterTexture, 1220, 20, WHITE);
-        DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * 30 - Director.secondsPassed)}", 650, 22, 20, WHITE);
+        DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * Director.levelTime - Director.secondsPassed)}", 650, 22, 20, WHITE);
       
     }
 
