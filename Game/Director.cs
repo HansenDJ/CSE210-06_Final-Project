@@ -42,7 +42,7 @@ public class Director
         
         while (!Raylib.WindowShouldClose())
         {
-            CurrencyHandler.money = 100000;
+       
             // INPUT
             SpawnCheck(sp);
             // UPDATES
@@ -111,7 +111,7 @@ public class Director
                         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                     }
                 }
-            }else if (KeyboardService.capsReleased())
+            }else if (KeyboardService.ShiftReleased())
             {
                 if (CurrencyHandler.money >= 100)
                 {
