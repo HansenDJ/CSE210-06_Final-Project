@@ -409,9 +409,9 @@ public static class ImageService
         UnloadImage(laser11Image);
         UnloadImage(laser12Image);
         UnloadImage(laser10UpImage);
-        UnloadImage(powerUpHealthTexture);
-        UnloadImage(powerUpRicochetTexture);
-        UnloadImage(powerUpShieldTexture);
+        //UnloadImage(powerUpHealthTexture);
+       // UnloadImage(powerUpRicochetTexture);
+        //UnloadImage(powerUpShieldTexture);
         UnloadImage(heartIconImage); 
         
 

@@ -12,6 +12,7 @@ public class Enemy : Character
 
     public int levelOfEnemy;
     public int moveSpeed;
+    public int chaseSpeed = 0;
     private readonly Random rnd = new();
 
     public void setHealth()
@@ -22,34 +23,29 @@ public class Enemy : Character
     public void SetSpeedandHealth()
     {
         setHealth();
-        moveSpeed = rnd.Next(5, 8);
+        if (levelOfEnemy != 1)
+        {
+            chaseSpeed = rnd.Next(1, 2) * levelOfEnemy;
+            moveSpeed = rnd.Next(5, 8);
+        }
+            
+         
+        
     }
 
     public void MoveEnemy(int playery)
     {
+        
         x -= moveSpeed;
-        if (levelOfEnemy == 3)
-        {
-            if (y < playery)
+      
+            if (y < playery )
             {
-                y += 3;
+                y += chaseSpeed;
             }
             else
             {
-                y -= 3;
+                y -= chaseSpeed;
             }
-        }else if(levelOfEnemy == 2) {
-
-                if (y < playery)
-                {
-                    y += 1;
-                }
-                else
-                {
-                    y -= 1;
-                
-            }
-        }
     }
 
     public void LevelOneDifficulty()
