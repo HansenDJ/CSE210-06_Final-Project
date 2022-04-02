@@ -20,6 +20,8 @@ public class VideoService
         DrawBackdrop(bg);
         DrawCoinCount(coin);
         DrawHeartCount();
+        DrawPowerUpShield();
+        DrawPowerUpRicochet();
         DrawCharacters(enemiesDraw, playerWeaponsToDraw, player, enemyWeaponsToDraw);
         ExplosionAnimation(ExplosionC);
         DrawPlayer(player);
@@ -121,10 +123,7 @@ public class VideoService
     {
         DrawTexture(ImageService.heartIconTexture, 1220, 55, WHITE);
         DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 1250, 55, 20, WHITE);
-        if (Powerup.effectTime > 0)
-        {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 100, 55, 20, WHITE);
-        }
+        
         
     }
 
@@ -134,4 +133,23 @@ public class VideoService
             character.y + character.GetOffsetColliderHeight() / 2, character.GetColliderBoxWidth(),
             character.GetColliderBoxHeight(), GREEN);
     }
+
+    public static void DrawPowerUpShield()
+    {
+        if (Powerup.effectTime > 0 && Powerup.isShielded)
+        {
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 80, 23, 20, WHITE);
+            DrawTexture(ImageService.powerUpShieldTexture, 5, 5, WHITE);
+        }
+    }
+
+    public static void DrawPowerUpRicochet()
+    {
+        if (Powerup.effectTime > 0 && Powerup.isExplosiveShot)
+        {
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 80, 23, 20, WHITE);
+            DrawTexture(ImageService.powerUpRicochetTexture, 5, 5, WHITE);
+        }
+    }
+
 }

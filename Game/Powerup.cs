@@ -40,10 +40,12 @@ public static class Powerup
                 PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                 break;
             case 4:
+                
                 isExplosiveShot = true;
                 isShielded = false;
                 effectTime = rnd.Next(5, 20);
                 endTime = Director.secondsPassed + effectTime;
+                
                 
                 break;
             case 5: 
@@ -51,6 +53,7 @@ public static class Powerup
                 isExplosiveShot = false;
                 effectTime = rnd.Next(5, 20);
                 endTime = Director.secondsPassed + effectTime;
+                
                 break;
             case 6:
                 CurrencyHandler.money += 300;
