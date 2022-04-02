@@ -265,8 +265,13 @@ public class SpawnDestory
            
             _weaponSwitcher.SetX(customx);
             _weaponSwitcher.SetY(customy);
-           
+            _weaponSwitcher.SetCharTexture(ImageService.laser10UpTexture);
+            playerWeaponList.Add(_weaponSwitcher);
+            _weaponSwitcher.strength = 5;
+
         }
+
+        else{
         switch (weaponType)
         {
             case 1:
@@ -326,7 +331,7 @@ public class SpawnDestory
                 _weaponSwitcher.strength = 20;
                 maxReloadTime = 100;
                 break;
-        }
+        }}
     }
 
     public void IncrementReloadTime()
