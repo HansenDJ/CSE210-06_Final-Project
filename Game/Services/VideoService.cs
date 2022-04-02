@@ -122,7 +122,7 @@ public class VideoService
         DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 1250, 55, 20, WHITE);
         if (Powerup.effectTime > 0)
         {
-            DrawText(Powerup.effectTime.ToString(), 100, 55, 20, WHITE);
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 100, 55, 20, WHITE);
         }
         
     }
