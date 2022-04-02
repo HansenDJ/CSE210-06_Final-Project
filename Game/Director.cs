@@ -117,9 +117,13 @@ public class Director
 
     private static void SpawnCheck(SpawnDestory sp)
     {
-        if (sp.CheckIfSpawnNeeded())
-            sp.SpawnEnemy(DifficultyHandler
-                .currentLevel); // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+        if (secondsPassed > BackgroundService.movefast)
+        {
+            if (sp.CheckIfSpawnNeeded())
+                sp.SpawnEnemy(DifficultyHandler
+                    .currentLevel); // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+        }
+       
     }
 
     private static void LevelChangeCheck(BackgroundService bg)

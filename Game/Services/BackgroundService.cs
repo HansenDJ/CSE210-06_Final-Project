@@ -13,6 +13,7 @@ public class BackgroundService
     public Texture2D bg1Texture;
     public Texture2D bg2Texture;
     public int x1;
+    public static Double movefast = 3;
     public int x2 = 1920;
     public int y1 = 0;
     public int y2 = 0;
@@ -27,8 +28,17 @@ public class BackgroundService
 
     public void ServeBackgrounds()
     {
-        x1 -= 3;
-        x2 -= 3;
+        if (Director.secondsPassed < movefast)
+        {
+            x1 -= 30;
+            x2 -= 30;
+        }
+        else
+        {
+            x1 -= 3;
+            x2 -= 3;
+        }
+     
         if (x2 <= 0)
         {
             x1 = 0;
