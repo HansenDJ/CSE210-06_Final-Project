@@ -63,7 +63,7 @@ public class Director
         {
             GameOverDeath.loadScreen();
             if (KeyboardService.SpaceKeyDown())
-                startTime = RestartLevel(bg, timer, sp, coin);
+                startTime = RestartLevel(bg, timer, sp);
             //
         }
 
@@ -155,7 +155,7 @@ public class Director
         }
     }
 
-    private static DateTime RestartLevel(BackgroundService bg, Timer timer, SpawnDestory sp, Coin coin)
+    private static DateTime RestartLevel(BackgroundService bg, Timer timer, SpawnDestory sp)
     {
         DateTime startTime;
         DateTime timeNow;
@@ -166,11 +166,12 @@ public class Director
         DifficultyHandler.levelChange = true;
         DifficultyHandler.currentLevel = 1;
         DifficultyHandler.previousLevel = 1;
+         
         LevelChangeCheck(bg);
       
         DifficultyHandler.enemyCount = 3;
-       
-        coin.CoinCount = 0;
+
+        CurrencyHandler.money = 0;
         sp.ClearMap();
 
         startTime = DateTime.Now;
