@@ -13,8 +13,10 @@ public class Director
     // static bool action = false;f
    public static double secondsPassed = 0;
    public static Double levelTime = 90;
+   public static bool pause = false;
     public void StartGame()
     {
+        
         var startTime = DateTime.Now;
         var timeNow = DateTime.Now;
        
@@ -121,9 +123,15 @@ public class Director
                 }
             }
 
+            if (Raylib.IsKeyReleased(KeyboardKey.KEY_P))
+            {
+                pause = !pause;
+            }
+
 
             sp.IncrementReloadTime();
             sp.EnemyListLoop(player);
+            sp.PowerUpFall();
 
             sp.MakePlayerWeaponsMove();
             sp.MakeEnemyWeaponsMove(player);
@@ -135,7 +143,7 @@ public class Director
 
             bg.ServeBackgrounds();
             VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin, sp.getEnemyWeapons(),
-            sp.getExplosions());
+            sp.getExplosions(), sp.GetPowerUps());
             VideoService.DrawColliderBox(player); // Draws collider box around player
             // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
             Raylib.EndDrawing();
@@ -150,13 +158,11 @@ public class Director
     private static void TimeService(DateTime startTime, SpawnDestory sp)
     {
         DateTime timeNow;
-        
         timeNow = DateTime.Now;
         secondsPassed = (timeNow - startTime).TotalSeconds;
-
         if (DifficultyHandler.LevelUp(secondsPassed / Director.levelTime)) sp.maxEnemies = DifficultyHandler.enemyCount;
     }
-
+    
     private static void SpawnCheck(SpawnDestory sp)
     {
         if (secondsPassed > BackgroundService.movefast)

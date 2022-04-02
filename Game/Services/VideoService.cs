@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using generalNamespace.Laser;
+using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 
@@ -16,18 +17,45 @@ public class VideoService
     // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
     public static void Draw(List<Enemy> enemiesDraw, List<Weapon> playerWeaponsToDraw, Player player,
-        BackgroundService bg, Coin coin, List<Weapon> enemyWeaponsToDraw, List<Coordinate> ExplosionC)
+        BackgroundService bg, Coin coin, List<Weapon> enemyWeaponsToDraw, List<Coordinate> ExplosionC,
+        List<PowerUpGraphic> powerUpGraphics)
     {
         DrawBackdrop(bg);
         DrawCoinCount(coin);
         DrawHeartCount();
         DrawPowerUpShield();
         DrawPowerUpRicochet();
+        DrawPowerUpList(powerUpGraphics);
         DrawCharacters(enemiesDraw, playerWeaponsToDraw, player, enemyWeaponsToDraw);
         ExplosionAnimation(ExplosionC);
+        
         DrawPlayer(player);
     }
 
+    public static void DrawPowerUpList(List<PowerUpGraphic> powerups) 
+    {
+        for (int i = 0; i < powerups.Count; i++)
+        {
+            DrawTexture(GetPowerUpTexture(powerups[i].ID),powerups[i].x,powerups[i].y,Color.WHITE);
+        }
+    }
+
+    public static Texture2D GetPowerUpTexture(int i)
+    {
+        switch (i)
+        {
+            case 1:
+                return ImageService.powerUpHealthTexture;
+                break;
+            case 2:
+                return ImageService.powerUpShieldTexture;
+            case 3:
+                return ImageService.powerUpRicochetTexture;
+                break;
+        }
+
+        return ImageService.powerUpShieldTexture;
+    }
     private static void DrawBackdrop(BackgroundService bg)
     {
         ClearBackground(BLACK);

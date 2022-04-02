@@ -286,6 +286,7 @@ public static class ImageService
         allImages.Add(shadowThreeEnemyImage);
         allImages.Add(shadowBossEnemyImage);
         allImages.Add(coinCounterImage);
+        
         // allImages.Add(coinDropImage);  Uncomment when full file name added above
         // allImages.Add(coinGifImage);  Uncomment when full file name added above
         allImages.Add(laser1Image);

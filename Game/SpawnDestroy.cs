@@ -10,6 +10,7 @@ public class SpawnDestory
     public List<Enemy> enemyList = new();
     public List<Weapon> enemyWeaponsList = new();
     public List<Coordinate> explosionCoordinates = new();
+    public List<PowerUpGraphic> PowerUpList = new();
     private readonly int lvOneEnemyOffsetH = 14;
 
     // Level 1 enemy collider box width and height offsets
@@ -425,6 +426,17 @@ public class SpawnDestory
     }
 
     // Loop through all the enemies on the screen inside the enemyList
+    public void PowerUpFall()
+    {
+        for (int i = 0; i < PowerUpList.Count; i++)
+        {
+            PowerUpList[i].Fall();
+            if (PowerUpList[i].y > 1000)
+            {
+                PowerUpList.Remove(PowerUpList[i]);
+            } 
+        }
+    }
     public async void EnemyListLoop(Player player)
     {
         for (var i = 0; i < enemyList.Count - 1; i++)
@@ -528,9 +540,12 @@ public class SpawnDestory
         // Remove an enemy if it moves off the left side of the screen
         if (enemyList[removeIndex].x < -50)
         {
+           
             enemyList.RemoveAt(removeIndex);
         }
     }
+
+   
 
     public void MakePlayerWeaponsMove()
     {
@@ -610,27 +625,13 @@ public class SpawnDestory
                 c.x = enemyList[enemyIndex].x;
                 c.y = enemyList[enemyIndex].y;
                 explosionCoordinates.Add(c);
+                
+                SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
+                    CurrencyHandler.money += CurrencyHandler.randomMoney;
+                    SetRandomPowerUp(enemyList[enemyIndex].levelOfEnemy, enemyList[enemyIndex].x,
+                        enemyList[enemyIndex].y);
 
-                if (enemyList[enemyIndex].levelOfEnemy == 1)
-                {
-                    SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
-                    CurrencyHandler.money += CurrencyHandler.randomMoney;
-                    SetRandomPowerUp();
-                }
-                else if (enemyList[enemyIndex].levelOfEnemy == 2)
-                {
-                    SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
-                    CurrencyHandler.money += CurrencyHandler.randomMoney;
-                    SetRandomPowerUp();
-                }
-                else if (enemyList[enemyIndex].levelOfEnemy == 3)
-                {
-                    SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
-                    CurrencyHandler.money += CurrencyHandler.randomMoney;
-                    SetRandomPowerUp();
-                }
-
-                // Change so that the enemy is destroyed when the enemy health goes to zero
+                    // Change so that the enemy is destroyed when the enemy health goes to zero
                 enemyList.RemoveAt(enemyIndex);
             }
 
@@ -663,8 +664,6 @@ public class SpawnDestory
         }
             // TEST: Remove enemy if collides with player
             //Player.playerHealth = Player.playerHealth -10;
-        
-            
     }
 
     public void ClearMap()
@@ -675,26 +674,33 @@ public class SpawnDestory
         explosionCoordinates.Clear();
         maxEnemies = 5;
     }
-
-    public void SetRandomPowerUp()
+  
+    public void SetRandomPowerUp(int chance, int x, int y)
     {
-        getPowerUp = rnd.Next(1,101);
-        if(getPowerUp <= 5){
+        getPowerUp = rnd.Next(1,25);
+        if(getPowerUp * chance <= 5){
             setPowerUp = rnd.Next(1,4);
             switch (setPowerUp)
             {
             case 1:
-                
                 break;
             case 2:
-                
                 break;
             case 3:
-                
                 break;
             }
+            PowerUpGraphic powerup = new PowerUpGraphic();
+            powerup.ID = setPowerUp;
+            powerup.x = x;
+            powerup.y = y; 
+            PowerUpList.Add(powerup);
         }
         
+    }
+
+    public List<PowerUpGraphic> GetPowerUps()
+    {
+        return PowerUpList;
     }
 
 

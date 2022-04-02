@@ -22,7 +22,7 @@ public class CollisionDetection
     //         return false;
     //     }
     // }
-
+    
     // Detect collision between two characters. Their collision box is calculated by the height and width of their image file.   
     public bool CheckCollision(Character character1, Character character2)
     {
@@ -30,7 +30,7 @@ public class CollisionDetection
         actualY1 = character1.y + character1.GetOffsetColliderHeight() / 2; // Character1's collider box y coordinate
         actualX2 = character2.x + character2.GetOffsetColliderWidth() / 2; // Character2's collider box x coordinate
         actualY2 = character2.y + character2.GetOffsetColliderHeight() / 2; // Character2's collider box y coordinate
-
+        
         // Check if two images are touching
         if (actualX1 + character1.GetOffsetColliderWidth() / 2 < actualX2 + character2.GetColliderBoxWidth() &&
             actualX1 + character1.GetColliderBoxWidth() > actualX2 &&
