@@ -339,6 +339,23 @@ public static class ImageService
         allTextures.Add(laser11Texture);
         allTextures.Add(laser12Texture);
 
+        allTextures.Add(exp000Texture);
+        allTextures.Add(exp001Texture);
+        allTextures.Add(exp002Texture);
+        allTextures.Add(exp003Texture);
+        allTextures.Add(exp004Texture);
+        allTextures.Add(exp005Texture);
+        allTextures.Add(exp006Texture);
+        allTextures.Add(exp007Texture);
+        allTextures.Add(exp008Texture);
+        allTextures.Add(exp009Texture);
+        allTextures.Add(exp010Texture);
+        allTextures.Add(exp011Texture);
+        allTextures.Add(exp012Texture);
+        allTextures.Add(exp013Texture);
+        allTextures.Add(exp014Texture);
+        allTextures.Add(exp015Texture);
+
         return allTextures;
     }
 

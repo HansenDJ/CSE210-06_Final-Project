@@ -1,3 +1,4 @@
+using System;
 using generalNamespace.Laser;
 
 namespace generalNamespace;
@@ -52,7 +53,7 @@ public class SpawnDestory
                 break;
             default:
                 var r = new Random();
-                var enemyType = r.Next(1, 5);
+                var enemyType = r.Next(1, 6);
                 switch (enemyType)
                 {
                     case 1:
@@ -79,6 +80,7 @@ public class SpawnDestory
     public void SpawnEarthEnemy(int enemyDifficulty)
     {
         var enemyEarth = new Enemy();
+        enemyEarth.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -107,7 +109,7 @@ public class SpawnDestory
         enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
         enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
         enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight() * 2));
-        enemyEarth.SetX(1500);
+        enemyEarth.SetX(VideoService.scrnWidth + 100);
         enemyEarth.SetSpeedandHealth();
         enemyList.Add(enemyEarth);
     }
@@ -115,6 +117,7 @@ public class SpawnDestory
     public void SpawnWaterEnemy(int enemyDifficulty)
     {
         var enemyWater = new Enemy();
+        enemyWater.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -143,7 +146,7 @@ public class SpawnDestory
         enemyWater.SetOffsetColliderWidth(enemyWater.offsetW);
         enemyWater.SetOffsetColliderHeight(enemyWater.offsetH);
         enemyWater.SetY(rnd.Next(enemyWater.GetTextureHeight(), VideoService.scrnHeight - enemyWater.GetColliderBoxHeight() * 2));
-        enemyWater.SetX(1500);
+        enemyWater.SetX(VideoService.scrnWidth + 100);
         enemyWater.SetSpeedandHealth();
         enemyList.Add(enemyWater);
     }
@@ -151,6 +154,7 @@ public class SpawnDestory
     public void SpawnAirEnemy(int enemyDifficulty)
     {
         var enemyAir = new Enemy();
+        enemyAir.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -179,7 +183,7 @@ public class SpawnDestory
         enemyAir.SetOffsetColliderWidth(enemyAir.offsetW);
         enemyAir.SetOffsetColliderHeight(enemyAir.offsetH);
         enemyAir.SetY(rnd.Next(enemyAir.GetTextureHeight(), VideoService.scrnHeight - enemyAir.GetColliderBoxHeight() * 2));
-        enemyAir.SetX(1500);
+        enemyAir.SetX(VideoService.scrnWidth + 100);
         enemyAir.SetSpeedandHealth();
         enemyList.Add(enemyAir);
     }
@@ -187,6 +191,7 @@ public class SpawnDestory
     public void SpawnFireEnemy(int enemyDifficulty)
     {
         var enemyFire = new Enemy();
+        enemyFire.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -214,7 +219,7 @@ public class SpawnDestory
         enemyFire.SetOffsetColliderWidth(enemyFire.offsetW);
         enemyFire.SetOffsetColliderHeight(enemyFire.offsetH);
         enemyFire.SetY(rnd.Next(enemyFire.GetTextureHeight(), VideoService.scrnHeight - enemyFire.GetColliderBoxHeight() * 2));
-        enemyFire.SetX(1500);
+        enemyFire.SetX(VideoService.scrnWidth + 100);
         enemyFire.SetSpeedandHealth();
         enemyList.Add(enemyFire);
     }
@@ -222,6 +227,7 @@ public class SpawnDestory
     public void SpawnShadowEnemy(int enemyDifficulty)
     {
         var enemyShadow = new Enemy();
+        enemyShadow.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -250,12 +256,12 @@ public class SpawnDestory
         enemyShadow.SetOffsetColliderWidth(enemyShadow.offsetW);
         enemyShadow.SetOffsetColliderHeight(enemyShadow.offsetH);
         enemyShadow.SetY(rnd.Next(enemyShadow.GetTextureHeight(), VideoService.scrnHeight - enemyShadow.GetColliderBoxHeight() * 2));
-        enemyShadow.SetX(1500);
+        enemyShadow.SetX(VideoService.scrnWidth + 100);
         enemyShadow.SetSpeedandHealth();
         enemyList.Add(enemyShadow);
     }
 
-    public void SpawnWeapon(int weaponType, int custom = 1,int customx = 0,int customy = 0)
+    public void SpawnWeapon(int weaponType, int custom = 1,int customX = 0,int customY = 0)
     {
         var _weaponSwitcher = new Weapon();
         _weaponSwitcher.powerUpShot = custom;
@@ -263,8 +269,8 @@ public class SpawnDestory
         if (custom != 1)
         {
            
-            _weaponSwitcher.SetX(customx);
-            _weaponSwitcher.SetY(customy);
+            _weaponSwitcher.SetX(customX);
+            _weaponSwitcher.SetY(customY);
         }
         switch (weaponType)
         {
@@ -345,7 +351,7 @@ public class SpawnDestory
     public bool CheckIfSpawnNeeded()
     {
         // Return true if size of enemyList is less than maxEnemies number
-        return enemyList.Count < maxEnemies;
+        return enemyList.Count <= maxEnemies;
     }
 
     // Create a list of the enemies on the screen
@@ -382,17 +388,16 @@ public class SpawnDestory
         {
             OnCollisionAction(player, i);
             enemyList[i].laserCounter += 9;
-            {
-                // ERROR Only spaw weapon when player alive
-                if (player.y - 100 <= enemyList[i].y
-                    && enemyList[i].y <= player.y + 100
-                    && enemyList[i].x >= player.x + player.offsetColliderWidth
-                    && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
-                {
-                    CreateEnemyWeapon(i, enemyList[i]);
-                    enemyList[i].laserCounter = 0;
-                }
-            }
+                // ERROR Only spawn weapon when player alive
+                // Check if enemy is within range set from the players y and enemy is to the right of player
+            // if (player.y - 100 <= enemyList[i].y
+            //     && enemyList[i].y <= player.y + 100
+            //     && enemyList[i].x >= player.x + player.offsetColliderWidth
+            //     && enemyList[i].laserCounter >= enemyList[i].laserMaxCount)
+            // {
+            //     CreateEnemyWeapon(i, enemyList[i]);
+            //     enemyList[i].laserCounter = 0;
+            // }
 
             MakeEnemiesMove(i);
             RemoveEnemyOffScreen(i);
@@ -402,6 +407,7 @@ public class SpawnDestory
     public void CreateEnemyWeapon(int enemyI, Enemy enemy)
     {
         var _EnemyWeapon = new Weapon();
+        _EnemyWeapon.weaponID = enemyList[enemyI].enemyID;
         _EnemyWeapon.speed = 10;
         _EnemyWeapon.SetCharTexture(ImageService.laser11Texture);
         _EnemyWeapon.enemyIndex = enemyI;
@@ -409,8 +415,8 @@ public class SpawnDestory
         // Set and apply laser spawn location offset
         _EnemyWeapon.SetOffsetColliderWidth(enemy.offsetW);
         _EnemyWeapon.SetOffsetColliderHeight(enemy.offsetH);
-        _EnemyWeapon.SetX(enemy.x - enemy.GetColliderBoxWidth());
-        _EnemyWeapon.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+        // _EnemyWeapon.SetX(enemy.x - enemy.GetColliderBoxWidth());
+        // _EnemyWeapon.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
         AudioService.PlayAudio(AudioService.lv1Shot);
         enemyWeaponsList.Add(_EnemyWeapon);
@@ -459,7 +465,7 @@ public class SpawnDestory
         if (PlayerStats.playerHealth <= 0) PlayerStats.playerHealth = 0;
     }
 
-    // When enemy hit by a laser, damage the player and remove laser
+    // When enemy laser hits the player, damage the player and remove laser
     public void OnCollisionActionEnemyWeapon(Player player, Weapon weapon, int index)
     {
         if (collisionDetection.CheckCollision(player, weapon))

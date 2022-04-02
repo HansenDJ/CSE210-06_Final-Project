@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using generalNamespace.Laser;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
@@ -36,57 +37,71 @@ public class VideoService
         List<Weapon> EnemyWeaponsToDraw)
     {
         //   Console.WriteLine( "Object Count: " + enemiesToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
-        for (var i = 0; i < enemiesToDraw.Count - 1; i++)
+        for (int i_enemy = 0; i_enemy < enemiesToDraw.Count - 1; i_enemy++)
         {
-            DrawCharacter(enemiesToDraw[i]);
-            DrawColliderBox(enemiesToDraw[i]);
+            Debug.Assert(0 <= i_enemy & i_enemy < enemiesToDraw.Count, "ASSERT: i_enemy out of range!");
+            DrawCharacter(enemiesToDraw[i_enemy]);
+            DrawColliderBox(enemiesToDraw[i_enemy]);
         }
 
        
-        for (var i = 0; i < weaponsToDraw.Count - 1; i++)
+        for (int i_playerWeapon = 0; i_playerWeapon < weaponsToDraw.Count - 1; i_playerWeapon++)
         {
-            if (!weaponsToDraw[i].location && weaponsToDraw[i].powerUpShot == 1)
+            Debug.Assert(0 <= i_playerWeapon & i_playerWeapon < weaponsToDraw.Count, "ASSERT: i_playerWeapon out of range!");
+            if (!weaponsToDraw[i_playerWeapon].location && weaponsToDraw[i_playerWeapon].powerUpShot == 1)
             {
-                weaponsToDraw[i].offsetW = 5;
-                weaponsToDraw[i].offsetH = 10;
-                weaponsToDraw[i].SetOffsetColliderWidth(player.offsetW);
-                weaponsToDraw[i].SetOffsetColliderHeight(player.offsetH);
-                weaponsToDraw[i].SetX(player.x + player.GetColliderBoxWidth());
-                weaponsToDraw[i].SetY(player.y + player.GetColliderBoxHeight() / 2);
-                weaponsToDraw[i].location = true;
-            }else if (!weaponsToDraw[i].location && !(weaponsToDraw[i].powerUpShot == 1))
+                weaponsToDraw[i_playerWeapon].offsetW = 5;
+                weaponsToDraw[i_playerWeapon].offsetH = 10;
+                weaponsToDraw[i_playerWeapon].SetOffsetColliderWidth(player.offsetW);
+                weaponsToDraw[i_playerWeapon].SetOffsetColliderHeight(player.offsetH);
+                weaponsToDraw[i_playerWeapon].SetX(player.x + player.GetColliderBoxWidth());
+                weaponsToDraw[i_playerWeapon].SetY(player.y + player.GetColliderBoxHeight() / 2);
+                weaponsToDraw[i_playerWeapon].location = true;
+            }else if (!weaponsToDraw[i_playerWeapon].location && !(weaponsToDraw[i_playerWeapon].powerUpShot == 1))
             {
-                weaponsToDraw[i].location = true;
+                weaponsToDraw[i_playerWeapon].location = true;
                 
             }
             
 
-            DrawCharacter(weaponsToDraw[i]);
-            DrawColliderBox(weaponsToDraw[i]);
+            DrawCharacter(weaponsToDraw[i_playerWeapon]);
+            DrawColliderBox(weaponsToDraw[i_playerWeapon]);
         }
 
-        for (var i = 0; i < EnemyWeaponsToDraw.Count - 1; i++)
+        for (int i_weaponEnemy = 0; i_weaponEnemy < EnemyWeaponsToDraw.Count - 1; i_weaponEnemy++)
         {
+            Debug.Assert(0 <= i_weaponEnemy & i_weaponEnemy < EnemyWeaponsToDraw.Count, "ASSERT: i_weaponEnemy out of range!");
             // // int enemyX = enemiesToDraw[EnemyWeaponsToDraw[i].enemyIndex].x;
             // // int enemyY = enemiesToDraw[EnemyWeaponsToDraw[i].enemyIndex].y;
             // EnemyWeaponsToDraw[i].SetOffsetColliderWidth(EnemyWeaponsToDraw[i].offsetW);
             // EnemyWeaponsToDraw[i].SetOffsetColliderHeight(EnemyWeaponsToDraw[i].offsetH);
             // EnemyWeaponsToDraw[i].SetX(EnemyWeaponsToDraw[i].x - EnemyWeaponsToDraw[i].GetColliderBoxWidth());
             // EnemyWeaponsToDraw[i].SetY(EnemyWeaponsToDraw[i].y - EnemyWeaponsToDraw[i].GetColliderBoxHeight() / 2);
+            for (int enemyIndex = 0; enemyIndex < enemiesToDraw.Count - 1; enemyIndex++)
+                if (!EnemyWeaponsToDraw[i_weaponEnemy].location)
+                {
+                    if (enemiesToDraw[enemyIndex].enemyID == weaponsToDraw[i_weaponEnemy].weaponID)
+                    {
+                        EnemyWeaponsToDraw[i_weaponEnemy].SetX(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxWidth());
+                        EnemyWeaponsToDraw[i_weaponEnemy].SetY(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxHeight() / 2);
+                    }
+                    else
+                    {
+                        // if enemyID == weaponID --> weaponList.remove(i)
+                        continue;
+                    }
+                    // EnemyWeaponsToDraw[i_weaponEnemy].offsetW = EnemyWeaponsToDraw[i_weaponEnemy].offsetW;
+                    // EnemyWeaponsToDraw[i_weaponEnemy].offsetH = EnemyWeaponsToDraw[i_weaponEnemy].offsetH;
+                    // EnemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderWidth(EnemyWeaponsToDraw[i_weaponEnemy].offsetW);
+                    // EnemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderHeight(EnemyWeaponsToDraw[i_weaponEnemy].offsetH);
+                    // EnemyWeaponsToDraw[i_weaponEnemy].SetX(EnemyWeaponsToDraw[i_weaponEnemy].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxWidth());
+                    // EnemyWeaponsToDraw[i_weaponEnemy].SetY(EnemyWeaponsToDraw[i_weaponEnemy].y - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxHeight() / 2);
+                    
+                    EnemyWeaponsToDraw[i_weaponEnemy].location = true;
+                }
 
-            if (!EnemyWeaponsToDraw[i].location)
-            {
-                EnemyWeaponsToDraw[i].offsetW = EnemyWeaponsToDraw[i].offsetW;
-                EnemyWeaponsToDraw[i].offsetH = EnemyWeaponsToDraw[i].offsetH;
-                EnemyWeaponsToDraw[i].SetOffsetColliderWidth(EnemyWeaponsToDraw[i].offsetW);
-                EnemyWeaponsToDraw[i].SetOffsetColliderHeight(EnemyWeaponsToDraw[i].offsetH);
-                EnemyWeaponsToDraw[i].SetX(EnemyWeaponsToDraw[i].x - EnemyWeaponsToDraw[i].GetColliderBoxWidth());
-                EnemyWeaponsToDraw[i].SetY(EnemyWeaponsToDraw[i].y - EnemyWeaponsToDraw[i].GetColliderBoxHeight() / 2);
-                EnemyWeaponsToDraw[i].location = true;
-            }
-
-            DrawCharacter(EnemyWeaponsToDraw[i]);
-            DrawColliderBox(EnemyWeaponsToDraw[i]);
+            DrawCharacter(EnemyWeaponsToDraw[i_weaponEnemy]);
+            DrawColliderBox(EnemyWeaponsToDraw[i_weaponEnemy]);
         }
     }
 
@@ -99,7 +114,10 @@ public class VideoService
     public static void ExplosionAnimation(List<Coordinate> e)
     {
         for (var i = 0; i < e.Count; i++)
+        {
+            Debug.Assert(0 <= i & i < e.Count, "ASSERT: i, for explosion, out of range!");
             DrawTexture(ImageService.LoadExplosionAnimation()[e[i].frame], e[i].x, e[i].y, WHITE);
+        }
     }
 
     public static void DrawPlayer(Player player)

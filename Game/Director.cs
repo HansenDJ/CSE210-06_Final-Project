@@ -12,7 +12,7 @@ public class Director
     // public static bool unloadCheck = false;
     // static bool action = false;f
    public static double secondsPassed = 0;
-   public static Double levelTime = 30;
+   public static Double levelTime = 1000;
     public void StartGame()
     {
         var startTime = DateTime.Now;
