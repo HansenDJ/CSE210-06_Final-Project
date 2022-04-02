@@ -19,7 +19,7 @@ public static class GameOverDeath
         Raylib.DrawTexture(charTexture, 0, 0, Color.WHITE);
         Raylib.DrawText("Game Over", 440, 270, 100, Color.WHITE);
         Raylib.DrawText("You took too much damage and died.", 470, 400, 25, Color.WHITE);
-        Raylib.DrawText("Push the [ENTER] to begin your journey.", 370, 490, 25, Color.WHITE);
+        Raylib.DrawText("Push the [R] to begin your journey.", 370, 490, 25, Color.WHITE);
         Raylib.EndDrawing();
         //AudioService.UnloadAudio(AudioService.GameOverSound);
         //AudioService.CloseAudio();
