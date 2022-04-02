@@ -28,59 +28,68 @@ public static class ImageService
     public static Image startShipImage = LoadImage("Game/Images/ship/startship.png"); // Ship image for player
 
     // ENEMIES
-    // Earth enemies
+        // Earth enemies
     public static Image earthOneEnemyImage = LoadImage("Game/Images/ship/earthlv1.png"); // Enemy earth lv 1
     public static Image earthTwoEnemyImage = LoadImage("Game/Images/ship/earthlv2.png"); // Enemy earth lv 2
     public static Image earthThreeEnemyImage = LoadImage("Game/Images/ship/earthlv3.png"); // Enemy earth lv 3
 
     public static Image earthBossEnemyImage = LoadImage("Game/Images/ship/earthboss.png"); // Boss enemy earth
 
-    // Water enemies
+        // Water enemies
     public static Image waterOneEnemyImage = LoadImage("Game/Images/ship/waterlv1.png"); // Enemy water lv 1
     public static Image waterTwoEnemyImage = LoadImage("Game/Images/ship/waterlv2.png"); // Enemy water lv 2
     public static Image waterThreeEnemyImage = LoadImage("Game/Images/ship/waterlv3.png"); // Enemy water lv 3
 
     public static Image waterBossEnemyImage = LoadImage("Game/Images/ship/waterboss.png"); // Boss enemy water
 
-    // Air enemies
+        // Air enemies
     public static Image airOneEnemyImage = LoadImage("Game/Images/ship/airlv1.png"); // Enemy air lv 1
     public static Image airTwoEnemyImage = LoadImage("Game/Images/ship/airlv2.png"); // Enemy air lv 2
     public static Image airThreeEnemyImage = LoadImage("Game/Images/ship/airlv3.png"); // Enemy air lv 3
 
     public static Image airBossEnemyImage = LoadImage("Game/Images/ship/airboss.png"); // Boss enemy air
 
-    // Fire enemies
+        // Fire enemies
     public static Image fireOneEnemyImage = LoadImage("Game/Images/ship/firelv1.png"); // Enemy fire lv 1
     public static Image fireTwoEnemyImage = LoadImage("Game/Images/ship/firelv2.png"); // Enemy fire lv 2
     public static Image fireThreeEnemyImage = LoadImage("Game/Images/ship/firelv3.png"); // Enemy fire lv 3
 
     public static Image fireBossEnemyImage = LoadImage("Game/Images/ship/fireboss.png"); // Boss enemy fire
 
-    // Shadow enemies
+        // Shadow enemies
     public static Image shadowOneEnemyImage = LoadImage("Game/Images/ship/shadowlv1.png"); // Enemy shadow lv 1
     public static Image shadowTwoEnemyImage = LoadImage("Game/Images/ship/shadowlv2.png"); // Enemy shadow lv 2
     public static Image shadowThreeEnemyImage = LoadImage("Game/Images/ship/shadowlv3.png"); // Enemy shadow lv 3
 
     public static Image shadowBossEnemyImage = LoadImage("Game/Images/ship/shadowboss.png"); // Boss enemy shadow
 
+    // EXPLOSION
+    public static Image exp000Image = LoadImage("Game/Images/explosion/exp000.png"); // Explosion image part 0
+    public static Image exp001Image = LoadImage("Game/Images/explosion/exp001.png"); // Explosion image part 1
+    public static Image exp002Image = LoadImage("Game/Images/explosion/exp002.png"); // Explosion image part 2
+    public static Image exp003Image = LoadImage("Game/Images/explosion/exp003.png"); // Explosion image part 3
+    public static Image exp004Image = LoadImage("Game/Images/explosion/exp004.png"); // Explosion image part 4
+    public static Image exp005Image = LoadImage("Game/Images/explosion/exp005.png"); // Explosion image part 5
+    public static Image exp006Image = LoadImage("Game/Images/explosion/exp006.png"); // Explosion image part 6
+    public static Image exp007Image = LoadImage("Game/Images/explosion/exp007.png"); // Explosion image part 7
+    public static Image exp008Image = LoadImage("Game/Images/explosion/exp008.png"); // Explosion image part 8
+    public static Image exp009Image = LoadImage("Game/Images/explosion/exp009.png"); // Explosion image part 9
+    public static Image exp010Image = LoadImage("Game/Images/explosion/exp010.png"); // Explosion image part 10
+    public static Image exp011Image = LoadImage("Game/Images/explosion/exp011.png"); // Explosion image part 11
+    public static Image exp012Image = LoadImage("Game/Images/explosion/exp012.png"); // Explosion image part 12
+    public static Image exp013Image = LoadImage("Game/Images/explosion/exp013.png"); // Explosion image part 13
+    public static Image exp014Image = LoadImage("Game/Images/explosion/exp014.png"); // Explosion image part 14
+    public static Image exp015Image = LoadImage("Game/Images/explosion/exp015.png"); // Explosion image part 15
+
     // HUD - Heads Up Display
-    public static Image
-        heartIconImage =
-            LoadImage(
-                "Game/Images/    /  **heart**  .png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Heart icon for health
+    public static Image heartIconImage = LoadImage("Game/Images/    /  **heart**  .png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Heart icon for health
 
     public static Image coinCounterImage = LoadImage("Game/Images/coin.png"); // Coin to be displayed by coin counter
 
     // COINS
-    public static Image
-        coinDropImage =
-            LoadImage(
-                "Game/Images/   /  **enemycoin**  .png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin image of coins dropped by enemies
+    public static Image coinDropImage = LoadImage("Game/Images/   /  **enemycoin**  .png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin image of coins dropped by enemies
 
-    public static Image
-        coinGifImage =
-            LoadImage(
-                "Game/Images/  **coingif**  .png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin gif image
+    public static Image coinGifImage = LoadImage("Game/Images/  **coingif**  .png"); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin gif image
 
     // LASERS
     public static Image laser1Image = LoadImage("Game/Images/lasers/laser1.png"); // Laser1 image
@@ -95,59 +104,69 @@ public static class ImageService
     public static Texture2D startShipTexture = LoadTextureFromImage(startShipImage); // Ship texture for player
 
     // ENEMIES
-    // Earth enemies
+        // Earth enemies
     public static Texture2D earthOneEnemyTexture = LoadTextureFromImage(earthOneEnemyImage); // Enemy earth lv 1
     public static Texture2D earthTwoEnemyTexture = LoadTextureFromImage(earthTwoEnemyImage); // Enemy earth lv 2
     public static Texture2D earthThreeEnemyTexture = LoadTextureFromImage(earthThreeEnemyImage); // Enemy earth lv 3
 
     public static Texture2D earthBossEnemyTexture = LoadTextureFromImage(earthBossEnemyImage); // Boss enemy earth
 
-    // Water enemies
+        // Water enemies
     public static Texture2D waterOneEnemyTexture = LoadTextureFromImage(waterOneEnemyImage); // Enemy water lv 1
     public static Texture2D waterTwoEnemyTexture = LoadTextureFromImage(waterTwoEnemyImage); // Enemy water lv 2
     public static Texture2D waterThreeEnemyTexture = LoadTextureFromImage(waterThreeEnemyImage); // Enemy water lv 3
 
     public static Texture2D waterBossEnemyTexture = LoadTextureFromImage(waterBossEnemyImage); // Boss enemy water
 
-    // Air enemies
+        // Air enemies
     public static Texture2D airOneEnemyTexture = LoadTextureFromImage(airOneEnemyImage); // Enemy air lv 1
     public static Texture2D airTwoEnemyTexture = LoadTextureFromImage(airTwoEnemyImage); // Enemy air lv 2
     public static Texture2D airThreeEnemyTexture = LoadTextureFromImage(airThreeEnemyImage); // Enemy air lv 3
 
     public static Texture2D airBossEnemyTexture = LoadTextureFromImage(airBossEnemyImage); // Boss enemy air
 
-    // Fire enemies
+        // Fire enemies
     public static Texture2D fireOneEnemyTexture = LoadTextureFromImage(fireOneEnemyImage); // Enemy fire lv 1
     public static Texture2D fireTwoEnemyTexture = LoadTextureFromImage(fireTwoEnemyImage); // Enemy fire lv 2
     public static Texture2D fireThreeEnemyTexture = LoadTextureFromImage(fireThreeEnemyImage); // Enemy fire lv 3
 
     public static Texture2D fireBossEnemyTexture = LoadTextureFromImage(fireBossEnemyImage); // Boss enemy fire
 
-    // Shadow enemies
+        // Shadow enemies
     public static Texture2D shadowOneEnemyTexture = LoadTextureFromImage(shadowOneEnemyImage); // Enemy shadow lv 1
     public static Texture2D shadowTwoEnemyTexture = LoadTextureFromImage(shadowTwoEnemyImage); // Enemy shadow lv 2
     public static Texture2D shadowThreeEnemyTexture = LoadTextureFromImage(shadowThreeEnemyImage); // Enemy shadow lv 3
 
     public static Texture2D shadowBossEnemyTexture = LoadTextureFromImage(shadowBossEnemyImage); // Boss enemy shadow
 
+    // EXPLOSION
+    public static Texture2D exp000Texture = LoadTextureFromImage(exp000Image); // Explosion texture part 0
+    public static Texture2D exp001Texture = LoadTextureFromImage(exp001Image); // Explosion texture part 1
+    public static Texture2D exp002Texture = LoadTextureFromImage(exp002Image); // Explosion texture part 2
+    public static Texture2D exp003Texture = LoadTextureFromImage(exp003Image); // Explosion texture part 3
+    public static Texture2D exp004Texture = LoadTextureFromImage(exp004Image); // Explosion texture part 4
+    public static Texture2D exp005Texture = LoadTextureFromImage(exp005Image); // Explosion texture part 5
+    public static Texture2D exp006Texture = LoadTextureFromImage(exp006Image); // Explosion texture part 6
+    public static Texture2D exp007Texture = LoadTextureFromImage(exp007Image); // Explosion texture part 7
+    public static Texture2D exp008Texture = LoadTextureFromImage(exp008Image); // Explosion texture part 8
+    public static Texture2D exp009Texture = LoadTextureFromImage(exp009Image); // Explosion texture part 9
+    public static Texture2D exp010Texture = LoadTextureFromImage(exp010Image); // Explosion texture part 10
+    public static Texture2D exp011Texture = LoadTextureFromImage(exp011Image); // Explosion texture part 11
+    public static Texture2D exp012Texture = LoadTextureFromImage(exp012Image); // Explosion texture part 12
+    public static Texture2D exp013Texture = LoadTextureFromImage(exp013Image); // Explosion texture part 13
+    public static Texture2D exp014Texture = LoadTextureFromImage(exp014Image); // Explosion texture part 14
+    public static Texture2D exp015Texture = LoadTextureFromImage(exp015Image); // Explosion texture part 15
+
     // HUD - Heads Up Display
     public static Texture2D
-        heartIconTexture =
-            LoadTextureFromImage(
-                heartIconImage); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Heart icon for health
+        heartIconTexture = LoadTextureFromImage(heartIconImage); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Heart icon for health
 
-    public static Texture2D
-        coinCounterTexture = LoadTextureFromImage(coinCounterImage); // Coin to be displayed by coin counter
+    public static Texture2D coinCounterTexture = LoadTextureFromImage(coinCounterImage); // Coin to be displayed by coin counter
 
     // COINS
-    public static Texture2D
-        coinDropTexture =
-            LoadTextureFromImage(
-                coinDropImage); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin texture of coins dropped by enemies
+    public static Texture2D coinDropTexture = LoadTextureFromImage(coinDropImage); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin texture of coins dropped by enemies
 
-    public static Texture2D
-        coinGifTexture =
-            LoadTextureFromImage(coinGifImage); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin gif texture
+    public static Texture2D coinGifTexture = LoadTextureFromImage(coinGifImage); // **UNCOMMENT IN LoadAllTextures METHOD BELOW!** Coin gif texture
 
     // LASERS
     public static Texture2D laser1Texture = LoadTextureFromImage(laser1Image); // Laser1 texture
@@ -157,7 +176,7 @@ public static class ImageService
     public static Texture2D laser11Texture = LoadTextureFromImage(laser11Image); // Laser11 texture 
 
 
-    public static int explosionFrameLength = 15;
+    public static int explosionFrameLength = 16;
 
     private static readonly List<Image> allImages = new();
     private static readonly List<Texture2D> allTextures = new();
@@ -168,17 +187,14 @@ public static class ImageService
     // {
     //     return textureToReturn;
     // }
-    public static Texture2D LoadInTexture(Image image)
+    public static void LoadInTexture(Image image)
     {
-        var texture = LoadTextureFromImage(image);
-        // UnloadImage(image);
-        return texture;
+        Texture2D textureToLoad = LoadTextureFromImage(image);
     }
 
-    public static Image UnloadImageFile(Image imageToUnload)
+    public static void UnloadImageFile(Image imageToUnload)
     {
         UnloadImage(imageToUnload);
-        return imageToUnload;
     }
 
     public static void UnloadTextureFile(Texture2D textureToUnload)
@@ -189,55 +205,23 @@ public static class ImageService
     /*---LISTS---*/
     public static List<Texture2D> LoadExplosionAnimation()
     {
-        var explosionAnimation = new List<Texture2D>();
-        var exp000Image = LoadImage("Game/Images/explosion/exp000.png"); // Explosion image part 0
-        explosionAnimation.Add(LoadTextureFromImage(exp000Image));
-        // UnloadImage(exp000Image);
-        var exp001Image = LoadImage("Game/Images/explosion/exp001.png"); // Explosion image part 1
-        explosionAnimation.Add(LoadTextureFromImage(exp001Image));
-        // UnloadImage(exp001Image);
-        var exp002Image = LoadImage("Game/Images/explosion/exp002.png"); // Explosion image part 2
-        explosionAnimation.Add(LoadTextureFromImage(exp002Image));
-        // UnloadImage(exp002Image);
-        var exp003Image = LoadImage("Game/Images/explosion/exp003.png"); // Explosion image part 3
-        explosionAnimation.Add(LoadTextureFromImage(exp003Image));
-        // UnloadImage(exp003Image);
-        var exp004Image = LoadImage("Game/Images/explosion/exp004.png"); // Explosion image part 4
-        explosionAnimation.Add(LoadTextureFromImage(exp004Image));
-        // UnloadImage(exp004Image);
-        var exp005Image = LoadImage("Game/Images/explosion/exp005.png"); // Explosion image part 5
-        explosionAnimation.Add(LoadTextureFromImage(exp005Image));
-        // UnloadImage(exp005Image);
-        var exp006Image = LoadImage("Game/Images/explosion/exp006.png"); // Explosion image part 6
-        explosionAnimation.Add(LoadTextureFromImage(exp006Image));
-        // UnloadImage(exp006Image);
-        var exp007Image = LoadImage("Game/Images/explosion/exp007.png"); // Explosion image part 7
-        explosionAnimation.Add(LoadTextureFromImage(exp007Image));
-        // UnloadImage(exp007Image);
-        var exp008Image = LoadImage("Game/Images/explosion/exp008.png"); // Explosion image part 8
-        explosionAnimation.Add(LoadTextureFromImage(exp008Image));
-        // UnloadImage(exp008Image);
-        var exp009Image = LoadImage("Game/Images/explosion/exp009.png"); // Explosion image part 9
-        explosionAnimation.Add(LoadTextureFromImage(exp009Image));
-        // UnloadImage(exp009Image);
-        var exp010Image = LoadImage("Game/Images/explosion/exp010.png"); // Explosion image part 10
-        explosionAnimation.Add(LoadTextureFromImage(exp010Image));
-        // UnloadImage(exp010Image);
-        var exp011Image = LoadImage("Game/Images/explosion/exp011.png"); // Explosion image part 11
-        explosionAnimation.Add(LoadTextureFromImage(exp011Image));
-        // UnloadImage(exp011Image);
-        var exp012Image = LoadImage("Game/Images/explosion/exp012.png"); // Explosion image part 12
-        explosionAnimation.Add(LoadTextureFromImage(exp012Image));
-        // UnloadImage(exp012Image);
-        var exp013Image = LoadImage("Game/Images/explosion/exp013.png"); // Explosion image part 13
-        explosionAnimation.Add(LoadTextureFromImage(exp013Image));
-        // UnloadImage(exp013Image);
-        var exp014Image = LoadImage("Game/Images/explosion/exp014.png"); // Explosion image part 14
-        explosionAnimation.Add(LoadTextureFromImage(exp014Image));
-        // UnloadImage(exp014Image);
-        var exp015Image = LoadImage("Game/Images/explosion/exp015.png"); // Explosion image part 15
-        explosionAnimation.Add(LoadTextureFromImage(exp015Image));
-        // UnloadImage(exp015Image);
+        List<Texture2D> explosionAnimation = new List<Texture2D>();
+            explosionAnimation.Add(exp000Texture);
+            explosionAnimation.Add(exp001Texture);
+            explosionAnimation.Add(exp002Texture);
+            explosionAnimation.Add(exp003Texture);
+            explosionAnimation.Add(exp004Texture);
+            explosionAnimation.Add(exp005Texture);
+            explosionAnimation.Add(exp006Texture);
+            explosionAnimation.Add(exp007Texture);
+            explosionAnimation.Add(exp008Texture);
+            explosionAnimation.Add(exp009Texture);
+            explosionAnimation.Add(exp010Texture);
+            explosionAnimation.Add(exp011Texture);
+            explosionAnimation.Add(exp012Texture);
+            explosionAnimation.Add(exp013Texture);
+            explosionAnimation.Add(exp014Texture);
+            explosionAnimation.Add(exp015Texture);
 
         return explosionAnimation;
     }
@@ -265,15 +249,30 @@ public static class ImageService
         allImages.Add(shadowTwoEnemyImage);
         allImages.Add(shadowThreeEnemyImage);
         allImages.Add(shadowBossEnemyImage);
-        //    allImages(coinCounterImage);
-        //  allImages.Add(coinDropImage);  Uncomment when full file name added above
+        // allImages.Add(coinCounterImage);
+        // allImages.Add(coinDropImage);  Uncomment when full file name added above
         // allImages.Add(coinGifImage);  Uncomment when full file name added above
         allImages.Add(laser1Image);
         allImages.Add(laser3Image);
         allImages.Add(laser5Image);
         allImages.Add(laser7Image);
         allImages.Add(laser11Image);
-
+        allImages.Add(exp000Image);
+        allImages.Add(exp001Image);
+        allImages.Add(exp002Image);
+        allImages.Add(exp003Image);
+        allImages.Add(exp004Image);
+        allImages.Add(exp005Image);
+        allImages.Add(exp006Image);
+        allImages.Add(exp007Image);
+        allImages.Add(exp008Image);
+        allImages.Add(exp009Image);
+        allImages.Add(exp010Image);
+        allImages.Add(exp011Image);
+        allImages.Add(exp012Image);
+        allImages.Add(exp013Image);
+        allImages.Add(exp014Image);
+        allImages.Add(exp015Image);
 
         return allImages;
     }
@@ -314,44 +313,107 @@ public static class ImageService
         return allTextures;
     }
 
-    public static List<Image> UnloadAllImages()
+    public static void UnloadAllImages()
     {
-        for (var i = 0; i < allImages.Count; i++)
-        {
-            allImages[i] = UnloadImageFile(startShipImage);
-            allImages[i] = UnloadImageFile(earthOneEnemyImage);
-            allImages[i] = UnloadImageFile(earthTwoEnemyImage);
-            allImages[i] = UnloadImageFile(earthThreeEnemyImage);
-            allImages[i] = UnloadImageFile(earthBossEnemyImage);
-            allImages[i] = UnloadImageFile(waterOneEnemyImage);
-            allImages[i] = UnloadImageFile(waterTwoEnemyImage);
-            allImages[i] = UnloadImageFile(waterThreeEnemyImage);
-            allImages[i] = UnloadImageFile(waterBossEnemyImage);
-            allImages[i] = UnloadImageFile(airOneEnemyImage);
-            allImages[i] = UnloadImageFile(airTwoEnemyImage);
-            allImages[i] = UnloadImageFile(airThreeEnemyImage);
-            allImages[i] = UnloadImageFile(airBossEnemyImage);
-            allImages[i] = UnloadImageFile(fireOneEnemyImage);
-            allImages[i] = UnloadImageFile(fireTwoEnemyImage);
-            allImages[i] = UnloadImageFile(fireThreeEnemyImage);
-            allImages[i] = UnloadImageFile(fireBossEnemyImage);
-            allImages[i] = UnloadImageFile(shadowOneEnemyImage);
-            allImages[i] = UnloadImageFile(shadowTwoEnemyImage);
-            allImages[i] = UnloadImageFile(shadowThreeEnemyImage);
-            allImages[i] = UnloadImageFile(shadowBossEnemyImage);
-            // allImages[i] = UnloadImageFile(heartIconImage);  Uncomment when full file name added above
-            allImages[i] = UnloadImageFile(coinCounterImage);
-            // allImages[i] = UnloadImageFile(coinDropImage);  Uncomment when full file name added above
-            // allImages[i] = UnloadImageFile(coinGifImage);  Uncomment when full file name added above
-            allImages[i] = UnloadImageFile(laser1Image);
-            allImages[i] = UnloadImageFile(laser3Image);
-            allImages[i] = UnloadImageFile(laser5Image);
-            allImages[i] = UnloadImageFile(laser7Image);
-            allImages[i] = UnloadImageFile(laser11Image);
-        }
+        UnloadImage(startShipImage);
+        UnloadImage(earthOneEnemyImage);
+        UnloadImage(earthTwoEnemyImage);
+        UnloadImage(earthThreeEnemyImage);
+        UnloadImage(earthBossEnemyImage);
+        UnloadImage(waterOneEnemyImage);
+        UnloadImage(waterTwoEnemyImage);
+        UnloadImage(waterThreeEnemyImage);
+        UnloadImage(waterBossEnemyImage);
+        UnloadImage(airOneEnemyImage);
+        UnloadImage(airTwoEnemyImage);
+        UnloadImage(airThreeEnemyImage);
+        UnloadImage(airBossEnemyImage);
+        UnloadImage(fireOneEnemyImage);
+        UnloadImage(fireTwoEnemyImage);
+        UnloadImage(fireThreeEnemyImage);
+        UnloadImage(fireBossEnemyImage);
+        UnloadImage(shadowOneEnemyImage);
+        UnloadImage(shadowTwoEnemyImage);
+        UnloadImage(shadowThreeEnemyImage);
+        UnloadImage(shadowBossEnemyImage);
+        // UnloadImage(heartIconImage);  Uncomment when full file name added above
+        UnloadImage(coinCounterImage);
+        // UnloadImage(coinDropImage);  Uncomment when full file name added above
+        // UnloadImage(coinGifImage);  Uncomment when full file name added above
+        UnloadImage(laser1Image);
+        UnloadImage(laser3Image);
+        UnloadImage(laser5Image);
+        UnloadImage(laser7Image);
+        UnloadImage(laser11Image);
+        UnloadImage(exp000Image);
+        UnloadImage(exp001Image);
+        UnloadImage(exp002Image);
+        UnloadImage(exp003Image);
+        UnloadImage(exp004Image);
+        UnloadImage(exp005Image);
+        UnloadImage(exp006Image);
+        UnloadImage(exp007Image);
+        UnloadImage(exp008Image);
+        UnloadImage(exp009Image);
+        UnloadImage(exp010Image);
+        UnloadImage(exp011Image);
+        UnloadImage(exp012Image);
+        UnloadImage(exp013Image);
+        UnloadImage(exp014Image);
+        UnloadImage(exp015Image);
 
         // Director.unloadCheck = true;
+    }
 
-        return allImages;
+    public static void UnloadAllTextures()
+    {
+        UnloadTexture(startShipTexture);
+        UnloadTexture(earthOneEnemyTexture);
+        UnloadTexture(earthTwoEnemyTexture);
+        UnloadTexture(earthThreeEnemyTexture);
+        UnloadTexture(earthBossEnemyTexture);
+        UnloadTexture(waterOneEnemyTexture);
+        UnloadTexture(waterTwoEnemyTexture);
+        UnloadTexture(waterThreeEnemyTexture);
+        UnloadTexture(waterBossEnemyTexture);
+        UnloadTexture(airOneEnemyTexture);
+        UnloadTexture(airTwoEnemyTexture);
+        UnloadTexture(airThreeEnemyTexture);
+        UnloadTexture(airBossEnemyTexture);
+        UnloadTexture(fireOneEnemyTexture);
+        UnloadTexture(fireTwoEnemyTexture);
+        UnloadTexture(fireThreeEnemyTexture);
+        UnloadTexture(fireBossEnemyTexture);
+        UnloadTexture(shadowOneEnemyTexture);
+        UnloadTexture(shadowTwoEnemyTexture);
+        UnloadTexture(shadowThreeEnemyTexture);
+        UnloadTexture(shadowBossEnemyTexture);
+        // UnloadTexture(heartIconTexture);  Uncomment when full file name added above
+        UnloadTexture(coinCounterTexture);
+        // UnloadTexture(coinDropTexture);  Uncomment when full file name added above
+        // UnloadTexture(coinGifTexture);  Uncomment when full file name added above
+        UnloadTexture(laser1Texture);
+        UnloadTexture(laser3Texture);
+        UnloadTexture(laser5Texture);
+        UnloadTexture(laser7Texture);
+        UnloadTexture(laser11Texture);
+        UnloadTexture(exp000Texture);
+        UnloadTexture(exp001Texture);
+        UnloadTexture(exp002Texture);
+        UnloadTexture(exp003Texture);
+        UnloadTexture(exp004Texture);
+        UnloadTexture(exp005Texture);
+        UnloadTexture(exp006Texture);
+        UnloadTexture(exp007Texture);
+        UnloadTexture(exp008Texture);
+        UnloadTexture(exp009Texture);
+        UnloadTexture(exp010Texture);
+        UnloadTexture(exp011Texture);
+        UnloadTexture(exp012Texture);
+        UnloadTexture(exp013Texture);
+        UnloadTexture(exp014Texture);
+        UnloadTexture(exp015Texture);
+
+        // Director.unloadCheck = true;
     }
 }

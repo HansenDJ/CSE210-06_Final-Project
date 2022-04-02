@@ -19,6 +19,7 @@ public class Director
         ImageService.LoadAllImages();
         ImageService.LoadAllTextures();
         ImageService.LoadExplosionAnimation();
+        ImageService.UnloadAllImages();
         // Raylib.SetTargetFPS(60); // TRY TO USE INSTEAD OF TIMER
         Timer timer = new();
         // SetTimer(updateFrameTime);
