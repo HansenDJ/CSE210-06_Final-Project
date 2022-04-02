@@ -375,6 +375,7 @@ public class SpawnDestory
             OnCollisionAction(player, i);
             enemyList[i].laserCounter += 9;
             {
+                // ERROR Only spaw weapon when player alive
                 if (player.y - 100 <= enemyList[i].y
                     && enemyList[i].y <= player.y + 100
                     && enemyList[i].x >= player.x + player.offsetColliderWidth
