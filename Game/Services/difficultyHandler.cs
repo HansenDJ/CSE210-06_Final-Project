@@ -16,6 +16,7 @@ public static class DifficultyHandler
         if (currentLevel > previousLevel)
         {
             IncreaseDifficulty();
+            PlayerStats.maxPlayerHealth += 50;
             // do level changes here;
             previousLevel = currentLevel;
             Console.WriteLine("Level UP " + currentLevel);

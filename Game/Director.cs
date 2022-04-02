@@ -67,7 +67,23 @@ public class Director
         {
             GameOverDeath.loadScreen();
             if (KeyboardService.RKeyDown())
-                startTime = RestartLevel(bg, timer, sp);
+            {
+                timer.Count();
+                startTime = DateTime.Now;
+                secondsPassed = 0;
+                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                DifficultyHandler.levelChange = true;
+                DifficultyHandler.currentLevel = 1;
+                DifficultyHandler.previousLevel = 1;
+                PlayerStats.maxPlayerHealth = 150;
+
+                LevelChangeCheck(bg);
+
+                DifficultyHandler.enemyCount = 3;
+
+                CurrencyHandler.money = 0;
+                sp.ClearMap();
+            }
 
         }
 
@@ -80,6 +96,18 @@ public class Director
         {
             if (player.PlayerMoveKeys() == 1) //When spacebar pressed
                 sp.ShootWeapon(player);
+            if (KeyboardService.TabKeyReleased())
+            {
+                if (CurrencyHandler.money >= 100)
+                {
+                    CurrencyHandler.money -= 100;
+                    PlayerStats.playerHealth += 25;
+                    if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
+                    {
+                        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                    }
+                }
+            }
 
 
             sp.IncrementReloadTime();
@@ -162,30 +190,7 @@ public class Director
         }
     }
 
-    private static DateTime RestartLevel(BackgroundService bg, Timer timer, SpawnDestory sp)
-    {
-        DateTime startTime;
-        DateTime timeNow;
-        double secondsPassed;
-        timer.Count();
-       
-        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
-        DifficultyHandler.levelChange = true;
-        DifficultyHandler.currentLevel = 1;
-        DifficultyHandler.previousLevel = 1;
-         
-        LevelChangeCheck(bg);
-      
-        DifficultyHandler.enemyCount = 3;
-
-        CurrencyHandler.money = 0;
-        sp.ClearMap();
-
-        startTime = DateTime.Now;
-        timeNow = DateTime.Now;
-        secondsPassed = 0;
-        return startTime;
-    }
+   
 
     // // Change updateFrameTime variable above to change number of milliseconds between frames
     // static void SetTimer(int frameTime) {

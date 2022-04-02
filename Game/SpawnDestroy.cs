@@ -404,7 +404,7 @@ public class SpawnDestory
             RemoveEnemyOffScreen(i);
         }
     }
-
+    
     public void CreateEnemyWeapon(int enemyI, Enemy enemy)
     {
         var _EnemyWeapon = new Weapon();
@@ -444,7 +444,7 @@ public class SpawnDestory
             for (var j = 0; j < enemyList.Count - 1; j++)
                 if (collisionDetection.CheckCollision(enemyList[j], playerWeaponList[index]))
                     OnCollisionActionPlayerWeapon(enemyList[j], playerWeaponList[index], j, index);
-            if (playerWeaponList[index].x < -50 || playerWeaponList[index].x > 1450) playerWeaponList.RemoveAt(index);
+            if (playerWeaponList[index].x < -50 || playerWeaponList[index].x > 1450 || playerWeaponList[index].y < 0 || playerWeaponList[index].y > 1000) playerWeaponList.RemoveAt(index);
         }
     }
 
