@@ -2,7 +2,8 @@ namespace generalNamespace;
 
 public static class CurrencyHandler
 {
-    public static int money;
+    public static int money = 0;
+    public static int randomMoney = 0;
 
     public static int GetMoneyAmount()
     {

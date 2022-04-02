@@ -24,7 +24,6 @@ public class SpawnDestory
     public int maxEnemies = 5;
     public int maxReloadTime;
     public List<Weapon> playerWeaponList = new();
-    public int randomMoney;
     private readonly Random rnd = new();
 
     private int RandomEnemy()
@@ -433,6 +432,22 @@ public class SpawnDestory
         }
     }
 
+    public void SetRandomMoney(int enemyLevelNumber)
+    {
+        switch (enemyLevelNumber)
+        {
+            case 1:
+                CurrencyHandler.randomMoney = rnd.Next(1, 5);
+                break;
+            case 2:
+                CurrencyHandler.randomMoney = rnd.Next(6, 10);
+                break;
+            case 3:
+                CurrencyHandler.randomMoney = rnd.Next(11, 15);
+                break;
+        }
+    }
+
     public void OnCollisionActionPlayerWeapon(
         Enemy enemy,
         Weapon weapon,
@@ -455,17 +470,17 @@ public class SpawnDestory
                 if (enemyList[enemyIndex].levelOfEnemy == 1)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
-                    CurrencyHandler.money += randomMoney;
+                    CurrencyHandler.money += CurrencyHandler.randomMoney;
                 }
                 else if (enemyList[enemyIndex].levelOfEnemy == 2)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
-                    CurrencyHandler.money += randomMoney;
+                    CurrencyHandler.money += CurrencyHandler.randomMoney;
                 }
                 else if (enemyList[enemyIndex].levelOfEnemy == 3)
                 {
                     SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
-                    CurrencyHandler.money += randomMoney;
+                    CurrencyHandler.money += CurrencyHandler.randomMoney;
                 }
 
                 enemyList.RemoveAt(
@@ -474,22 +489,6 @@ public class SpawnDestory
 
             playerWeaponList
                 .RemoveAt(weaponIndex); // Change so that the weapon is destroyed when the enemy health goes to zero
-        }
-    }
-
-    public void SetRandomMoney(int enemyLevelNumber)
-    {
-        switch (enemyLevelNumber)
-        {
-            case 1:
-                randomMoney = rnd.Next(1, 5);
-                break;
-            case 2:
-                randomMoney = rnd.Next(6, 10);
-                break;
-            case 3:
-                randomMoney = rnd.Next(11, 15);
-                break;
         }
     }
 
