@@ -107,11 +107,13 @@ public class VideoService
     {
         DrawText($"{CurrencyHandler.money}", 1250, 22, 20, WHITE);
         DrawTexture(ImageService.coinCounterTexture, 1220, 20, WHITE);
+        DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * Director.levelTime - Director.secondsPassed)}", 650, 22, 20, WHITE);
+      
     }
 
     public static void DrawHeartCount()
     {
-        DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 30, 22, 20, WHITE);
+        DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 1250, 55, 20, WHITE);
     }
 
     public static void DrawColliderBox(Character character)

@@ -11,11 +11,13 @@ public class Director
 
     // public static bool unloadCheck = false;
     // static bool action = false;
+   public static double secondsPassed = 0;
+   public static Double levelTime = 30;
     public void StartGame()
     {
         var startTime = DateTime.Now;
         var timeNow = DateTime.Now;
-        double secondsPassed = 0;
+       
         ImageService.LoadAllImages();
         ImageService.LoadAllTextures();
         ImageService.LoadExplosionAnimation();
@@ -64,7 +66,7 @@ public class Director
         {
             GameOverDeath.loadScreen();
             if (KeyboardService.SpaceKeyDown())
-                startTime = RestartLevel(bg, timer, sp, coin);
+                startTime = RestartLevel(bg, timer, sp);
             //
         }
 
@@ -107,18 +109,22 @@ public class Director
     private static void TimeService(DateTime startTime, SpawnDestory sp)
     {
         DateTime timeNow;
-        double secondsPassed;
+        
         timeNow = DateTime.Now;
         secondsPassed = (timeNow - startTime).TotalSeconds;
 
-        if (DifficultyHandler.LevelUp(secondsPassed / 30D)) sp.maxEnemies = DifficultyHandler.enemyCount;
+        if (DifficultyHandler.LevelUp(secondsPassed / Director.levelTime)) sp.maxEnemies = DifficultyHandler.enemyCount;
     }
 
     private static void SpawnCheck(SpawnDestory sp)
     {
-        if (sp.CheckIfSpawnNeeded())
-            sp.SpawnEnemy(DifficultyHandler
-                .currentLevel); // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+        if (secondsPassed > BackgroundService.movefast)
+        {
+            if (sp.CheckIfSpawnNeeded())
+                sp.SpawnEnemy(DifficultyHandler
+                    .currentLevel); // Create method in difficultyHandler.cs to choose which enemy to spawn based on level number
+        }
+       
     }
 
     private static void LevelChangeCheck(BackgroundService bg)
@@ -156,7 +162,7 @@ public class Director
         }
     }
 
-    private static DateTime RestartLevel(BackgroundService bg, Timer timer, SpawnDestory sp, Coin coin)
+    private static DateTime RestartLevel(BackgroundService bg, Timer timer, SpawnDestory sp)
     {
         DateTime startTime;
         DateTime timeNow;
@@ -167,11 +173,12 @@ public class Director
         DifficultyHandler.levelChange = true;
         DifficultyHandler.currentLevel = 1;
         DifficultyHandler.previousLevel = 1;
+         
         LevelChangeCheck(bg);
       
         DifficultyHandler.enemyCount = 3;
-       
-        coin.CoinCount = 0;
+
+        CurrencyHandler.money = 0;
         sp.ClearMap();
 
         startTime = DateTime.Now;
