@@ -406,20 +406,68 @@ public class SpawnDestory
     }
     
     public void CreateEnemyWeapon(int enemyI, Enemy enemy)
-    {
-        var _EnemyWeapon = new Weapon();
-        _EnemyWeapon.speed = 10;
-        _EnemyWeapon.SetCharTexture(ImageService.laser11Texture);
-        _EnemyWeapon.enemyIndex = enemyI;
+    { switch (enemy.levelOfEnemy)
+        {
+            case 1:
+                var _EnemyWeaponOne = new Weapon();
+                _EnemyWeaponOne.speed = 9;
+                _EnemyWeaponOne.SetCharTexture(ImageService.laser11Texture);
+                _EnemyWeaponOne.enemyIndex = enemyI;
 
-        // Set and apply laser spawn location offset
-        _EnemyWeapon.SetOffsetColliderWidth(enemy.offsetW);
-        _EnemyWeapon.SetOffsetColliderHeight(enemy.offsetH);
-        _EnemyWeapon.SetX(enemy.x - enemy.GetColliderBoxWidth());
-        _EnemyWeapon.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+                // Set and apply laser spawn location offset
+                _EnemyWeaponOne.SetOffsetColliderWidth(enemy.offsetW);
+                _EnemyWeaponOne.SetOffsetColliderHeight(enemy.offsetH);
+                _EnemyWeaponOne.SetX(enemy.x - enemy.GetColliderBoxWidth());
+                _EnemyWeaponOne.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-        AudioService.PlayAudio(AudioService.lv1Shot);
-        enemyWeaponsList.Add(_EnemyWeapon);
+                AudioService.PlayAudio(AudioService.lv1Shot);
+                enemyWeaponsList.Add(_EnemyWeaponOne);
+
+            break;
+            case 2:
+                var _EnemyWeaponTwo = new Weapon();
+                _EnemyWeaponTwo.speed = 10;
+                _EnemyWeaponTwo.SetCharTexture(ImageService.laser10Texture);
+                _EnemyWeaponTwo.enemyIndex = enemyI;
+
+                // Set and apply laser spawn location offset
+                _EnemyWeaponTwo.SetOffsetColliderWidth(enemy.offsetW);
+                _EnemyWeaponTwo.SetOffsetColliderHeight(enemy.offsetH);
+                _EnemyWeaponTwo.SetX(enemy.x - enemy.GetColliderBoxWidth());
+                _EnemyWeaponTwo.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+
+                AudioService.PlayAudio(AudioService.lv1Shot);
+                enemyWeaponsList.Add(_EnemyWeaponTwo);
+            break;
+            case 3:
+                var _EnemyWeaponThree = new Weapon();
+                _EnemyWeaponThree.speed = 11;
+                _EnemyWeaponThree.SetCharTexture(ImageService.laser12Texture);
+                _EnemyWeaponThree.enemyIndex = enemyI;
+
+                // Set and apply laser spawn location offset
+                _EnemyWeaponThree.SetOffsetColliderWidth(enemy.offsetW);
+                _EnemyWeaponThree.SetOffsetColliderHeight(enemy.offsetH);
+                _EnemyWeaponThree.SetX(enemy.x - enemy.GetColliderBoxWidth());
+                _EnemyWeaponThree.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+
+                AudioService.PlayAudio(AudioService.lv1Shot);
+                enemyWeaponsList.Add(_EnemyWeaponThree);
+            break;
+        }
+        // var _EnemyWeapon = new Weapon();
+        // _EnemyWeapon.speed = 10;
+        // _EnemyWeapon.SetCharTexture(ImageService.laser11Texture);
+        // _EnemyWeapon.enemyIndex = enemyI;
+
+        // // Set and apply laser spawn location offset
+        // _EnemyWeapon.SetOffsetColliderWidth(enemy.offsetW);
+        // _EnemyWeapon.SetOffsetColliderHeight(enemy.offsetH);
+        // _EnemyWeapon.SetX(enemy.x - enemy.GetColliderBoxWidth());
+        // _EnemyWeapon.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+
+        // AudioService.PlayAudio(AudioService.lv1Shot);
+        // enemyWeaponsList.Add(_EnemyWeapon);
     }
 
     public void MakeEnemiesMove(int index, int playery)
@@ -547,6 +595,7 @@ public class SpawnDestory
     {
         if (collisionDetection.CheckCollision(player, enemyList[index]))
             // TEST: Remove enemy if collides with player
+            //Player.playerHealth = Player.playerHealth -10;
             enemyList.RemoveAt(index);
     }
 
