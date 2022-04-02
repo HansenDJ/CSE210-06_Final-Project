@@ -410,7 +410,7 @@ public class SpawnDestory
         {
             case 1:
                 var _EnemyWeaponOne = new Weapon();
-                _EnemyWeaponOne.speed = 9;
+                _EnemyWeaponOne.speed = 10;
                 _EnemyWeaponOne.SetCharTexture(ImageService.laser11Texture);
                 _EnemyWeaponOne.enemyIndex = enemyI;
 
@@ -441,7 +441,7 @@ public class SpawnDestory
             break;
             case 3:
                 var _EnemyWeaponThree = new Weapon();
-                _EnemyWeaponThree.speed = 11;
+                _EnemyWeaponThree.speed = 10;
                 _EnemyWeaponThree.SetCharTexture(ImageService.laser12Texture);
                 _EnemyWeaponThree.enemyIndex = enemyI;
 
