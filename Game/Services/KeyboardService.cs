@@ -40,12 +40,12 @@ public static class KeyboardService
     }
     public static bool TabKeyReleased()
     {
-        return Raylib.IsKeyReleased(KeyboardKey.KEY_TAB);
+        return Raylib.IsKeyReleased(KeyboardKey.KEY_TAB) || Raylib.IsKeyDown(KeyboardKey.KEY_H) || Raylib.IsMouseButtonReleased(MouseButton.MOUSE_BUTTON_RIGHT);;
     }
 
     public static bool ShiftReleased()
     {
-        bool ls = Raylib.IsKeyReleased(KeyboardKey.KEY_LEFT_SHIFT);
+        bool ls = Raylib.IsKeyReleased(KeyboardKey.KEY_LEFT_SHIFT) || Raylib.IsKeyDown(KeyboardKey.KEY_ENTER);
         bool rs = Raylib.IsKeyReleased(KeyboardKey.KEY_RIGHT_SHIFT);
 
         if (ls)
@@ -87,7 +87,7 @@ public static class KeyboardService
 
     public static bool SpaceKeyDown()
     {
-        return Raylib.IsKeyDown(KeyboardKey.KEY_SPACE) || Raylib.IsKeyDown(KeyboardKey.KEY_ENTER);
+        return Raylib.IsKeyDown(KeyboardKey.KEY_SPACE) || Raylib.IsKeyDown(KeyboardKey.KEY_ENTER) || Raylib.IsMouseButtonReleased(MouseButton.MOUSE_BUTTON_LEFT);;
     }
 
     public static bool UpKeyReleased()
@@ -114,4 +114,12 @@ public static class KeyboardService
     {
         return Raylib.IsKeyDown(KeyboardKey.KEY_R);
     }
+    // public static bool LeftMouse() //Your welcome
+    // {
+    //     return Raylib.IsMouseButtonReleased(MouseButton.MOUSE_BUTTON_LEFT);  
+    // }
+    //     public static bool RightMouse()
+    // {
+    //     return Raylib.IsMouseButtonReleased(MouseButton.MOUSE_BUTTON_RIGHT);  
+    // }
 }
