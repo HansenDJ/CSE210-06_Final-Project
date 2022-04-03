@@ -438,15 +438,29 @@ public class SpawnDestory
         for (int i = 0; i < PowerUpList.Count; i++)
         {
             PowerUpList[i].Fall();
-            
+            bool destroyed = false;
             if(collisionDetection.CheckCollision(PowerUpList[i],player))
             {
-                
+               
+                if (PowerUpList[i].ID == 1)
+                {
+                    PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                    destroyed = true;
+                } else if (PowerUpList[i].ID == 2)
+                {
+                    Powerup.IsShieldedEffect();
+                    destroyed = true;
+                }else if (PowerUpList[i].ID == 3)
+                {
+                    Powerup.IsExplosiveEffect();
+                    destroyed = true;
+
+                }
             }
-            if (PowerUpList[i].y > 1000)
+            if (PowerUpList[i].y > 1000 || destroyed)
             {
                 PowerUpList.Remove(PowerUpList[i]);
-            } 
+            }
         }
     }
     public  void EnemyListLoop(Player player)
@@ -639,8 +653,7 @@ public class SpawnDestory
                 
                 SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
                     CurrencyHandler.money += CurrencyHandler.randomMoney;
-                    SetRandomPowerUp(enemyList[enemyIndex].levelOfEnemy, enemyList[enemyIndex].x,
-                        enemyList[enemyIndex].y);
+                    SetRandomPowerUp(enemyList[enemyIndex].levelOfEnemy, enemyList[enemyIndex]);
 
                     // Change so that the enemy is destroyed when the enemy health goes to zero
                 enemyList.RemoveAt(enemyIndex);
@@ -686,24 +699,34 @@ public class SpawnDestory
         maxEnemies = 5;
     }
   
-    public void SetRandomPowerUp(int chance, int x, int y)
+    public void SetRandomPowerUp(int chance, Enemy enemy)
     {
         getPowerUp = rnd.Next(1,25);
         if(getPowerUp * chance <= 5){
             setPowerUp = rnd.Next(1,4);
+            PowerUpGraphic powerup = new PowerUpGraphic();
             switch (setPowerUp)
             {
             case 1:
+                powerup.SetCharTexture(ImageService.powerUpHealthTexture);
                 break;
             case 2:
+                powerup.SetCharTexture(ImageService.powerUpShieldTexture);
                 break;
             case 3:
+                powerup.SetCharTexture(ImageService.powerUpRicochetTexture);
                 break;
             }
-            PowerUpGraphic powerup = new PowerUpGraphic();
+           
             powerup.ID = setPowerUp;
-            powerup.x = x;
-            powerup.y = y; 
+            
+            powerup.SetOffsetColliderWidth(enemy.offsetW);
+            powerup.SetOffsetColliderHeight(enemy.offsetH);
+            powerup.SetX(enemy.x + enemy.GetColliderBoxWidth());
+            powerup.SetY(enemy.y + enemy.GetColliderBoxHeight());
+            
+           
+         
             PowerUpList.Add(powerup);
         }
         

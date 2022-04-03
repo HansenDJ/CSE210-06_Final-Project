@@ -36,26 +36,13 @@ public class VideoService
     {
         for (int i = 0; i < powerups.Count; i++)
         {
-            DrawTexture(GetPowerUpTexture(powerups[i].ID),powerups[i].x,powerups[i].y,Color.WHITE);
+            DrawTexture(powerups[i].GetCharTexture(),powerups[i].x,powerups[i].y,Color.WHITE);
+            DrawColliderBox(powerups[i]);
+           
         }
     }
 
-    public static Texture2D GetPowerUpTexture(int i)
-    {
-        switch (i)
-        {
-            case 1:
-                return ImageService.powerUpHealthTexture;
-                break;
-            case 2:
-                return ImageService.powerUpShieldTexture;
-            case 3:
-                return ImageService.powerUpRicochetTexture;
-                break;
-        }
-
-        return ImageService.powerUpShieldTexture;
-    }
+ 
     private static void DrawBackdrop(BackgroundService bg)
     {
         ClearBackground(BLACK);
@@ -159,20 +146,20 @@ public class VideoService
         }
         
     }
-
-
+    
+    
     public static void DrawCoinCount(Coin coin)
     {
-        DrawText($"{CurrencyHandler.money}", 1250, 22, 20, WHITE);
-        DrawTexture(ImageService.coinCounterTexture, 1220, 20, WHITE);
+        DrawText($"{CurrencyHandler.money}", 160, 5, 20, WHITE);
+        DrawTexture(ImageService.coinCounterTexture, 125, 2, WHITE);
         DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * Director.levelTime - Director.secondsPassed)}", 650, 22, 20, WHITE);
       
     }
 
     public static void DrawHeartCount()
     {
-        DrawTexture(ImageService.heartIconTexture, 1220, 55, WHITE);
-        DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 1250, 55, 20, WHITE);
+        DrawTexture(ImageService.heartIconTexture, 5, 2, WHITE);
+        DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}",40, 5, 20, WHITE);
         
         
     }
@@ -188,8 +175,8 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isShielded)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 80, 23, 20, WHITE);
-            DrawTexture(ImageService.powerUpShieldTexture, 5, 5, WHITE);
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 65, 30, WHITE);
+            DrawTexture(ImageService.powerUpShieldTexture, 5, 55, WHITE);
         }
     }
 
@@ -197,8 +184,8 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isExplosiveShot)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 80, 23, 20, WHITE);
-            DrawTexture(ImageService.powerUpRicochetTexture, 5, 5, WHITE);
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 65, 30, WHITE);
+            DrawTexture(ImageService.powerUpRicochetTexture, 5, 55, WHITE);
         }
     }
 

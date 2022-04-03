@@ -14,6 +14,7 @@ public class Player : Character
     public static char moveDirectionlr = 's';
     public static int moveIncrementL;
     public static int moveIncrementR;
+    private readonly int playerXRange = VideoService.scrnWidth - VideoService.scrnWidth / 5;
     private readonly int offsetH = 14;
     private readonly int offsetW = 18;
 
@@ -138,7 +139,7 @@ public class Player : Character
         }
 
         if ((KeyboardService.DKeyDown() || KeyboardService.RightKeyDown()) &&
-            x < VideoService.scrnWidth / 2 - GetOffsetColliderWidth())
+            x < playerXRange - GetOffsetColliderWidth())
         {
             MoveHandleLR('r');
             x += moveHandlerL;

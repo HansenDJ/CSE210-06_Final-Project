@@ -32,6 +32,7 @@ public class Director
         Player player = new();
         SpawnDestory sp = new();
         Coin coin = new();
+        CurrencyHandler.money = 100000;
         // player.SetTexture(ImageService.SetShipStartImage());
         bg.LoadBGTexture(ImageService.earthBGStartTexture);
         player.SetCharTexture(ImageService.startShipTexture);
@@ -61,12 +62,14 @@ public class Director
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
     }
+    
 
     private static DateTime CheckIfDied(Timer timer, DateTime startTime, BackgroundService bg, SpawnDestory sp, Coin coin)
     {
         if (!PlayerStats.PlayerDeadCheck())
         {
             timer.Count();
+            
         }
         else
         {
@@ -144,7 +147,7 @@ public class Director
             bg.ServeBackgrounds();
             VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin, sp.getEnemyWeapons(),
             sp.getExplosions(), sp.GetPowerUps());
-            VideoService.DrawColliderBox(player); // Draws collider box around player
+          
             // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
             Raylib.EndDrawing();
             //     action = false;
