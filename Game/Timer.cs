@@ -19,6 +19,11 @@ public class Timer
         updates = 0;
     }
 
+    public void previousReset()
+    {
+        this.previous = DateTime.Now;
+    }
+
 
     public void RealTime()
     {

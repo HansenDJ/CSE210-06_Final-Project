@@ -76,6 +76,7 @@ public class Director
             GameOverDeath.loadScreen();
             if (KeyboardService.RKeyDown())
             {
+                timer.previousReset();
                 timer.Count();
                 startTime = DateTime.Now;
                 secondsPassed = 0;
