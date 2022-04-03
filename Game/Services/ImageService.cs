@@ -119,6 +119,12 @@ public static class ImageService
 
     public static Image powerUpRicochetImage = LoadImage("Game/Images/powerUp/ricochet.png");
 
+    public static Image healthHit1Image = LoadImage("Game/Images/powerUp/HealthHit1.png");
+
+    public static Image healthHit2Image = LoadImage("Game/Images/powerUp/HealthHit2.png");
+
+    public static Image getCoinImage = LoadImage("Game/Images/powerUp/gainCoins.png");
+
 
     /*---Textures---*/
     // PLAYER
@@ -209,8 +215,9 @@ public static class ImageService
 
     public static Texture2D powerUpShieldTexture = LoadTextureFromImage(powerUpShieldImage);
     public static Texture2D powerUpRicochetTexture = LoadTextureFromImage(powerUpRicochetImage);
-    
-    
+    public static Texture2D healthHit1Texture = LoadTextureFromImage(healthHit1Image);
+    public static Texture2D healthHit2Texture = LoadTextureFromImage(healthHit2Image);
+    public static Texture2D getCoinTexture = LoadTextureFromImage(getCoinImage);
 
     public static int explosionFrameLength = 16;
 
@@ -307,6 +314,9 @@ public static class ImageService
         allImages.Add(powerUpShieldImage);
         allImages.Add(heartIconImage);
         allImages.Add(spacebgImage);
+        allImages.Add(healthHit1Image);
+        allImages.Add(healthHit2Image);
+        allImages.Add(getCoinImage);
 
         
 
@@ -374,6 +384,9 @@ public static class ImageService
         allTextures.Add(powerUpShieldTexture);
         allTextures.Add(heartIconTexture);
         allTextures.Add(spacebgTexture);
+        allTextures.Add(healthHit1Texture);
+        allTextures.Add(healthHit2Texture);
+        allTextures.Add(getCoinTexture);
         
 
         allTextures.Add(exp000Texture);
@@ -440,6 +453,10 @@ public static class ImageService
         UnloadImage(powerUpShieldImage);
         UnloadImage(heartIconImage); 
         UnloadImage(spacebgImage);
+        UnloadImage(healthHit1Image);
+        UnloadImage(healthHit2Image);
+        UnloadImage(getCoinImage);
+        
         
 
         UnloadImage(exp000Image);
@@ -507,7 +524,9 @@ public static class ImageService
         UnloadTexture(powerUpShieldTexture);
         UnloadTexture(heartIconTexture); 
         UnloadTexture(spacebgTexture);
-        
+        UnloadTexture(healthHit1Texture);
+        UnloadTexture(healthHit2Texture);
+        UnloadTexture(getCoinTexture);
 
         UnloadTexture(exp000Texture);
         UnloadTexture(exp001Texture);

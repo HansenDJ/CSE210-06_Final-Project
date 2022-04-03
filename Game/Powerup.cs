@@ -8,6 +8,14 @@ public static class Powerup
     public static double endTime = 0;
     public static bool isExplosiveShot = false;
     public static bool isShielded = false;
+
+    public static bool isRestoredHealth = false;
+
+    public static bool isHealthHit1 = false;
+
+    public static bool isHealthhit2 = false;
+
+    public static bool isCoins = false;
     
 
     public static void SetEffectTime(double time)
@@ -20,16 +28,47 @@ public static class Powerup
         effectTime = endTime - Director.secondsPassed;
         if (effectTime <= 0)
         {
+            isHealthHit1 = false;
+            isHealthhit2 = false;
+            isRestoredHealth = false;
             isExplosiveShot = false;
             isShielded = false;
+            isCoins = false;
         }
     }
-
+    public static void IsHealthHit2Effect()
+    {
+        PlayerStats.playerHealth -= 50;
+        isHealthHit1 = false;
+        isHealthhit2 = true;
+        isRestoredHealth = false;
+        isExplosiveShot = false;
+        isShielded = false;
+        isCoins = false;
+        effectTime = 3;
+        endTime = Director.secondsPassed + effectTime;
+    }
+    public static void IsHealthHit1Effect()
+    {
+        PlayerStats.playerHealth -= 25;
+        isHealthHit1 = true;
+        isHealthhit2 = false;
+        isRestoredHealth = false;
+        isExplosiveShot = false;
+        isShielded = false;
+        isCoins = false;
+        effectTime = 3;
+        endTime = Director.secondsPassed + effectTime;
+    }
     public static void IsExplosiveEffect()
     {
         Random rnd = new Random();
+        isHealthHit1 = false;
+        isHealthhit2 = false;
+        isRestoredHealth = false;
         isExplosiveShot = true;
         isShielded = false;
+        isCoins = false;
         effectTime = rnd.Next(5, 20);
         endTime = Director.secondsPassed + effectTime;
     }
@@ -37,9 +76,39 @@ public static class Powerup
     public static void IsShieldedEffect()
     {
         Random rnd = new Random();
-        isShielded = true;
+        isHealthHit1 = false;
+        isHealthhit2 = false;
+        isRestoredHealth = false;
         isExplosiveShot = false;
+        isShielded = true;
+        isCoins = false;
         effectTime = rnd.Next(5, 20);
+        endTime = Director.secondsPassed + effectTime;
+    }
+
+
+    public static void IsRestoredHealthEffect()
+    {
+        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+        isHealthHit1 = false;
+        isHealthhit2 = false;
+        isRestoredHealth = true;
+        isExplosiveShot = false;
+        isShielded = false;
+        isCoins = false;
+        effectTime = 3;
+        endTime = Director.secondsPassed + effectTime;
+    }
+    public static void IsCoinsEffect()
+    {
+        CurrencyHandler.money += 300;
+        isHealthHit1 = false;
+        isHealthhit2 = false;
+        isRestoredHealth = false;
+        isExplosiveShot = false;
+        isShielded = false;
+        isCoins = true;
+        effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
     }
     public static void randomEffect()
@@ -49,24 +118,22 @@ public static class Powerup
         switch (decision)
         {
             case 1: 
-                PlayerStats.playerHealth -= 50;
+                IsHealthHit1Effect();
                 break;
-            case 2: PlayerStats.playerHealth -= 25;
+            case 2: 
+                IsHealthHit2Effect();
                 break;
             case 3:
-                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                IsRestoredHealthEffect();
                 break;
             case 4:
-
                 IsExplosiveEffect();
-                
-                
                 break;
             case 5:
                 IsShieldedEffect();
                 break;
             case 6:
-                CurrencyHandler.money += 300;
+                IsCoinsEffect();
                 break;
 
         }

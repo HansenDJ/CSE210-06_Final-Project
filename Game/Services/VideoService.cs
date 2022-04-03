@@ -24,6 +24,11 @@ public class VideoService
         DrawHeartCount();
         DrawPowerUpShield();
         DrawPowerUpRicochet();
+        DrawPowerUpHit1();
+        DrawPowerUpHit2();
+        DrawPowerUpCoin();
+        DrawPowerUpRestoreHealth();
+        DrawWavetext();
         DrawPowerUpList(powerUpGraphics);
         DrawCharacters(enemiesDraw, playerWeaponsToDraw, player);
         ExplosionAnimation(ExplosionC);
@@ -155,20 +160,20 @@ public class VideoService
         }
         
     }
-
-
+    
+    
     public static void DrawCoinCount(Coin coin)
     {
-        DrawText($"{CurrencyHandler.money}", 1250, 22, 20, WHITE);
-        DrawTexture(ImageService.coinCounterTexture, 1220, 20, WHITE);
-        DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * Director.levelTime - Director.secondsPassed)}", 650, 22, 20, WHITE);
+        DrawText($"{CurrencyHandler.money}", 160, 5, 20, WHITE);
+        DrawTexture(ImageService.coinCounterTexture, 135, 2, WHITE);
+        
       
     }
 
     public static void DrawHeartCount()
     {
-        DrawTexture(ImageService.heartIconTexture, 1220, 55, WHITE);
-        DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}", 1250, 55, 20, WHITE);
+        DrawTexture(ImageService.heartIconTexture, 5, 2, WHITE);
+        DrawText($"{PlayerStats.playerHealth}/{PlayerStats.maxPlayerHealth}",40, 5, 20, WHITE);
         
         
     }
@@ -184,8 +189,8 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isShielded)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 80, 23, 20, WHITE);
-            DrawTexture(ImageService.powerUpShieldTexture, 5, 5, WHITE);
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 48, 30, WHITE);
+            DrawTexture(ImageService.powerUpShieldTexture, 5, 35, WHITE);
         }
     }
 
@@ -193,9 +198,47 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isExplosiveShot)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 80, 23, 20, WHITE);
-            DrawTexture(ImageService.powerUpRicochetTexture, 5, 5, WHITE);
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 48, 30, WHITE);
+            DrawTexture(ImageService.powerUpRicochetTexture, 5, 35, WHITE);
         }
     }
 
+    public static void DrawPowerUpHit1()
+    {
+        if (Powerup.effectTime > 0 && Powerup.isHealthHit1)
+        {
+            DrawTexture(ImageService.healthHit1Texture, 5, 35, WHITE);
+        }
+    }
+
+    public static void DrawPowerUpHit2()
+    {
+        if (Powerup.effectTime > 0 && Powerup.isHealthhit2)
+        {
+            DrawTexture(ImageService.healthHit2Texture, 5, 35, WHITE);
+        }
+    }
+
+    public static void DrawPowerUpRestoreHealth()
+    {
+        if (Powerup.effectTime > 0 && Powerup.isRestoredHealth)
+        {
+            DrawTexture(ImageService.powerUpHealthTexture, 5, 35, WHITE);
+        }
+    }
+
+    public static void DrawPowerUpCoin()
+    {
+        if (Powerup.effectTime > 0 && Powerup.isCoins)
+        {
+            DrawTexture(ImageService.getCoinTexture, 5, 35, WHITE);
+        }
+    }
+    
+
+    public static void DrawWavetext()
+    {
+        DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * Director.levelTime - Director.secondsPassed)}", 1350, 5, 20, WHITE);
+        DrawText("Next Wave In:",1200,5,20,WHITE);
+    }
 }
