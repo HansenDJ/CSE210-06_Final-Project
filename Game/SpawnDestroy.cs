@@ -540,17 +540,8 @@ public class SpawnDestory
                 _EnemyWeaponOne.SetCharTexture(ImageService.laser11Texture);
                 _EnemyWeaponOne.enemyIndex = enemyI;
 
-                // Set and apply laser spawn location offset
-                // _EnemyWeaponOne.SetOffsetColliderWidth(enemy.offsetW);
-                // _EnemyWeaponOne.SetOffsetColliderHeight(enemy.offsetH);
-                // _EnemyWeaponOne.SetX(enemy.x);
-                // _EnemyWeaponOne.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
-
                 AudioService.PlayAudio(AudioService.lv1Shot);
                 enemyWeaponsList.Add(_EnemyWeaponOne);
-                // VideoService.DrawEnemyWeapons(_EnemyWeaponOne.SetX, _EnemyWeaponOne.SetY);
-                // DrawCharacter(EnemyWeaponsToDraw[i_weaponEnemy]);
-                // DrawColliderBox(EnemyWeaponsToDraw[i_weaponEnemy]);
 
             break;
             case 2:
