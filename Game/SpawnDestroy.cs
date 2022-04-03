@@ -602,7 +602,8 @@ public class SpawnDestory
                 enemyWeaponsList.Add(enemyWeaponToCreate);
             break;
             default :
-                int shotcount = rnd.Next(1, DifficultyHandler.currentLevel);
+                int shotcount = rnd.Next(1,5);
+  
                 for (int i = 0; i < shotcount; i++)
                 {
                     Weapon enemyWeaponToCreate2 = new Weapon();
