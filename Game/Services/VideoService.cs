@@ -17,16 +17,15 @@ public class VideoService
     // public static int scrnHeight = Convert.ToInt32( FullPrimaryScreenHeight);
 
     public static void Draw(List<Enemy> enemiesDraw, List<Weapon> playerWeaponsToDraw, Player player,
-        BackgroundService bg, Coin coin, List<Weapon> enemyWeaponsToDraw, List<Coordinate> ExplosionC,
+        BackgroundService bg, Coin coin, List<Coordinate> ExplosionC,
         List<PowerUpGraphic> powerUpGraphics)
     {
-        DrawBackdrop(bg);
         DrawCoinCount(coin);
         DrawHeartCount();
         DrawPowerUpShield();
         DrawPowerUpRicochet();
         DrawPowerUpList(powerUpGraphics);
-        DrawCharacters(enemiesDraw, playerWeaponsToDraw, player, enemyWeaponsToDraw);
+        DrawCharacters(enemiesDraw, playerWeaponsToDraw, player);
         ExplosionAnimation(ExplosionC);
         
         DrawPlayer(player);
@@ -43,15 +42,14 @@ public class VideoService
     }
 
  
-    private static void DrawBackdrop(BackgroundService bg)
+    public static void DrawBackdrop(BackgroundService bg)
     {
         ClearBackground(BLACK);
         DrawTexture(bg.bg1Texture, bg.x1, bg.y1, WHITE);
         DrawTexture(bg.bg2Texture, bg.x2, bg.y2, WHITE);
     }
 
-    private static void DrawCharacters(List<Enemy> enemiesToDraw, List<Weapon> weaponsToDraw, Player player,
-        List<Weapon> EnemyWeaponsToDraw)
+    private static void DrawCharacters(List<Enemy> enemiesToDraw, List<Weapon> weaponsToDraw, Player player)
     {
         //   Console.WriteLine( "Object Count: " + enemiesToDraw.Count().ToString() + " Weapon Count: " + weaponsToDraw.Count().ToString());
         for (int i_enemy = 0; i_enemy < enemiesToDraw.Count - 1; i_enemy++)
@@ -85,40 +83,51 @@ public class VideoService
             DrawColliderBox(weaponsToDraw[i_playerWeapon]);
         }
 
-        for (int i_weaponEnemy = 0; i_weaponEnemy < EnemyWeaponsToDraw.Count - 1; i_weaponEnemy++)
+        
+    }
+
+    public static void DrawEnemyWeapons(List<Enemy> enemyToDraw, List<Weapon> enemyWeaponsToDraw)
+    {
+        for (int i_weaponEnemy = 0; i_weaponEnemy < enemyWeaponsToDraw.Count - 1; i_weaponEnemy++)
         {
-            Debug.Assert(0 <= i_weaponEnemy & i_weaponEnemy < EnemyWeaponsToDraw.Count, "ASSERT: i_weaponEnemy out of range!");
+            Debug.Assert(0 <= i_weaponEnemy & i_weaponEnemy < enemyWeaponsToDraw.Count, "ASSERT: i_weaponEnemy out of range!");
             // // int enemyX = enemiesToDraw[EnemyWeaponsToDraw[i].enemyIndex].x;
             // // int enemyY = enemiesToDraw[EnemyWeaponsToDraw[i].enemyIndex].y;
             // EnemyWeaponsToDraw[i].SetOffsetColliderWidth(EnemyWeaponsToDraw[i].offsetW);
             // EnemyWeaponsToDraw[i].SetOffsetColliderHeight(EnemyWeaponsToDraw[i].offsetH);
             // EnemyWeaponsToDraw[i].SetX(EnemyWeaponsToDraw[i].x - EnemyWeaponsToDraw[i].GetColliderBoxWidth());
             // EnemyWeaponsToDraw[i].SetY(EnemyWeaponsToDraw[i].y - EnemyWeaponsToDraw[i].GetColliderBoxHeight() / 2);
-            for (int enemyIndex = 0; enemyIndex < enemiesToDraw.Count - 1; enemyIndex++)
-                if (!EnemyWeaponsToDraw[i_weaponEnemy].location)
+            if (!enemyWeaponsToDraw[i_weaponEnemy].location)
+            {
+                // if (enemiesToDraw[enemyIndex].enemyID == weaponsToDraw[i_weaponEnemy].weaponID)
+                // {
+                //     EnemyWeaponsToDraw[i_weaponEnemy].SetX(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxWidth());
+                //     EnemyWeaponsToDraw[i_weaponEnemy].SetY(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxHeight() / 2);
+                // }
+                // else
+                // {
+                //     // if enemyID == weaponID --> weaponList.remove(i)
+                //     continue;
+                // }
+                // EnemyWeaponsToDraw[i_weaponEnemy].offsetW = EnemyWeaponsToDraw[i_weaponEnemy].offsetW;
+                // EnemyWeaponsToDraw[i_weaponEnemy].offsetH = EnemyWeaponsToDraw[i_weaponEnemy].offsetH;
+                // EnemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderWidth(EnemyWeaponsToDraw[i_weaponEnemy].offsetW);
+                // EnemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderHeight(EnemyWeaponsToDraw[i_weaponEnemy].offsetH);
+                // EnemyWeaponsToDraw[i_weaponEnemy].SetX(EnemyWeaponsToDraw[i_weaponEnemy].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxWidth());
+                // EnemyWeaponsToDraw[i_weaponEnemy].SetY(EnemyWeaponsToDraw[i_weaponEnemy].y - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxHeight() / 2);
+                for (int enemyIndex = 0; enemyIndex < enemyToDraw.Count - 1; enemyIndex++)
                 {
-                    // if (enemiesToDraw[enemyIndex].enemyID == weaponsToDraw[i_weaponEnemy].weaponID)
-                    // {
-                    //     EnemyWeaponsToDraw[i_weaponEnemy].SetX(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxWidth());
-                    //     EnemyWeaponsToDraw[i_weaponEnemy].SetY(enemiesToDraw[enemyIndex].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxHeight() / 2);
-                    // }
-                    // else
-                    // {
-                    //     // if enemyID == weaponID --> weaponList.remove(i)
-                    //     continue;
-                    // }
-                    // EnemyWeaponsToDraw[i_weaponEnemy].offsetW = EnemyWeaponsToDraw[i_weaponEnemy].offsetW;
-                    // EnemyWeaponsToDraw[i_weaponEnemy].offsetH = EnemyWeaponsToDraw[i_weaponEnemy].offsetH;
-                    // EnemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderWidth(EnemyWeaponsToDraw[i_weaponEnemy].offsetW);
-                    // EnemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderHeight(EnemyWeaponsToDraw[i_weaponEnemy].offsetH);
-                    // EnemyWeaponsToDraw[i_weaponEnemy].SetX(EnemyWeaponsToDraw[i_weaponEnemy].x - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxWidth());
-                    // EnemyWeaponsToDraw[i_weaponEnemy].SetY(EnemyWeaponsToDraw[i_weaponEnemy].y - EnemyWeaponsToDraw[i_weaponEnemy].GetColliderBoxHeight() / 2);
-                    
-                    EnemyWeaponsToDraw[i_weaponEnemy].location = true;
+                    Debug.Assert(0 <= enemyIndex & enemyIndex < enemyToDraw.Count, "ASSERT: enemyIndex out of range!");
+                    enemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderWidth(enemyToDraw[enemyIndex].offsetW);
+                    enemyWeaponsToDraw[i_weaponEnemy].SetOffsetColliderHeight(enemyToDraw[enemyIndex].offsetH);
+                    enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[enemyIndex].x);
+                    enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[enemyIndex].y + enemyToDraw[enemyIndex].GetColliderBoxHeight() / 2);
                 }
+                enemyWeaponsToDraw[i_weaponEnemy].location = true;
+            }
 
-            DrawCharacter(EnemyWeaponsToDraw[i_weaponEnemy]);
-            DrawColliderBox(EnemyWeaponsToDraw[i_weaponEnemy]);
+            DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
+            DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
         }
     }
 

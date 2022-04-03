@@ -133,11 +133,6 @@ public class Director
 
 
             sp.IncrementReloadTime();
-            sp.EnemyListLoop(player);
-            sp.PowerUpFall(player);
-
-            sp.MakePlayerWeaponsMove();
-            sp.MakeEnemyWeaponsMove(player);
 
             timer.RealTime();
 
@@ -145,9 +140,18 @@ public class Director
             Raylib.BeginDrawing();
 
             bg.ServeBackgrounds();
-            VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin, sp.getEnemyWeapons(),
-            sp.getExplosions(), sp.GetPowerUps());
-          
+
+            VideoService.DrawBackdrop(bg);
+
+            sp.EnemyListLoop(player);
+            sp.MakeEnemyWeaponsMove(player);
+            sp.MakePlayerWeaponsMove();
+            sp.PowerUpFall(player);
+            
+            VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin,
+                sp.getExplosions(), sp.GetPowerUps());
+            // sp.SetEnemyWeaponXY();
+
             // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
             Raylib.EndDrawing();
             //     action = false;
