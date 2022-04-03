@@ -375,15 +375,15 @@ public class SpawnDestory
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser11Texture);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 5;
-                maxReloadTime = 450;
+                _weaponSwitcher.strength = 7;
+                maxReloadTime = 400;
 
                 break;
             case 2:
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser10Texture);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 10;
+                _weaponSwitcher.strength = 12;
                 maxReloadTime = 400;
                 break;
             case 3:
@@ -439,7 +439,7 @@ public class SpawnDestory
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.coinCounterTexture);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 999;
+                _weaponSwitcher.strength = 9999;
                 maxReloadTime = 100;
                 break;
         }}
@@ -643,11 +643,11 @@ public class SpawnDestory
 
     private void EnemyBossShot(Enemy enemy, Weapon enemyWeaponToCreate)
     {
-        enemyWeaponToCreate.speed = rnd.Next(6,10);
+        enemyWeaponToCreate.speed = rnd.Next(6,15);
         enemyWeaponToCreate.strength = 50;
         enemyWeaponToCreate.SetCharTexture(ImageService.laser8Texture);
-        enemyWeaponToCreate.SetX(enemy.x);
-        enemyWeaponToCreate.SetY(enemy.y + rnd.Next(15, enemy.GetColliderBoxHeight() - 5));
+        enemyWeaponToCreate.SetX(enemy.x - 50);
+        enemyWeaponToCreate.SetY(enemy.y + rnd.Next(50, enemy.GetColliderBoxHeight() - 50));
         enemyWeaponToCreate.location = true;
         // enemyWeaponToCreate.enemyIndex = enemyI;
         // enemy.laserIndex = enemyWeaponToCreate.enemyIndex;
