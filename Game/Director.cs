@@ -75,6 +75,8 @@ public class Director
         else
         {
             GameOverDeath.loadScreen();
+            
+            //AudioService.UnloadAudio();
             if (KeyboardService.RKeyDown())
             {
                 timer.previousReset();

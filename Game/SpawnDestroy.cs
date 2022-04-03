@@ -652,6 +652,7 @@ public class SpawnDestory
     public void PlayerDeadCheck()
     {
         if (PlayerStats.playerHealth <= 0) PlayerStats.playerHealth = 0;
+        
     }
 
     // When enemy laser hits the player, damage the player and remove laser
