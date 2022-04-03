@@ -15,7 +15,7 @@ public static class Powerup
 
     public static bool isHealthhit2 = false;
 
-    public static bool iscoins = false;
+    public static bool isCoins = false;
     
 
     public static void SetEffectTime(double time)
@@ -33,7 +33,7 @@ public static class Powerup
             isRestoredHealth = false;
             isExplosiveShot = false;
             isShielded = false;
-            iscoins = false;
+            isCoins = false;
         }
     }
     public static void IsHealthHit2Effect()
@@ -44,7 +44,7 @@ public static class Powerup
         isRestoredHealth = false;
         isExplosiveShot = false;
         isShielded = false;
-        iscoins = false;
+        isCoins = false;
         effectTime = 5;
         endTime = Director.secondsPassed + effectTime;
     }
@@ -56,7 +56,7 @@ public static class Powerup
         isRestoredHealth = false;
         isExplosiveShot = false;
         isShielded = false;
-        iscoins = false;
+        isCoins = false;
         effectTime = 5;
         endTime = Director.secondsPassed + effectTime;
     }
@@ -68,7 +68,7 @@ public static class Powerup
         isRestoredHealth = false;
         isExplosiveShot = true;
         isShielded = false;
-        iscoins = false;
+        isCoins = false;
         effectTime = rnd.Next(5, 20);
         endTime = Director.secondsPassed + effectTime;
     }
@@ -81,7 +81,7 @@ public static class Powerup
         isRestoredHealth = false;
         isExplosiveShot = false;
         isShielded = true;
-        iscoins = false;
+        isCoins = false;
         effectTime = rnd.Next(5, 20);
         endTime = Director.secondsPassed + effectTime;
     }
@@ -95,7 +95,7 @@ public static class Powerup
         isRestoredHealth = true;
         isExplosiveShot = false;
         isShielded = false;
-        iscoins = false;
+        isCoins = false;
         effectTime = 5;
         endTime = Director.secondsPassed + effectTime;
     }
@@ -107,7 +107,7 @@ public static class Powerup
         isRestoredHealth = false;
         isExplosiveShot = false;
         isShielded = false;
-        iscoins = true;
+        isCoins = true;
         effectTime = 5;
         endTime = Director.secondsPassed + effectTime;
     }
