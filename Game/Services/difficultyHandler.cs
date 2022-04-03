@@ -7,6 +7,8 @@ public static class DifficultyHandler
     public static int currentLevel = 1;
     public static int previousLevel = 1;
     public static bool levelChange;
+
+    public static int maxEnemies = 25;
     //public static bool newAudio = true;
 
 
@@ -14,6 +16,7 @@ public static class DifficultyHandler
 
     public static bool LevelUp(double time)
     {
+      
        // if (Director.dead1st)
      //   {
        //     newAudio = true;
@@ -85,7 +88,12 @@ public static class DifficultyHandler
     private static Random rnd = new Random();
     public static void IncreaseDifficulty()
     {
-        enemyCount += rnd.Next(1,5);
+        if (enemyCount < maxEnemies)
+        {
+            enemyCount += rnd.Next(1,5);
+            
+        }
+       
     }
 
 

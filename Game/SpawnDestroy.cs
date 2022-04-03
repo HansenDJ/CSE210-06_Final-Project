@@ -105,7 +105,11 @@ public class SpawnDestory
         var enemyBoss = new Enemy();
         enemyBoss.health = 400 * level;
         enemyBoss.enemyID = enemyIDCounter;
-        enemyIDCounter++;    
+        enemyIDCounter++;
+        if (DifficultyHandler.currentLevel > 5)
+        {
+            level = rnd.Next(1, 6);
+        }
         switch (level)
         {
             case 2:
