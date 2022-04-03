@@ -45,12 +45,13 @@ public class Enemy : Character
         enemyID = Convert.ToString(id1) + Convert.ToString(id2) + Convert.ToString(id3) + Convert.ToString(id4) + Convert.ToString(char1) + Convert.ToString(char2) + Convert.ToString(char3) + Convert.ToString(char4);
         Console.WriteLine("eNeMyId: " + enemyID);
     }
-    public void MoveEnemy(int playery)
+    public void MoveEnemy(int playery,int playerx)
     {
         
         x -= moveSpeed;
-      
-            if (y < playery )
+        if (x >= playerx)
+        {
+            if (y < playery)
             {
                 y += chaseSpeed;
             }
@@ -58,6 +59,7 @@ public class Enemy : Character
             {
                 y -= chaseSpeed;
             }
+        }
     }
 
     public void LevelOneDifficulty()

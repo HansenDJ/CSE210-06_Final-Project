@@ -488,7 +488,7 @@ public class SpawnDestory
                 enemyList[i].laserCounter = 0;
             }
 
-            MakeEnemiesMove(i,player.y);
+            MakeEnemiesMove(i,player.y,player.x);
             // Removes an enemy if it moves off the left side of the screen
             RemoveEnemyOffScreen(i);
         }
@@ -568,9 +568,9 @@ public class SpawnDestory
         // enemyWeaponsList.Add(_EnemyWeapon);
     }
 
-    public void MakeEnemiesMove(int index, int playery)
+    public void MakeEnemiesMove(int index, int playery,int playerx)
     {
-        enemyList[index].MoveEnemy(playery);
+        enemyList[index].MoveEnemy(playery, playerx);
     }
 
     // Removes an enemy if it moves off the left side of the screen
