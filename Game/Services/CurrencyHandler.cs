@@ -39,7 +39,7 @@ public static class CurrencyHandler
 
         if (money >= 4000 && money < 5000) return 8;
 
-        if (money >= 5000 && money < 10000)
+        if (money <= 5000 && money < 10000)
         {
             return 9;
         }
