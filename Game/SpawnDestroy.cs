@@ -301,8 +301,11 @@ public class SpawnDestory
         enemyList.Add(enemyShadow);
     }
 
+    private int WeaponTypeID = 0;
+
     public void SpawnWeapon(int weaponType, int custom = 1,int customX = 0,int customY = 0)
     {
+        WeaponTypeID = weaponType;
         var _weaponSwitcher = new Weapon();
         _weaponSwitcher.powerUpShot = custom;
         _weaponSwitcher.direction = custom;
@@ -395,6 +398,11 @@ public class SpawnDestory
         if (Weapon.reloadTime >= maxReloadTime)
         {
             SpawnWeapon(CurrencyHandler.CheckMoney());
+            if (WeaponTypeID == 9)
+            {
+                CurrencyHandler.money -= 25;
+            }
+            
             Weapon.reloadTime = 0;
         }
     }
