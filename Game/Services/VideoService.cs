@@ -101,12 +101,17 @@ public class VideoService
             {
                 enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x);
                 enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyToDraw[index_enemy].GetColliderBoxHeight() / 2);
-                    
+                DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
+                DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
+
                 enemyWeaponsToDraw[i_weaponEnemy].location = true;
             }
-            DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
-            DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
-            
+            else if (enemyWeaponsToDraw[i_weaponEnemy].location)
+            {
+                DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
+                DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
+            }
+
             // for (int index_enemy = 0; index_enemy < enemyToDraw.Count - 1; index_enemy++)
             // {
             //     if (!enemyWeaponsToDraw[i_weaponEnemy].location)
