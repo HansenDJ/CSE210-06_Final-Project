@@ -45,7 +45,7 @@ public static class Powerup
         isExplosiveShot = false;
         isShielded = false;
         isCoins = false;
-        effectTime = 5;
+        effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
     }
     public static void IsHealthHit1Effect()
@@ -57,7 +57,7 @@ public static class Powerup
         isExplosiveShot = false;
         isShielded = false;
         isCoins = false;
-        effectTime = 5;
+        effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
     }
     public static void IsExplosiveEffect()
@@ -96,7 +96,7 @@ public static class Powerup
         isExplosiveShot = false;
         isShielded = false;
         isCoins = false;
-        effectTime = 5;
+        effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
     }
     public static void IsCoinsEffect()
@@ -108,7 +108,7 @@ public static class Powerup
         isExplosiveShot = false;
         isShielded = false;
         isCoins = true;
-        effectTime = 5;
+        effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
     }
     public static void randomEffect()

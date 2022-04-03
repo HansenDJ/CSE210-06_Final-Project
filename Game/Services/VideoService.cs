@@ -198,7 +198,6 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isHealthHit1)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 48, 30, WHITE);
             DrawTexture(ImageService.healthHit1Texture, 5, 35, WHITE);
         }
     }
@@ -207,7 +206,6 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isHealthhit2)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 48, 30, WHITE);
             DrawTexture(ImageService.healthHit2Texture, 5, 35, WHITE);
         }
     }
@@ -216,7 +214,6 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isRestoredHealth)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 48, 30, WHITE);
             DrawTexture(ImageService.powerUpHealthTexture, 5, 35, WHITE);
         }
     }
@@ -225,7 +222,6 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isCoins)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 48, 30, WHITE);
             DrawTexture(ImageService.getCoinTexture, 5, 35, WHITE);
         }
     }
