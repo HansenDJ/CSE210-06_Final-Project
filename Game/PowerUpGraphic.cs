@@ -2,8 +2,6 @@ namespace generalNamespace;
 
 public class PowerUpGraphic : Character
 {
-    public int  x = 0;
-    public  int y = 0;
     public int ID = 0;
     public int fallSpeed = 5;
 

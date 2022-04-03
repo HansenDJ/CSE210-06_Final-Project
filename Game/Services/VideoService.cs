@@ -36,26 +36,13 @@ public class VideoService
     {
         for (int i = 0; i < powerups.Count; i++)
         {
-            DrawTexture(GetPowerUpTexture(powerups[i].ID),powerups[i].x,powerups[i].y,Color.WHITE);
+            DrawTexture(powerups[i].GetCharTexture(),powerups[i].x,powerups[i].y,Color.WHITE);
+            DrawColliderBox(powerups[i]);
+           
         }
     }
 
-    public static Texture2D GetPowerUpTexture(int i)
-    {
-        switch (i)
-        {
-            case 1:
-                return ImageService.powerUpHealthTexture;
-                break;
-            case 2:
-                return ImageService.powerUpShieldTexture;
-            case 3:
-                return ImageService.powerUpRicochetTexture;
-                break;
-        }
-
-        return ImageService.powerUpShieldTexture;
-    }
+ 
     private static void DrawBackdrop(BackgroundService bg)
     {
         ClearBackground(BLACK);
