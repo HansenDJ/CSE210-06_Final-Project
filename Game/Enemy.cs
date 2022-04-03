@@ -50,7 +50,13 @@ public class Enemy : Character
             }
             else
             {
-                if (y < playery)
+                if (y - playery < 5)
+                {
+                    y += 1;
+                }else if (playery - y < 5)
+                {
+                    y -= 1;
+                } else if (y < playery)
                 {
                     y += chaseSpeed;
                 }
