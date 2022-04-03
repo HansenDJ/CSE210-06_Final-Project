@@ -82,10 +82,10 @@ public static class DifficultyHandler
         return difficulty;
     }
 
-
+    private static Random rnd = new Random();
     public static void IncreaseDifficulty()
     {
-        enemyCount += 5;
+        enemyCount += rnd.Next(1,5);
     }
 
 
