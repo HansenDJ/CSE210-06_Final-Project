@@ -21,6 +21,8 @@ public static class DifficultyHandler
             previousLevel = currentLevel;
             Console.WriteLine("Level UP " + currentLevel);
             levelChange = true;
+            SpawnBoss.timeForBoss = true;
+            
             return true;
         }
 

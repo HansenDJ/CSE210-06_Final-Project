@@ -34,14 +34,30 @@ public class Enemy : Character
         x -= moveSpeed;
         if (x >= playerx)
         {
-            if (y < playery)
+            if (levelOfEnemy == 100)
             {
-                y += chaseSpeed;
+                
+                if (y < playery)
+                {
+                    y += chaseSpeed;
+                }
+                else if(y > playery)
+                {
+                    y -= chaseSpeed;
+                }
             }
             else
             {
-                y -= chaseSpeed;
+                if (y < playery)
+                {
+                    y += chaseSpeed;
+                }
+                else
+                {
+                    y -= chaseSpeed;
+                }
             }
+           
         }
     }
 

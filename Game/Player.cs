@@ -139,7 +139,7 @@ public class Player : Character
         }
 
         if ((KeyboardService.DKeyDown() || KeyboardService.RightKeyDown()) &&
-            x < playerXRange - GetOffsetColliderWidth())
+            x < 850)
         {
             MoveHandleLR('r');
             x += moveHandlerL;

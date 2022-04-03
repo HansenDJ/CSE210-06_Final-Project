@@ -12,7 +12,7 @@ public class Director
     // public static bool unloadCheck = false;
     // static bool action = false;f
    public static double secondsPassed = 0;
-   public static Double levelTime = 90;
+   public static Double levelTime = 20;
    public static bool pause = false;
     public void StartGame()
     {
@@ -32,6 +32,7 @@ public class Director
         Player player = new();
         SpawnDestory sp = new();
         Coin coin = new();
+        
     
         // player.SetTexture(ImageService.SetShipStartImage());
         bg.LoadBGTexture(ImageService.earthBGStartTexture);
@@ -143,7 +144,13 @@ public class Director
             bg.ServeBackgrounds();
 
             VideoService.DrawBackdrop(bg);
+            if (SpawnBoss.timeForBoss)
+            {
+                SpawnBoss.timeForBoss = false;
+                sp.SpawnBoss(DifficultyHandler.currentLevel);
+            }
 
+          
             sp.EnemyListLoop(player);
             sp.MakeEnemyWeaponsMove(player);
             sp.MakePlayerWeaponsMove();

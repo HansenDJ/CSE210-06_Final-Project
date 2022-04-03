@@ -102,6 +102,11 @@ public class SpawnDestory
     public void SpawnBoss(int level)
     {
         var enemyBoss = new Enemy();
+        enemyBoss.health = 1000 * level;
+      
+    
+        
+        
         switch (level)
         {
             case 2:
@@ -109,36 +114,43 @@ public class SpawnDestory
                 enemyBoss.offsetW = waterBossOffsetW;
                 enemyBoss.offsetH = waterBossOffsetH;
                 enemyBoss.SetCharTexture(ImageService.waterBossEnemyTexture);
-                enemyBoss.levelOfEnemy = 2;
+               
                 break;
             case 3:
                 // Width and height offsets for collider box from lv 3 air boss texture file
                 enemyBoss.offsetW = airBossOffsetW;
                 enemyBoss.offsetH = airBossOffsetH;
                 enemyBoss.SetCharTexture(ImageService.airBossEnemyTexture);
-                enemyBoss.levelOfEnemy = 3;
+              
                 break;
             case 4:
                 // Width and height offsets for collider box from lv 4 fire boss texture file
                 enemyBoss.offsetW = fireBossOffsetW;
                 enemyBoss.offsetH = fireBossOffsetH;
                 enemyBoss.SetCharTexture(ImageService.fireBossEnemyTexture);
-                enemyBoss.levelOfEnemy = 4;
+                
                 break;
             case 5:
             // Width and height offsets for collider box from lv 5 shadow boss texture file
                 enemyBoss.offsetW = shadowBossOffsetW;
                 enemyBoss.offsetH = shadowBossOffsetH;
                 enemyBoss.SetCharTexture(ImageService.shadowBossEnemyTexture);
-                enemyBoss.levelOfEnemy = 5;
+              
                 break;
+            default:
+                enemyBoss.offsetH = shadowBossOffsetH;
+                enemyBoss.SetCharTexture(ImageService.shadowBossEnemyTexture);
+                break;
+                
         }
 
         enemyBoss.SetOffsetColliderWidth(enemyBoss.offsetW);
         enemyBoss.SetOffsetColliderHeight(enemyBoss.offsetH);
-        enemyBoss.SetY(rnd.Next(enemyBoss.GetTextureHeight(), VideoService.scrnHeight - enemyBoss.GetColliderBoxHeight()));
+        enemyBoss.SetY(400);
         enemyBoss.SetX(VideoService.scrnWidth + 100);
-        enemyBoss.SetSpeedandHealth();
+        enemyBoss.moveSpeed = 1;
+        enemyBoss.chaseSpeed = 1;
+        enemyBoss.levelOfEnemy = 100;
         enemyList.Add(enemyBoss);
     }
     public void SpawnEarthEnemy(int enemyDifficulty)
@@ -507,6 +519,11 @@ public class SpawnDestory
                 enemyList[i].laserCounter = 0;
             }
 
+            if (enemyList[i].levelOfEnemy == 100 && enemyList[i].x < 952)
+            {
+                enemyList[i].moveSpeed = 0;
+            }
+
             MakeEnemiesMove(i,player.y,player.x);
             // Removes an enemy if it moves off the left side of the screen
             RemoveEnemyOffScreen(i);
@@ -707,12 +724,20 @@ public class SpawnDestory
             {
                 PlayerStats.playerHealth -= 50;
             }
-            
-            var c = new Coordinate();
-            c.x = enemyList[index].x;
-            c.y = enemyList[index].y;
-            explosionCoordinates.Add(c);
-            enemyList.RemoveAt(index);
+
+            if (enemyList[index].levelOfEnemy == 100)
+            {
+                
+            }
+            else
+            {
+                var c = new Coordinate();
+                c.x = enemyList[index].x;
+                c.y = enemyList[index].y;
+                explosionCoordinates.Add(c);
+                enemyList.RemoveAt(index);
+            }
+           
         }
             // TEST: Remove enemy if collides with player
             //Player.playerHealth = Player.playerHealth -10;
