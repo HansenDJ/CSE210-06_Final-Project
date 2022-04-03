@@ -23,19 +23,19 @@ public static class CurrencyHandler
 
     public static int CheckMoney()
     {
-        if (money < 80) return 1;
+        if (money < 100) return 1;
 
-        if (money >= 80 && money < 150) return 2;
+        if (money >= 100 && money < 200) return 2;
 
-        if (money >= 150 && money < 330) return 3;
+        if (money >= 200 && money < 330) return 3;
 
-        if (money >= 330 && money < 400) return 4;
+        if (money >= 330 && money < 450) return 4;
 
-        if (money >= 400 && money < 520) return 5;
+        if (money >= 450 && money < 580) return 5;
 
-        if (money >= 520 && money < 600) return 6;
+        if (money >= 580 && money < 700) return 6;
 
-        if (money >= 600 && money < 1500) return 7;
+        if (money >= 700 && money < 1500) return 7;
 
         if (money >= 1500 && money < 3000) return 8;
 
@@ -45,6 +45,6 @@ public static class CurrencyHandler
         }
 
         Console.WriteLine("ERROR:Money is negative!");
-        return 5;
+        return 10;
     }
 }
