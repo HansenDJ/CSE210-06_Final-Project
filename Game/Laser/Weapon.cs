@@ -4,8 +4,7 @@ public class Weapon : Character
 
 {
     public static int reloadTime = 0;
-    public int enemyIndex = 0;
-    public string weaponID = "";
+    public int laserID;
     public bool location = false;
     public int powerUpShot = 0;
     public int speed = 25;

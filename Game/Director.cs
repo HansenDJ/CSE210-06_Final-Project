@@ -12,11 +12,12 @@ public class Director
     // public static bool unloadCheck = false;
     // static bool action = false;f
    public static double secondsPassed = 0;
-   public static Double levelTime = 90;
+   public static Double levelTime = 20;
    public static bool pause = false;
+   public static bool dead1st = true;
     public void StartGame()
     {
-        
+       
         var startTime = DateTime.Now;
         var timeNow = DateTime.Now;
        
@@ -32,7 +33,8 @@ public class Director
         Player player = new();
         SpawnDestory sp = new();
         Coin coin = new();
-        CurrencyHandler.money = 100000;
+        
+    
         // player.SetTexture(ImageService.SetShipStartImage());
         bg.LoadBGTexture(ImageService.earthBGStartTexture);
         player.SetCharTexture(ImageService.startShipTexture);
@@ -62,28 +64,38 @@ public class Director
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
     }
+
+   
     
 
     private static DateTime CheckIfDied(Timer timer, DateTime startTime, BackgroundService bg, SpawnDestory sp, Coin coin)
     {
         if (!PlayerStats.PlayerDeadCheck())
         {
+          
             timer.Count();
             
         }
         else
         {
+           
+          
+           
             GameOverDeath.loadScreen();
-            if (KeyboardService.RKeyDown())
+          
+            
+            //AudioService.UnloadAudio();
+            if (KeyboardService.RKeyReleased())
             {
+              
+                timer.previousReset();
                 timer.Count();
                 startTime = DateTime.Now;
                 secondsPassed = 0;
-               
                 DifficultyHandler.levelChange = true;
                 DifficultyHandler.currentLevel = 1;
                 DifficultyHandler.previousLevel = 1;
-                PlayerStats.maxPlayerHealth = 150;
+                PlayerStats.maxPlayerHealth = 300;
                 PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
 
                 LevelChangeCheck(bg);
@@ -92,6 +104,12 @@ public class Director
 
                 CurrencyHandler.money = 0;
                 sp.ClearMap();
+               
+
+
+
+
+
             }
 
         }
@@ -110,7 +128,7 @@ public class Director
                 if (CurrencyHandler.money >= 100)
                 {
                     CurrencyHandler.money -= 100;
-                    PlayerStats.playerHealth += 25;
+                    PlayerStats.playerHealth += 50;
                     if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
                     {
                         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
@@ -118,9 +136,9 @@ public class Director
                 }
             }else if (KeyboardService.ShiftReleased())
             {
-                if (CurrencyHandler.money >= 100)
+                if (CurrencyHandler.money >=50)
                 {
-                    CurrencyHandler.money -= 100;
+                    CurrencyHandler.money -= 50;
                     Powerup.randomEffect();
                    
                 }
@@ -133,11 +151,6 @@ public class Director
 
 
             sp.IncrementReloadTime();
-            sp.EnemyListLoop(player);
-            sp.PowerUpFall(player);
-
-            sp.MakePlayerWeaponsMove();
-            sp.MakeEnemyWeaponsMove(player);
 
             timer.RealTime();
 
@@ -145,9 +158,23 @@ public class Director
             Raylib.BeginDrawing();
 
             bg.ServeBackgrounds();
-            VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin, sp.getEnemyWeapons(),
-            sp.getExplosions(), sp.GetPowerUps());
-          
+
+            VideoService.DrawBackdrop(bg);
+            if (SpawnBoss.timeForBoss)
+            {
+                SpawnBoss.timeForBoss = false;
+                sp.SpawnBoss(DifficultyHandler.currentLevel);
+            }
+
+            
+            VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin,
+                sp.getExplosions(), sp.GetPowerUps());
+                
+            sp.EnemyListLoop(player);
+            sp.MakeEnemyWeaponsMove(player);
+            sp.MakePlayerWeaponsMove();
+            sp.PowerUpFall(player);
+
             // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
             Raylib.EndDrawing();
             //     action = false;
