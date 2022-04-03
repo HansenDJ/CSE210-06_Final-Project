@@ -11,18 +11,35 @@ public class SpawnDestory
     public List<Weapon> enemyWeaponsList = new();
     public List<Coordinate> explosionCoordinates = new();
     public List<PowerUpGraphic> PowerUpList = new();
-    private readonly int lvOneEnemyOffsetH = 14;
 
     // Level 1 enemy collider box width and height offsets
     private readonly int lvOneEnemyOffsetW = 18;
-    private readonly int lvThreeEnemyOffsetH = 10;
-
-    // Level 3 enemy collider box width and height offsets
-    private readonly int lvThreeEnemyOffsetW = 30;
-    private readonly int lvTwoEnemyOffsetH = 10;
+    private readonly int lvOneEnemyOffsetH = 14;
 
     // Level 2 enemy collider box width and height offsets
     private readonly int lvTwoEnemyOffsetW = 30;
+    private readonly int lvTwoEnemyOffsetH = 10;
+
+    // Level 3 enemy collider box width and height offsets
+    private readonly int lvThreeEnemyOffsetW = 30;
+    private readonly int lvThreeEnemyOffsetH = 10;
+
+    // Water boss collider box width and height offsets
+    private readonly int waterBossOffsetW = 0;
+    private readonly int waterBossOffsetH = 100;
+    
+    // Air boss collider box width and height offsets
+    private readonly int airBossOffsetW = 20;
+    private readonly int airBossOffsetH = 0;
+
+    // Fire boss collider box width and height offsets
+    private readonly int fireBossOffsetW = 60;
+    private readonly int fireBossOffsetH = 0;
+
+    // Shadow boss collider box width and height offsets
+    private readonly int shadowBossOffsetW = 0;
+    private readonly int shadowBossOffsetH = 20;
+    
     public int maxEnemies = 5;
     public int maxReloadTime;
     public List<Weapon> playerWeaponList = new();
@@ -84,43 +101,49 @@ public class SpawnDestory
 
     public void SpawnBoss(int level)
     {
-        var enemyEarth = new Enemy();
+        var enemyBoss = new Enemy();
         switch (level)
         {
-            case 1:
-                // Width and height offsets for collider box from lv 1 earth enemy image file
-                enemyEarth.offsetW = lvOneEnemyOffsetW;
-                enemyEarth.offsetH = lvOneEnemyOffsetH;
-                enemyEarth.SetCharTexture(ImageService.earthOneEnemyTexture);
-                enemyEarth.levelOfEnemy = 1;
-                break;
             case 2:
-                // Width and height offsets for collider box from lv 2 earth enemy image file
-                enemyEarth.offsetW = lvTwoEnemyOffsetW;
-                enemyEarth.offsetH = lvTwoEnemyOffsetH;
-                enemyEarth.SetCharTexture(ImageService.earthTwoEnemyTexture);
-                enemyEarth.levelOfEnemy = 2;
+                // Width and height offsets for collider box from lv 2 water boss texture file
+                enemyBoss.offsetW = waterBossOffsetW;
+                enemyBoss.offsetH = waterBossOffsetH;
+                enemyBoss.SetCharTexture(ImageService.waterBossEnemyTexture);
+                enemyBoss.levelOfEnemy = 2;
                 break;
             case 3:
-                // Width and height offsets for collider box from lv 3 earth enemy image file
-                enemyEarth.offsetW = lvThreeEnemyOffsetW;
-                enemyEarth.offsetH = lvThreeEnemyOffsetH;
-                enemyEarth.SetCharTexture(ImageService.earthThreeEnemyTexture);
-                enemyEarth.levelOfEnemy = 3;
+                // Width and height offsets for collider box from lv 3 air boss texture file
+                enemyBoss.offsetW = airBossOffsetW;
+                enemyBoss.offsetH = airBossOffsetH;
+                enemyBoss.SetCharTexture(ImageService.airBossEnemyTexture);
+                enemyBoss.levelOfEnemy = 3;
+                break;
+            case 4:
+                // Width and height offsets for collider box from lv 4 fire boss texture file
+                enemyBoss.offsetW = fireBossOffsetW;
+                enemyBoss.offsetH = fireBossOffsetH;
+                enemyBoss.SetCharTexture(ImageService.fireBossEnemyTexture);
+                enemyBoss.levelOfEnemy = 4;
+                break;
+            case 5:
+            // Width and height offsets for collider box from lv 5 shadow boss texture file
+                enemyBoss.offsetW = shadowBossOffsetW;
+                enemyBoss.offsetH = shadowBossOffsetH;
+                enemyBoss.SetCharTexture(ImageService.shadowBossEnemyTexture);
+                enemyBoss.levelOfEnemy = 5;
                 break;
         }
 
-        enemyEarth.SetOffsetColliderWidth(enemyEarth.offsetW);
-        enemyEarth.SetOffsetColliderHeight(enemyEarth.offsetH);
-        enemyEarth.SetY(rnd.Next(enemyEarth.GetTextureHeight(), VideoService.scrnHeight - enemyEarth.GetColliderBoxHeight()));
-        enemyEarth.SetX(VideoService.scrnWidth + 100);
-        enemyEarth.SetSpeedandHealth();
-        enemyList.Add(enemyEarth);
+        enemyBoss.SetOffsetColliderWidth(enemyBoss.offsetW);
+        enemyBoss.SetOffsetColliderHeight(enemyBoss.offsetH);
+        enemyBoss.SetY(rnd.Next(enemyBoss.GetTextureHeight(), VideoService.scrnHeight - enemyBoss.GetColliderBoxHeight()));
+        enemyBoss.SetX(VideoService.scrnWidth + 100);
+        enemyBoss.SetSpeedandHealth();
+        enemyList.Add(enemyBoss);
     }
     public void SpawnEarthEnemy(int enemyDifficulty)
     {
         var enemyEarth = new Enemy();
-        enemyEarth.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -157,7 +180,6 @@ public class SpawnDestory
     public void SpawnWaterEnemy(int enemyDifficulty)
     {
         var enemyWater = new Enemy();
-        enemyWater.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -194,7 +216,6 @@ public class SpawnDestory
     public void SpawnAirEnemy(int enemyDifficulty)
     {
         var enemyAir = new Enemy();
-        enemyAir.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -231,7 +252,6 @@ public class SpawnDestory
     public void SpawnFireEnemy(int enemyDifficulty)
     {
         var enemyFire = new Enemy();
-        enemyFire.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -267,7 +287,6 @@ public class SpawnDestory
     public void SpawnShadowEnemy(int enemyDifficulty)
     {
         var enemyShadow = new Enemy();
-        enemyShadow.SetEnemyID();
         switch (enemyDifficulty)
         {
             case 1:
@@ -491,7 +510,6 @@ public class SpawnDestory
         {
             case 1:
                 var _EnemyWeaponOne = new Weapon();
-                _EnemyWeaponOne.weaponID = enemyList[enemyI].enemyID;
                 _EnemyWeaponOne.speed = 10;
                 _EnemyWeaponOne.strength = 5;
                 _EnemyWeaponOne.SetCharTexture(ImageService.laser11Texture);
@@ -512,7 +530,6 @@ public class SpawnDestory
             break;
             case 2:
                 var _EnemyWeaponTwo = new Weapon();
-                _EnemyWeaponTwo.weaponID = enemyList[enemyI].enemyID;
                 _EnemyWeaponTwo.speed = 10;
                 _EnemyWeaponTwo.strength = 10;
                 _EnemyWeaponTwo.SetCharTexture(ImageService.laser10Texture);
@@ -529,7 +546,6 @@ public class SpawnDestory
             break;
             case 3:
                 var _EnemyWeaponThree = new Weapon();
-                _EnemyWeaponThree.weaponID = enemyList[enemyI].enemyID;
                 _EnemyWeaponThree.speed = 10;
                 _EnemyWeaponThree.strength = 15;
                 _EnemyWeaponThree.SetCharTexture(ImageService.laser12Texture);
