@@ -97,7 +97,7 @@ public class Director
                 DifficultyHandler.levelChange = true;
                 DifficultyHandler.currentLevel = 1;
                 DifficultyHandler.previousLevel = 1;
-                PlayerStats.maxPlayerHealth = 300;
+                PlayerStats.maxPlayerHealth = 500;
                 PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
 
                 LevelChangeCheck(bg);
