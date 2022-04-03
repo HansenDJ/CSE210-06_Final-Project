@@ -375,6 +375,13 @@ public class SpawnDestory
                 _weaponSwitcher.strength = 30;
                 maxReloadTime = 100;
                 break;
+            case 9:
+                // Load the weapon laser image when weapon purchased
+                _weaponSwitcher.SetCharTexture(ImageService.coinCounterTexture);
+                playerWeaponList.Add(_weaponSwitcher);
+                _weaponSwitcher.strength = 999999;
+                maxReloadTime = 100;
+                break;
         }}
     }
 

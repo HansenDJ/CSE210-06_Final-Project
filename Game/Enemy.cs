@@ -77,4 +77,10 @@ public class Enemy : Character
         var levelThree = new Enemy();
         levelThree.levelOfEnemy = 3;
     }
+
+    public void LevelBossDifficulty()
+    {
+        var levelBoss = new Enemy();
+        levelBoss.levelOfEnemy = 4;
+    }
 }
