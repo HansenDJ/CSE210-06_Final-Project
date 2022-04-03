@@ -7,18 +7,26 @@ public static class DifficultyHandler
     public static int currentLevel = 1;
     public static int previousLevel = 1;
     public static bool levelChange;
-    public static bool newAudio = true;
+    //public static bool newAudio = true;
 
+
+  
 
     public static bool LevelUp(double time)
     {
+       // if (Director.dead1st)
+     //   {
+       //     newAudio = true;
+       //     Director.dead1st = false;
+   //     }
+       
         var lvl = Convert.ToInt32(Math.Floor(time));
         currentLevel = 1 + lvl;
-        if (newAudio)
-        {
-            AudioPlayer();
-            newAudio = false;
-        }
+       // if (newAudio)
+      //  {
+     //       AudioPlayer();
+       //     newAudio = false;
+     //   }
         if (currentLevel > previousLevel)
         {
            
@@ -29,7 +37,7 @@ public static class DifficultyHandler
             Console.WriteLine("Level UP " + currentLevel);
             levelChange = true;
             SpawnBoss.timeForBoss = true;
-            newAudio = true;
+            //newAudio = true;
             return true;
         }
 
@@ -59,6 +67,10 @@ public static class DifficultyHandler
                         AudioService.PlayAudioBackground(AudioService.battlelv5);
                         break;
         }
+
+        
+           
+       
    
     }
 

@@ -14,9 +14,10 @@ public class Director
    public static double secondsPassed = 0;
    public static Double levelTime = 20;
    public static bool pause = false;
+   public static bool dead1st = true;
     public void StartGame()
     {
-        
+       
         var startTime = DateTime.Now;
         var timeNow = DateTime.Now;
        
@@ -63,27 +64,34 @@ public class Director
         AudioService.UnloadAudio(AudioService.lv1Shot); // Unload this shot sound when a player switches weapons
         AudioService.CloseAudio();
     }
+
+   
     
 
     private static DateTime CheckIfDied(Timer timer, DateTime startTime, BackgroundService bg, SpawnDestory sp, Coin coin)
     {
         if (!PlayerStats.PlayerDeadCheck())
         {
+          
             timer.Count();
             
         }
         else
         {
+           
+          
+           
             GameOverDeath.loadScreen();
+          
             
             //AudioService.UnloadAudio();
-            if (KeyboardService.RKeyDown())
+            if (KeyboardService.RKeyReleased())
             {
+              
                 timer.previousReset();
                 timer.Count();
                 startTime = DateTime.Now;
                 secondsPassed = 0;
-               
                 DifficultyHandler.levelChange = true;
                 DifficultyHandler.currentLevel = 1;
                 DifficultyHandler.previousLevel = 1;
@@ -96,6 +104,12 @@ public class Director
 
                 CurrencyHandler.money = 0;
                 sp.ClearMap();
+               
+
+
+
+
+
             }
 
         }

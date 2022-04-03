@@ -17,6 +17,8 @@ public static class AudioService
     public static Sound GameOverSound = LoadSound("Game/sounds/game_over.wav");
     public static Sound audioPast = LoadSound("Game/sounds/battlelv1.wav");
     public static Sound audioCurrent = LoadSound("Game/sounds/battlelv1.wav");
+    
+    
     // Constructor
     public static void InitSound()
     {
@@ -35,14 +37,25 @@ public static class AudioService
         PlaySound(audioFile);
         
     }
+    
     public static void PlayAudioBackground(Sound audioFile)
     {
-        audioPast = audioCurrent;
-        UnloadAudio(audioPast);
-        audioCurrent = LoadAudio(audioFile);
-        LoadAudio(audioFile);
-        PlaySound(audioCurrent);
+            
+           // UnloadAudio(audioCurrent);
+      //      audioCurrent = audioFile;
+        //    LoadAudio(audioFile);
+       //    PlaySound(audioCurrent);
+            
         
+       
+       
+      
+        
+    }
+
+    public static void EndSound()
+    {
+       // StopSoundMulti();
     }
 
     public static void UnloadAudio(Sound audioFile)

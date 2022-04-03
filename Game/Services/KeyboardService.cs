@@ -110,9 +110,9 @@ public static class KeyboardService
         return Raylib.IsKeyReleased(KeyboardKey.KEY_RIGHT);
     }
 
-    public static bool RKeyDown()
+    public static bool RKeyReleased()
     {
-        return Raylib.IsKeyDown(KeyboardKey.KEY_R);
+        return Raylib.IsKeyReleased(KeyboardKey.KEY_R);
     }
     // public static bool LeftMouse() //Your welcome
     // {
