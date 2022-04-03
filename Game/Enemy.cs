@@ -16,6 +16,7 @@ public class Enemy : Character
     public int levelOfEnemy;
     public int moveSpeed;
     public int chaseSpeed = 0;
+    public bool bossDirection = true;
     private readonly Random rnd = new();
 
     public void SetHealth()
@@ -34,22 +35,31 @@ public class Enemy : Character
     {
         
         x -= moveSpeed;
-        if (x >= playerx)
+        if (levelOfEnemy == 100)
         {
-            if (levelOfEnemy == 100)
+            if (bossDirection)
             {
-                
-                if (y - colliderBoxHeight / 2  < playery)
+                if (y + GetColliderBoxHeight() >= 800)
                 {
-                    y += chaseSpeed;
+                    bossDirection = false;
                 }
-                else if(y + colliderBoxHeight / 2  >  playery)
-                {
-                    y -= chaseSpeed;
-                }
+                y += chaseSpeed;
+             
+                    
             }
             else
             {
+                if (y <= 10)
+                {
+                    bossDirection = true;
+                }
+                y -= chaseSpeed;
+            }
+                
+        }
+        if (x >= playerx && levelOfEnemy != 100)
+        {
+            
                 if (y - playery < 5)
                 {
                     y += 1;
@@ -64,8 +74,7 @@ public class Enemy : Character
                 {
                     y -= chaseSpeed;
                 }
-            }
-           
+
         }
     }
 

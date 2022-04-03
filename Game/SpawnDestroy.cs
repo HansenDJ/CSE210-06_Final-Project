@@ -148,7 +148,13 @@ public class SpawnDestory
         enemyBoss.SetY(400);
         enemyBoss.SetX(VideoService.scrnWidth + 100);
         enemyBoss.moveSpeed = 1;
-        enemyBoss.chaseSpeed = 1;
+        int chaseSpeedLimit = rnd.Next(1,2 * level);
+        if (chaseSpeedLimit >= 10)
+        {
+            chaseSpeedLimit = 10;
+        }
+
+        enemyBoss.chaseSpeed = chaseSpeedLimit;
         enemyBoss.levelOfEnemy = 100;
         enemyList.Add(enemyBoss);
     }
@@ -629,7 +635,7 @@ public class SpawnDestory
         enemyWeaponToCreate.strength = 50;
         enemyWeaponToCreate.SetCharTexture(ImageService.laser8Texture);
         enemyWeaponToCreate.SetX(enemy.x);
-        enemyWeaponToCreate.SetY(enemy.y + rnd.Next(5, enemy.GetColliderBoxHeight() - 5));
+        enemyWeaponToCreate.SetY(enemy.y + rnd.Next(15, enemy.GetColliderBoxHeight() - 5));
         enemyWeaponToCreate.location = true;
         // enemyWeaponToCreate.enemyIndex = enemyI;
         // enemy.laserIndex = enemyWeaponToCreate.enemyIndex;
