@@ -25,6 +25,23 @@ public static class Powerup
         }
     }
 
+    public static void IsExplosiveEffect()
+    {
+        Random rnd = new Random();
+        isExplosiveShot = true;
+        isShielded = false;
+        effectTime = rnd.Next(5, 20);
+        endTime = Director.secondsPassed + effectTime;
+    }
+
+    public static void IsShieldedEffect()
+    {
+        Random rnd = new Random();
+        isShielded = true;
+        isExplosiveShot = false;
+        effectTime = rnd.Next(5, 20);
+        endTime = Director.secondsPassed + effectTime;
+    }
     public static void randomEffect()
     {
         Random rnd = new Random();
@@ -40,20 +57,13 @@ public static class Powerup
                 PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                 break;
             case 4:
-                
-                isExplosiveShot = true;
-                isShielded = false;
-                effectTime = rnd.Next(5, 20);
-                endTime = Director.secondsPassed + effectTime;
+
+                IsExplosiveEffect();
                 
                 
                 break;
-            case 5: 
-                isShielded = true;
-                isExplosiveShot = false;
-                effectTime = rnd.Next(5, 20);
-                endTime = Director.secondsPassed + effectTime;
-                
+            case 5:
+                IsShieldedEffect();
                 break;
             case 6:
                 CurrencyHandler.money += 300;
