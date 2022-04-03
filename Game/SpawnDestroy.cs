@@ -585,6 +585,22 @@ public class SpawnDestory
                 AudioService.PlayAudio(AudioService.lv1Shot);
                 enemyWeaponsList.Add(_EnemyWeaponThree);
             break;
+            default :
+                var _enemyBossWeapon = new Weapon();
+                _enemyBossWeapon.speed = 10;
+                _enemyBossWeapon.strength = 50;
+                _enemyBossWeapon.SetCharTexture(ImageService.laser8Texture);
+                _enemyBossWeapon.enemyIndex = enemyI;
+
+                // Set and apply laser spawn location offset
+                // _EnemyWeaponThree.SetOffsetColliderWidth(enemy.offsetW);
+                // _EnemyWeaponThree.SetOffsetColliderHeight(enemy.offsetH);
+                // _EnemyWeaponThree.SetX(enemy.x);
+                // _EnemyWeaponThree.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+
+                AudioService.PlayAudio(AudioService.lv1Shot);
+                enemyWeaponsList.Add(_enemyBossWeapon);
+                break;
         }
         // var _EnemyWeapon = new Weapon();
         // _EnemyWeapon.speed = 10;
