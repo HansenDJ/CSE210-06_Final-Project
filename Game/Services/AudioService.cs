@@ -6,6 +6,7 @@ namespace generalNamespace;
 public static class AudioService
 {
     public static Sound lv1Shot = LoadSound("Game/sounds/lv1shot.wav");
+    public static Sound lv2Shot = LoadSound("Game/sounds/lv2shot.wav");
 
     public static Sound GameOverSound = LoadSound("Game/sounds/game_over.wav");
     // Constructor

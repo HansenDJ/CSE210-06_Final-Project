@@ -598,7 +598,7 @@ public class SpawnDestory
                 // _EnemyWeaponThree.SetX(enemy.x);
                 // _EnemyWeaponThree.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-                AudioService.PlayAudio(AudioService.lv1Shot);
+                AudioService.PlayAudio(AudioService.lv2Shot);
                 enemyWeaponsList.Add(_enemyBossWeapon);
                 break;
         }
