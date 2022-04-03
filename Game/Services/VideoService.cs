@@ -25,6 +25,7 @@ public class VideoService
         DrawHeartCount();
         DrawPowerUpShield();
         DrawPowerUpRicochet();
+        DrawWavetext();
         DrawPowerUpList(powerUpGraphics);
         DrawCharacters(enemiesDraw, playerWeaponsToDraw, player, enemyWeaponsToDraw);
         ExplosionAnimation(ExplosionC);
@@ -151,8 +152,8 @@ public class VideoService
     public static void DrawCoinCount(Coin coin)
     {
         DrawText($"{CurrencyHandler.money}", 160, 5, 20, WHITE);
-        DrawTexture(ImageService.coinCounterTexture, 125, 2, WHITE);
-        DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * Director.levelTime - Director.secondsPassed)}", 650, 22, 20, WHITE);
+        DrawTexture(ImageService.coinCounterTexture, 135, 2, WHITE);
+        
       
     }
 
@@ -175,8 +176,8 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isShielded)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 65, 30, WHITE);
-            DrawTexture(ImageService.powerUpShieldTexture, 5, 55, WHITE);
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 48, 30, WHITE);
+            DrawTexture(ImageService.powerUpShieldTexture, 5, 35, WHITE);
         }
     }
 
@@ -184,9 +185,15 @@ public class VideoService
     {
         if (Powerup.effectTime > 0 && Powerup.isExplosiveShot)
         {
-            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 65, 30, WHITE);
-            DrawTexture(ImageService.powerUpRicochetTexture, 5, 55, WHITE);
+            DrawText(Convert.ToInt32(Math.Floor(Powerup.effectTime)).ToString(), 60, 48, 30, WHITE);
+            DrawTexture(ImageService.powerUpRicochetTexture, 5, 35, WHITE);
         }
     }
+    
 
+    public static void DrawWavetext()
+    {
+        DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * Director.levelTime - Director.secondsPassed)}", 1350, 5, 20, WHITE);
+        DrawText("Next Wave In:",1200,5,20,WHITE);
+    }
 }
