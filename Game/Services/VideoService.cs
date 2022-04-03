@@ -28,7 +28,8 @@ public class VideoService
         DrawPowerUpHit2();
         DrawPowerUpCoin();
         DrawPowerUpRestoreHealth();
-        DrawWavetext();
+        DrawWaveText();
+        DrawlevelText();
         DrawPowerUpList(powerUpGraphics);
         DrawCharacters(enemiesDraw, playerWeaponsToDraw, player);
         ExplosionAnimation(ExplosionC);
@@ -232,9 +233,15 @@ public class VideoService
     }
     
 
-    public static void DrawWavetext()
+    public static void DrawWaveText()
     {
         DrawText($"{Convert.ToInt32(DifficultyHandler.currentLevel * Director.levelTime - Director.secondsPassed)}", 1350, 5, 20, WHITE);
         DrawText("Next Wave In:",1200,5,20,WHITE);
+    }
+
+    public static void DrawlevelText()
+    {
+        DrawText($"{DifficultyHandler.currentLevel}", 1350, 30, 20, WHITE);
+        DrawText("Level:",1280,30,20,WHITE);
     }
 }
