@@ -32,7 +32,7 @@ public class Director
         Player player = new();
         SpawnDestory sp = new();
         Coin coin = new();
-        CurrencyHandler.money = 100000;
+    
         // player.SetTexture(ImageService.SetShipStartImage());
         bg.LoadBGTexture(ImageService.earthBGStartTexture);
         player.SetCharTexture(ImageService.startShipTexture);
@@ -84,7 +84,7 @@ public class Director
                 DifficultyHandler.levelChange = true;
                 DifficultyHandler.currentLevel = 1;
                 DifficultyHandler.previousLevel = 1;
-                PlayerStats.maxPlayerHealth = 150;
+                PlayerStats.maxPlayerHealth = 300;
                 PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
 
                 LevelChangeCheck(bg);
@@ -111,7 +111,7 @@ public class Director
                 if (CurrencyHandler.money >= 100)
                 {
                     CurrencyHandler.money -= 100;
-                    PlayerStats.playerHealth += 25;
+                    PlayerStats.playerHealth += 50;
                     if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
                     {
                         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
@@ -119,9 +119,9 @@ public class Director
                 }
             }else if (KeyboardService.ShiftReleased())
             {
-                if (CurrencyHandler.money >= 100)
+                if (CurrencyHandler.money >=50)
                 {
-                    CurrencyHandler.money -= 100;
+                    CurrencyHandler.money -= 50;
                     Powerup.randomEffect();
                    
                 }

@@ -320,8 +320,11 @@ public class SpawnDestory
         enemyList.Add(enemyShadow);
     }
 
+    private int WeaponTypeID = 0;
+
     public void SpawnWeapon(int weaponType, int custom = 1,int customX = 0,int customY = 0)
     {
+        WeaponTypeID = weaponType;
         var _weaponSwitcher = new Weapon();
         _weaponSwitcher.powerUpShot = custom;
         _weaponSwitcher.direction = custom;
@@ -414,6 +417,11 @@ public class SpawnDestory
         if (Weapon.reloadTime >= maxReloadTime)
         {
             SpawnWeapon(CurrencyHandler.CheckMoney());
+            if (WeaponTypeID == 9)
+            {
+                CurrencyHandler.money -= 25;
+            }
+            
             Weapon.reloadTime = 0;
         }
     }
@@ -499,7 +507,7 @@ public class SpawnDestory
                 enemyList[i].laserCounter = 0;
             }
 
-            MakeEnemiesMove(i,player.y);
+            MakeEnemiesMove(i,player.y,player.x);
             // Removes an enemy if it moves off the left side of the screen
             RemoveEnemyOffScreen(i);
         }
@@ -576,9 +584,9 @@ public class SpawnDestory
         // enemyWeaponsList.Add(_EnemyWeapon);
     }
 
-    public void MakeEnemiesMove(int index, int playery)
+    public void MakeEnemiesMove(int index, int playery,int playerx)
     {
-        enemyList[index].MoveEnemy(playery);
+        enemyList[index].MoveEnemy(playery, playerx);
     }
 
     // Removes an enemy if it moves off the left side of the screen
