@@ -40,7 +40,7 @@ public static class KeyboardService
     }
     public static bool TabKeyReleased()
     {
-        return Raylib.IsKeyReleased(KeyboardKey.KEY_TAB) || Raylib.IsKeyDown(KeyboardKey.KEY_H) || Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_RIGHT);;
+        return Raylib.IsKeyReleased(KeyboardKey.KEY_TAB) || Raylib.IsKeyDown(KeyboardKey.KEY_H)|| Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_RIGHT);;
     }
 
     public static bool ShiftReleased()
