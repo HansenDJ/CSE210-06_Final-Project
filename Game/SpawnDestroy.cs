@@ -737,6 +737,9 @@ public class SpawnDestory
             case 3:
                 CurrencyHandler.randomMoney = rnd.Next(11, 15);
                 break;
+            case 100:
+                CurrencyHandler.randomMoney = 500;
+                break;
         }
     }
 
