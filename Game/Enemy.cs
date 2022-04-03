@@ -39,11 +39,11 @@ public class Enemy : Character
             if (levelOfEnemy == 100)
             {
                 
-                if (y < playery)
+                if (y - colliderBoxHeight / 2  < playery)
                 {
                     y += chaseSpeed;
                 }
-                else if(y > playery)
+                else if(y + colliderBoxHeight / 2  >  playery)
                 {
                     y -= chaseSpeed;
                 }

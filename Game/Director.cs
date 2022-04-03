@@ -12,7 +12,7 @@ public class Director
     // public static bool unloadCheck = false;
     // static bool action = false;f
    public static double secondsPassed = 0;
-   public static Double levelTime = 30;
+   public static Double levelTime = 10;
    public static bool pause = false;
    public static bool dead1st = true;
     public void StartGame()
@@ -44,7 +44,7 @@ public class Director
         // coin.SetTexture(ImageService.SetCoinGif());
         AudioService.InitSound();
         AudioService.LoadAudio(AudioService.lv1Shot);
-        CurrencyHandler.money = 300;
+        CurrencyHandler.money = 30000;
         while (!Raylib.WindowShouldClose())
         {
        

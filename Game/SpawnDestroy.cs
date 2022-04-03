@@ -103,7 +103,7 @@ public class SpawnDestory
     public void SpawnBoss(int level)
     {
         var enemyBoss = new Enemy();
-        enemyBoss.health = 250 * level;
+        enemyBoss.health = 400 * level;
         enemyBoss.enemyID = enemyIDCounter;
         enemyIDCounter++;    
         switch (level)
@@ -596,20 +596,17 @@ public class SpawnDestory
                 enemyWeaponsList.Add(enemyWeaponToCreate);
             break;
             default :
-                enemyWeaponToCreate.speed = 10;
-                enemyWeaponToCreate.strength = 50;
-                enemyWeaponToCreate.SetCharTexture(ImageService.laser8Texture);
-                // enemyWeaponToCreate.enemyIndex = enemyI;
-                // enemy.laserIndex = enemyWeaponToCreate.enemyIndex;
+                int shotcount = rnd.Next(1, DifficultyHandler.currentLevel);
+                for (int i = 0; i < shotcount; i++)
+                {
+                    Weapon enemyWeaponToCreate2 = new Weapon();
+                    enemyWeaponToCreate2.laserID = enemy.enemyID;
+                    EnemyBossShot(enemy, enemyWeaponToCreate2);
+                }
+                EnemyBossShot(enemy, enemyWeaponToCreate);
+                
 
-                // Set and apply laser spawn location offset
-                // enemyWeaponToCreate.SetOffsetColliderWidth(enemy.offsetW);
-                // enemyWeaponToCreate.SetOffsetColliderHeight(enemy.offsetH);
-                // enemyWeaponToCreate.SetX(enemy.x);
-                // enemyWeaponToCreate.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-                AudioService.PlayAudio(AudioService.lv2Shot);
-                enemyWeaponsList.Add(enemyWeaponToCreate);
                 break;
         }
         // enemyWeaponToCreate.speed = 10;
@@ -624,6 +621,27 @@ public class SpawnDestory
 
         // AudioService.PlayAudio(AudioService.lv1Shot);
         // enemyWeaponsList.Add(enemyWeaponToCreate);
+    }
+
+    private void EnemyBossShot(Enemy enemy, Weapon enemyWeaponToCreate)
+    {
+        enemyWeaponToCreate.speed = rnd.Next(6,10);
+        enemyWeaponToCreate.strength = 50;
+        enemyWeaponToCreate.SetCharTexture(ImageService.laser8Texture);
+        enemyWeaponToCreate.SetX(enemy.x);
+        enemyWeaponToCreate.SetY(enemy.y + rnd.Next(5, enemy.GetColliderBoxHeight() - 5));
+        enemyWeaponToCreate.location = true;
+        // enemyWeaponToCreate.enemyIndex = enemyI;
+        // enemy.laserIndex = enemyWeaponToCreate.enemyIndex;
+
+        // Set and apply laser spawn location offset
+        // enemyWeaponToCreate.SetOffsetColliderWidth(enemy.offsetW);
+        // enemyWeaponToCreate.SetOffsetColliderHeight(enemy.offsetH);
+        // enemyWeaponToCreate.SetX(enemy.x);
+        // enemyWeaponToCreate.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
+
+        AudioService.PlayAudio(AudioService.lv2Shot);
+        enemyWeaponsList.Add(enemyWeaponToCreate);
     }
 
     public void MakeEnemiesMove(int index, int playery,int playerx)
