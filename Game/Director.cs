@@ -152,15 +152,14 @@ public class Director
                 sp.SpawnBoss(DifficultyHandler.currentLevel);
             }
 
-          
+            
+            VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin,
+                sp.getExplosions(), sp.GetPowerUps());
+                
             sp.EnemyListLoop(player);
             sp.MakeEnemyWeaponsMove(player);
             sp.MakePlayerWeaponsMove();
             sp.PowerUpFall(player);
-            
-            VideoService.Draw(sp.GetEnemies(), sp.getPlayerWeapons(), player, bg, coin,
-                sp.getExplosions(), sp.GetPowerUps());
-            // sp.SetEnemyWeaponXY();
 
             // Add assert make sure player horizontal speed is less than laser movement speed so he doesn't pass his bullets
             Raylib.EndDrawing();

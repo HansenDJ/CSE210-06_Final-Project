@@ -4,6 +4,8 @@ namespace generalNamespace;
 public class Enemy : Character
 {
     public int health = 5;
+    // Linked to the player it's shot from
+    public int enemyID = 0;
 
     // Timer for laser spawn delay
     public int laserCounter = 0;
@@ -61,27 +63,23 @@ public class Enemy : Character
         }
     }
 
-    public void LevelOneDifficulty()
+    public void SetLevelOneDifficulty()
     {
-        var levelOne = new Enemy();
-        levelOne.levelOfEnemy = 1;
+        levelOfEnemy = 1;
     }
 
-    public void LevelTwoDifficulty()
+    public void SetLevelTwoDifficulty()
     {
-        var levelTwo = new Enemy();
-        levelTwo.levelOfEnemy = 2;
+        levelOfEnemy = 2;
     }
 
-    public void LevelThreeDifficulty()
+    public void SetLevelThreeDifficulty()
     {
-        var levelThree = new Enemy();
-        levelThree.levelOfEnemy = 3;
+        levelOfEnemy = 3;
     }
 
-    public void LevelBossDifficulty()
+    public void SetLevelBossDifficulty()
     {
-        var levelBoss = new Enemy();
-        levelBoss.levelOfEnemy = 4;
+        levelOfEnemy = 4;
     }
 }
