@@ -43,6 +43,11 @@ public static class AudioService
     public static Sound explosion8 = LoadSound("Game/sounds/explosion08.wav");
     public static Sound explosion9 = LoadSound("Game/sounds/explosion09.wav");
     
+    public static Sound bounceShot = LoadSound("Game/sounds/phaserUp6.mp3");
+    
+    public static Sound hurtPlayer = LoadSound("Game/sounds/phaserDown1.mp3");
+    public static Sound healPlayer = LoadSound("Game/sounds/phaserUp2.mp3");
+    
     
     // Constructor
     public static void InitSound()

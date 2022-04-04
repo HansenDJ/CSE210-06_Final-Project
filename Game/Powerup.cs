@@ -49,6 +49,7 @@ public static class Powerup
         isCoins = false;
         effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
+        AudioService.PlayAudio(AudioService.hurtPlayer);
     }
     public static void IsHealthHit1Effect()
     {
@@ -61,6 +62,7 @@ public static class Powerup
         isCoins = false;
         effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
+        AudioService.PlayAudio(AudioService.hurtPlayer);
     }
     public static void IsExplosiveEffect()
     {

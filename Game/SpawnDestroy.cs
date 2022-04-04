@@ -366,6 +366,7 @@ public class SpawnDestory
             _weaponSwitcher.SetCharTexture(ImageService.laser10UpTexture);
             playerWeaponList.Add(_weaponSwitcher);
             _weaponSwitcher.strength = 5;
+            AudioService.PlayAudio(AudioService.bounceShot);
         }
 
         else{
@@ -521,6 +522,7 @@ public class SpawnDestory
                
                 if (PowerUpList[i].ID == 1)
                 {
+                    AudioService.PlayAudio(AudioService.healPlayer);
                     PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                     destroyed = true;
                 } else if (PowerUpList[i].ID == 2)
@@ -779,6 +781,7 @@ public class SpawnDestory
             if (!Powerup.isShielded)
             {
                 PlayerStats.playerHealth -= weapon.strength;
+                AudioService.PlayAudio(AudioService.hurtPlayer);
             }
           
             enemyWeaponsList.RemoveAt(index);
@@ -847,9 +850,11 @@ public class SpawnDestory
     {
         if (collisionDetection.CheckCollision(player, enemyList[index]))
         {
+            PlayExplosion();
             if (!Powerup.isShielded)
             {
                 PlayerStats.playerHealth -= 50;
+                AudioService.PlayAudio(AudioService.hurtPlayer);
             }
 
             if (enemyList[index].levelOfEnemy == 100)
