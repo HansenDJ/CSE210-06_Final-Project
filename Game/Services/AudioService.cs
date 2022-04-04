@@ -47,6 +47,8 @@ public static class AudioService
     
     public static Sound hurtPlayer = LoadSound("Game/sounds/phaserDown1.mp3");
     public static Sound healPlayer = LoadSound("Game/sounds/phaserUp2.mp3");
+    public static Sound shieldPlayer = LoadSound("Game/sounds/phaserUp6.mp3");
+    public static Sound bouncePlayer = LoadSound("Game/sounds/phaserUp7.mp3");
     
     
     // Constructor

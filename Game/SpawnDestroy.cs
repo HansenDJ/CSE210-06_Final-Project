@@ -527,10 +527,12 @@ public class SpawnDestory
                     destroyed = true;
                 } else if (PowerUpList[i].ID == 2)
                 {
+                    AudioService.PlayAudio(AudioService.shieldPlayer);
                     Powerup.IsShieldedEffect();
                     destroyed = true;
                 }else if (PowerUpList[i].ID == 3)
                 {
+                    AudioService.PlayAudio(AudioService.bounceShot);
                     Powerup.IsExplosiveEffect();
                     destroyed = true;
 
