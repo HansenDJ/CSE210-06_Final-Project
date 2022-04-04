@@ -920,7 +920,7 @@ public class SpawnDestory
   
     public void SetRandomPowerUp(int chance, Enemy enemy)
     {
-        getPowerUp = rnd.Next(1,100);
+        getPowerUp = rnd.Next(1,25);
         if(getPowerUp * chance <= 5)
         {
             setPowerUp = rnd.Next(1,4);
