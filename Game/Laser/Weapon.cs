@@ -5,6 +5,7 @@ public class Weapon : Character
 {
     public static int reloadTime = 0;
     public int laserID;
+    public int randomBossWeaponY = 0;
     public bool location = false;
     public int powerUpShot = 0;
     public int speed = 25;

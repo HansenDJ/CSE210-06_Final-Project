@@ -10,6 +10,7 @@ public class VideoService
 {
     public static int scrnWidth = 1400;
     public static int scrnHeight = 850;
+    Random rnd = new Random();
 
     // public static double FullPrimaryScreenWidth { get; }
     // public static double FullPrimaryScreenHeight { get; }
@@ -100,10 +101,18 @@ public class VideoService
             
             if (!enemyWeaponsToDraw[i_weaponEnemy].location && enemyWeaponsToDraw[i_weaponEnemy].laserID == enemyToDraw[index_enemy].enemyID)
             {
-                enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x);
-                enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyToDraw[index_enemy].GetColliderBoxHeight() / 2);
-                DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
-             //   DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
+                if (enemyToDraw[index_enemy].levelOfEnemy == 100)
+                {
+                    enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x - 50);
+                    enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyWeaponsToDraw[i_weaponEnemy].randomBossWeaponY);
+                }
+                else
+                {
+                    enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x);
+                    enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyToDraw[index_enemy].GetColliderBoxHeight() / 2);
+                    DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
+                    // DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
+                }
 
                 enemyWeaponsToDraw[i_weaponEnemy].location = true;
             }
@@ -153,8 +162,11 @@ public class VideoService
         DrawTexture(player.GetCharTexture(), player.x, player.y, WHITE);
         if (Powerup.isShielded)
         {
+            player.SetOffsetColliderWidth(0);
+            player.SetOffsetColliderHeight(0);
             DrawColliderBox(player);
         }
+        // DrawColliderBox(player);
         
     }
     
