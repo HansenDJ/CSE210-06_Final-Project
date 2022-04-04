@@ -55,7 +55,7 @@ public class Director
             TimeService(startTime, sp);
             // if (action)
             LevelChangeCheck(bg);
-            Powerup.ReduceEffectTime();
+            Powerup.ReduceEffectTime(player);
 
             TimerCheckLagandDraw(timer, player, sp, bg, coin);
         }
@@ -72,6 +72,7 @@ public class Director
 
     private static DateTime CheckIfDied(Timer timer, DateTime startTime, BackgroundService bg, SpawnDestory sp, Coin coin)
     {
+     
         if (!PlayerStats.PlayerDeadCheck())
         {
           
@@ -103,6 +104,10 @@ public class Director
                 LevelChangeCheck(bg);
 
                 DifficultyHandler.enemyCount = 3;
+                Powerup.effectTime = 0;
+                Powerup.endTime = 0;
+                Powerup.isShielded = false;
+                Powerup.isExplosiveShot = false;
 
                 CurrencyHandler.money = 0;
                 sp.ClearMap();
@@ -129,11 +134,27 @@ public class Director
             {
                 if (CurrencyHandler.money >= 100)
                 {
-                    CurrencyHandler.money -= 100;
-                    PlayerStats.playerHealth += 50;
-                    if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
+                    if (PlayerStats.playerHealth < PlayerStats.maxPlayerHealth)
                     {
-                        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                        CurrencyHandler.money -= 100;
+                        PlayerStats.playerHealth += 50;
+                        AudioService.PlayAudio(AudioService.healPlayer);
+                        if (PlayerStats.playerHealth < PlayerStats.maxPlayerHealth / 2)
+                        {
+                            PlayerStats.playerHealth = PlayerStats.maxPlayerHealth / 2;
+                        }
+                        else if (PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth / 2 && PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth)
+                        {
+                            PlayerStats.playerHealth += 50;
+                            if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
+                            {
+                                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                            }
+            if (PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth)
+            {
+                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+            }
+        }
                     }
                 }
             }else if (KeyboardService.ShiftReleased())

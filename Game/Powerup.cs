@@ -23,7 +23,7 @@ public static class Powerup
         effectTime = time;
     }
 
-    public static void ReduceEffectTime()
+    public static void ReduceEffectTime(Player player)
     {
         effectTime = endTime - Director.secondsPassed;
         if (effectTime <= 0)
@@ -34,6 +34,10 @@ public static class Powerup
             isExplosiveShot = false;
             isShielded = false;
             isCoins = false;
+            player.offsetW = 18;
+            player.offsetH = 14;
+            player.SetOffsetColliderWidth(player.offsetW);
+            player.SetOffsetColliderHeight(player.offsetH);
         }
     }
     public static void IsHealthHit2Effect()
@@ -47,6 +51,7 @@ public static class Powerup
         isCoins = false;
         effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
+        AudioService.PlayAudio(AudioService.hurtPlayer);
     }
     public static void IsHealthHit1Effect()
     {
@@ -59,6 +64,7 @@ public static class Powerup
         isCoins = false;
         effectTime = 3;
         endTime = Director.secondsPassed + effectTime;
+        AudioService.PlayAudio(AudioService.hurtPlayer);
     }
     public static void IsExplosiveEffect()
     {
@@ -89,7 +95,18 @@ public static class Powerup
 
     public static void IsRestoredHealthEffect()
     {
-        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+        if (PlayerStats.playerHealth < PlayerStats.maxPlayerHealth / 2)
+        {
+            PlayerStats.playerHealth = PlayerStats.maxPlayerHealth / 2;
+        }
+        else if (PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth / 2 && PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth)
+        {
+            PlayerStats.playerHealth += 50;
+            if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
+            {
+                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+            }
+        }
         isHealthHit1 = false;
         isHealthhit2 = false;
         isRestoredHealth = true;

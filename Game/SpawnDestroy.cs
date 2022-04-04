@@ -11,6 +11,8 @@ public class SpawnDestory
     public List<Weapon> enemyWeaponsList = new();
     public List<Coordinate> explosionCoordinates = new();
     public List<PowerUpGraphic> PowerUpList = new();
+    public List<Weapon> playerWeaponList = new();
+    private readonly Random rnd = new();
 
     // Level 1 enemy collider box width and height offsets
     private readonly int lvOneEnemyOffsetW = 18;
@@ -25,26 +27,24 @@ public class SpawnDestory
     private readonly int lvThreeEnemyOffsetH = 10;
 
     // Water boss collider box width and height offsets
-    private readonly int waterBossOffsetW = 0;
-    private readonly int waterBossOffsetH = 100;
+    private readonly int waterBossOffsetW = 35;
+    private readonly int waterBossOffsetH = 190;
     
     // Air boss collider box width and height offsets
-    private readonly int airBossOffsetW = 20;
-    private readonly int airBossOffsetH = 0;
+    private readonly int airBossOffsetW = 75;
+    private readonly int airBossOffsetH = 15;
 
     // Fire boss collider box width and height offsets
-    private readonly int fireBossOffsetW = 60;
-    private readonly int fireBossOffsetH = 0;
+    private readonly int fireBossOffsetW = 155;
+    private readonly int fireBossOffsetH = 240;
 
     // Shadow boss collider box width and height offsets
-    private readonly int shadowBossOffsetW = 0;
-    private readonly int shadowBossOffsetH = 20;
+    private readonly int shadowBossOffsetW = 85;
+    private readonly int shadowBossOffsetH = 320;
     
     public static int enemyIDCounter = 0;
     public int maxEnemies = 5;
     public int maxReloadTime;
-    public List<Weapon> playerWeaponList = new();
-    private readonly Random rnd = new();
 
     public int getPowerUp;
 
@@ -75,8 +75,7 @@ public class SpawnDestory
                 SpawnShadowEnemy(RandomEnemy());
                 break;
             default:
-                var r = new Random();
-                var enemyType = r.Next(1, 6);
+                int enemyType = rnd.Next(1, 6);
                 switch (enemyType)
                 {
                     case 1:
@@ -103,46 +102,45 @@ public class SpawnDestory
     public void SpawnBoss(int level)
     {
         var enemyBoss = new Enemy();
-        enemyBoss.health = 400 * level;
+        enemyBoss.health = 800 * level;
         enemyBoss.enemyID = enemyIDCounter;
         enemyIDCounter++;
         if (DifficultyHandler.currentLevel > 5)
         {
-            level = rnd.Next(1, 6);
+            level = rnd.Next(2, 6);
         }
         switch (level)
         {
             case 2:
-                // Width and height offsets for collider box from lv 2 water boss texture file
-                enemyBoss.offsetW = waterBossOffsetW;
-                enemyBoss.offsetH = waterBossOffsetH;
-                enemyBoss.SetCharTexture(ImageService.waterBossEnemyTexture);
-               
+                spawnWaterBoss(enemyBoss);
                 break;
             case 3:
-                // Width and height offsets for collider box from lv 3 air boss texture file
-                enemyBoss.offsetW = airBossOffsetW;
-                enemyBoss.offsetH = airBossOffsetH;
-                enemyBoss.SetCharTexture(ImageService.airBossEnemyTexture);
-              
+                spawnAirBoss(enemyBoss);
                 break;
             case 4:
-                // Width and height offsets for collider box from lv 4 fire boss texture file
-                enemyBoss.offsetW = fireBossOffsetW;
-                enemyBoss.offsetH = fireBossOffsetH;
-                enemyBoss.SetCharTexture(ImageService.fireBossEnemyTexture);
-                
+                spawnFireBoss(enemyBoss);
                 break;
             case 5:
-            // Width and height offsets for collider box from lv 5 shadow boss texture file
-                enemyBoss.offsetW = shadowBossOffsetW;
-                enemyBoss.offsetH = shadowBossOffsetH;
-                enemyBoss.SetCharTexture(ImageService.shadowBossEnemyTexture);
-              
+                spawnShadowBoss(enemyBoss);
                 break;
+            // Chooses a random boss each level after level 5
             default:
-                enemyBoss.offsetH = shadowBossOffsetH;
-                enemyBoss.SetCharTexture(ImageService.shadowBossEnemyTexture);
+                int randomBoss = rnd.Next(2,6);
+                switch(randomBoss)
+                {
+                    case 2:
+                        spawnWaterBoss(enemyBoss);
+                        break;
+                    case 3:
+                        spawnAirBoss(enemyBoss);
+                        break;
+                    case 4:
+                        spawnFireBoss(enemyBoss);
+                        break;
+                    case 5:
+                        spawnShadowBoss(enemyBoss);
+                        break;
+                }
                 break;
                 
         }
@@ -162,6 +160,36 @@ public class SpawnDestory
         enemyBoss.levelOfEnemy = 100;
         enemyList.Add(enemyBoss);
     }
+    private void spawnWaterBoss(Enemy waterBossEnemy)
+    {
+        // Width and height offsets for collider box from lv 2 water boss texture file
+        waterBossEnemy.offsetW = waterBossOffsetW;
+        waterBossEnemy.offsetH = waterBossOffsetH;
+        waterBossEnemy.SetCharTexture(ImageService.waterBossEnemyTexture);
+    }
+    private void spawnAirBoss(Enemy airBossEnemy)
+    {
+        // Width and height offsets for collider box from lv 3 air boss texture file
+        airBossEnemy.offsetW = airBossOffsetW;
+        airBossEnemy.offsetH = airBossOffsetH;
+        airBossEnemy.SetCharTexture(ImageService.airBossEnemyTexture);
+    }
+    private void spawnFireBoss(Enemy fireBossEnemy)
+    {
+        // Width and height offsets for collider box from lv 4 fire boss texture file
+        fireBossEnemy.offsetW = fireBossOffsetW;
+        fireBossEnemy.offsetH = fireBossOffsetH;
+        fireBossEnemy.SetCharTexture(ImageService.fireBossEnemyTexture);
+    }
+    private void spawnShadowBoss(Enemy shadowBossEnemy)
+    {
+        // Width and height offsets for collider box from lv 5 shadow boss texture file
+        shadowBossEnemy.offsetW = shadowBossOffsetW;
+        shadowBossEnemy.offsetH = shadowBossOffsetH;
+        shadowBossEnemy.SetCharTexture(ImageService.shadowBossEnemyTexture);
+    }
+
+    
     public void SpawnEarthEnemy(int enemyDifficulty)
     {
         var enemyEarth = new Enemy();
@@ -366,27 +394,31 @@ public class SpawnDestory
             _weaponSwitcher.SetCharTexture(ImageService.laser10UpTexture);
             playerWeaponList.Add(_weaponSwitcher);
             _weaponSwitcher.strength = 5;
+            AudioService.PlayAudio(AudioService.bounceShot);
         }
 
         else{
         switch (weaponType)
         {
             case 1:
+                AudioService.PlayAudio(AudioService.playershot1);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser11Texture);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 7;
+                _weaponSwitcher.strength = 10;
                 maxReloadTime = 400;
 
                 break;
             case 2:
+                AudioService.PlayAudio(AudioService.playershot2);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser10Texture);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 12;
+                _weaponSwitcher.strength = 15;
                 maxReloadTime = 400;
                 break;
             case 3:
+                AudioService.PlayAudio(AudioService.playershot3);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser12Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -394,20 +426,23 @@ public class SpawnDestory
                 maxReloadTime = 350;
                 break;
             case 4:
+                AudioService.PlayAudio(AudioService.playershot4);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser9Texture);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 20;
+                _weaponSwitcher.strength = 15;
                 maxReloadTime = 300;
                 break;
             case 5:
+                AudioService.PlayAudio(AudioService.playershot5);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser3Texture);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 20;
+                _weaponSwitcher.strength = 18;
                 maxReloadTime = 250;
                 break;
             case 6:
+                AudioService.PlayAudio(AudioService.playershot6);
             // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser1Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -415,31 +450,36 @@ public class SpawnDestory
                 maxReloadTime = 200;
                 break;
             case 7:
+                AudioService.PlayAudio(AudioService.playershot7);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser5Texture);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 25;
+                _weaponSwitcher.strength = 20;
                 maxReloadTime = 150;
                 break;
             case 8:
+                AudioService.PlayAudio(AudioService.playershot8);
+                // Load the weapon laser image when weapon purchased
+                _weaponSwitcher.SetCharTexture(ImageService.laser7Texture);
+                playerWeaponList.Add(_weaponSwitcher);
+                _weaponSwitcher.strength = 25;
+                maxReloadTime = 100;
+                break;
+            case 9:
+                AudioService.PlayAudio(AudioService.playershot8);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser7Texture);
                 playerWeaponList.Add(_weaponSwitcher);
                 _weaponSwitcher.strength = 30;
-                maxReloadTime = 100;
-                break;
-            case 9:
-                // Load the weapon laser image when weapon purchased
-                _weaponSwitcher.SetCharTexture(ImageService.laser7Texture);
-                playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 30 + DifficultyHandler.currentLevel;
-                maxReloadTime = 50;
+                maxReloadTime = 70;
                 break;
             case 10:
+              
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.coinCounterTexture);
+                AudioService.PlayAudio(AudioService.playershot9);
                 playerWeaponList.Add(_weaponSwitcher);
-                _weaponSwitcher.strength = 9999;
+                _weaponSwitcher.strength = 100;
                 maxReloadTime = 100;
                 break;
         }}
@@ -454,8 +494,10 @@ public class SpawnDestory
     {
         if (Weapon.reloadTime >= maxReloadTime)
         {
+           
+            
             SpawnWeapon(CurrencyHandler.CheckMoney());
-            if (WeaponTypeID == 9)
+            if (WeaponTypeID == 10)
             {
                 CurrencyHandler.money -= 25;
             }
@@ -509,14 +551,20 @@ public class SpawnDestory
                
                 if (PowerUpList[i].ID == 1)
                 {
-                    PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                    if (PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth / 2)
+                    {
+                        AudioService.PlayAudio(AudioService.healPlayer);
+                        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth / 2;
+                    }
                     destroyed = true;
                 } else if (PowerUpList[i].ID == 2)
                 {
+                    AudioService.PlayAudio(AudioService.shieldPlayer);
                     Powerup.IsShieldedEffect();
                     destroyed = true;
                 }else if (PowerUpList[i].ID == 3)
                 {
+                    AudioService.PlayAudio(AudioService.bounceShot);
                     Powerup.IsExplosiveEffect();
                     destroyed = true;
 
@@ -572,11 +620,12 @@ public class SpawnDestory
                 enemyWeaponToCreate.SetOffsetColliderWidth(enemy.offsetW);
                 enemyWeaponToCreate.SetOffsetColliderHeight(enemy.offsetH);
 
-                AudioService.PlayAudio(AudioService.lv1Shot);
+                AudioService.PlayAudio(AudioService.playershot5);
                 enemyWeaponsList.Add(enemyWeaponToCreate);
 
             break;
             case 2:
+                
                 enemyWeaponToCreate.speed = 10;
                 enemyWeaponToCreate.strength = 10;
                 enemyWeaponToCreate.SetCharTexture(ImageService.laser10Texture);
@@ -591,7 +640,7 @@ public class SpawnDestory
                 // enemyWeaponToCreate.SetX(enemy.x);
                 // enemyWeaponToCreate.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-                AudioService.PlayAudio(AudioService.lv1Shot);
+                AudioService.PlayAudio(AudioService.playershot4);
                 enemyWeaponsList.Add(enemyWeaponToCreate);
             break;
             case 3:
@@ -609,7 +658,7 @@ public class SpawnDestory
                 // enemyWeaponToCreate.SetX(enemy.x);
                 // enemyWeaponToCreate.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-                AudioService.PlayAudio(AudioService.lv1Shot);
+                AudioService.PlayAudio(AudioService.playershot3);
                 enemyWeaponsList.Add(enemyWeaponToCreate);
             break;
             default :
@@ -620,7 +669,20 @@ public class SpawnDestory
                     Weapon enemyWeaponToCreate2 = new Weapon();
                     enemyWeaponToCreate2.laserID = enemy.enemyID;
                     EnemyBossShot(enemy, enemyWeaponToCreate2);
+                    int shotChoice = rnd.Next(1, 3);
+                    switch (shotChoice)
+                    {
+                        case 1:
+                        AudioService.PlayAudio(AudioService.bossShot1);
+                        break;
+                            case 2:
+                                AudioService.PlayAudio(AudioService.bossShot2);
+                                break;
+                    }
+                    
                 }
+
+               
                 EnemyBossShot(enemy, enemyWeaponToCreate);
                 
 
@@ -646,9 +708,8 @@ public class SpawnDestory
         enemyWeaponToCreate.speed = rnd.Next(6,15);
         enemyWeaponToCreate.strength = 50;
         enemyWeaponToCreate.SetCharTexture(ImageService.laser8Texture);
-        enemyWeaponToCreate.SetX(enemy.x - 50);
-        enemyWeaponToCreate.SetY(enemy.y + rnd.Next(50, enemy.GetColliderBoxHeight() - 50));
-        enemyWeaponToCreate.location = true;
+        enemyWeaponToCreate.randomBossWeaponY = rnd.Next(50, enemy.GetColliderBoxHeight() - 50);
+
         // enemyWeaponToCreate.enemyIndex = enemyI;
         // enemy.laserIndex = enemyWeaponToCreate.enemyIndex;
 
@@ -658,8 +719,43 @@ public class SpawnDestory
         // enemyWeaponToCreate.SetX(enemy.x);
         // enemyWeaponToCreate.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-        AudioService.PlayAudio(AudioService.lv2Shot);
+       
         enemyWeaponsList.Add(enemyWeaponToCreate);
+    }
+
+    public void PlayExplosion()
+    {
+        int explosionSound = rnd.Next(1, 10);
+        switch (explosionSound)
+        {
+            case 1:
+                AudioService.PlayAudio(AudioService.explosion1);
+                break;
+            case 2:
+                AudioService.PlayAudio(AudioService.explosion2);
+                break;
+            case 3:
+                AudioService.PlayAudio(AudioService.explosion3);
+                break;
+            case 4 :
+                AudioService.PlayAudio(AudioService.explosion4);
+                break;
+            case 5:
+                AudioService.PlayAudio(AudioService.explosion5);
+                break;
+            case 6:
+                AudioService.PlayAudio(AudioService.explosion6);
+                break;
+            case 7:
+                AudioService.PlayAudio(AudioService.explosion7);
+                break;
+            case 8:
+                AudioService.PlayAudio(AudioService.explosion8);
+                break;
+            case 9:
+                AudioService.PlayAudio(AudioService.explosion9);
+                break;
+        }
     }
 
     public void MakeEnemiesMove(int index, int playery,int playerx)
@@ -674,6 +770,7 @@ public class SpawnDestory
         {
            
             enemyList.RemoveAt(removeIndex);
+           
         }
     }
 
@@ -710,7 +807,7 @@ public class SpawnDestory
     }
 
     // When enemy laser hits the player, damage the player and remove laser
-    public void OnCollisionActionEnemyWeapon(Player player, Weapon weapon, int index)
+    public void OnCollisionActionEnemyWeapon(Player player, Weapon weapon, int i_weapon)
     {
         if (collisionDetection.CheckCollision(player, weapon))
         {
@@ -718,9 +815,10 @@ public class SpawnDestory
             if (!Powerup.isShielded)
             {
                 PlayerStats.playerHealth -= weapon.strength;
+                AudioService.PlayAudio(AudioService.hurtPlayer);
             }
           
-            enemyWeaponsList.RemoveAt(index);
+            enemyWeaponsList.RemoveAt(i_weapon);
         }
     }
 
@@ -736,6 +834,9 @@ public class SpawnDestory
                 break;
             case 3:
                 CurrencyHandler.randomMoney = rnd.Next(11, 15);
+                break;
+            case 100:
+                CurrencyHandler.randomMoney = 500;
                 break;
         }
     }
@@ -754,9 +855,10 @@ public class SpawnDestory
             enemyList[enemyIndex].health -= weapon.strength;
             if (enemyList[enemyIndex].health <= 0)
             {
+                PlayExplosion();
                 var c = new Coordinate();
-                c.x = enemyList[enemyIndex].x;
-                c.y = enemyList[enemyIndex].y;
+                c.x = enemyList[enemyIndex].x + enemyList[enemyIndex].GetTextureWidth() / 2;
+                c.y = enemyList[enemyIndex].y + enemyList[enemyIndex].GetTextureHeight() / 2;
                 explosionCoordinates.Add(c);
                 
                 SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
@@ -778,26 +880,28 @@ public class SpawnDestory
     }
 
     // Occurs when the player collides with an enemy
-    public void OnCollisionAction(Player player, int index)
+    public void OnCollisionAction(Player player, int i_enemy)
     {
-        if (collisionDetection.CheckCollision(player, enemyList[index]))
+        if (collisionDetection.CheckCollision(player, enemyList[i_enemy]))
         {
+            PlayExplosion();
             if (!Powerup.isShielded)
             {
                 PlayerStats.playerHealth -= 50;
+                AudioService.PlayAudio(AudioService.hurtPlayer);
             }
 
-            if (enemyList[index].levelOfEnemy == 100)
+            if (enemyList[i_enemy].levelOfEnemy == 100)
             {
                 
             }
             else
             {
                 var c = new Coordinate();
-                c.x = enemyList[index].x;
-                c.y = enemyList[index].y;
+                c.x = enemyList[i_enemy].x;
+                c.y = enemyList[i_enemy].y;
                 explosionCoordinates.Add(c);
-                enemyList.RemoveAt(index);
+                enemyList.RemoveAt(i_enemy);
             }
            
         }
@@ -817,7 +921,8 @@ public class SpawnDestory
     public void SetRandomPowerUp(int chance, Enemy enemy)
     {
         getPowerUp = rnd.Next(1,25);
-        if(getPowerUp * chance <= 5){
+        if(getPowerUp * chance <= 5)
+        {
             setPowerUp = rnd.Next(1,4);
             PowerUpGraphic powerup = new PowerUpGraphic();
             switch (setPowerUp)
@@ -835,8 +940,6 @@ public class SpawnDestory
            
             powerup.ID = setPowerUp;
             
-            powerup.SetOffsetColliderWidth(enemy.offsetW);
-            powerup.SetOffsetColliderHeight(enemy.offsetH);
             powerup.SetX(enemy.x + enemy.GetColliderBoxWidth());
             powerup.SetY(enemy.y + enemy.GetColliderBoxHeight());
             

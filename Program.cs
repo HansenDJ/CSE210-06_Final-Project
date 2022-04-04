@@ -1,13 +1,16 @@
 ﻿using CSE210_06_Final_Project;
 using generalNamespace;
 using Raylib_cs;
+using static Raylib_cs.Raylib;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        bool loadinstructions = false; 
-        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
+        bool loadinstructions = false;
+        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "JUSTICE");
+        Image iconImage = LoadImage("Game/Images/ship/startship.png");
+        Raylib.SetWindowIcon(iconImage);
 
 
         while (!Raylib.WindowShouldClose()) // Detect window close button or ESC key

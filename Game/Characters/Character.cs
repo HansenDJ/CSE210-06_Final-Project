@@ -10,11 +10,10 @@ public class Character
 
     public int colliderBoxWidth = 0;
 
-    // Height offset for collider box
-    public int offsetColliderHeight = 30;
-
     // Width offset for collider box
-    public int offsetColliderWidth = 10;
+    public int offsetColliderWidth = 0;
+    // Height offset for collider box
+    public int offsetColliderHeight = 0;
 
     public int offsetH = 0;
 

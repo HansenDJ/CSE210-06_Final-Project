@@ -8,7 +8,7 @@ public static class DifficultyHandler
     public static int previousLevel = 1;
     public static bool levelChange;
 
-    public static int maxEnemies = 25;
+    public static int maxEnemies = 50;
     //public static bool newAudio = true;
 
 
@@ -32,7 +32,7 @@ public static class DifficultyHandler
      //   }
         if (currentLevel > previousLevel)
         {
-           
+           AudioService.PlayAudio(AudioService.bossSpawn);
             IncreaseDifficulty();
             PlayerStats.maxPlayerHealth += 50;
             // do level changes here;
