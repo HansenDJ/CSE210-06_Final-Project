@@ -55,7 +55,7 @@ public class Director
             TimeService(startTime, sp);
             // if (action)
             LevelChangeCheck(bg);
-            Powerup.ReduceEffectTime();
+            Powerup.ReduceEffectTime(player);
 
             TimerCheckLagandDraw(timer, player, sp, bg, coin);
         }

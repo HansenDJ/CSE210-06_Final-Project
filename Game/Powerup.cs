@@ -23,7 +23,7 @@ public static class Powerup
         effectTime = time;
     }
 
-    public static void ReduceEffectTime()
+    public static void ReduceEffectTime(Player player)
     {
         effectTime = endTime - Director.secondsPassed;
         if (effectTime <= 0)
@@ -34,8 +34,10 @@ public static class Powerup
             isExplosiveShot = false;
             isShielded = false;
             isCoins = false;
-            // Player.offsetW = 30;
-            // Player.offsetH = 10;
+            player.offsetW = 18;
+            player.offsetH = 14;
+            player.SetOffsetColliderWidth(player.offsetW);
+            player.SetOffsetColliderHeight(player.offsetH);
         }
     }
     public static void IsHealthHit2Effect()
