@@ -63,7 +63,7 @@ public class VideoService
         {
             Debug.Assert(0 <= i_enemy & i_enemy < enemiesToDraw.Count, "ASSERT: i_enemy out of range!");
             DrawCharacter(enemiesToDraw[i_enemy]);
-          //  DrawColliderBox(enemiesToDraw[i_enemy]);
+            DrawColliderBox(enemiesToDraw[i_enemy]);
         }
 
        
@@ -105,15 +105,14 @@ public class VideoService
                 {
                     enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x - 50);
                     enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyWeaponsToDraw[i_weaponEnemy].randomBossWeaponY);
-                    DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
                 }
                 else
                 {
                     enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x);
                     enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyToDraw[index_enemy].GetColliderBoxHeight() / 2);
                     DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
-                    // DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
                 }
+                // DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
 
                 enemyWeaponsToDraw[i_weaponEnemy].location = true;
             }

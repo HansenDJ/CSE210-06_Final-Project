@@ -12,7 +12,7 @@ public class Director
     // public static bool unloadCheck = false;
     // static bool action = false;f
    public static double secondsPassed = 0;
-   public static Double levelTime = 90;
+   public static Double levelTime = 5;
    public static bool pause = false;
    public static bool dead1st = true;
     public void StartGame()

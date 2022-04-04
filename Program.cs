@@ -7,7 +7,7 @@ internal class Program
     private static void Main(string[] args)
     {
         bool loadinstructions = false; 
-        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "FLUX");
+        Raylib.InitWindow(VideoService.scrnWidth, VideoService.scrnHeight, "JUSTICE");
 
 
         while (!Raylib.WindowShouldClose()) // Detect window close button or ESC key

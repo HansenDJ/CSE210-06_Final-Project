@@ -25,20 +25,20 @@ public class SpawnDestory
     private readonly int lvThreeEnemyOffsetH = 10;
 
     // Water boss collider box width and height offsets
-    private readonly int waterBossOffsetW = 0;
-    private readonly int waterBossOffsetH = 100;
+    private readonly int waterBossOffsetW = 35;
+    private readonly int waterBossOffsetH = 190;
     
     // Air boss collider box width and height offsets
-    private readonly int airBossOffsetW = 20;
-    private readonly int airBossOffsetH = 0;
+    private readonly int airBossOffsetW = 75;
+    private readonly int airBossOffsetH = 15;
 
     // Fire boss collider box width and height offsets
-    private readonly int fireBossOffsetW = 60;
-    private readonly int fireBossOffsetH = 0;
+    private readonly int fireBossOffsetW = 155;
+    private readonly int fireBossOffsetH = 240;
 
     // Shadow boss collider box width and height offsets
-    private readonly int shadowBossOffsetW = 0;
-    private readonly int shadowBossOffsetH = 20;
+    private readonly int shadowBossOffsetW = 85;
+    private readonly int shadowBossOffsetH = 320;
     
     public static int enemyIDCounter = 0;
     public int maxEnemies = 5;
@@ -823,8 +823,8 @@ public class SpawnDestory
             {
                 PlayExplosion();
                 var c = new Coordinate();
-                c.x = enemyList[enemyIndex].x;
-                c.y = enemyList[enemyIndex].y;
+                c.x = enemyList[enemyIndex].x + enemyList[enemyIndex].GetTextureWidth() / 2;
+                c.y = enemyList[enemyIndex].y + enemyList[enemyIndex].GetTextureHeight() / 2;
                 explosionCoordinates.Add(c);
                 
                 SetRandomMoney(enemyList[enemyIndex].levelOfEnemy);
