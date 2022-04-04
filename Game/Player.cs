@@ -23,7 +23,7 @@ public class Player : Character
     public void SetPlayerStats()
     {
         // playerMovementSpeed = 15;
-        playerHealth = 100;
+        playerHealth = 300;
         SetOffsetColliderWidth(offsetW); // Width offset for player collider box
         SetOffsetColliderHeight(offsetH); // Height offset for player collider box
     }

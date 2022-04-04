@@ -135,6 +135,7 @@ public class Director
                 {
                     CurrencyHandler.money -= 100;
                     PlayerStats.playerHealth += 50;
+                    AudioService.PlayAudio(AudioService.healPlayer);
                     if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
                     {
                         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
