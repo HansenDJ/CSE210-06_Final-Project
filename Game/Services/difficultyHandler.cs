@@ -8,7 +8,7 @@ public static class DifficultyHandler
     public static int previousLevel = 1;
     public static bool levelChange;
 
-    public static int maxEnemies = 25;
+    public static int maxEnemies = 35;
     //public static bool newAudio = true;
 
 

@@ -42,7 +42,7 @@ public class VideoService
         for (int i = 0; i < powerups.Count; i++)
         {
             DrawTexture(powerups[i].GetCharTexture(),powerups[i].x,powerups[i].y,Color.WHITE);
-            DrawColliderBox(powerups[i]);
+        //    DrawColliderBox(powerups[i]);
            
         }
     }
@@ -62,7 +62,7 @@ public class VideoService
         {
             Debug.Assert(0 <= i_enemy & i_enemy < enemiesToDraw.Count, "ASSERT: i_enemy out of range!");
             DrawCharacter(enemiesToDraw[i_enemy]);
-            DrawColliderBox(enemiesToDraw[i_enemy]);
+          //  DrawColliderBox(enemiesToDraw[i_enemy]);
         }
 
        
@@ -86,7 +86,7 @@ public class VideoService
             
 
             DrawCharacter(weaponsToDraw[i_playerWeapon]);
-            DrawColliderBox(weaponsToDraw[i_playerWeapon]);
+      //      DrawColliderBox(weaponsToDraw[i_playerWeapon]);
         }
 
         
@@ -103,14 +103,14 @@ public class VideoService
                 enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x);
                 enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyToDraw[index_enemy].GetColliderBoxHeight() / 2);
                 DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
-                DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
+             //   DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
 
                 enemyWeaponsToDraw[i_weaponEnemy].location = true;
             }
             else if (enemyWeaponsToDraw[i_weaponEnemy].location)
             {
                 DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
-                DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
+              //  DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
             }
 
             // for (int index_enemy = 0; index_enemy < enemyToDraw.Count - 1; index_enemy++)

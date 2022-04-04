@@ -103,7 +103,7 @@ public class SpawnDestory
     public void SpawnBoss(int level)
     {
         var enemyBoss = new Enemy();
-        enemyBoss.health = 400 * level;
+        enemyBoss.health = 750 * level;
         enemyBoss.enemyID = enemyIDCounter;
         enemyIDCounter++;
         if (DifficultyHandler.currentLevel > 5)
