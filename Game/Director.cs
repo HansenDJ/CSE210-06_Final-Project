@@ -143,19 +143,15 @@ public class Director
                         {
                             PlayerStats.playerHealth = PlayerStats.maxPlayerHealth / 2;
                         }
-                        else if (PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth / 2 && PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth)
+                        else if ((PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth / 2) && (PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth))
                         {
                             PlayerStats.playerHealth += 50;
-                            if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
+                            if (PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth)
                             {
                                 PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                             }
-            if (PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth)
-            {
-                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
-            }
+                        }
         }
-                    }
                 }
             }else if (KeyboardService.ShiftReleased())
             {
