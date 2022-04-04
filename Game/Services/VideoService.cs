@@ -101,16 +101,16 @@ public class VideoService
             
             if (!enemyWeaponsToDraw[i_weaponEnemy].location && enemyWeaponsToDraw[i_weaponEnemy].laserID == enemyToDraw[index_enemy].enemyID)
             {
-                if (enemyToDraw[index_enemy].levelOfEnemy == 100)
-                {
-                    enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x - 50);
-                    enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyWeaponsToDraw[i_weaponEnemy].randomBossWeaponY);
-                }
-                else
+                if (enemyToDraw[index_enemy].levelOfEnemy != 100)
                 {
                     enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x);
                     enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyToDraw[index_enemy].GetColliderBoxHeight() / 2);
                     DrawCharacter(enemyWeaponsToDraw[i_weaponEnemy]);
+                }
+                else
+                {
+                    enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x - 50);
+                    enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyWeaponsToDraw[i_weaponEnemy].randomBossWeaponY);
                 }
                 // DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
 
@@ -162,8 +162,8 @@ public class VideoService
         DrawTexture(player.GetCharTexture(), player.x, player.y, WHITE);
         if (Powerup.isShielded)
         {
-            player.SetOffsetColliderWidth(0);
-            player.SetOffsetColliderHeight(0);
+            player.SetOffsetColliderWidth(-10);
+            player.SetOffsetColliderHeight(-10);
             DrawColliderBox(player);
         }
         // DrawColliderBox(player);

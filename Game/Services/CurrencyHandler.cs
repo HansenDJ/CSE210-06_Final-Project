@@ -35,13 +35,13 @@ public static class CurrencyHandler
 
         else if (money >= 2000 && money < 3000) return 6;
 
-        else if (money >= 3000 && money < 4000) return 7;
+        else if (money >= 3000 && money < 5000) return 7;
 
-        else if (money >= 4000 && money < 5000) return 8;
+        else if (money >= 5000 && money < 10000) return 8;
 
-        else if (money >= 5000 && money < 10000) return 9;
+        else if (money >= 10000 && money < 50000) return 9;
 
-        else if (money >= 10000) return 10;
+        else if (money >= 50000) return 10;
         
         else return 11;
     }

@@ -16,7 +16,7 @@ public static class loadScreenVisual
                         "\nwere gambling in a casino and your opponent had a Royal Flush. In" +
                         "\norder to pay off your debt and maintain freedom you must destroy " +
                         "\nenemies and collect enough coins. If you fail to obtain the required" +
-                        "\namount of coins you will be sold as a slave to work in the galactic" +
+                        "\namount of coins, you will be sold as a slave to work in the galactic" +
                         "\nmines.", 290, 270, 25, Color.WHITE);
         Raylib.DrawText("Push the [R] key to begin your journey.", 410, 490, 25, Color.WHITE);
         Raylib.DrawText("Push the [I] key to learn how to fly.", 420, 525, 25, Color.WHITE);

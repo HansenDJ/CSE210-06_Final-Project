@@ -35,7 +35,27 @@ public class Enemy : Character
     {
         
         x -= moveSpeed;
-        if (levelOfEnemy == 100)
+
+        if (x >= playerx && levelOfEnemy != 100)
+        {
+            
+                if (y - playery < 5)
+                {
+                    y += 1;
+                }else if (playery - y < 5)
+                {
+                    y -= 1;
+                } else if (y < playery)
+                {
+                    y += chaseSpeed;
+                }
+                else
+                {
+                    y -= chaseSpeed;
+                }
+
+        }
+        else if (levelOfEnemy == 100)
         {
             if (bossDirection)
             {
@@ -57,44 +77,25 @@ public class Enemy : Character
             }
                 
         }
-        if (x >= playerx && levelOfEnemy != 100)
-        {
-            
-                if (y - playery < 5)
-                {
-                    y += 1;
-                }else if (playery - y < 5)
-                {
-                    y -= 1;
-                } else if (y < playery)
-                {
-                    y += chaseSpeed;
-                }
-                else
-                {
-                    y -= chaseSpeed;
-                }
-
-        }
     }
 
-    public void SetLevelOneDifficulty()
-    {
-        levelOfEnemy = 1;
-    }
+    // public void SetLevelOneDifficulty()
+    // {
+    //     levelOfEnemy = 1;
+    // }
 
-    public void SetLevelTwoDifficulty()
-    {
-        levelOfEnemy = 2;
-    }
+    // public void SetLevelTwoDifficulty()
+    // {
+    //     levelOfEnemy = 2;
+    // }
 
-    public void SetLevelThreeDifficulty()
-    {
-        levelOfEnemy = 3;
-    }
+    // public void SetLevelThreeDifficulty()
+    // {
+    //     levelOfEnemy = 3;
+    // }
 
-    public void SetLevelBossDifficulty()
-    {
-        levelOfEnemy = 4;
-    }
+    // public void SetLevelBossDifficulty()
+    // {
+    //     levelOfEnemy = 4;
+    // }
 }

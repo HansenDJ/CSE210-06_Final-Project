@@ -17,14 +17,14 @@ public static class instructions
                         "Move Forward\n" +
                         "Move Down\n" +
                         "Fire Weapons\n" +
-                        "Repair Ship (-100 Coins)\n" +
+                        "Repair Ship (-200 Coins)\n" +
                         "Gamble (-50 Coins)" , 340, 240, 25, Color.WHITE);
         Raylib.DrawText("=   [W] or [^]\n" +
                         "=   [A] or [<]\n" +
                         "=   [D] or [>]\n" +
                         "=   [S] or [v]\n" +
                         "=   [Mouse Left] or [Spacebar]  or [Enter]\n" +
-                        "=   [Mouse Right] or [Tab] or [H] \n" +
+                        "=   [Mouse Right] or [Tab] or [H]\n" +
                         "=   [Shift]\n" , 680, 240, 25, Color.WHITE);
 
 

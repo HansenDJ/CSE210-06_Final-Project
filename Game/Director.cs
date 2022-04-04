@@ -133,12 +133,19 @@ public class Director
             {
                 if (CurrencyHandler.money >= 100)
                 {
-                    CurrencyHandler.money -= 100;
-                    PlayerStats.playerHealth += 50;
-                    AudioService.PlayAudio(AudioService.healPlayer);
-                    if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
+                    if (PlayerStats.playerHealth < PlayerStats.maxPlayerHealth)
                     {
-                        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                        CurrencyHandler.money -= 100;
+                        PlayerStats.playerHealth += 50;
+                        AudioService.PlayAudio(AudioService.healPlayer);
+                        if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
+                        {
+                            PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
+                        }
+                        else
+                        {
+                            PlayerStats.playerHealth += 50;
+                        }
                     }
                 }
             }else if (KeyboardService.ShiftReleased())
