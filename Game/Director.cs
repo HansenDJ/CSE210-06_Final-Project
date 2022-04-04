@@ -72,6 +72,7 @@ public class Director
 
     private static DateTime CheckIfDied(Timer timer, DateTime startTime, BackgroundService bg, SpawnDestory sp, Coin coin)
     {
+     
         if (!PlayerStats.PlayerDeadCheck())
         {
           
