@@ -63,7 +63,7 @@ public class VideoService
         {
             Debug.Assert(0 <= i_enemy & i_enemy < enemiesToDraw.Count, "ASSERT: i_enemy out of range!");
             DrawCharacter(enemiesToDraw[i_enemy]);
-            DrawColliderBox(enemiesToDraw[i_enemy]);
+            // DrawColliderBox(enemiesToDraw[i_enemy]);
         }
 
        
