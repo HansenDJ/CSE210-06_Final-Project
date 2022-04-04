@@ -646,9 +646,8 @@ public class SpawnDestory
         enemyWeaponToCreate.speed = rnd.Next(6,15);
         enemyWeaponToCreate.strength = 50;
         enemyWeaponToCreate.SetCharTexture(ImageService.laser8Texture);
-        enemyWeaponToCreate.SetX(enemy.x - 50);
-        enemyWeaponToCreate.SetY(enemy.y + rnd.Next(50, enemy.GetColliderBoxHeight() - 50));
-        enemyWeaponToCreate.location = true;
+        enemyWeaponToCreate.randomBossWeaponY = rnd.Next(50, enemy.GetColliderBoxHeight() - 50);
+
         // enemyWeaponToCreate.enemyIndex = enemyI;
         // enemy.laserIndex = enemyWeaponToCreate.enemyIndex;
 
@@ -820,7 +819,8 @@ public class SpawnDestory
     public void SetRandomPowerUp(int chance, Enemy enemy)
     {
         getPowerUp = rnd.Next(1,25);
-        if(getPowerUp * chance <= 5){
+        if(getPowerUp * chance <= 5)
+        {
             setPowerUp = rnd.Next(1,4);
             PowerUpGraphic powerup = new PowerUpGraphic();
             switch (setPowerUp)
@@ -838,8 +838,6 @@ public class SpawnDestory
            
             powerup.ID = setPowerUp;
             
-            powerup.SetOffsetColliderWidth(enemy.offsetW);
-            powerup.SetOffsetColliderHeight(enemy.offsetH);
             powerup.SetX(enemy.x + enemy.GetColliderBoxWidth());
             powerup.SetY(enemy.y + enemy.GetColliderBoxHeight());
             

@@ -15,8 +15,8 @@ public class Player : Character
     public static int moveIncrementL;
     public static int moveIncrementR;
     private readonly int playerXRange = VideoService.scrnWidth - VideoService.scrnWidth / 5;
-    private readonly int offsetH = 14;
-    private readonly int offsetW = 18;
+    public int offsetH = 14;
+    public int offsetW = 18;
 
 
     // SETS player constants

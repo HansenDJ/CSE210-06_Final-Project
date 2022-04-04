@@ -34,6 +34,8 @@ public static class Powerup
             isExplosiveShot = false;
             isShielded = false;
             isCoins = false;
+            // Player.offsetW = 30;
+            // Player.offsetH = 10;
         }
     }
     public static void IsHealthHit2Effect()
