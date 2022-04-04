@@ -112,7 +112,7 @@ public static class KeyboardService
 
     public static bool RKeyReleased()
     {
-        return Raylib.IsKeyReleased(KeyboardKey.KEY_R);
+        return Raylib.IsKeyDown(KeyboardKey.KEY_R);
     }
     // public static bool LeftMouse() //Your welcome
     // {

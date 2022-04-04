@@ -97,12 +97,16 @@ public class Director
                 DifficultyHandler.levelChange = true;
                 DifficultyHandler.currentLevel = 1;
                 DifficultyHandler.previousLevel = 1;
-                PlayerStats.maxPlayerHealth = 500;
+                PlayerStats.maxPlayerHealth = 300;
                 PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
 
                 LevelChangeCheck(bg);
 
                 DifficultyHandler.enemyCount = 3;
+                Powerup.effectTime = 0;
+                Powerup.endTime = 0;
+                Powerup.isShielded = false;
+                Powerup.isExplosiveShot = false;
 
                 CurrencyHandler.money = 0;
                 sp.ClearMap();
