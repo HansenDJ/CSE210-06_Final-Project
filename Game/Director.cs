@@ -103,6 +103,10 @@ public class Director
                 LevelChangeCheck(bg);
 
                 DifficultyHandler.enemyCount = 3;
+                Powerup.effectTime = 0;
+                Powerup.endTime = 0;
+                Powerup.isShielded = false;
+                Powerup.isExplosiveShot = false;
 
                 CurrencyHandler.money = 0;
                 sp.ClearMap();
