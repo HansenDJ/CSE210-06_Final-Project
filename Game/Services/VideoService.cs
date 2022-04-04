@@ -166,7 +166,7 @@ public class VideoService
             player.SetOffsetColliderHeight(0);
             DrawColliderBox(player);
         }
-        DrawColliderBox(player);
+        // DrawColliderBox(player);
         
     }
     
