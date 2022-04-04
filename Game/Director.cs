@@ -139,17 +139,9 @@ public class Director
                         CurrencyHandler.money -= 100;
                         PlayerStats.playerHealth += 50;
                         AudioService.PlayAudio(AudioService.healPlayer);
-                        if (PlayerStats.playerHealth < PlayerStats.maxPlayerHealth / 2)
+                        if (PlayerStats.playerHealth > PlayerStats.maxPlayerHealth)
                         {
-                            PlayerStats.playerHealth = PlayerStats.maxPlayerHealth / 2;
-                        }
-                        else if ((PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth / 2) && (PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth))
-                        {
-                            PlayerStats.playerHealth += 50;
-                            if (PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth)
-                            {
-                                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
-                            }
+                            PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                         }
         }
                 }
