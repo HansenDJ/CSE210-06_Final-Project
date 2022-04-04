@@ -105,6 +105,7 @@ public class VideoService
                 {
                     enemyWeaponsToDraw[i_weaponEnemy].SetX(enemyToDraw[index_enemy].x - 50);
                     enemyWeaponsToDraw[i_weaponEnemy].SetY(enemyToDraw[index_enemy].y + enemyWeaponsToDraw[i_weaponEnemy].randomBossWeaponY);
+                    DrawColliderBox(enemyWeaponsToDraw[i_weaponEnemy]);
                 }
                 else
                 {
