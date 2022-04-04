@@ -44,7 +44,7 @@ public class Director
         // coin.SetTexture(ImageService.SetCoinGif());
         AudioService.InitSound();
         AudioService.LoadAudio(AudioService.lv1Shot);
-        CurrencyHandler.money = 100;
+        CurrencyHandler.money = 0;
         while (!Raylib.WindowShouldClose())
         {
        
