@@ -32,7 +32,7 @@ public static class DifficultyHandler
      //   }
         if (currentLevel > previousLevel)
         {
-           
+           AudioService.PlayAudio(AudioService.bossSpawn);
             IncreaseDifficulty();
             PlayerStats.maxPlayerHealth += 50;
             // do level changes here;

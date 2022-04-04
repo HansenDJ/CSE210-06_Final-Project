@@ -373,6 +373,7 @@ public class SpawnDestory
         {
             case 1:
                 // Load the weapon laser image when weapon purchased
+                AudioService.PlayAudio(AudioService.playershot1);
                 _weaponSwitcher.SetCharTexture(ImageService.laser11Texture);
                 playerWeaponList.Add(_weaponSwitcher);
                 _weaponSwitcher.strength = 7;
@@ -380,6 +381,7 @@ public class SpawnDestory
 
                 break;
             case 2:
+                AudioService.PlayAudio(AudioService.playershot2);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser10Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -388,12 +390,14 @@ public class SpawnDestory
                 break;
             case 3:
                 // Load the weapon laser image when weapon purchased
+                AudioService.PlayAudio(AudioService.playershot3);
                 _weaponSwitcher.SetCharTexture(ImageService.laser12Texture);
                 playerWeaponList.Add(_weaponSwitcher);
                 _weaponSwitcher.strength = 15;
                 maxReloadTime = 350;
                 break;
             case 4:
+                AudioService.PlayAudio(AudioService.playershot4);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser9Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -401,6 +405,7 @@ public class SpawnDestory
                 maxReloadTime = 300;
                 break;
             case 5:
+                AudioService.PlayAudio(AudioService.playershot5);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser3Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -408,6 +413,7 @@ public class SpawnDestory
                 maxReloadTime = 250;
                 break;
             case 6:
+                AudioService.PlayAudio(AudioService.playershot6);
             // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser1Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -415,6 +421,7 @@ public class SpawnDestory
                 maxReloadTime = 200;
                 break;
             case 7:
+                AudioService.PlayAudio(AudioService.playershot7);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser5Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -422,6 +429,7 @@ public class SpawnDestory
                 maxReloadTime = 150;
                 break;
             case 8:
+                AudioService.PlayAudio(AudioService.playershot8);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser7Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -429,6 +437,7 @@ public class SpawnDestory
                 maxReloadTime = 100;
                 break;
             case 9:
+                AudioService.PlayAudio(AudioService.playershot8);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.laser7Texture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -436,6 +445,7 @@ public class SpawnDestory
                 maxReloadTime = 50;
                 break;
             case 10:
+                AudioService.PlayAudio(AudioService.playershot9);
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.coinCounterTexture);
                 playerWeaponList.Add(_weaponSwitcher);
@@ -454,9 +464,10 @@ public class SpawnDestory
     {
         if (Weapon.reloadTime >= maxReloadTime)
         {
-            AudioService.PlayAudio(AudioService.lv1Shot);
+           
+            
             SpawnWeapon(CurrencyHandler.CheckMoney());
-            if (WeaponTypeID == 9)
+            if (WeaponTypeID == 10)
             {
                 CurrencyHandler.money -= 25;
             }
@@ -573,11 +584,12 @@ public class SpawnDestory
                 enemyWeaponToCreate.SetOffsetColliderWidth(enemy.offsetW);
                 enemyWeaponToCreate.SetOffsetColliderHeight(enemy.offsetH);
 
-                AudioService.PlayAudio(AudioService.lv1Shot);
+                AudioService.PlayAudio(AudioService.playershot5);
                 enemyWeaponsList.Add(enemyWeaponToCreate);
 
             break;
             case 2:
+                
                 enemyWeaponToCreate.speed = 10;
                 enemyWeaponToCreate.strength = 10;
                 enemyWeaponToCreate.SetCharTexture(ImageService.laser10Texture);
@@ -592,7 +604,7 @@ public class SpawnDestory
                 // enemyWeaponToCreate.SetX(enemy.x);
                 // enemyWeaponToCreate.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-                AudioService.PlayAudio(AudioService.lv1Shot);
+                AudioService.PlayAudio(AudioService.playershot4);
                 enemyWeaponsList.Add(enemyWeaponToCreate);
             break;
             case 3:
@@ -610,7 +622,7 @@ public class SpawnDestory
                 // enemyWeaponToCreate.SetX(enemy.x);
                 // enemyWeaponToCreate.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-                AudioService.PlayAudio(AudioService.lv1Shot);
+                AudioService.PlayAudio(AudioService.playershot3);
                 enemyWeaponsList.Add(enemyWeaponToCreate);
             break;
             default :
@@ -621,7 +633,20 @@ public class SpawnDestory
                     Weapon enemyWeaponToCreate2 = new Weapon();
                     enemyWeaponToCreate2.laserID = enemy.enemyID;
                     EnemyBossShot(enemy, enemyWeaponToCreate2);
+                    int shotChoice = rnd.Next(1, 3);
+                    switch (shotChoice)
+                    {
+                        case 1:
+                        AudioService.PlayAudio(AudioService.bossShot1);
+                        break;
+                            case 2:
+                                AudioService.PlayAudio(AudioService.bossShot2);
+                                break;
+                    }
+                    
                 }
+
+               
                 EnemyBossShot(enemy, enemyWeaponToCreate);
                 
 
@@ -659,8 +684,43 @@ public class SpawnDestory
         // enemyWeaponToCreate.SetX(enemy.x);
         // enemyWeaponToCreate.SetY(enemy.y + enemy.GetColliderBoxHeight() / 2);
 
-        AudioService.PlayAudio(AudioService.lv2Shot);
+       
         enemyWeaponsList.Add(enemyWeaponToCreate);
+    }
+
+    public void PlayExplosion()
+    {
+        int explosionSound = rnd.Next(1, 10);
+        switch (explosionSound)
+        {
+            case 1:
+                AudioService.PlayAudio(AudioService.explosion1);
+                break;
+            case 2:
+                AudioService.PlayAudio(AudioService.explosion2);
+                break;
+            case 3:
+                AudioService.PlayAudio(AudioService.explosion3);
+                break;
+            case 4 :
+                AudioService.PlayAudio(AudioService.explosion4);
+                break;
+            case 5:
+                AudioService.PlayAudio(AudioService.explosion5);
+                break;
+            case 6:
+                AudioService.PlayAudio(AudioService.explosion6);
+                break;
+            case 7:
+                AudioService.PlayAudio(AudioService.explosion7);
+                break;
+            case 8:
+                AudioService.PlayAudio(AudioService.explosion8);
+                break;
+            case 9:
+                AudioService.PlayAudio(AudioService.explosion9);
+                break;
+        }
     }
 
     public void MakeEnemiesMove(int index, int playery,int playerx)
@@ -675,6 +735,7 @@ public class SpawnDestory
         {
            
             enemyList.RemoveAt(removeIndex);
+           
         }
     }
 
@@ -758,6 +819,7 @@ public class SpawnDestory
             enemyList[enemyIndex].health -= weapon.strength;
             if (enemyList[enemyIndex].health <= 0)
             {
+                PlayExplosion();
                 var c = new Coordinate();
                 c.x = enemyList[enemyIndex].x;
                 c.y = enemyList[enemyIndex].y;
