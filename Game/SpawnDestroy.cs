@@ -474,9 +474,10 @@ public class SpawnDestory
                 maxReloadTime = 70;
                 break;
             case 10:
-                AudioService.PlayAudio(AudioService.playershot9);
+              
                 // Load the weapon laser image when weapon purchased
                 _weaponSwitcher.SetCharTexture(ImageService.coinCounterTexture);
+                AudioService.PlayAudio(AudioService.playershot9);
                 playerWeaponList.Add(_weaponSwitcher);
                 _weaponSwitcher.strength = 100;
                 maxReloadTime = 100;
@@ -919,7 +920,7 @@ public class SpawnDestory
   
     public void SetRandomPowerUp(int chance, Enemy enemy)
     {
-        getPowerUp = rnd.Next(1,25);
+        getPowerUp = rnd.Next(1,100);
         if(getPowerUp * chance <= 5)
         {
             setPowerUp = rnd.Next(1,4);
