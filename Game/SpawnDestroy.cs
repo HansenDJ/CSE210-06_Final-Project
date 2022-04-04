@@ -454,6 +454,7 @@ public class SpawnDestory
     {
         if (Weapon.reloadTime >= maxReloadTime)
         {
+            AudioService.PlayAudio(AudioService.lv1Shot);
             SpawnWeapon(CurrencyHandler.CheckMoney());
             if (WeaponTypeID == 9)
             {
