@@ -551,11 +551,8 @@ public class SpawnDestory
                
                 if (PowerUpList[i].ID == 1)
                 {
-                    if (PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth / 2)
-                    {
-                        AudioService.PlayAudio(AudioService.healPlayer);
-                        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth / 2;
-                    }
+                    AudioService.PlayAudio(AudioService.healPlayer);
+                    PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
                     destroyed = true;
                 } else if (PowerUpList[i].ID == 2)
                 {

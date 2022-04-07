@@ -95,18 +95,7 @@ public static class Powerup
 
     public static void IsRestoredHealthEffect()
     {
-        if (PlayerStats.playerHealth < PlayerStats.maxPlayerHealth / 2)
-        {
-            PlayerStats.playerHealth = PlayerStats.maxPlayerHealth / 2;
-        }
-        else if ((PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth / 2) && (PlayerStats.playerHealth <= PlayerStats.maxPlayerHealth))
-        {
-            PlayerStats.playerHealth += 50;
-            if (PlayerStats.playerHealth >= PlayerStats.maxPlayerHealth)
-            {
-                PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
-            }
-        }
+        PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
         isHealthHit1 = false;
         isHealthhit2 = false;
         isRestoredHealth = true;
