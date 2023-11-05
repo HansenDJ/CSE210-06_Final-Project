@@ -13,7 +13,7 @@ public static class Powerup
 
     public static bool isHealthHit1 = false;
 
-    public static bool isHealthhit2 = false;
+    public static bool isHealthHit2 = false;
 
     public static bool isCoins = false;
     
@@ -29,7 +29,7 @@ public static class Powerup
         if (effectTime <= 0)
         {
             isHealthHit1 = false;
-            isHealthhit2 = false;
+            isHealthHit2 = false;
             isRestoredHealth = false;
             isExplosiveShot = false;
             isShielded = false;
@@ -44,7 +44,7 @@ public static class Powerup
     {
         PlayerStats.playerHealth -= 50;
         isHealthHit1 = false;
-        isHealthhit2 = true;
+        isHealthHit2 = true;
         isRestoredHealth = false;
         isExplosiveShot = false;
         isShielded = false;
@@ -57,7 +57,7 @@ public static class Powerup
     {
         PlayerStats.playerHealth -= 25;
         isHealthHit1 = true;
-        isHealthhit2 = false;
+        isHealthHit2 = false;
         isRestoredHealth = false;
         isExplosiveShot = false;
         isShielded = false;
@@ -70,7 +70,7 @@ public static class Powerup
     {
         Random rnd = new Random();
         isHealthHit1 = false;
-        isHealthhit2 = false;
+        isHealthHit2 = false;
         isRestoredHealth = false;
         isExplosiveShot = true;
         isShielded = false;
@@ -83,7 +83,7 @@ public static class Powerup
     {
         Random rnd = new Random();
         isHealthHit1 = false;
-        isHealthhit2 = false;
+        isHealthHit2 = false;
         isRestoredHealth = false;
         isExplosiveShot = false;
         isShielded = true;
@@ -97,7 +97,7 @@ public static class Powerup
     {
         PlayerStats.playerHealth = PlayerStats.maxPlayerHealth;
         isHealthHit1 = false;
-        isHealthhit2 = false;
+        isHealthHit2 = false;
         isRestoredHealth = true;
         isExplosiveShot = false;
         isShielded = false;
@@ -109,7 +109,7 @@ public static class Powerup
     {
         CurrencyHandler.money += 300;
         isHealthHit1 = false;
-        isHealthhit2 = false;
+        isHealthHit2 = false;
         isRestoredHealth = false;
         isExplosiveShot = false;
         isShielded = false;

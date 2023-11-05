@@ -222,7 +222,7 @@ public class VideoService
 
     public static void DrawPowerUpHit2()
     {
-        if (Powerup.effectTime > 0 && Powerup.isHealthhit2)
+        if (Powerup.effectTime > 0 && Powerup.isHealthHit2)
         {
             DrawTexture(ImageService.healthHit2Texture, 5, 35, WHITE);
         }
